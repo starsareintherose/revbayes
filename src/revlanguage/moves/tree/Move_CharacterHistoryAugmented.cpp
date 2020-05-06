@@ -90,14 +90,14 @@ void Move_CharacterHistoryAugmented::constructInternalObject( void )
     {
         p = new RevBayesCore::CharacterHistoryAugmentedProposal<RevBayesCore::DnaState>(ctmc_sn);
     }
-    else if (charTypeSTR == "RNA")
-    {
-        p = new RevBayesCore::CharacterHistoryAugmentedProposal<RevBayesCore::RnaState>(ctmc_sn);
-    }
-    else if (charTypeSTR == "Standard")
-    {
-        p = new RevBayesCore::CharacterHistoryAugmentedProposal<RevBayesCore::StandardState>(ctmc_sn);
-    }
+//    else if (charTypeSTR == "RNA")
+//    {
+//        p = new RevBayesCore::CharacterHistoryAugmentedProposal<RevBayesCore::RnaState>(ctmc_sn);
+//    }
+//    else if (charTypeSTR == "Standard")
+//    {
+//        p = new RevBayesCore::CharacterHistoryAugmentedProposal<RevBayesCore::StandardState>(ctmc_sn);
+//    }
     else
     {
         throw RbException( "Invalid data type. Valid data types are: NaturalNumbers|DNA|RNA|Standard" );
