@@ -11,6 +11,7 @@
 #include "RevVariable.h"
 #include "TypedDagNode.h"
 #include "AbstractPhyloCTMCSiteHomogeneous.h"
+#include "MetropolisHastingsMove.h"
 
 
 namespace RevBayesCore {
@@ -133,7 +134,8 @@ double CharacterHistoryAugmentedProposal<characterType>::doProposal( void )
     index = 0; // Note that for now it's only calculated for a single index (index is initialized to 0)
     ctmc_dist->drawStochasticCharacterMap( character_histories, index, false );
     
-    //double log_augmented_likelihood = ctmc_dist->log_augmented_likelihood;
+//    double log_augmented_likelihood = ctmc_dist->log_augmented_likelihood;
+//    MetropolisHastingsMove::performMcmcMove(1, 1, 1)
     
     return 0.0;
 }

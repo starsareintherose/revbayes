@@ -70,9 +70,6 @@ void Move_CharacterHistoryAugmented::constructInternalObject( void )
     {
         ctmc_tdn = static_cast<const RevLanguage::AbstractHomologousDiscreteCharacterData&>( ctmc->getRevObject() ).getDagNode();
         ctmc_sn  = static_cast<RevBayesCore::StochasticNode<RevBayesCore::AbstractHomologousDiscreteCharacterData>* >(ctmc_tdn);
-        std::cout << "ctmc_tdn = " << ctmc_tdn << std::endl;
-        std::cout << "ctmc_sn  = " << ctmc_sn << std::endl;
-        std::cout << "ctmc     = " << ctmc << std::endl;
     }
     else
     {
