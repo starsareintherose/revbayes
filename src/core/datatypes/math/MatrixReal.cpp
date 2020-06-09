@@ -172,12 +172,12 @@ MatrixReal* MatrixReal::clone(void) const
 
 const std::vector<double> MatrixReal::flattenMatrix ( void ) const
 {
-    std::vector<double> flat_matrix(this->getNumberOfRows() * this->getNumberOfColumns());
-    for ( size_t i = 0; i < this->getNumberOfRows(); ++i )
+    std::vector<double> flat_matrix(n_rows * n_cols);
+    for ( size_t i = 0; i < n_rows; ++i )
     {
-        for ( size_t j = 0; j < this->getNumberOfColumns(); ++j )
+        for ( size_t j = 0; j < n_cols; ++j )
         {
-            flat_matrix[i*j+j] = (*this)[i][j];
+            flat_matrix[i * j + j] = (*this)[i][j];
         }
     }
     return flat_matrix;
