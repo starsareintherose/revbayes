@@ -28,8 +28,11 @@ namespace RevBayesCore {
 
         // non-virtual
         virtual double                                                      computeLnProbability(void);
-        void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, RbVector<double> &rv) const;     //!< Map the member methods to internal function calls
-        void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, MatrixReal &rv) const;     //!< Map the member methods to internal function calls
+
+        //-- these were changed to be virtual
+        virtual void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, RbVector<double> &rv) const;     //!< Map the member methods to internal function calls
+        virtual void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, MatrixReal &rv) const;     //!< Map the member methods to internal function calls
+
         virtual void                                                        redrawValue(void);
         void                                                                reInitialized(void);
 //        void                                                                setValue(AbstractHomologousDiscreteCharacterData *v, bool f=false);                         //!< Set the current value, e.g. attach an observation (clamp)
@@ -200,7 +203,7 @@ RevBayesCore::CTMCProcess<charType>::~CTMCProcess( void )
 template<class charType>
 RevBayesCore::CTMCProcess<charType>* RevBayesCore::CTMCProcess<charType>::clone( void ) const
 {
-    
+
     return new CTMCProcess( *this );
 }
 
@@ -213,11 +216,11 @@ double RevBayesCore::CTMCProcess<charType>::computeLnProbability( void )
     // That means we should probabily call this function as a job,
     // where a job is defined as computing the lnProbability for a subset of the data (block)
     // Sebastian: this call is very slow; a lot of work happens in nextCycle()
-    
+
 
     std::vector<double> likelihoods = std::vector<double>(num_patterns, 0.0);
     computeSiteLikelihoods( likelihoods );
-            
+
     // sum the partials up
     double ln_prob = 0.0;
     for (size_t i=0; i<num_patterns; ++i)
@@ -234,8 +237,8 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoods( std::vector< d
 {
     std::vector< std::vector< std::vector< double > > > likelihoods = std::vector< std::vector< std::vector< double > > >( num_patterns, std::vector< std::vector< double > >( num_site_matrices, std::vector<double>(num_site_rates, 0.0) ) );
     computeSiteLikelihoodsPerSiteRateAndMatrix( likelihoods );
-    
-    
+
+
     std::vector<double> rates_probs(num_site_rates, 1.0/num_site_rates);
     std::vector<double> matrix_probs(num_site_matrices, 1.0/num_site_matrices);
 
@@ -248,28 +251,28 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoods( std::vector< d
     {
         matrix_probs = site_matrix_probs->getValue();
     }
-    
+
     // iterate over the number of sites
     for (size_t site_index=0; site_index<num_patterns; ++site_index)
     {
         double site_likelihood = 0;
-        
+
         // iterate over the site matrices
         for (size_t matrix_index=0; matrix_index<num_site_matrices; ++matrix_index)
         {
-            
+
             double matrix_likelihood = 0.0;
             // iterate over the site rates
             for (size_t rate_index=0; rate_index<num_site_rates; ++rate_index)
             {
                 matrix_likelihood += likelihoods[site_index][matrix_index][rate_index] * rates_probs[rate_index];
             }
-            
+
             site_likelihood += matrix_likelihood * matrix_probs[matrix_index];
         }
         rv[site_index] = site_likelihood;
     }
-    
+
 }
 
 
@@ -279,34 +282,34 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteMatrix( s
 {
     std::vector< std::vector< std::vector< double > > > likelihoods = std::vector< std::vector< std::vector< double > > >( num_patterns, std::vector< std::vector< double > >( num_site_matrices, std::vector<double>(num_site_rates, 0.0) ) );
     computeSiteLikelihoodsPerSiteRateAndMatrix( likelihoods );
-    
-    
+
+
     std::vector<double> rates_probs(num_site_rates, 1.0/num_site_rates);
 
     if ( site_rates_probs != NULL )
     {
         rates_probs = site_rates_probs->getValue();
     }
-    
+
     // iterate over the number of sites
     for (size_t site_index=0; site_index<num_patterns; ++site_index)
     {
-        
+
         // iterate over the site matrices
         for (size_t matrix_index=0; matrix_index<num_site_matrices; ++matrix_index)
         {
-            
+
             double matrix_likelihood = 0.0;
             // iterate over the site rates
             for (size_t rate_index=0; rate_index<num_site_rates; ++rate_index)
             {
                 matrix_likelihood += likelihoods[site_index][matrix_index][rate_index] * rates_probs[rate_index];
             }
-            
+
             rv[site_index][matrix_index] = matrix_likelihood;
         }
     }
-    
+
 }
 
 template<class charType>
@@ -314,8 +317,8 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteRate( std
 {
     std::vector< std::vector< std::vector< double > > > likelihoods = std::vector< std::vector< std::vector< double > > >( num_patterns, std::vector< std::vector< double > >( num_site_matrices, std::vector<double>(num_site_rates, 0.0) ) );
     computeSiteLikelihoodsPerSiteRateAndMatrix( likelihoods );
-    
-    
+
+
     std::vector<double> matrix_probs(num_site_matrices, 1.0/num_site_matrices);
 
 
@@ -323,7 +326,7 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteRate( std
     {
         matrix_probs = site_matrix_probs->getValue();
     }
-    
+
     // iterate over the number of sites
     for (size_t site_index=0; site_index<num_patterns; ++site_index)
     {
@@ -331,7 +334,7 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteRate( std
         // iterate over the site rates
         for (size_t rate_index=0; rate_index<num_site_rates; ++rate_index)
         {
-            
+
             double rate_likelihood = 0.0;
             // iterate over the site matrices
             for (size_t matrix_index=0; matrix_index<num_site_matrices; ++matrix_index)
@@ -340,40 +343,40 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteRate( std
             }
             rv[site_index][rate_index] = rate_likelihood;
         }
-        
+
     }
-    
+
 }
 
 template<class charType>
 void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteRateAndMatrix( std::vector< std::vector< std::vector< double > > > &rv ) const
 {
-    
+
     // compute the transition probabilities
     this->updateTransitionProbabilities();
-    
+
     std::vector< std::vector<double> > rf;
     getRootFrequencies( rf );
 
     // iterate over the site matrices
     for (size_t matrix_index=0; matrix_index<num_site_matrices; ++matrix_index)
     {
-        
+
         // iterate over the site rates
         for (size_t rate_index=0; rate_index<num_site_rates; ++rate_index)
         {
-            
+
             const double* tp_begin = this->transition_prob_matrices[matrix_index][rate_index].theMatrix;
 
             // iterate over the number of sites
             for (size_t site_index=0; site_index<num_patterns; ++site_index)
             {
-                
+
                 // is this site a gap?
                 if ( gap_vector[site_index] )
                 {
                     // since this is a gap we need to assume that the actual state could have been any state
-                    
+
                     // store the likelihood
                     rv[site_index][matrix_index][rate_index] = 1.0;
                 }
@@ -411,7 +414,7 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteRateAndMa
 
                             // store the likelihood
                             this_site_prob += tmp * rf[matrix_index][c1];
-                                        
+
                         }
 //                        else if ( this->using_weighted_characters == true )
 //                        {
@@ -456,13 +459,13 @@ void RevBayesCore::CTMCProcess<charType>::computeSiteLikelihoodsPerSiteRateAndMa
                     rv[site_index][matrix_index][rate_index] = this_site_prob;
 
                 } // end-if a gap state vs observed state
-                
+
             } // end for over all sites
-            
+
         } // end for over all site rates
-        
+
     } // end for over all Q matrices
-    
+
 }
 
 
@@ -513,7 +516,7 @@ void RevBayesCore::CTMCProcess<charType>::compress( void )
 
     for (size_t site = 0; site < num_sites; ++site)
     {
-        
+
         AbstractDiscreteTaxonData& taxon = value->getTaxonData( 0 );
         DiscreteCharacterState &c = taxon.getCharacter(site_indices[site]);
 
@@ -539,11 +542,11 @@ void RevBayesCore::CTMCProcess<charType>::compress( void )
         {
             // create the site pattern
             std::string pattern = "";
-            
+
             AbstractDiscreteTaxonData& taxon = value->getTaxonData( 0 );
             CharacterState &c = taxon.getCharacter(site_indices[site]);
             pattern += c.getStringValue();
-            
+
             // check if we have already seen this site pattern
             std::map<std::string, size_t>::const_iterator index = patterns.find( pattern );
             if ( index != patterns.end() )
@@ -640,8 +643,8 @@ void RevBayesCore::CTMCProcess<charType>::compress( void )
     pattern_counts = process_pattern_counts;
 
 }
-        
-        
+
+
 
 template<class charType>
 void RevBayesCore::CTMCProcess<charType>::executeMethod(const std::string &n, const std::vector<const DagNode *> &args, RbVector<double> &rv) const
@@ -854,7 +857,7 @@ void RevBayesCore::CTMCProcess<charType>::getRootFrequencies( std::vector<std::v
             {
                 throw RbException("If you want to use RateGenerators that are not RateMatrices then you need to specify the root frequencies directly.");
             }
-            
+
         }
     }
     else if (rate_matrix != NULL)
@@ -1253,7 +1256,7 @@ void RevBayesCore::CTMCProcess<charType>::updateTransitionProbabilities( void ) 
 {
 
     double time = process_time->getValue();
-    
+
     // first, get the rate matrix for this branch
     RateMatrix_JC jc(this->num_chars);
     const RateGenerator *rm = &jc;
@@ -1279,7 +1282,7 @@ void RevBayesCore::CTMCProcess<charType>::updateTransitionProbabilities( void ) 
             rm->calculateTransitionProbabilities( time, 0.0,  r, this->transition_prob_matrices[matrix_index][rate_index] );
         }
     }
-    
+
 }
 
 #endif
