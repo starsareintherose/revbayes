@@ -12,6 +12,7 @@ gentoo="false"
 help="false"
 jupyter="false"
 beagle="false"
+beagle_debug="false"
 #beagle_root="/usr/local"
 boost_root=""
 boost_lib=""
@@ -32,6 +33,7 @@ Command line options are:
 -mac            <true|false>    : set to true if you are building for a OS X - compatible with 10.6 and higher. Defaults to false.
 -win            <true|false>    : set to true if you are building on a Windows system. Defaults to false.
 -mpi            <true|false>    : set to true if you want to build the MPI version. Defaults to false.
+-beagle         <true|false>    : set to true if you want to build with BEAGLE support. Defaults to false.
 -help           <true|false>    : Update the help database and build the YAML help generator. Defaults to false.
 '
 # secret test option
@@ -181,6 +183,12 @@ include_directories(/usr/local/include/libhmsbeagle-1)
 #set(CMAKE_CXX_COMPILE_FLAGS "${CMAKE_CXX_COMPILE_FLAGS} -I${beagle_root}/include/libhmsbeagle-1")
 set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -L/usr/local/lib -lhmsbeagle")
 '  >> "$BUILD_DIR/CMakeLists.txt"
+if [ "$beagle_debug" = "true" ]
+then
+echo '
+add_definitions(-DRB_BEAGLE_DEBUG)
+'  >> "$BUILD_DIR/CMakeLists.txt"
+fi
 fi
 
 echo '
