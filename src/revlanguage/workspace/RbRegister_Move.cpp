@@ -210,6 +210,7 @@
 #include "Move_NodeTimeSlideUniformAgeConstrained.h"
 #include "Move_NodeTimeSlidePathTruncatedNormal.h"
 #include "Move_NodeTimeSlideBeta.h"
+#include "Move_DivergenceTimeBinaryRate.h"
 #include "Move_RateAgeBetaShift.h"
 #include "Move_RateAgeProposal.h"
 #include "Move_RateAgeSubtreeProposal.h"
@@ -406,6 +407,7 @@ void RevLanguage::Workspace::initializeMoveGlobalWorkspace(void)
         addType( new Move_NodeTimeSlideUniform()             );
         addType( new Move_NodeTimeSlideUniformAgeConstrained());
         addType( new Move_NodeTimeSlideBeta()                );
+        addType( new Move_DivergenceTimeBinaryRate()         );
         addType( new Move_RateAgeBetaShift()                 );
         addType( new Move_RateAgeProposal()                  );
         addType( new Move_RateAgeSubtreeProposal()           );
