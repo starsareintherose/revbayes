@@ -84,6 +84,8 @@ namespace RevBayesCore {
         virtual std::vector<charType>                                       drawAncestralStatesForNode(const TopologyNode &n);
         virtual void                                                        drawJointConditionalAncestralStates(std::vector<std::vector<charType> >& startStates, std::vector<std::vector<charType> >& endStates);
         virtual void                                                        drawStochasticCharacterMap(std::vector<std::string>& character_histories, size_t site, bool use_simmap_default=true);
+        std::vector<std::vector<size_t>>                                    nodes_transition_states;
+        std::vector<std::vector<double>>                                    nodes_transition_times;
         void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, RbVector<double> &rv) const;     //!< Map the member methods to internal function calls
         void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, MatrixReal &rv) const;     //!< Map the member methods to internal function calls
         void                                                                fireTreeChangeEvent(const TopologyNode &n, const unsigned& m=0);                                                 //!< The tree has changed and we want to know which part.
@@ -1270,12 +1272,21 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::drawStochasticCha
         std::vector<std::vector<charType> > start_states(this->num_nodes, std::vector<charType>(this->num_sites, template_state));
         std::vector<std::vector<charType> > end_states(this->num_nodes, std::vector<charType>(this->num_sites, template_state));
         this->drawJointConditionalAncestralStates( start_states, end_states );
+        
+        // initialize transition states and times for all branches
+        nodes_transition_states.clear();
+        nodes_transition_times.clear();
+        nodes_transition_states.resize(this->num_nodes);
+        nodes_transition_times.resize(this->num_nodes);
 
         // save the character history for the root
         const TopologyNode &root = this->tau->getValue().getRoot();
         size_t root_index = root.getIndex();
         std::string simmap_string = "{" + end_states[root_index][site].getStringValue() + "," + StringUtilities::toString( root.getBranchLength() ) + "}";
         character_histories[root_index] = simmap_string;
+        nodes_transition_times[root_index].push_back(root.getBranchLength());
+        nodes_transition_states[root_index].push_back(end_states[root_index][site].getStateIndex());
+        
 
         // the mixture components are in a vector that is a flattened version of a
         // matrix with rate components in columns and matrix components in rows.
@@ -1487,6 +1498,10 @@ bool RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::recursivelyDrawSt
 
     // save the character history for this branch
     character_histories[node_index] = simmap_string;
+    for (int i=0; i<transition_states.size(); i++){
+        nodes_transition_states[node_index].push_back(transition_states[i]);
+        nodes_transition_times[node_index].push_back(transition_times[i]);
+    }
 
     // recurse towards tips
     if ( node.isTip() == false )

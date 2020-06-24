@@ -132,8 +132,8 @@ double DivergenceTimeBinaryRateProposal<characterType>::doProposal( void )
     std::vector<std::string> character_histories(num_nodes);
 
     // draw stochastic character map
-    index = 0; // Note that for now it's only calculated for a single index (index is initialized to 0 in the constructor)
-    ctmc_dist->drawStochasticCharacterMap( character_histories, index, false );
+    index = 1; // Note that for now it's only calculated for a single index (index is initialized to 0 in the constructor)
+    ctmc_dist->drawStochasticCharacterMap( character_histories, index, true );
     
     // extract the branches that follow each rate
     
