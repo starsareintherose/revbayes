@@ -103,7 +103,7 @@ namespace RevBayesCore
             //----====  Private Methods  ====----
 
             //-- Helper function to pretty print BEAGLE error codes.
-	    std::string parseReturnCode           ( int code );
+        std::string parseReturnCode           ( int code );
 
             //-- Initialize a BEAGLE instance.
             void        initializeBeagleInstance  ( void );
@@ -258,7 +258,7 @@ void This::initializeBeagleInstance ( void )
                                      ? BEAGLE_FLAG_THREADING_CPP
                                      : 0
                                      );
-        long b_requirementFlags    =       0;
+        long b_requirementFlags    = 0;
 
         BeagleInstanceDetails b_return_info;
 
@@ -296,7 +296,8 @@ void This::initializeBeagleInstance ( void )
                 }
                 ss << std::endl;
             } else {
-                ss << "Resource benchmarking failed, using resource " << b_resource << ": " << rBList->list[0].name;
+                ss << "Resource benchmarking failed, using resource "
+		   << b_resource << ": " << rBList->list[0].name;
                 ss << std::endl;
             }
         }
@@ -428,7 +429,7 @@ void This::initializeBeagleTips ( void )
 
             if ( this->using_ambiguous_characters == true )
             {
-	        int b_code_tip_partials =
+            int b_code_tip_partials =
                     beagleSetTipPartials( this->beagle_instance
                                         , b_tipIndex
                                         , b_inPartials
@@ -441,7 +442,7 @@ void This::initializeBeagleTips ( void )
             }
             else
             {
-	        int b_code_tip_states =
+            int b_code_tip_states =
                     beagleSetTipStates( this->beagle_instance
                                       , b_tipIndex
                                       , b_inStates
@@ -464,7 +465,7 @@ void This::initializeBeagleTips ( void )
                 if ( this->using_ambiguous_characters == true )
                 {
                     for ( size_t c = 0; c < this->num_chars; ++c )
-                    {
+		    {
                         ss << b_inPartials[b_pattern * this->num_chars + c];
                     }
                     ss << " ";
@@ -490,39 +491,39 @@ void This::initializeBeagleTips ( void )
 template<class charType>
 std::string This::parseReturnCode ( int code )
 {
-  std::string result;
-  switch (code) {
-  case 0:
-    result = "Success!";
-    break;
-  case -1:
-    result = "Unspecified error!";
-    break;
-  case -2:
-    result = "Not enough memory could be allocated!";
-    break;
-  case -3:
-    result = "Unspecified exception!";
-    break;
-  case -4:
-    result = "The instance index is out of range, or the instance has not been created!";
-    break;
-  case -5:
-    result = "One of the indices specified exceeded the range of the array!";
-    break;
-  case -6:
-    result = "No resource matches requirements!";
-    break;
-  case -7:
-    result = "No implementation matches requirements!";
-    break;
-  case -8:
-    result = "Floating-point range exceeded!";
-    break;
-  default:
-    result = "Error code not found!";
-  }
-  return result;
+    std::string result;
+    switch (code) {
+    case 0:
+      result = "Success!";
+      break;
+    case -1:
+      result = "Unspecified error!";
+      break;
+    case -2:
+      result = "Not enough memory could be allocated!";
+      break;
+    case -3:
+      result = "Unspecified exception!";
+      break;
+    case -4:
+      result = "The instance index is out of range, or the instance has not been created!";
+      break;
+    case -5:
+      result = "One of the indices specified exceeded the range of the array!";
+      break;
+    case -6:
+      result = "No resource matches requirements!";
+      break;
+    case -7:
+      result = "No implementation matches requirements!";
+      break;
+    case -8:
+      result = "Floating-point range exceeded!";
+      break;
+    default:
+      result = "Error code not found!";
+    }
+    return result;
 }
 
 
@@ -535,12 +536,12 @@ double This::calculateBranchLength ( const TopologyNode &node, size_t node_index
     {
         rate = this->heterogeneous_clock_rates->getValue()[node_index];
     }
-    else if ( this->homogeneous_clock_rate != NULL)
+    else if ( this->homogeneous_clock_rate != NULL )
     {
         rate = this->homogeneous_clock_rate->getValue();
     }
 
-    //-- maybe needs extra checks here (invariable sites, etc.)...
+    //-- TODO: maybe needs extra checks here (invariable sites, etc.)...
 
     double branch_len = rate * branch_time;
     if ( branch_len < 0 )
@@ -585,7 +586,6 @@ void This::setSitePatterns ( void )
                          + this->parseReturnCode(b_code_pattern_weight));
     }
 }
-
 
 
 template<class charType>
@@ -668,23 +668,22 @@ void This::setSiteRateDistribution ( void )
                                     );
         if ( b_code_weights != 0 )
         {
-	  throw RbException("Could not set category weights for model '" + std::to_string(model)
-			    + "'. " + this->parseReturnCode(b_code_weights));
+            throw RbException("Could not set category weights for model '" + std::to_string(model)
+                              + "'. " + this->parseReturnCode(b_code_weights));
         }
 
-	b_code_rates =
-	    beagleSetCategoryRatesWithIndex( this->beagle_instance
+        b_code_rates =
+            beagleSetCategoryRatesWithIndex( this->beagle_instance
                                            , (int) model
                                            , &this->b_inCategoryRates[0]
                                            );
         if ( b_code_rates != 0 )
         {
-	  throw RbException("Could not set category rates for model '" + std::to_string(model)
-			    + "'. " + this->parseReturnCode(b_code_rates));
+            throw RbException("Could not set category rates for model '" + std::to_string(model)
+                              + "'. " + this->parseReturnCode(b_code_rates));
         }
     }
 }
-
 
 
 template<class charType>
@@ -697,6 +696,16 @@ void This::setSubstitutionModels ( void )
 
     //-- Clear the models.
     this->b_model_indices.clear();
+
+    //-- Switch the active eigen system
+    for ( size_t i = 0; i < this->active_eigen_system.size(); ++i )
+    {
+        if ( this->touched_eigen_system[i] == false )
+        {
+            this->touched_eigen_system[0] = true;
+            this->active_eigen_system[i]  = (this->active_eigen_system[i] == 0 ? 1 : 0);
+        }
+    }
 
     RbVector<RateGenerator> rate_matrices;
     if ( this->homogeneous_rate_matrix )
@@ -722,8 +731,10 @@ void This::setSubstitutionModels ( void )
         model_idx    = i + this->active_eigen_system[i] * num_models;
 
         my_eigen_values        = eigen_system->getRealEigenvalues();
-        flat_eigen_vectors     = eigen_system->getEigenvectors().flattenMatrix();
-        flat_inv_eigen_vectors = eigen_system->getInverseEigenvectors().flattenMatrix();
+        //flat_eigen_vectors     = eigen_system->getEigenvectors().flattenMatrix();
+        //flat_inv_eigen_vectors = eigen_system->getInverseEigenvectors().flattenMatrix();
+        flat_inv_eigen_vectors = eigen_system->getEigenvectors().flattenMatrix();
+        flat_eigen_vectors     = eigen_system->getInverseEigenvectors().flattenMatrix();
 
         #if defined ( RB_BEAGLE_DEBUG )
         ss << "\tEigenvalues : \n\t\t";
@@ -750,7 +761,7 @@ void This::setSubstitutionModels ( void )
         RBOUT(ss.str());
         #endif /* RB_BEAGLE_DEBUG */
 
-	b_code_eigen_decomp =
+        b_code_eigen_decomp =
             beagleSetEigenDecomposition( this->beagle_instance
                                        , model_idx
                                        , &flat_eigen_vectors[0]
@@ -759,8 +770,8 @@ void This::setSubstitutionModels ( void )
                                        );
         if ( b_code_eigen_decomp != 0 )
         {
-	  throw RbException("Could not set eigen decomposition for model '" + std::to_string(model_idx)
-			    + "'. " + this->parseReturnCode(b_code_eigen_decomp));
+            throw RbException("Could not set eigen decomposition for model '" + std::to_string(model_idx)
+                              + "'. " + this->parseReturnCode(b_code_eigen_decomp));
         }
 
         this->b_model_indices.push_back(model_idx);
@@ -792,9 +803,11 @@ double This::computeLnProbability( void )
       this->initializeBeagleInstance();
       this->initializeBeagleTips();
 
-      //-- Note: Substitution model must be set first.
+      //-- Note: Substitution model must be set before everything else.
       this->setSubstitutionModels();
       this->setSiteRateDistribution();
+
+      //-- Note: The stationary distribution and site patterns are set only once.
       this->setStationaryDistribution();
       this->setSitePatterns();
 
@@ -804,11 +817,11 @@ double This::computeLnProbability( void )
     //-- TODO: Only update if the model params change.
     if ( true )
     {
-      this->setSubstitutionModels();
+        this->setSubstitutionModels();
     }
     if ( true )
     {
-	this->setSiteRateDistribution();
+        this->setSiteRateDistribution();
     }
 
     //-- Get the 'root' node.
@@ -848,8 +861,8 @@ double This::computeLnProbability( void )
 template<class charType>
 void This::computeRootLikelihood ( size_t root, size_t left, size_t right )
 {
-  //-- TODO : Calculate the lnLikelihood for rooted trees. Should be able to copy the code for the
-  //          unroooted case, but must change the child indexes/partials buffers.
+    //-- TODO : Calculate the lnLikelihood for rooted trees. Should be able to copy the code for the
+    //          unroooted case, but must change the child indexes/partials buffers.
 }
 
 
@@ -880,7 +893,7 @@ void This::computeRootLikelihood ( size_t root, size_t left, size_t right, size_
         , .child2Partials         = (int) right_partials
         , .child2TransitionMatrix = (int) right_idx
         };
-    //this->b_ops.push_back(b_operation);  //-- TESTING
+    this->b_ops.push_back(b_operation);
 
     int     b_parentBufferIndices     = (int) root_idx;
     int     b_childBufferIndices      = (int) mid_partials;
@@ -915,7 +928,7 @@ void This::computeRootLikelihood ( size_t root, size_t left, size_t right, size_
         //-- Update all transition matrices.
         b_code_update_transitions =
             beagleUpdateTransitionMatrices( this->beagle_instance
-	    			          , (int) model
+                                          , (int) model
                                           , &this->b_node_indices[0]
                                           , NULL
                                           , NULL
@@ -924,8 +937,9 @@ void This::computeRootLikelihood ( size_t root, size_t left, size_t right, size_
                                           );
         if ( b_code_update_transitions != 0 )
         {
-	  throw RbException("Could not update transition matrix for model '" + std::to_string(model)
-			    + "'. " + this->parseReturnCode(b_code_update_transitions));
+            throw RbException("Could not update transition matrix for model '" +
+                    std::to_string(model) + "'. " +
+                    this->parseReturnCode(b_code_update_transitions));
         }
 
         //-- Calculate and update all partial likelihood buffers
@@ -935,11 +949,11 @@ void This::computeRootLikelihood ( size_t root, size_t left, size_t right, size_
                                 , this->b_ops.size()
                                 , BEAGLE_OP_NONE
                                 );
-	if ( b_code_update_partials != 0 )
-	{
-	  throw RbException("Could not update partials for model '" + std::to_string(model) + "'. "
-			    + this->parseReturnCode(b_code_update_partials));
-	}
+        if ( b_code_update_partials != 0 )
+        {
+          throw RbException("Could not update partials for model '" + std::to_string(model) + "'. "
+                    + this->parseReturnCode(b_code_update_partials));
+        }
 
         //-- Calclulate the lnLikelihood of the model
         b_code_calc_edges =
@@ -950,15 +964,15 @@ void This::computeRootLikelihood ( size_t root, size_t left, size_t right, size_
                                              , b_firstDerivativeIndices
                                              , b_secondDerivativeIndices
 
-					     //, &this->b_inCategoryRates[0]
-					     //, &this->b_inCategoryWeights[0]
-					     , &categoryWeightsIndex
+                                             //, &this->b_inCategoryRates[0]
+                                             //, &this->b_inCategoryWeights[0]
+                                             , &categoryWeightsIndex
 
-					     //, &this->b_stateFrequenciesIndex
-					     , &stateFrequencyIndex
-					     //, (int) model
+                                             //, &this->b_stateFrequenciesIndex
+                                             , &stateFrequencyIndex
+                                             //, (int) model
 
-					     , &b_cumulativeScaleIndices
+                                             , &b_cumulativeScaleIndices
                                              , b_count
                                              , &b_outSumLogLikelihood
                                              , b_outSumFirstDerivative
@@ -966,8 +980,8 @@ void This::computeRootLikelihood ( size_t root, size_t left, size_t right, size_
                                              );
         if ( b_code_calc_edges != 0 )
         {
-	  throw RbException("Could not calculate edge log likelihood for model '" + std::to_string(model)
-			+ "'. " + this->parseReturnCode(b_code_calc_edges));
+            throw RbException("Could not calculate edge log likelihood for model '"
+                    + std::to_string(model) + "'. " + this->parseReturnCode(b_code_calc_edges));
         }
 
         this->ln_beagle_probability += b_outSumLogLikelihood;
