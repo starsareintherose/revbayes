@@ -195,7 +195,8 @@ RevBayesCore::AbstractBirthDeathProcess* Dist_BDSTP::createDistribution( void ) 
                                                                      Pt,
                                                                      cond,
                                                                      tn,
-                                                                     uo);
+                                                                     uo,
+																	 NULL);
 
     return d;
 }

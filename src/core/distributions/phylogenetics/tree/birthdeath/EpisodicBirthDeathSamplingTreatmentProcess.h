@@ -52,7 +52,8 @@ namespace RevBayesCore {
                                                     const TypedDagNode< RbVector<double> > *event_sampling_timeline,
                                                     const std::string &cdt,
                                                     const std::vector<Taxon> &tn,
-                                                    bool use_origin);  //!< Constructor
+                                                    bool use_origin,
+													TypedDagNode<Tree> *t);  //!< Constructor
 
         // public member functions
         EpisodicBirthDeathSamplingTreatmentProcess*   clone(void) const;                                                    //!< Create an independent clone
@@ -62,6 +63,9 @@ namespace RevBayesCore {
         double                                          computeLnProbabilityDivergenceTimes(void);                          //!< Compute the log-transformed probability of the current value.
         // Parameter management functions
         void                                            swapParameterInternal(const DagNode *oldP, const DagNode *newP);    //!< Swap a parameter
+
+        // redraw
+		void                                            redrawValue(void);
 
         // helper functions
         void                                            addTimesToGlobalTimeline(std::set<double> &event_times, const TypedDagNode<RbVector<double> > *par_times);        //!< Adds timeline for parameter to set that we will use for global timeline
@@ -90,6 +94,7 @@ namespace RevBayesCore {
 
         // members
         bool                                            using_global_timeline;
+		bool                                            simulate;
 
         const TypedDagNode<double >*                    homogeneous_lambda;                                    //!< The homogeneous birth rates.
         const TypedDagNode<RbVector<double> >*          heterogeneous_lambda;                                  //!< The heterogeneous birth rates.

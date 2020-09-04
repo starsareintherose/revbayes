@@ -88,6 +88,13 @@ RevBayesCore::AbstractBirthDeathProcess* Dist_FBDP::createDistribution( void ) c
     // get the taxa to simulate either from a vector of rev taxon objects or a vector of names
     std::vector<RevBayesCore::Taxon> tn = static_cast<const ModelVector<Taxon> &>( taxa->getRevObject() ).getValue();
 
+    // tree for initialization
+    RevBayesCore::TypedDagNode<RevBayesCore::Tree>* init = NULL;
+    if ( initial_tree->getRevObject() != RevNullObject::getInstance() )
+    {
+        init = static_cast<const TimeTree &>( initial_tree->getRevObject() ).getDagNode();
+    }
+
     RevBayesCore::AbstractBirthDeathProcess* d;
 
     // To avoid fracturing implementations, constant-rate processes call the piecewise-constant version, which can accomodate this
@@ -188,7 +195,8 @@ RevBayesCore::AbstractBirthDeathProcess* Dist_FBDP::createDistribution( void ) c
                                                                      Pt,
                                                                      cond,
                                                                      tn,
-                                                                     uo);
+                                                                     uo,
+																	 init);
 
     return d;
 }
@@ -310,6 +318,8 @@ const MemberRules& Dist_FBDP::getParameterRules(void) const
         dist_member_rules.push_back( new OptionRule( "condition", new RlString("time"), optionsCondition, "The condition of the process." ) );
         dist_member_rules.push_back( new ArgumentRule( "taxa"  , ModelVector<Taxon>::getClassTypeSpec(), "The taxa used for initialization.", ArgumentRule::BY_CONSTANT_REFERENCE, ArgumentRule::ANY ) );
 
+        dist_member_rules.push_back( new ArgumentRule( "initialTree" , TimeTree::getClassTypeSpec() , "Instead of drawing a tree from the distribution, initialize distribution with this tree.", ArgumentRule::BY_CONSTANT_REFERENCE, ArgumentRule::ANY, NULL ) );
+
         rules_set = true;
     }
 
@@ -399,6 +409,10 @@ void Dist_FBDP::setConstParameter(const std::string& name, const RevPtr<const Re
     else if ( name == "rhoTimeline" )
     {
         rho_timeline = var;
+    }
+    else if ( name == "initialTree" )
+    {
+    	initial_tree = var;
     }
     else
     {

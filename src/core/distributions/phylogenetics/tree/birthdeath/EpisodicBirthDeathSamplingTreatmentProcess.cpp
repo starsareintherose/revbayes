@@ -58,7 +58,8 @@ EpisodicBirthDeathSamplingTreatmentProcess::EpisodicBirthDeathSamplingTreatmentP
                                                                                            const TypedDagNode< RbVector<double> > *event_sampling_timeline,
                                                                                            const std::string &cdt,
                                                                                            const std::vector<Taxon> &tn,
-                                                                                           bool uo) : AbstractBirthDeathProcess( ra, cdt, tn, uo ),
+                                                                                           bool uo,
+																						   TypedDagNode<Tree> *t) : AbstractBirthDeathProcess( ra, cdt, tn, uo ),
     interval_times_global(timeline),
     interval_times_speciation(speciation_timeline),
     interval_times_extinction(extinction_timeline),
@@ -160,14 +161,41 @@ EpisodicBirthDeathSamplingTreatmentProcess::EpisodicBirthDeathSamplingTreatmentP
     prepareTimeline();
     prepareProbComputation();
 
-    // We employ a coalescent simulator to guarantee that the starting tree matches all time constraints
-    RbVector<Clade> constr;
-    StartingTreeSimulator simulator;
-    RevBayesCore::Tree *my_tree = simulator.simulateTree( taxa, constr );
+    if (t != NULL)
+    {
+		delete value;
+		value = &(t->getValue());
 
-    // store the new value
-    delete value;
-    value = my_tree;
+		// make sure the taxa are included in the value
+		for (size_t i=0; i<taxa.size(); ++i)
+		{
+			// get the name of this taxon
+			const std::string& name = taxa[i].getName();
+
+			// get the node that corresponds to this taxon
+			TopologyNode& node = value->getTipNodeWithName( name );
+
+			// set the taxon for this node
+			node.setTaxon( taxa[i] );
+		}
+
+		// make sure we never simulate a tree
+		simulate = false;
+
+    }
+    else
+    {
+    	simulate = true;
+
+		// We employ a coalescent simulator to guarantee that the starting tree matches all time constraints
+		RbVector<Clade> constr;
+		StartingTreeSimulator simulator;
+		RevBayesCore::Tree *my_tree = simulator.simulateTree( taxa, constr );
+
+		// store the new value
+		delete value;
+		value = my_tree;
+    }
 
     countAllNodes();
 
@@ -1507,6 +1535,25 @@ double EpisodicBirthDeathSamplingTreatmentProcess::pSurvival(double start, doubl
     return(RbConstants::Double::neginf);
   }
   return( (1.0 - E(findIndex(start),start,true))/(1.0 - E(findIndex(end),end,true)) );
+}
+
+void EpisodicBirthDeathSamplingTreatmentProcess::redrawValue( void )
+{
+
+	// only do this if we are allowed to simulate
+	// i.e., there is no starting tree
+	if ( simulate == true )
+	{
+		// We employ a coalescent simulator to guarantee that the starting tree matches all time constraints
+		RbVector<Clade> constr;
+		StartingTreeSimulator simulator;
+		RevBayesCore::Tree *my_tree = simulator.simulateTree( taxa, constr );
+
+		// store the new value
+		delete value;
+		value = my_tree;
+	}
+
 }
 
 /**

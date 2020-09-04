@@ -180,7 +180,8 @@ RevBayesCore::AbstractBirthDeathProcess* Dist_PhylodynamicBDP::createDistributio
                                                                      Pt,
                                                                      cond,
                                                                      tn,
-                                                                     uo);
+                                                                     uo,
+																	 NULL);
 
     return d;
 }

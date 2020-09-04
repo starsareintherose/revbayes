@@ -132,7 +132,7 @@ double TipTimeSlideUniformProposal::doProposal( void )
     // we need to work with the times
     double parent_age  = parent.getAge();
     double my_age      = node->getAge();
-    double sibling_Age = 0;
+    double min_age     = 0;
 
     if (node->isSampledAncestor())
     {
@@ -142,7 +142,7 @@ double TipTimeSlideUniformProposal::doProposal( void )
             sibling = &parent.getChild( 1 );
         }
 
-        sibling_Age = sibling->getAge();
+        min_age = sibling->getAge();
 
         if (parent.isRoot())
         {
@@ -158,13 +158,36 @@ double TipTimeSlideUniformProposal::doProposal( void )
             parent_age = grandParent.getAge();
         }
     }
-    
+
+	// if the node has min and max ages, use those to truncate the distribution
+	double max_age = parent_age;
+
+	double taxon_max_age = node->getTaxon().getAgeRange().getMax();
+	if ( taxon_max_age != RbConstants::Double::nan)
+	{
+		max_age = taxon_max_age;
+	}
+	else
+	{
+		throw RbException("Taxon has no max age");
+	}
+
+	double taxon_min_age = node->getTaxon().getAgeRange().getMin();
+	if ( taxon_max_age != RbConstants::Double::nan)
+	{
+		min_age = taxon_max_age;
+	}
+	else
+	{
+		throw RbException("Taxon has no max age");
+	}
+
     // now we store all necessary values
     storedNode = node;
     storedAge = my_age;
     
     // draw new ages and compute the hastings ratio at the same time
-    double my_new_age = sibling_Age + (parent_age - sibling_Age) * rng->uniform01();
+    double my_new_age = min_age + (max_age - min_age) * rng->uniform01();
     
     // set the age
     node->setAge( my_new_age );
