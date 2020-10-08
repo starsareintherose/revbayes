@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "Cloneable.h"
+
 #include "RateMatrix_CodonSynonymousNonsynonymous.h"
 #include "Simplex.h"
 #include "TypedDagNode.h"

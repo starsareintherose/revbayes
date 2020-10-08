@@ -9,14 +9,15 @@
 #ifndef MatrixFunction_h
 #define MatrixFunction_h
 
-#include "MatrixReal.h"
-#include "RbVector.h"
-#include "TypedFunction.h"
-#include "TypedDagNode.h"
-
 #include <vector>
 
+#include "MatrixReal.h"
+#include "TypedFunction.h"
+
 namespace RevBayesCore {
+class DagNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     class MatrixFunction : public TypedFunction< MatrixReal > {
         

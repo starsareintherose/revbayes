@@ -1,14 +1,16 @@
 #ifndef RlLinearDemographicFunction_H
 #define RlLinearDemographicFunction_H
 
-#include "LinearDemographicFunction.h"
-#include "RlDemographicFunction.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlDemographicFunction.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     class LinearDemographicFunction : public DemographicFunction {
         

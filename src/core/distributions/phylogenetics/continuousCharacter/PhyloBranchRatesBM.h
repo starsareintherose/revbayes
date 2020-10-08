@@ -1,6 +1,8 @@
 #ifndef PhyloBranchRatesBM_H
 #define PhyloBranchRatesBM_H
 
+#include <vector>
+
 #include "RbVector.h"
 #include "TopologyNode.h"
 #include "TypedDistribution.h"
@@ -9,7 +11,6 @@ namespace RevBayesCore {
     
     class DagNode;
     class Tree;
-    
     template <class valueType> class TypedDagNode;
     
     class PhyloBranchRatesBM : public TypedDistribution< RbVector<double> > {

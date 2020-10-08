@@ -1,10 +1,11 @@
 #ifndef TraceReader_H
 #define TraceReader_H
 
-#include "Trace.h"
-
 #include <vector>
 #include <string>
+#include <iosfwd>
+
+#include "Trace.h"
 
 namespace RevBayesCore {
     

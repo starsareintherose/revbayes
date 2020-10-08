@@ -1,12 +1,11 @@
 #include <stddef.h>
-#include <iosfwd>
 #include <string>
 #include <vector>
+#include <utility>
 
 #include "ArgumentRule.h"
 #include "AverageDistanceMatrix.h"
 #include "DistanceMatrix.h"
-#include "MatrixReal.h"
 #include "ModelVector.h"
 #include "MemberProcedure.h"
 #include "Natural.h"
@@ -23,8 +22,6 @@
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
 #include "IndirectReferenceFunction.h"
-#include "MemberFunction.h"
-#include "MemberProcedure.h"
 #include "MethodTable.h"
 #include "ModelObject.h"
 #include "RbException.h"
@@ -33,14 +30,12 @@
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RlConstantNode.h"
-#include "RlMemberFunction.h"
-#include "RlDeterministicNode.h"
-#include "RlUtils.h"
 #include "Taxon.h"
 #include "TypeSpec.h"
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "MatrixBoolean.h"
 
 using namespace RevLanguage;
 

@@ -1,12 +1,17 @@
 #ifndef SyntaxForLoop_H
 #define SyntaxForLoop_H
 
-#include "SyntaxElement.h"
-
+#include <stddef.h>
 #include <iostream>
-#include <list>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class Container;
+class RevVariable;
 
     /**
      * @brief For loop syntax element

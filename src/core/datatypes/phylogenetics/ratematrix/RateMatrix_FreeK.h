@@ -1,15 +1,20 @@
 #ifndef RateMatrix_FreeK_H
 #define RateMatrix_FreeK_H
 
-#include "GeneralRateMatrix.h"
-
+#include <stddef.h>
 #include <complex>
 #include <vector>
+#include <iosfwd>
+
+#include "GeneralRateMatrix.h"
+#include "MatrixReal.h"
 
 
 namespace RevBayesCore {
     
     class TransitionProbabilityMatrix;
+class Assignable;
+class EigenSystem;
     
     
     /**

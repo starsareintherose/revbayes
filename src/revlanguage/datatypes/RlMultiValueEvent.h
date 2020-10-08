@@ -18,8 +18,6 @@
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
 
-namespace RevBayesCore { class RbHelpReference; }
-
 
 namespace RevLanguage {
 class Argument;

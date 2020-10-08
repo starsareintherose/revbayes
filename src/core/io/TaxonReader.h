@@ -1,6 +1,9 @@
 #ifndef TaxonReader_H
 #define TaxonReader_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "DelimitedDataReader.h"
 #include "Taxon.h"
 

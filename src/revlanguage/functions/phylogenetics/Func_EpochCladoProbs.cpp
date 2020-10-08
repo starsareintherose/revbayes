@@ -8,6 +8,8 @@
 
 #include "Func_EpochCladoProbs.h"
 
+#include <stddef.h>
+
 #include "EpochCladogeneticStateFunction.h"
 #include "ModelVector.h"
 #include "RealPos.h"
@@ -22,8 +24,9 @@
 #include "RbVector.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
+#include "RbVectorImpl.h"
 
 using namespace RevLanguage;
 

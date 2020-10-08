@@ -1,9 +1,15 @@
 #ifndef Func_exists_H
 #define Func_exists_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * @brief Rev function to check if a variable exists in the workspace.

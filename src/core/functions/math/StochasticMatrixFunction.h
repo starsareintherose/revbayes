@@ -2,14 +2,13 @@
 #define StochasticMatrixFunction_h
 
 #include "MatrixReal.h"
-#include "RbVector.h"
 #include "TypedFunction.h"
-#include "TypedDagNode.h"
-#include "Simplex.h"
-
-#include <vector>
 
 namespace RevBayesCore {
+class DagNode;
+class Simplex;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
 	/**
 	 * \brief Create a stochastic matrix.

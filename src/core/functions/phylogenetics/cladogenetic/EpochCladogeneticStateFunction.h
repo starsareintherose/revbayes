@@ -9,17 +9,17 @@
 #ifndef EpochCladogeneticStateFunction_h
 #define EpochCladogeneticStateFunction_h
 
-#include "AbstractCladogenicStateFunction.h"
-#include "CladogeneticProbabilityMatrix_Epoch.h"
-#include "RbVector.h"
-#include "TypedDagNode.h"
-#include "TypedFunction.h"
-
-#include <sstream>
 #include <vector>
 #include <map>
 
+#include "AbstractCladogenicStateFunction.h"
+#include "TypedFunction.h"
+#include "CladogeneticProbabilityMatrix.h"
+
 namespace RevBayesCore {
+class DagNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     class EpochCladogeneticStateFunction : public AbstractCladogenicStateFunction, public TypedFunction<CladogeneticProbabilityMatrix> {
         

@@ -1,7 +1,5 @@
 #include <stddef.h>
-#include <iostream>
 #include <string>
-#include <vector>
 
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
@@ -14,7 +12,6 @@
 #include "TypeSpec.h"
 #include "Move.h"
 #include "RbBoolean.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

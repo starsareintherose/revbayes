@@ -8,16 +8,13 @@
 #ifndef EXPONENTIALERRORDISTRIBUTION_H
 #define EXPONENTIALERRORDISTRIBUTION_H
 
-#include <stddef.h>
-
 #include "TypedDistribution.h"
 #include "AverageDistanceMatrix.h"
-#include "TypedFunction.h"
-#include "TypedDagNode.h"
 
 namespace RevBayesCore {
 class DagNode;
-template <class valueType> class RbVector;
+class DistanceMatrix;
+template <class valueType> class TypedDagNode;
     
     class ExponentialErrorDistribution : public TypedDistribution<AverageDistanceMatrix>   {
         

@@ -1,10 +1,17 @@
 #ifndef Dist_lnorm_H
 #define Dist_lnorm_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "LognormalDistribution.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

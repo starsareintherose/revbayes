@@ -20,9 +20,15 @@
 #ifndef Func_getwd_H
 #define Func_getwd_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_getwd : public Procedure {
         

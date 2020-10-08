@@ -1,14 +1,17 @@
 #ifndef PhyloDistanceGamma_H
 #define PhyloDistanceGamma_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "DistanceMatrix.h"
-#include "MatrixReal.h"
-#include "TopologyNode.h"
-#include "TreeChangeEventListener.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
 
 namespace RevBayesCore {
+class DagNode;
+class Tree;
+template <class valueType> class TypedDagNode;
     
     class PhyloDistanceGamma : public TypedDistribution< DistanceMatrix >/*, public TreeChangeEventListener*/ {
         

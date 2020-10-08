@@ -9,10 +9,17 @@
 #ifndef Dist_varianceGamma_h
 #define Dist_varianceGamma_h
 
+#include <iosfwd>
+#include <vector>
+
 #include "VarianceGammaDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

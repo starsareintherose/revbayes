@@ -32,8 +32,9 @@ namespace RevLanguage {
     
 }
 
+#include "ArgumentRules.h"
+#include "ArgumentRule.h"
 #include "TypeConversionFunction.h"
-#include "StringUtilities.h"
 #include "TypedDagNode.h"
 
 /** default constructor */

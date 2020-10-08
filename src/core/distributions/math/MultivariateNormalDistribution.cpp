@@ -8,7 +8,7 @@
 #include "RbConstants.h"
 #include "RbException.h"
 #include "StochasticNode.h"
-#include "Cloner.h"
+
 #include "RbVectorImpl.h"
 #include "RevVariable.h"
 #include "TypedDagNode.h"

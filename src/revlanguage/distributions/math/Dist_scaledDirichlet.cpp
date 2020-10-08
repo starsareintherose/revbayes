@@ -16,7 +16,6 @@
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
 #include "ModelObject.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

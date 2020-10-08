@@ -1,11 +1,15 @@
 #ifndef Func_BirthDeathSimulator_H
 #define Func_BirthDeathSimulator_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
-#include "Tree.h"
-#include "TopologyNode.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
 
     /**
      * @brief Rev function to simumlate a birth-death tree.

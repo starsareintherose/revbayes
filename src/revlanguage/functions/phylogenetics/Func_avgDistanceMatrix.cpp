@@ -1,7 +1,6 @@
 #include "Func_avgDistanceMatrix.h"
 
 #include "AverageDistanceMatrix.h"
-#include "DistanceMatrix.h"
 #include "ModelVector.h"
 #include "RlDeterministicNode.h"
 #include "AvgDistanceMatrixFunction.h"
@@ -10,9 +9,10 @@
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
 #include "RevVariable.h"
-#include "RlMatrixBoolean.h"
 #include "RlDistanceMatrix.h"
 #include "TypeSpec.h"
+#include "ModelObject.h"
+#include "RbVector.h"
 
 namespace RevBayesCore { class DistanceMatrix; }
 

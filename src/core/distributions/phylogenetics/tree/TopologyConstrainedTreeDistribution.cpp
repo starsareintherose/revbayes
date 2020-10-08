@@ -20,7 +20,7 @@
 #include "RbBitSet.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-#include "StringUtilities.h"
+
 #include "TimeInterval.h"
 #include "Tree.h"
 #include "TreeChangeEventHandler.h"

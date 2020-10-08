@@ -8,7 +8,6 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "RbException.h"
-#include "Clade.h"
 #include "Proposal.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

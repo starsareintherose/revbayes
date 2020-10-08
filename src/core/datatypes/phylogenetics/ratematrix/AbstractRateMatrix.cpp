@@ -8,12 +8,11 @@
 #include "MatrixReal.h"
 #include "RandomNumberGenerator.h"
 #include "RandomNumberFactory.h"
-#include "RbConstants.h"
 #include "RbException.h"
 #include "RbMathMatrix.h"
 #include "DistributionPoisson.h"
 #include "TransitionProbabilityMatrix.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 

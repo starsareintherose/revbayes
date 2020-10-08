@@ -5,10 +5,13 @@
 
 #include "DistributionNormal.h"
 #include "RandomNumberFactory.h"
-#include "Cloner.h"
+
 #include "RbVectorImpl.h"
 #include "Tree.h"
 #include "TypedDagNode.h"
+#include "RbConstants.h"
+
+namespace RevBayesCore { class RandomNumberGenerator; }
 
 
 

@@ -1,5 +1,5 @@
-#include <sstream>
 #include <string>
+#include <sstream> // IWYU pragma: keep
 
 #include "RbException.h"
 #include "SyntaxConstantAssignment.h"

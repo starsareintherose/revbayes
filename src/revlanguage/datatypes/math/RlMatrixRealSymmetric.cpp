@@ -1,4 +1,3 @@
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -25,7 +24,7 @@
 #include "RlDeterministicNode.h"
 #include "RlMatrixReal.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"

@@ -1,15 +1,16 @@
 #ifndef UpDownSlideBactrianProposal_H
 #define UpDownSlideBactrianProposal_H
 
-#include "RbVector.h"
-#include "Proposal.h"
-#include "StochasticNode.h"
-
 #include <ostream>
 #include <vector>
 #include <string>
 
+#include "Proposal.h"
+
 namespace RevBayesCore {
+class DagNode;
+template <class valueType> class RbVector;
+template <class variableType> class StochasticNode;
 
     /**
      * @brief Up-Down Sliding Proposal for several parameters jointly.

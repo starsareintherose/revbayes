@@ -1,17 +1,23 @@
 #ifndef RateMatrix_DECRateMatrix_H
 #define RateMatrix_DECRateMatrix_H
 
-#include "GeneralRateMatrix.h"
-#include "TransitionProbabilityMatrix.h"
+#include <stddef.h>
 #include <complex>
 #include <vector>
 #include <map>
 #include <list>
+#include <iosfwd>
+
+#include "GeneralRateMatrix.h"
+#include "TransitionProbabilityMatrix.h"
+#include "MatrixReal.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 
 namespace RevBayesCore {
-    
-    class TransitionProbabilityMatrix;
+class Assignable;
+class EigenSystem;
     
     class RateMatrix_DECRateMatrix : public GeneralRateMatrix {
         

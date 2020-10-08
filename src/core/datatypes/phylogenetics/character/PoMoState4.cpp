@@ -9,7 +9,6 @@
 #include "RbException.h"
 #include "RbMathCombinatorialFunctions.h"
 #include "StringUtilities.h"
-#include "Cloneable.h"
 
 using namespace RevBayesCore;
 

@@ -73,6 +73,7 @@ namespace RevBayesCore {
 
 #include "RbConstants.h"
 #include "RbOptions.h"
+#include "RbOrderedSet.h"
 #include "RbMathLogic.h"
 #include "TypedDistribution.h"
 

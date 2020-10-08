@@ -2,11 +2,13 @@
 #define SyntaxConstant_H
 
 #include "SyntaxElement.h"
-
-#include <iostream>
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class Environment;
+class RevObject;
+class RevVariable;
 
     /**
      * This is the class used to hold constants in the syntax tree.

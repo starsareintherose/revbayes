@@ -4,7 +4,7 @@
 
 #include "TransitionProbabilityMatrix.h"
 #include "Assignable.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
 
 

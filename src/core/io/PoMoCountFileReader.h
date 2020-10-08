@@ -1,15 +1,16 @@
 #ifndef PoMoCountFileReader_H
 #define PoMoCountFileReader_H
 
-#include "DelimitedDataReader.h"
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "HomologousDiscreteCharacterData.h"
-#include "PoMoState.h"
-
+#include <stddef.h>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "DelimitedDataReader.h"
 
 namespace RevBayesCore {
+class PoMoState;
+template <class charType> class HomologousDiscreteCharacterData;
 
 
 	/**
@@ -45,7 +46,7 @@ namespace RevBayesCore {
 		size_t numberOfPopulations_;
 		size_t numberOfSites_;
 		size_t virtualPopulationSize_;
-		std::vector<string> names_;
+        std::vector<std::string> names_;
 		HomologousDiscreteCharacterData<PoMoState>* matrix_;
 	};
 

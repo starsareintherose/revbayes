@@ -1,10 +1,17 @@
 #ifndef Dist_offsetLognormal_H
 #define Dist_offsetLognormal_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "LognormalWithOffsetDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

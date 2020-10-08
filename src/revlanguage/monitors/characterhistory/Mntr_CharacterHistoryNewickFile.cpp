@@ -26,6 +26,7 @@
 #include "StochasticNode.h"
 #include "Real.h" // IWYU pragma: keep
 #include "StandardState.h" // IWYU pragma: keep
+#include "Natural.h"
 
 namespace RevBayesCore { class AbstractHomologousDiscreteCharacterData; }
 namespace RevBayesCore { class Tree; }

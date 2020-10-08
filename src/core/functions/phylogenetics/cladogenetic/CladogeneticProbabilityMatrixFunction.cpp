@@ -8,7 +8,7 @@
 #include "CladogeneticProbabilityMatrixFunction.h"
 #include "CladogeneticProbabilityMatrix.h"
 #include "RbException.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "TypedDagNode.h"

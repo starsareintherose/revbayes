@@ -1,3 +1,6 @@
+#include <stddef.h>
+#include <string>
+
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
 #include "MetropolisHastingsMove.h"
@@ -6,18 +9,28 @@
 #include "RateAgeProposal.h"
 #include "Probability.h"
 #include "RbException.h"
-#include "RbMathLogic.h"
 #include "RealPos.h"
 #include "RevObject.h"
 #include "RlBoolean.h"
-#include "RlSimplex.h"
-#include "RlString.h"
 #include "RlTree.h"
 #include "RlTimeTree.h"
 #include "TypedDagNode.h"
 #include "TypeSpec.h"
-#include "WorkspaceVector.h"
 #include "VectorFunction.h"
+#include "Argument.h"
+#include "DeterministicNode.h"
+#include "MemberProcedure.h"
+#include "MethodTable.h"
+#include "ModelObject.h"
+#include "Move.h"
+#include "RbBoolean.h"
+#include "Real.h"
+#include "RlUtils.h"
+#include "StochasticNode.h"
+#include "TypedFunction.h"
+
+namespace RevBayesCore { class Tree; }
+namespace RevBayesCore { template <class valueType> class RbVector; }
 
 
 using namespace RevLanguage;

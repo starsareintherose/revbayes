@@ -5,7 +5,6 @@
 #include "DnaState.h"
 #include "RbException.h"
 #include "StringUtilities.h"
-#include "Cloneable.h"
 
 using namespace RevBayesCore;
 

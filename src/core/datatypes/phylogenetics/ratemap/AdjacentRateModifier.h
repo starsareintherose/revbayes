@@ -1,18 +1,23 @@
 #ifndef AdjacentRateModifier_H
 #define AdjacentRateModifier_H
 
-#include "CharacterHistoryRateModifier.h"
-#include "MatrixReal.h"
-#include "StochasticNode.h"
-#include "TopologyNode.h"
-
 #include <set>
 #include <string>
 #include <vector>
+#include <cstddef>
+#include <iosfwd>
+
+#include "CharacterHistoryRateModifier.h"
+#include "MatrixReal.h"
+#include "TopologyNode.h"
+#include "RbVector.h"
 
 
 namespace RevBayesCore
 {
+class Assignable;
+class CharacterEvent;
+class CharacterEventDiscrete;
     
     class AdjacentRateModifier : public CharacterHistoryRateModifier
     {

@@ -9,7 +9,6 @@
 #ifndef Func_treeTrace_H
 #define Func_treeTrace_H
 
-#include <vector>
 #include <iosfwd>
 
 #include "Procedure.h"

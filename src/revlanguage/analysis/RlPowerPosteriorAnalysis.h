@@ -1,14 +1,19 @@
 #ifndef RlPowerPosteriorAnalysis_H
 #define RlPowerPosteriorAnalysis_H
 
-#include "PowerPosteriorAnalysis.h"
-#include "TypedDagNode.h"
-#include "WorkspaceToCoreWrapperObject.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "PowerPosteriorAnalysis.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
 
     
     /**

@@ -1,13 +1,18 @@
 #ifndef RlMonitor_H
 #define RlMonitor_H
 
+#include <cstring>
+#include <iosfwd>
+#include <vector>
+
 #include "Monitor.h"
 #include "RevVariable.h"
 #include "WorkspaceToCoreWrapperObject.h"
-
-#include <cstring>
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
 
     /** @brief Base class for all monitors in Rev Language
      *

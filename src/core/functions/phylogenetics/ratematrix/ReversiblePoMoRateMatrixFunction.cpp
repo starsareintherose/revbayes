@@ -1,6 +1,6 @@
 #include "ReversiblePoMoRateMatrixFunction.h"
 
-#include "Cloneable.h"
+
 #include "RateMatrix_ReversiblePoMo.h"
 #include "RbVector.h"
 #include "TypedDagNode.h"

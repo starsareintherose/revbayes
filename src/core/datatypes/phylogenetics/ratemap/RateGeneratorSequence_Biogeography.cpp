@@ -6,7 +6,7 @@
 #include "BranchHistory.h"
 #include "CharacterEventDiscrete.h"
 #include "RateGeneratorSequence_Biogeography.h"
-#include "Cloneable.h"
+
 #include "DistanceRateModifier.h"
 #include "RateGenerator.h"
 #include "RateGeneratorSequence.h"

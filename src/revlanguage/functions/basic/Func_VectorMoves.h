@@ -1,11 +1,16 @@
 #ifndef Func_VectorMoves_H
 #define Func_VectorMoves_H
 
-#include "Procedure.h"
-
 #include <string>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the VectorMoves function.

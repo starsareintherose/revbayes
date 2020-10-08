@@ -2,17 +2,34 @@
 #define DIST_EXPONENTIALERROR_H
 
 
+#include <math.h>
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "AverageDistanceMatrix.h"
-#include "DistanceMatrix.h"
 #include "TypedDistribution.h"
 #include "RlAverageDistanceMatrix.h"
-#include "RlDistanceMatrix.h"
 #include "RlTypedDistribution.h"
 #include "ExponentialErrorDistribution.h"
+#include "DagMemberFunction.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+#include "RlDagMemberFunction.h"
+#include "RlDeterministicNode.h"
+#include "RlStochasticNode.h"
+#include "RlTypedFunction.h"
+#include "StochasticNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+
+namespace RevBayesCore { class RbHelpReference; }
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the exponential error distribution.

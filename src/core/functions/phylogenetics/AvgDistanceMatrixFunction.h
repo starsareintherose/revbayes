@@ -17,12 +17,12 @@
 
 #include "TypedFunction.h"
 #include "AverageDistanceMatrix.h"
-#include "DistanceMatrix.h"
 
 namespace RevBayesCore {
 class DagNode;
 template <class valueType> class RbVector;
 template <class valueType> class TypedDagNode;
+class DistanceMatrix;
     
     class AvgDistanceMatrixFunction : public TypedFunction< AverageDistanceMatrix > {
         

@@ -17,20 +17,20 @@
 #ifndef Func_readTreeTrace_H
 #define Func_readTreeTrace_H
 
-#include "Clade.h"
-#include "Procedure.h"
-#include "RlBranchLengthTree.h"
-#include "RlClade.h"
-#include "RlTimeTree.h"
-#include "RlTraceTree.h"
-#include "WorkspaceVector.h"
-
-#include <map>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TraceTree;
+class TypeSpec;
+template <typename rlType> class WorkspaceVector;
     
     class Func_readTreeTrace : public Procedure {
         

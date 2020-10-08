@@ -1,10 +1,8 @@
 #include <stddef.h>
-#include <ostream>
 #include <string>
 #include <vector>
 
 #include "ArgumentRule.h"
-#include "PhyloBrownianProcess.h"
 #include "Dist_PhyloBranchRateBM.h"
 #include "Real.h"
 #include "RlTimeTree.h"
@@ -13,8 +11,9 @@
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
-#include "RlDistribution.h"
 #include "TypeSpec.h"
+
+namespace RevBayesCore { class Tree; }
 
 using namespace RevLanguage;
 

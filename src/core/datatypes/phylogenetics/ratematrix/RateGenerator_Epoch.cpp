@@ -21,7 +21,7 @@
 #include "TransitionProbabilityMatrix.h"
 #include "RateMatrix.h"
 #include "Assignable.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RateGenerator.h"
 #include "RbVector.h"

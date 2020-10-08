@@ -1,12 +1,19 @@
 #ifndef NodeOrderWeightedConstrainedTreeDistribution_H
 #define NodeOrderWeightedConstrainedTreeDistribution_H
 
+#include <iosfwd>
+#include <map>
+#include <set>
+#include <utility>
+
 #include "Tree.h"
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"
 #include "RelativeNodeAgeWeightedConstraints.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class variableType> class StochasticNode;
         
     /**
      * @file

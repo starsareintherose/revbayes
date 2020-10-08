@@ -1,16 +1,40 @@
 #ifndef Dist_PhyloMvtBrownian_H
 #define Dist_PhyloMvtBrownian_H
 
+#include <math.h>
 #include <iostream>
-
+#include <string>
+#include <vector>
 
 #include "PhyloMultivariateBrownianProcess.h"
 #include "RlTypedDistribution.h"
-#include "MatrixReal.h"
 #include "Real.h"
 #include "ModelVector.h" // IWYU pragma: keep
+#include "ConstantNode.h"
+#include "DagMemberFunction.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "ModelObject.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+#include "RlConstantNode.h"
+#include "RlDagMemberFunction.h"
+#include "RlDeterministicNode.h"
+#include "RlStochasticNode.h"
+#include "RlTypedFunction.h"
+#include "StochasticNode.h"
+#include "TypedDagNode.h"
+#include "TypedDistribution.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class TypeSpec;
 
     class Dist_PhyloMvtBrownian :  public TypedDistribution< ModelVector< ModelVector<Real> >  > {
         

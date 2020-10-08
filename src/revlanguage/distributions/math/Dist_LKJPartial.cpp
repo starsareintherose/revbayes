@@ -1,6 +1,5 @@
 #include <math.h>
 #include <stddef.h>
-#include <ostream>
 #include <string>
 #include <vector>
 
@@ -16,7 +15,6 @@
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
 #include "MatrixReal.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

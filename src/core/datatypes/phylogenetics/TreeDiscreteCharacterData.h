@@ -1,13 +1,14 @@
 #ifndef TreeDiscreteCharacterData_h
 #define TreeDiscreteCharacterData_h
 
-#include "Cloneable.h"
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "Serializable.h"
+#include <iosfwd>
+#include <vector>
+
 #include "Tree.h"
 
 
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
     
     /**
      * Class that contains both a tree and discrete character data object.

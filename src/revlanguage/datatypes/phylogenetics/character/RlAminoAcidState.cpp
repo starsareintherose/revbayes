@@ -1,4 +1,3 @@
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -15,7 +14,7 @@
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RlConstantNode.h"
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"

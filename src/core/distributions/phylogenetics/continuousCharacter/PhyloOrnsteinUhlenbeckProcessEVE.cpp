@@ -3,7 +3,6 @@
 #include <cmath>
 #include <cstddef>
 #include <string>
-#include <iosfwd>
 
 #include "ConstantNode.h"
 #include "DistributionNormal.h"
@@ -13,7 +12,7 @@
 #include "StochasticNode.h"
 #include "TopologyNode.h"
 #include "TreeUtilities.h"
-#include "Cloneable.h"
+
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
 #include "RbVector.h"

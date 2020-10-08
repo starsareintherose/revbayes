@@ -19,14 +19,27 @@
 #ifndef RlDiscreteCharacterState_H
 #define RlDiscreteCharacterState_H
 
+#include <ostream>
+#include <string>
+#include <vector>
+
 #include "DiscreteCharacterState.h"
 #include "ModelObject.h"
 #include "TypedDagNode.h"
-
-#include <ostream>
-#include <string>
+#include "CharacterState.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class RevObject;
+class TypeSpec;
     
     class DiscreteCharacterState : public ModelObject<RevBayesCore::DiscreteCharacterState> {
         

@@ -1,11 +1,11 @@
 #ifndef ModuleSystem_H
 #define ModuleSystem_H
 
-#include "Module.h"
-
-#include <set>
 #include <string>
 #include <map>
+#include <iosfwd>
+
+#include "Module.h"
 
 namespace RevLanguage {
     

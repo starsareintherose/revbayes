@@ -16,7 +16,7 @@
 #include "DistributionWishart.h"
 #include "RbConstants.h"
 #include "DistributionNormal.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

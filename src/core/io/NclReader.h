@@ -19,32 +19,35 @@
 #ifndef NclReader_H
 #define NclReader_H
 
-#include "ncl.h"
-#include "nxsmultiformat.h"
-#include "RbFileManager.h"
-
+#include <stddef.h>
 #include <map>
 #include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "nxsmultiformat.h"
+
+class NxsBlock;
+class NxsCharactersBlock;
+class NxsSimpleNode;
+class NxsSimpleTree;
+class NxsTaxaBlock;
+class NxsUnalignedBlock;
 
 namespace RevBayesCore {
     
     class AminoAcidState;
     class AbstractCharacterData;
-    class BranchLengthTree;
     class ContinuousCharacterData;
     class DnaState;
     class HomologousCharacterData;
     class RnaState;
     class StandardState;
     class Tree;
-    class TimeTree;
     class TopologyNode;
-
     template<class charType>
     class HomologousDiscreteCharacterData;
-    
     template<class charType>
     class NonHomologousDiscreteCharacterData;
 

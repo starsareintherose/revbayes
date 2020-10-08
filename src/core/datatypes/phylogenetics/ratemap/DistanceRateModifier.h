@@ -1,15 +1,22 @@
 #ifndef DistanceRateModifier_H
 #define DistanceRateModifier_H
 
-#include "CharacterHistoryRateModifier.h"
-#include "TimeAtlas.h"
-#include "GeographicArea.h"
-#include "StochasticNode.h"
-#include "TopologyNode.h"
 #include <string>
+#include <cstddef>
+#include <iosfwd>
+#include <set>
+#include <vector>
+
+#include "CharacterHistoryRateModifier.h"
 
 namespace RevBayesCore
 {
+class Assignable;
+class CharacterEvent;
+class CharacterEventDiscrete;
+class GeographicArea;
+class TimeAtlas;
+
     class DistanceRateModifier : public CharacterHistoryRateModifier
     {
     public:

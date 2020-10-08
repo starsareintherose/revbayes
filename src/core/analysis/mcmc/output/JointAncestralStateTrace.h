@@ -7,7 +7,7 @@
 #include <vector>
 
 #include "TraceTree.h"
-#include "Cloneable.h"
+
 #include "Trace.h"
 
 namespace RevBayesCore {

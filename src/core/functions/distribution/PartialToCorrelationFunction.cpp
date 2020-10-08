@@ -2,7 +2,7 @@
 #include <cmath>
 
 #include "PartialToCorrelationFunction.h"
-#include "Cloner.h"
+
 #include "MatrixReal.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

@@ -14,7 +14,7 @@
 #include "TypeSpec.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
-#include "StringUtilities.h"
+
 #include "WorkspaceObject.h"
 #include "WorkspaceToCoreWrapperObject.h"
 

@@ -7,7 +7,6 @@
 //  Copyright © 2016 Michael Landis. All rights reserved.
 //
 
-#include <iosfwd>
 #include <string>
 #include <vector>
 
@@ -27,6 +26,7 @@
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+
 
 namespace RevLanguage { class Argument; }
 

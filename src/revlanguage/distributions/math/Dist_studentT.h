@@ -18,8 +18,6 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 
-namespace RevBayesCore { class RbHelpReference; }
-
 namespace RevLanguage {
 class TypeSpec;
     

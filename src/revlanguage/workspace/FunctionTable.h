@@ -1,8 +1,7 @@
 #ifndef FunctionTable_H
 #define FunctionTable_H
 
-#include "RevPtr.h"
-
+#include <stddef.h>
 #include <map>
 #include <ostream>
 #include <string>
@@ -11,11 +10,8 @@
 namespace RevLanguage {
     
     class Argument;
-    class ArgumentRule;
     class ArgumentRules;
     class Function;
-    class RevObject;
-    class RevVariable;
 
     /**
      * @brief FunctionTable: A multimap from function names to functions

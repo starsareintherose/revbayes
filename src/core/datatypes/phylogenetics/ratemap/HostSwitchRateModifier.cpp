@@ -10,7 +10,7 @@
 #include "TreeUtilities.h"
 #include "Assignable.h"
 #include "CharacterHistoryRateModifier.h"
-#include "Cloneable.h"
+
 #include "DistanceMatrix.h"
 #include "RbException.h"
 #include "RbVector.h"

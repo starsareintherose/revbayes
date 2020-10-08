@@ -9,7 +9,6 @@
 #include "RandomNumberGenerator.h"
 #include "RbConstants.h"
 #include "DagNode.h"
-#include "MemberObject.h"
 #include "Proposal.h"
 #include "RateGenerator.h"
 #include "RbOrderedSet.h"

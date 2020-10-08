@@ -1,14 +1,18 @@
 #ifndef DiscreteEventCategoryRandomWalkProposal_H
 #define DiscreteEventCategoryRandomWalkProposal_H
 
-#include <set>
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
 
-#include "HeterogeneousRateBirthDeath.h"
 #include "Proposal.h"
-#include "StochasticNode.h"
 
 namespace RevBayesCore {
+class CharacterEventDiscrete;
+class DagNode;
+class HeterogeneousRateBirthDeath;
+class Tree;
+template <class variableType> class StochasticNode;
     
     /**
      * The birth-death proposal for events along a tree.

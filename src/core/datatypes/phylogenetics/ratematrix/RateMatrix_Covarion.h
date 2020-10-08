@@ -9,14 +9,21 @@
 #ifndef RateMatrix_Covarion_hpp
 #define RateMatrix_Covarion_hpp
 
-#include "GeneralRateMatrix.h"
+#include <stddef.h>
 #include <complex>
 #include <vector>
+
+#include "GeneralRateMatrix.h"
+#include "MatrixReal.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 
 namespace RevBayesCore {
     
     class TransitionProbabilityMatrix;
+class Assignable;
+class EigenSystem;
     
     
     /**

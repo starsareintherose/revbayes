@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <ostream>
 #include <string>
 #include <vector>
 
@@ -15,6 +14,8 @@
 #include "RevVariable.h"
 #include "RlDistribution.h"
 #include "TypeSpec.h"
+
+namespace RevBayesCore { class Tree; }
 
 using namespace RevLanguage;
 

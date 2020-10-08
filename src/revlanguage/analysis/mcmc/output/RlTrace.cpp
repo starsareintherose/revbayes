@@ -1,6 +1,7 @@
 #include "RlTrace.h"
 
 #include <stddef.h>
+#include <math.h>
 #include <string>
 
 #include "ArgumentRule.h"
@@ -17,8 +18,21 @@
 #include "RevVariable.h"
 #include "RlBoolean.h"
 #include "TypeSpec.h"
-
-namespace RevLanguage { class Argument; }
+#include "Argument.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "ModelObject.h"
+#include "RbBoolean.h"
+#include "RbVector.h"
+#include "Real.h"
+#include "RealPos.h"
+#include "RlConstantNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 using namespace RevLanguage;
 

@@ -1,7 +1,8 @@
 #ifndef TraceTree_H
 #define TraceTree_H
 
-#include "Clade.h"
+#include <iosfwd>
+
 #include "Trace.h"
 #include "Tree.h"
 #include "TreeSummary.h"

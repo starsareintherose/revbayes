@@ -1,14 +1,16 @@
 #ifndef MonteCarloAnalysis_H
 #define MonteCarloAnalysis_H
 
-#include "Cloneable.h"
+#include <stddef.h>
+#include <vector>
+#include <iosfwd>
+
+
 #include "MonteCarloAnalysisOptions.h"
 #include "Parallelizable.h"
 #include "RbVector.h"
-#include "StoppingRule.h"
 #include "Trace.h"
-
-#include <vector>
+#include "Monitor.h"
 
 
 #ifdef RB_MPI
@@ -19,6 +21,7 @@ namespace RevBayesCore {
     
     class Model;
     class MonteCarloSampler;
+class StoppingRule;
     
     /**
      * @brief Monte Carlo analysis running and managing the MonteCarloSampler objects.

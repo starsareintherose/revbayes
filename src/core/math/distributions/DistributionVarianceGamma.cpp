@@ -19,7 +19,8 @@
 #include "boost/exception/exception.hpp" // IWYU pragma: keep
 #include "boost/format.hpp" // IWYU pragma: keep
 #include "boost/math/special_functions.hpp" // IWYU pragma: keep
-#include "boost/optional.hpp"
+#include "boost/math/special_functions/bessel.hpp"
+#include "boost/math/special_functions/fpclassify.hpp"
 
 namespace RevBayesCore { class RandomNumberGenerator; }
 namespace boost { namespace math { class rounding_error; } }

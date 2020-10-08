@@ -1,4 +1,3 @@
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -32,6 +31,7 @@
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "RlMatrixReal.h"
 
 using namespace RevLanguage;
 

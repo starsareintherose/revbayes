@@ -27,7 +27,7 @@
 #include "RevVariable.h"
 #include "RlBoolean.h"
 #include "RlFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 
 using namespace RevLanguage;

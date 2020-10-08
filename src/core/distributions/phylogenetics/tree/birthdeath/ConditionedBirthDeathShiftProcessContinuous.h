@@ -1,16 +1,23 @@
 #ifndef ConditionedBirthDeathShiftProcessContinuous_H
 #define ConditionedBirthDeathShiftProcessContinuous_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "AbstractCharacterHistoryBirthDeathProcess.h"
 #include "CharacterHistoryContinuous.h"
 #include "MemberObject.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
-#include "TypedDistribution.h"
+#include "Taxon.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+class Tree;
+template <class valueType> class RbOrderedSet;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
+template <class variableType> class TypedDistribution;
     
     class ConditionedBirthDeathShiftProcessContinuous : public AbstractCharacterHistoryBirthDeathProcess, public MemberObject< RbVector<long> >, public MemberObject< RbVector<double> > {
         

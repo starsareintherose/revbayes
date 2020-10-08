@@ -11,6 +11,7 @@
 #include <stddef.h>
 #include <map>
 #include <utility>
+#include <ostream>
 
 #include "CladogeneticProbabilityMatrix.h"
 #include "ConstantNode.h"
@@ -39,7 +40,7 @@
 #include "RlConstantNode.h"
 #include "RlFunction.h"
 #include "Simplex.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "UserFunctionNode.h"
 

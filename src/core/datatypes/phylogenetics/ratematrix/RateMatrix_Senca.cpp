@@ -12,7 +12,7 @@
 #include "TransitionProbabilityMatrix.h"
 #include "AminoAcidState.h"
 #include "Assignable.h"
-#include "Cloneable.h"
+
 #include "DiscreteCharacterState.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

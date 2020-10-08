@@ -35,7 +35,6 @@
 #include "ModelObject.h"
 #include "Natural.h"
 #include "Procedure.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

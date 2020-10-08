@@ -1,14 +1,16 @@
 #ifndef RlMaxTimeStoppingRule_H
 #define RlMaxTimeStoppingRule_H
 
-#include "VariableMonitor.h"
-#include "RlStoppingRule.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlStoppingRule.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * RevLanguage wrapper class for the max-time stopping rule of an analysis.

@@ -1,15 +1,18 @@
 #ifndef RlMove_H
 #define RlMove_H
 
-#include "Move.h"
-#include "RbHelpMove.h"
-#include "TypedDagNode.h"
-#include "WorkspaceToCoreWrapperObject.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "Move.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     class Move : public WorkspaceToCoreWrapperObject<RevBayesCore::Move> {
         

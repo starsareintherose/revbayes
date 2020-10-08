@@ -18,13 +18,16 @@
 #ifndef Move_NodeTimeSlideBeta_H
 #define Move_NodeTimeSlideBeta_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     class Move_NodeTimeSlideBeta : public Move {
         

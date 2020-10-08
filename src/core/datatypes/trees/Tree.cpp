@@ -20,7 +20,7 @@
 #include "RbBitSet.h"
 #include "RbBoolean.h"
 #include "RbFileManager.h"
-#include "StringUtilities.h"
+
 #include "TaxonMap.h"
 #include "TreeChangeEventHandler.h"
 

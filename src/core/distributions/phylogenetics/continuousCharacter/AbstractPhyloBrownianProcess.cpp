@@ -5,7 +5,7 @@
 #include "DistributionNormal.h"
 #include "RandomNumberFactory.h"
 #include "TopologyNode.h"
-#include "Cloneable.h"
+
 #include "ContinuousTaxonData.h"
 
 namespace RevBayesCore { class RandomNumberGenerator; }

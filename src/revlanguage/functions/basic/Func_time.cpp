@@ -1,6 +1,7 @@
 #include "Func_time.h"
 
 #include <string>
+#include <vector>
 
 #include "Natural.h"
 #include "OptionRule.h"
@@ -8,14 +9,14 @@
 #include "TypeSpec.h"
 #include "Argument.h"
 #include "ArgumentRules.h"
-#include "RbHelpReference.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "RlString.h"
-
 #include "boost/date_time/posix_time/posix_time.hpp" // IWYU pragma: keep
 #include "boost/date_time/gregorian/gregorian.hpp" // IWYU pragma: keep
 #include "boost/date_time/gregorian/greg_month.hpp" // IWYU pragma: keep
+#include "boost/date_time/date.hpp"
+#include "boost/date_time/time.hpp"
 
 using namespace RevLanguage;
 

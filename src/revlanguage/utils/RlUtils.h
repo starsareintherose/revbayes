@@ -17,12 +17,14 @@
 #ifndef RlUtil_H
 #define RlUtil_H
 
-#include "RevNullObject.h"
-#include "RevObject.h"
-
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
+
+#include "TypeSpec.h"
 
 namespace RevLanguage {
+class RevObject;
     
     namespace RlUtils {
 

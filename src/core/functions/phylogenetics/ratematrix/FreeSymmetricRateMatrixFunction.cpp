@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "RateMatrix_FreeSymmetric.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "TypedDagNode.h"
 

@@ -1,10 +1,21 @@
 #ifndef PhyloMultiSampleOrnsteinUhlenbeckProcessREML_H
 #define PhyloMultiSampleOrnsteinUhlenbeckProcessREML_H
 
-#include "AbstractPhyloBrownianProcess.h"
+#include <cstddef>
+#include <iosfwd>
+#include <vector>
+
 #include "TreeChangeEventListener.h"
+#include "AbstractPhyloContinuousCharacterProcess.h"
+#include "Taxon.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
+class ContinuousTaxonData;
+class DagNode;
+class Tree;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Homogeneous distribution of character state evolution along a tree class (PhyloCTMC).

@@ -1,9 +1,15 @@
 #ifndef Func_source_H
 #define Func_source_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
 
 class Func_source : public Procedure {
     

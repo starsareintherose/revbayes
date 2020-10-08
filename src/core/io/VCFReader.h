@@ -1,16 +1,15 @@
 #ifndef VCFReader_H
 #define VCFReader_H
 
-#include "DelimitedDataReader.h"
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "HomologousDiscreteCharacterData.h"
-#include "BinaryState.h"
-#include "DnaState.h"
-
 #include <string>
-#include <vector>
+#include <iosfwd>
+
+#include "DelimitedDataReader.h"
 
 namespace RevBayesCore {
+class BinaryState;
+class DnaState;
+template <class charType> class HomologousDiscreteCharacterData;
     
     
     /**

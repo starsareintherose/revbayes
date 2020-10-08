@@ -17,12 +17,11 @@
 #include "MemberProcedure.h"
 #include "MethodTable.h"
 #include "ModelObject.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlConstantNode.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "TimeInterval.h"
 #include "TypedDagNode.h"

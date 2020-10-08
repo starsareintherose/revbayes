@@ -1,15 +1,19 @@
 #ifndef Mcmcmc_H
 #define Mcmcmc_H
 
+#include <stddef.h>
+#include <vector>
+#include <iosfwd>
+
 #include "Mcmc.h"
 #include "Model.h"
 #include "Monitor.h"
 #include "MonteCarloSampler.h"
-#include "Move.h"
-
-#include <vector>
+#include "MonteCarloAnalysisOptions.h"
+#include "RbVector.h"
 
 namespace RevBayesCore {
+class Move;
     
     /**
      * @brief Parallel Metropolis-Coupled Markov chain Monte Carlo (MCMCMC) algorithm class.

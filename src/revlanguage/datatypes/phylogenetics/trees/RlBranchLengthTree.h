@@ -16,14 +16,21 @@
 #ifndef RlBranchLengthTree_H
 #define RlBranchLengthTree_H
 
-#include "RlTree.h"
-
-#include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "RlTree.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { class Tree; }
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     
     class BranchLengthTree : public Tree {

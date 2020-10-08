@@ -1,9 +1,15 @@
 #ifndef Func_concatenate_H
 #define Func_concatenate_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * @brief Rev function to concatenate two or more data matrices.

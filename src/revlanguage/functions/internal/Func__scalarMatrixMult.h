@@ -51,7 +51,7 @@ namespace RevLanguage {
 
 #include "ScalarMatrixMultiplication.h"
 #include "RlDeterministicNode.h"
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 
 /** default constructor */

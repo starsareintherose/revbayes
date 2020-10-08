@@ -2,13 +2,13 @@
 #define RbUtil_H
 
 
-#include "RbContainer.h"
-#include "RbVector.h"
-
-
+#include <stddef.h>
 #include <iostream>
 #include <string>
 #include <vector>
+
+#include "RbContainer.h"
+#include "IsDerivedFrom.h"
 
 
 namespace RevBayesCore {

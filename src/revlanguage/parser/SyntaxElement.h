@@ -1,17 +1,17 @@
 #ifndef SyntaxElement_H
 #define SyntaxElement_H
 
-#include "RevObject.h"
-#include "RevPtr.h"
-#include "RevVariable.h"
-
 #include <iostream>
 #include <string>
+#include <set>
+
+#include "RevPtr.h"
 
 namespace RevLanguage {
 
     /* Forward declarations */
     class Environment;
+class RevVariable;
 
     /**
      * @brief Interface for syntax elements

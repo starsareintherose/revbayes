@@ -1,7 +1,14 @@
 #include "BetaBrokenStickFunction.h"
 
+#include <algorithm>
+#include <vector>
+
 #include "DistributionBeta.h"
-#include "RbMathFunctions.h"
+#include "RbIterator.h"
+#include "RbVectorImpl.h"
+#include "TypedDagNode.h"
+
+namespace RevBayesCore { class DagNode; }
 
 /**
  * Wrapper for dealing with BetaBrokenStickFunction used the TypedDagNode classes of type doubles

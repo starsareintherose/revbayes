@@ -13,14 +13,15 @@
 #ifndef RateMatrix_F81_H
 #define RateMatrix_F81_H
 
+#include <stddef.h>
+
 #include "TimeReversibleRateMatrix.h"
-#include <complex>
-#include <vector>
 
 
 namespace RevBayesCore {
     
     class TransitionProbabilityMatrix;
+class Assignable;
     
     
     class RateMatrix_F81 : public TimeReversibleRateMatrix {

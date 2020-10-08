@@ -1,11 +1,9 @@
 #include <stddef.h>
-#include <iosfwd>
 #include <string>
 #include <vector>
 
 #include "RlContainer.h"
 #include "Integer.h"
-#include "IntegerPos.h"
 #include "RevNullObject.h"
 #include "RlMemberMethod.h"
 #include "SyntaxIndexOperation.h"
@@ -19,7 +17,7 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
-#include "StringUtilities.h"
+
 #include "SyntaxElement.h"
 
 using namespace RevLanguage;

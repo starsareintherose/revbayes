@@ -1,15 +1,17 @@
 #ifndef RateMatrix_CodonSynonymousNonsynonymousHKY_H
 #define RateMatrix_CodonSynonymousNonsynonymousHKY_H
 
-#include "TimeReversibleRateMatrix.h"
 #include <complex>
 #include <vector>
+
+#include "TimeReversibleRateMatrix.h"
 
 
 namespace RevBayesCore {
     
     class EigenSystem;
     class TransitionProbabilityMatrix;
+class Assignable;
     
     
     

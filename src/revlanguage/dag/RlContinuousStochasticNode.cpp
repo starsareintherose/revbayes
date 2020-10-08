@@ -17,7 +17,7 @@
 #include "RlPositiveContinuousDistribution.h"
 #include "RlTypedDistribution.h"
 #include "RlUtils.h"
-#include "StringUtilities.h"
+
 #include "Probability.h" // IWYU pragma: keep
 
 namespace RevBayesCore { class ContinuousDistribution; }

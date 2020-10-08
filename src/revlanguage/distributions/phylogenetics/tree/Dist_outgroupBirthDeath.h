@@ -9,12 +9,19 @@
 #ifndef Dist_outgroupBirthDeath_h
 #define Dist_outgroupBirthDeath_h
 
+#include <iosfwd>
+#include <vector>
+
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
+namespace RevLanguage { class TypeSpec; }
 #ifndef Dist_outgroupBirthDeath_H
 #define Dist_outgroupBirthDeath_H
 
 #include "ConstantRateOutgroupBirthDeathProcess.h"
 #include "RlBirthDeathProcess.h"
-#include "RlTimeTree.h"
 
 namespace RevLanguage {
     

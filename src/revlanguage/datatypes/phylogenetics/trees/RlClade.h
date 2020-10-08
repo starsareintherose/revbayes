@@ -2,15 +2,29 @@
 #ifndef RlClade_H
 #define RlClade_H
 
-#include "Clade.h"
-#include "ModelObject.h"
-
-#include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "Clade.h"
+#include "ModelObject.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+#include "RlConstantNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
     
     /**
     * @file

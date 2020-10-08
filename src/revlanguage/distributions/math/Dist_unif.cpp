@@ -8,7 +8,6 @@
 #include "Dist_unif.h"
 #include "Real.h"
 #include "UniformDistribution.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

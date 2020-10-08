@@ -11,7 +11,7 @@
 #include <stddef.h>
 
 #include "TypedDagNode.h"
-#include "Cloner.h"
+
 #include "RbVectorImpl.h"
 
 namespace RevBayesCore { class DagNode; }

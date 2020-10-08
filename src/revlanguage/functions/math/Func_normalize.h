@@ -1,13 +1,30 @@
 #ifndef Func_normalize_H
 #define Func_normalize_H
 
+#include <string>
+#include <iosfwd>
+#include <vector>
+
 #include "RlTypedFunction.h"
 #include "ModelVector.h"
 #include "RealPos.h"
-#include <map>
-#include <string>
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "ModelObject.h"
+#include "RbVector.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "RlDeterministicNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class TypeSpec;
     
     class Func_normalize : public TypedFunction< ModelVector<RealPos> > {
         

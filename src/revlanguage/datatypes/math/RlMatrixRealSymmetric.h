@@ -4,12 +4,18 @@
 #include <iostream>
 #include <vector>
 
-#include "ModelObject.h"
 #include "RlMatrixReal.h"
-#include "TypedDagNode.h"
+#include "MatrixReal.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 
 namespace RevLanguage {
+class Argument;
+class RevObject;
+class RevVariable;
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the symmetrix matrix real.

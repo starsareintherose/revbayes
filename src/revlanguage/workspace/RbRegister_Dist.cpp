@@ -23,11 +23,11 @@
  * to add your objects in the code.
  */
 
+#include <math.h>
+#include <stdio.h>
 #include <sstream>
 #include <vector>
 #include <cstdlib>
-#include <math.h>
-#include <stdio.h>
 #include <string>
 
 /* Files including helper classes */
@@ -36,6 +36,9 @@
 #include "RbException.h"
 #include "RlUserInterface.h"
 #include "Workspace.h"
+#include "AnalyticalMixtureDistribution.h"
+#include "IidDistribution.h"
+#include "VectorMixtureDistribution.h"
 
 /// Miscellaneous types ///
 
@@ -53,7 +56,6 @@
 #include "EmpiricalSampleDistribution.h"
 #include "EventDistribution.h"
 #include "IndirectReferenceFunction.h"
-#include "MatrixBoolean.h"
 #include "MatrixReal.h"
 #include "MixtureDistribution.h"
 #include "ModelObject.h"
@@ -93,12 +95,10 @@
 
 /* Primitive types (in folder "datatypes/basic") */
 #include "Integer.h"
-#include "IntegerPos.h"
 #include "Natural.h"
 #include "Probability.h"
 #include "Real.h"
 #include "RealPos.h"
-
 /* Container types (in folder "datatypes/container") */
 #include "ModelVector.h"
 #include "WorkspaceVector.h"
@@ -117,9 +117,6 @@
 /* These types are needed as template types for the moves */
 #include "RlBranchLengthTree.h"
 #include "RlRateGenerator.h"
-
-/* Math types (in folder "datatypes/math") */
-#include "RlMatrixBoolean.h"
 #include "RlMatrixReal.h"
 #include "RlMatrixRealSymmetric.h"
 #include "RlSimplex.h"
@@ -130,7 +127,6 @@
 
 #include "Dist_EmpiricalSample.h"
 #include "Dist_WeightedSample.h"
-
 /* Character evolution models (in folder "distributions/phylogenetics/character") */
 #include "Dist_phyloCTMC.h"
 #include "Dist_phyloCTMCDASequence.h"
@@ -156,7 +152,6 @@
 #include "Dist_PhyloOrnsteinUhlenbeckREML.h"
 #include "Dist_PhyloOrnsteinUhlenbeckThreePoint.h"
 #include "Dist_PhyloWhiteNoise.h"
-
 /* Tree priors (in folder "distributions/phylogenetics/tree") */
 #include "Dist_bdp.h"
 #include "Dist_bdp_complete.h"
@@ -194,7 +189,6 @@
 #include "Dist_uniformSerialSampledTimeTree.h"
 #include "Dist_uniformTopology.h"
 #include "Dist_uniformTopologyBranchLength.h"
-
 /* Distributions on simple variables (in folder "distributions/math") */
 #include "Dist_bernoulli.h"
 #include "Dist_beta.h"
@@ -250,7 +244,6 @@
 #include "Dist_whiteNoise.h"
 #include "Dist_wishart.h"
 #include "Process_OrnsteinUhlenbeck.h"
-
 /* Mixture distributions (in folder "distributions/mixture") */
 #include "Dist_dpp.h"
 #include "Dist_event.h"

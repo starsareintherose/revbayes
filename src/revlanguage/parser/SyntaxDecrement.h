@@ -1,14 +1,16 @@
 #ifndef SyntaxDecrement_H
 #define SyntaxDecrement_H
 
-#include "SyntaxElement.h"
-#include "SyntaxVariable.h"
-
 #include <iostream>
-#include <list>
 #include <string>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class RevVariable;
     
     /**
      * @brief Decrement operator ('a--' and '--a')

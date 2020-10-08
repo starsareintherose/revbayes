@@ -11,7 +11,7 @@
 //#include "StationaryFrequencies_DECRateMatrix.h"
 #include "TransitionProbabilityMatrix.h"
 #include "TypedFunction.h"
-#include "Cloneable.h"
+
 #include "RateGenerator.h"
 #include "TypedDagNode.h"
 

@@ -1,14 +1,14 @@
 #ifndef RlStoppingRule_H
 #define RlStoppingRule_H
 
-#include "StoppingRule.h"
-#include "TypedDagNode.h"
-#include "WorkspaceToCoreWrapperObject.h"
-
 #include <ostream>
 #include <string>
 
+#include "StoppingRule.h"
+#include "WorkspaceToCoreWrapperObject.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     class StoppingRule : public WorkspaceToCoreWrapperObject<RevBayesCore::StoppingRule> {
         

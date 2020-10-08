@@ -19,14 +19,26 @@
 #ifndef RlStandardState_H
 #define RlStandardState_H
 
+#include <ostream>
+#include <string>
+#include <vector>
+
 #include "ModelObject.h"
 #include "StandardState.h"
 #include "TypedDagNode.h"
-
-#include <ostream>
-#include <string>
+#include "CharacterState.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     class StandardState : public ModelObject<RevBayesCore::StandardState> {
         

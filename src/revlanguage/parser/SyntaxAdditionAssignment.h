@@ -1,13 +1,14 @@
 #ifndef SyntaxAdditionAssignment_H
 #define SyntaxAdditionAssignment_H
 
-#include "SyntaxAssignment.h"
-
-#include <iostream>
-#include <list>
 #include <string>
 
+#include "SyntaxAssignment.h"
+
 namespace RevLanguage {
+class RevVariable;
+class SyntaxElement;
+template <typename ptrType> class RevPtr;
     
     /**
      * @brief Addition assignment operator ('a += b')

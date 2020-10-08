@@ -1,15 +1,19 @@
 #ifndef SyntaxFunctionCall_H
 #define SyntaxFunctionCall_H
 
-#include "SyntaxElement.h"
-#include "SyntaxLabeledExpr.h"
-#include "SyntaxVariable.h"
-
 #include <iostream>
 #include <list>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class RevVariable;
+class SyntaxLabeledExpr;
+class SyntaxVariable;
 
     /**
      * @brief Function call syntax element

@@ -2,7 +2,7 @@
 
 #include "RlContinuousStochasticNode.h"
 #include "TypedDistribution.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 
 using namespace RevLanguage;

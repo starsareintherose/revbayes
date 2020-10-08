@@ -16,15 +16,18 @@
 #ifndef RateMatrix_Empirical_H
 #define RateMatrix_Empirical_H
 
-#include "TimeReversibleRateMatrix.h"
+#include <stddef.h>
 #include <complex>
 #include <vector>
+
+#include "TimeReversibleRateMatrix.h"
 
 
 namespace RevBayesCore {
     
     class EigenSystem;
     class TransitionProbabilityMatrix;
+class Assignable;
 
     
     class RateMatrix_Empirical : public TimeReversibleRateMatrix {

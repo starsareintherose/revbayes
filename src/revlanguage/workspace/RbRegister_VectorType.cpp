@@ -24,14 +24,23 @@
  */
 
 
+#include <stdio.h>
+#include <math.h>
 #include <sstream>
 #include <vector>
-#include <stdio.h>
 #include <cstdlib>
 
 /* Files including helper classes */
 #include "AddWorkspaceVectorType.h"
 #include "RlUserInterface.h"
+#include "DagMemberFunction.h"
+#include "Natural.h"
+#include "Real.h"
+#include "RealPos.h"
+#include "RlDagMemberFunction.h"
+#include "RlStochasticNode.h"
+#include "StochasticNode.h"
+#include "TypedDistribution.h"
 
 /// Miscellaneous types ///
 
@@ -74,28 +83,22 @@
 #include "VectorIndexOperator.h"
 #include "Workspace.h"
 #include "WorkspaceToCoreWrapperObject.h"
-
 /* Base types (in folder "datatypes") */
 #include "RevObject.h"
-
 /* Container types (in folder "datatypes/container") */
 #include "RlMatrixBoolean.h"
 #include "RlMatrixReal.h"
 #include "RlMatrixRealPos.h"
 #include "RlMatrixRealSymmetric.h"
 #include "RlStochasticMatrix.h"
-
 /* Container types (in folder "datatypes/math") */
 #include "ModelVector.h"
 #include "WorkspaceVector.h"
-
 /* Character data types (in folder "datatypes/phylogenetics/datamatrix") */
 #include "RlAbstractHomologousDiscreteCharacterData.h"
 #include "RlContinuousCharacterData.h"
-
 /* Tree types (in folder "datatypes/phylogenetics/trees") */
 #include "RlClade.h"
-
 /* Taxon types (in folder "datatypes/phylogenetics") */
 #include "RlCladogeneticProbabilityMatrix.h"
 #include "RlCladogeneticSpeciationRateMatrix.h"
@@ -107,7 +110,6 @@
 /// Types ///
 
 #include "Probability.h"
-
 /* These types are needed as template types for the moves */
 #include "RlBranchLengthTree.h"
 #include "RlRateGenerator.h"

@@ -1,10 +1,16 @@
 #ifndef Dist_whiteNoise_H
 #define Dist_whiteNoise_H
 
+#include <iosfwd>
+
 #include "WhiteNoiseDistribution.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

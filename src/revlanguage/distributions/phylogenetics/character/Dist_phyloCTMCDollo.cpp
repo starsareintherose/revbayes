@@ -30,7 +30,7 @@
 #include "RealPos.h"
 #include "RlConstantNode.h"
 #include "RlDistribution.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TypeSpec.h"
 #include "UserFunctionNode.h"

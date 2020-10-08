@@ -1,14 +1,20 @@
 #ifndef RlModel_H
 #define RlModel_H
 
-#include "Model.h"
-#include "WorkspaceToCoreWrapperObject.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <set>
+#include <vector>
+
+#include "Model.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
     
     /**
      * RevLanguage wrapper class for the Model object.

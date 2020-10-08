@@ -1,13 +1,14 @@
 #ifndef TajimasDFunction_H
 #define TajimasDFunction_H
 
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "TypedDagNode.h"
+#include <iosfwd>
+
 #include "TypedFunction.h"
 
-#include <vector>
-
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+class DagNode;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Function to calculate Patterson's D statistic.

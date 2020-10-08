@@ -23,10 +23,10 @@
  * to add your objects in the code.
  */
 
+#include <stdio.h>
 #include <sstream>
 #include <vector>
 #include <cstdlib>
-#include <stdio.h>
 #include <string>
 
 /* Files including helper classes */
@@ -86,14 +86,12 @@
 
 /* Primitive types (in folder "datatypes/basic") */
 #include "Integer.h"
-#include "IntegerPos.h"
 #include "Natural.h"
 #include "Probability.h"
 #include "RlBoolean.h"
 #include "RlString.h"
 #include "Real.h"
 #include "RealPos.h"
-
 /* Container types (in folder "datatypes/container") */
 #include "ModelVector.h"
 
@@ -188,8 +186,6 @@
 #include "Func__uminus.h"
 #include "Func__vectorScalarDiv.h"
 #include "Func__vectorScalarSub.h"
-
-
 /* Input/output functions (in folder "functions/io") */
 #include "Func_ancestralStateTree.h"
 #include "Func_annotateTree.h"
@@ -227,8 +223,6 @@
 #include "Func_writeCharacterDataDelimited.h"
 #include "Func_writeFasta.h"
 #include "Func_writeNexus.h"
-
-
 /* Math functions (in folder "functions/math") */
 //#include "Func_abs.h"
 //#include "Func_ceil.h"

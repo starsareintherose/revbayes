@@ -1,10 +1,9 @@
 #include "AvgDistanceMatrixFunction.h"
 
-#include <vector>
-
-#include "RbVector.h"
 #include "TreeUtilities.h"
 #include "TypedDagNode.h"
+
+namespace RevBayesCore { class DistanceMatrix; }
 
 using namespace RevBayesCore;
 

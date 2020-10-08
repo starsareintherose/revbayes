@@ -7,7 +7,7 @@
 #include "RandomNumberFactory.h"
 #include "RbConstants.h"
 #include "StochasticNode.h"
-#include "Cloneable.h"
+
 #include "Tree.h"
 
 namespace RevBayesCore { class DagNode; }

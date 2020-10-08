@@ -1,19 +1,19 @@
 #ifndef Distribution_H
 #define Distribution_H
 
+#include <iostream>
+#include <vector>
+
 #include "Cloneable.h"
 #include "Parallelizable.h"
-#include "RbOrderedSet.h"
 #include "RevPtr.h"
-#include "RevVariable.h"
 
-#include <iostream>
-#include <set>
-#include <vector>
+namespace RevLanguage { class RevVariable; }
 
 namespace RevBayesCore {
     
     class DagNode;
+    template <class valueType> class RbOrderedSet;
     
     /**
      * @brief Distribution: interface for all core distributions

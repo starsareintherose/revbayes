@@ -1,15 +1,20 @@
 #ifndef MultispeciesCoalescentMigration_H
 #define MultispeciesCoalescentMigration_H
 
-#include "RateGenerator.h"
-#include "RbVector.h"
+#include <stddef.h>
+#include <set>
+#include <vector>
+
 #include "Tree.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "Taxon.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+class RateGenerator;
+class TopologyNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     class MultispeciesCoalescentMigration : public TypedDistribution<Tree> {
         

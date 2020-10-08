@@ -1,14 +1,15 @@
 #ifndef RevVariable_H
 #define RevVariable_H
 
-#include "RevObject.h"
+#include <stddef.h>
+#include <string>
+#include <iosfwd>
+
 #include "RevPtr.h"
 #include "TypeSpec.h"
 
-#include <string>
-#include <set>
-
 namespace RevLanguage {
+class RevObject;
     
     /**
      * @brief Variable: named (in frames) or unnamed (temporary) Rev variables

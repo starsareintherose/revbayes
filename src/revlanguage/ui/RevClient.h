@@ -1,9 +1,7 @@
 #ifndef REVCLIENT_H
 #define	REVCLIENT_H
 
-#include <set>
 #include <string>
-#include <vector>
 
 
 //struct tabCompletionInfo{

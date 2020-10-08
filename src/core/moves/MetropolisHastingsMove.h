@@ -1,14 +1,15 @@
 #ifndef MetropolisHastingsMove_H
 #define MetropolisHastingsMove_H
 
-#include "AbstractMove.h"
+#include <stddef.h>
+#include <iosfwd>
 
-#include <set>
-#include <vector>
+#include "AbstractMove.h"
 
 namespace RevBayesCore {
     
     class Proposal;
+class DagNode;
     
     /**
      * Base class for all Metropolis-Hastings within an MCMC. 

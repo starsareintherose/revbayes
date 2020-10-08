@@ -5,6 +5,7 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "StochasticNode.h"
+#include "RbException.h"
 
 namespace RevBayesCore { class DagNode; }
 

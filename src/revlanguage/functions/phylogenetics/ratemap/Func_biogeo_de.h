@@ -19,13 +19,23 @@
 #ifndef Func_biogeo_de_H
 #define Func_biogeo_de_H
 
+#include <string>
+#include <iosfwd>
+#include <vector>
+
 #include "RlRateGeneratorSequence.h"
 #include "RlTypedFunction.h"
-
-#include <map>
-#include <string>
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "RateGeneratorSequence.h"
+#include "RevPtr.h"
+#include "RlDeterministicNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class TypeSpec;
     
     class Func_biogeo_de : public TypedFunction<RateGeneratorSequence> {
         

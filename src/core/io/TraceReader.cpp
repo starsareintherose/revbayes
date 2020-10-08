@@ -5,7 +5,7 @@
 
 #include "RbException.h"
 #include "RbFileManager.h"
-#include "StringUtilities.h"
+
 #include "TraceReader.h"
 #include "Trace.h"
 

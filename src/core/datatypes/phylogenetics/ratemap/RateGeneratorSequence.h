@@ -1,20 +1,17 @@
 #ifndef RateGeneratorSequence_H
 #define RateGeneratorSequence_H
 
-#include "CharacterEvent.h"
-#include "CharacterEventDiscrete.h"
-#include "CharacterState.h"
-#include "Cloneable.h"
-#include "RateGenerator.h"
-#include "RateMatrix.h"
-#include "RbVector.h"
-#include "TopologyNode.h"
-#include "TransitionProbabilityMatrix.h"
-
+#include <stddef.h>
 #include <set>
 #include <vector>
+#include <iosfwd>
+
+#include "RateGenerator.h"
 
 namespace RevBayesCore {
+class CharacterEvent;
+class CharacterEventDiscrete;
+class TransitionProbabilityMatrix;
     
 //    class RateGeneratorSequence : public RateGenerator, public Cloneable {
     class RateGeneratorSequence : public RateGenerator {

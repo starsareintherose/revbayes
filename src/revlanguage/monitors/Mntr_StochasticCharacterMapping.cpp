@@ -32,8 +32,9 @@
 #include "StochasticCharacterMappingMonitor.h"
 #include "StochasticNode.h"
 #include "TypedDistribution.h"
+#include "AbstractHomologousDiscreteCharacterData.h"
+#include "Natural.h"
 
-namespace RevBayesCore { class AbstractHomologousDiscreteCharacterData; }
 namespace RevBayesCore { class Tree; }
 namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 

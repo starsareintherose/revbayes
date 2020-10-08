@@ -8,7 +8,7 @@
 #include "RandomNumberFactory.h"
 #include "RbConstants.h"
 #include "RbMathCombinatorialFunctions.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "StochasticNode.h"
 #include "TypedDistribution.h"

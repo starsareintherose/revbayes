@@ -16,15 +16,28 @@
 #ifndef RlRootedTripletDistribution_H
 #define RlRootedTripletDistribution_H
 
-#include "ModelObject.h"
-#include "RootedTripletDistribution.h"
-
-#include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "ModelObject.h"
+#include "RootedTripletDistribution.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     
     class RootedTripletDistribution : public ModelObject<RevBayesCore::RootedTripletDistribution> {

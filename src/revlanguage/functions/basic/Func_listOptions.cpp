@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <fstream>
-#include <vector>
 
 #include "Func_listOptions.h"
 #include "RbSettings.h"
@@ -8,7 +7,6 @@
 #include "TypeSpec.h"
 #include "ArgumentRules.h"
 #include "Procedure.h"
-#include "RbHelpReference.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlFunction.h"

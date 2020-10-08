@@ -1,11 +1,12 @@
 #ifndef RbHelpDatabase_H
 #define RbHelpDatabase_H
 
-#include "RbHelpReference.h"
-
 #include <map>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "RbHelpReference.h"
 
 namespace RevBayesCore {
     

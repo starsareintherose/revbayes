@@ -25,6 +25,7 @@
 #include "SimplexFromVectorFunction.h"
 #include "TypeSpec.h"
 #include "WorkspaceToCoreWrapperObject.h"
+#include "RevNullObject.h"
 
 namespace RevLanguage { class Argument; }
 

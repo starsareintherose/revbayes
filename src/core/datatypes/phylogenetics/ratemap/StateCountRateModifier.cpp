@@ -9,7 +9,7 @@
 #include "StateCountRateModifier.h"
 #include "Assignable.h"
 #include "CharacterHistoryRateModifier.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

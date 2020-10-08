@@ -1,12 +1,18 @@
 #ifndef DiversityDependentPureProcess_H
 #define DiversityDependentPureProcess_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "AbstractBirthDeathProcess.h"
+#include "RbException.h"
 
 namespace RevBayesCore {
     
-    class Clade;
     class Taxon;
+class DagNode;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Diversity-dependent pure-birth (Yule) process.

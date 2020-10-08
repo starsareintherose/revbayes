@@ -20,7 +20,7 @@
 #include "RlFunction.h"
 #include "RlTypedFunction.h"
 #include "Simplex.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedFunction.h"
 

@@ -1,11 +1,17 @@
 #ifndef Dist_bdp_H
 #define Dist_bdp_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "ConstantRateBirthDeathProcess.h"
 #include "RlBirthDeathProcess.h"
-#include "RlTimeTree.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the Dist_bdp

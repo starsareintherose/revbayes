@@ -36,20 +36,21 @@
 #ifndef TopologyNode_H
 #define TopologyNode_H
 
-#include "Clade.h"
-#include "RbBitSet.h"
+#include <stddef.h>
+#include <vector>
+#include <map>
+#include <string>
+#include <iosfwd>
 
+#include "Clade.h"
 #include "TreeChangeEventMessage.h"
 #include "Taxon.h"
 #include "TaxonMap.h"
 
-#include <vector>
-#include <map>
-#include <string>
-
 namespace RevBayesCore {
     
     class Tree;
+class RbBitSet;
     
     class TopologyNode  {
         

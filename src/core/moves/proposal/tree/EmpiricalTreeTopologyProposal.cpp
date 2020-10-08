@@ -11,7 +11,7 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "TreeUtilities.h"
-#include "Cloner.h"
+
 #include "Proposal.h"
 #include "RbOrderedSet.h"
 #include "RbVector.h"

@@ -1,16 +1,18 @@
 #ifndef SyntaxFunctionDef_H
 #define SyntaxFunctionDef_H
 
-#include "SyntaxElement.h"
-#include "SyntaxFormal.h"
-#include "SyntaxVariable.h"
-#include "TypeSpec.h"
-
 #include <ostream>
 #include <list>
 #include <string>
 
+#include "SyntaxElement.h"
+#include "TypeSpec.h"
+#include "RevPtr.h"
+
 namespace RevLanguage {
+class Environment;
+class RevVariable;
+class SyntaxFormal;
 
     /**
      * @brief Function definition syntax element

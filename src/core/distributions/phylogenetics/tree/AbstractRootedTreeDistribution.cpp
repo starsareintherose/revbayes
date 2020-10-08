@@ -16,7 +16,7 @@
 #include "Taxon.h"
 #include "TopologyNode.h"
 #include "RbSettings.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"

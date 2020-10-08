@@ -1,14 +1,16 @@
 #ifndef SyntaxIncrement_H
 #define SyntaxIncrement_H
 
-#include "SyntaxElement.h"
-#include "SyntaxVariable.h"
-
 #include <iostream>
-#include <list>
 #include <string>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class RevVariable;
     
     /**
      * @brief Increment operator ('a++' and '++a')

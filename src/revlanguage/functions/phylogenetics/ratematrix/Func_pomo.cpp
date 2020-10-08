@@ -22,7 +22,7 @@
 #include "RlFunction.h"
 #include "RlRateGenerator.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedFunction.h"
 #include "RealPos.h" // IWYU pragma: keep

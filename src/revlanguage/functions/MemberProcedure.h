@@ -1,18 +1,17 @@
 #ifndef MemberProcedure_H
 #define MemberProcedure_H
 
+#include <string>
+#include <iosfwd>
+
 #include "Procedure.h"
 #include "RlMemberMethod.h"
-
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
+#include "RevPtr.h"
+#include "TypeSpec.h"
 
 namespace RevLanguage {
-    
-    class ArgumentRule;
-    class RevObject;
+class ArgumentRules;
+class RevVariable;
     
     
     /**

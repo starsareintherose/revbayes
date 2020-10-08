@@ -1,15 +1,17 @@
 #ifndef RateMatrix_TamuraNei_H
 #define RateMatrix_TamuraNei_H
 
-#include "TimeReversibleRateMatrix.h"
 #include <complex>
 #include <vector>
+
+#include "TimeReversibleRateMatrix.h"
 
 
 namespace RevBayesCore {
     
     class EigenSystem;
     class TransitionProbabilityMatrix;
+class Assignable;
     
     /**
      * @brief TamuraNei (Tamura-Nei 3-parameter) rate matrix class.

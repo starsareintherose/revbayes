@@ -1,16 +1,20 @@
 #ifndef IntegerPos_H
 #define IntegerPos_H
 
-#include "Natural.h"
-
 #include <ostream>
 #include <string>
+
+#include "Natural.h"
+#include "RevObject.h"
+
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 
 
 namespace RevLanguage {
 
     class RealPos;
+class TypeSpec;
 
     /**
      * Primitive type for positive integer numbers (same as Natural without 0).

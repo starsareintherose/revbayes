@@ -2,7 +2,7 @@
 #include <sstream>
 
 #include "MonteCarloSampler.h"
-#include "Cloneable.h"
+
 #include "Parallelizable.h"
 
 using namespace RevBayesCore;

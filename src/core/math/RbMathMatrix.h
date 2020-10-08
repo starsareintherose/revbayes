@@ -18,13 +18,12 @@
 #ifndef RbMathMatrix_H
 #define RbMathMatrix_H
 
-#include "MatrixComplex.h"
+#include <vector>
+
 #include "MatrixReal.h"
 
-
-#include <complex>
-
 namespace RevBayesCore {
+class MatrixComplex;
 
     namespace RbMath {
 

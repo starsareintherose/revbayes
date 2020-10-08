@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "CharacterEventContinuous.h"
-#include "Cloneable.h"
+
 
 namespace RevBayesCore { class CharacterEvent; }
 

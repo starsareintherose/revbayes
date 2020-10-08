@@ -1,11 +1,16 @@
 #ifndef Dist_chisq_H
 #define Dist_chisq_H
 
+#include <iosfwd>
+
 #include "ChisqDistribution.h"
-#include "RealPos.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the chi-square distribution.

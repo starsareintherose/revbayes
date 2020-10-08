@@ -29,7 +29,7 @@
 #include "RlConstantNode.h"
 #include "RlFunction.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"

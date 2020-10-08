@@ -13,7 +13,7 @@
 #include "DistributionMultivariateNormal.h"
 #include "RbConstants.h"
 #include "DistributionNormal.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 

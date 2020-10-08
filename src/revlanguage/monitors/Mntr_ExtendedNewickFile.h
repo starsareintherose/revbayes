@@ -18,14 +18,17 @@
 #ifndef Mntr_ExtendedNewickFile_H
 #define Mntr_ExtendedNewickFile_H
 
-#include "ExtendedNewickTreeMonitor.h"
-#include "RlMonitor.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "RlMonitor.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     class Mntr_ExtendedNewickFile : public Monitor {
         

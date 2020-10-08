@@ -1,7 +1,7 @@
 #ifndef VectorScalarDivision_H
 #define VectorScalarDivision_H
 
-#include "StringUtilities.h"    // For string concatenation through Division
+    // For string concatenation through Division
 #include "TypedFunction.h"
 #include "TypedDagNode.h"
 

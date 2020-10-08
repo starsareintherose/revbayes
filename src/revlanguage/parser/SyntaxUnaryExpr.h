@@ -16,10 +16,12 @@
 #ifndef SyntaxUnaryExpr_H
 #define SyntaxUnaryExpr_H
 
-#include "SyntaxElement.h"
-
 #include <iostream>
-#include <vector>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 
 /**
@@ -32,6 +34,7 @@
  */
 
 namespace RevLanguage {
+class RevVariable;
 
     /**
      * @brief Unary expression syntax element

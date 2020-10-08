@@ -1,13 +1,17 @@
 #ifndef Move_BetaProbability_H
 #define Move_BetaProbability_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * @brief Rev Wrapper of a beta-Probability move on a single elements of Probability.

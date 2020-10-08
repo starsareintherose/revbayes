@@ -1,15 +1,20 @@
 #ifndef PiecewiseConstantCoalescent_H
 #define PiecewiseConstantCoalescent_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "AbstractCoalescent.h"
 #include "RbVector.h"
-#include "Taxon.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
+#include "MemberObject.h"
 
 namespace RevBayesCore {
     
     class Clade;
+class DagNode;
+class Taxon;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Piecewise-constant population size coalescent process.

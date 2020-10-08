@@ -1,10 +1,16 @@
 #ifndef Dist_SoftBoundUniformNormal_H
 #define Dist_SoftBoundUniformNormal_H
 
+#include <iosfwd>
+
 #include "SoftBoundUniformNormalDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

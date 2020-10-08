@@ -1,4 +1,3 @@
-#include <sstream>
 #include <string>
 
 #include "Natural.h"
@@ -9,6 +8,7 @@
 #include "Real.h"
 #include "RevObject.h"
 #include "TypedDagNode.h"
+#include "RevPtr.h"
 
 using namespace RevLanguage;
     

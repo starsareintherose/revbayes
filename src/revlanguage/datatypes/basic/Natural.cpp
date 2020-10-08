@@ -1,4 +1,3 @@
-#include <sstream>
 #include <string>
 
 #include "RlBoolean.h"
@@ -14,6 +13,7 @@
 #include "TypeSpec.h"
 #include "RevObject.h"
 #include "TypedDagNode.h"
+#include "RevPtr.h"
 
 using namespace RevLanguage;
 

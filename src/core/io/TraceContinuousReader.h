@@ -1,6 +1,9 @@
 #ifndef TraceContinuousReader_H
 #define TraceContinuousReader_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "DelimitedDataReader.h"
 #include "TraceNumeric.h"
 

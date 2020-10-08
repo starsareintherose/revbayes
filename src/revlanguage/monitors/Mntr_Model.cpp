@@ -1,7 +1,10 @@
-#include "ModelVector.h"
+#include <stddef.h>
 #include <ostream>
 #include <string>
+#include <set>
+#include <vector>
 
+#include "ModelVector.h"
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
 #include "Mntr_Model.h"
@@ -16,6 +19,18 @@
 #include "RevVariable.h"
 #include "RlBoolean.h"
 #include "RlMonitor.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "ModelObject.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
+#include "RlConstantNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 
 using namespace RevLanguage;

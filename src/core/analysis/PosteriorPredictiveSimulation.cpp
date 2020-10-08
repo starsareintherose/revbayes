@@ -13,7 +13,7 @@
 #include "StateDependentSpeciationExtinctionProcess.h"
 #include "RbFileManager.h"
 #include "AbstractHomologousDiscreteCharacterData.h"
-#include "Cloneable.h"
+
 #include "DiscreteTaxonData.h"
 #include "Model.h"
 #include "NaturalNumbersState.h"
@@ -21,7 +21,7 @@
 #include "RbException.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "Trace.h"
 #include "Tree.h"

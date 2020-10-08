@@ -1,21 +1,17 @@
 #ifndef MonteCarloSampler_H
 #define MonteCarloSampler_H
 
-#include "Cloneable.h"
-#include "Model.h"
+#include <stddef.h>
+#include <iosfwd>
+
+
 #include "Monitor.h"
-#include "MonteCarloAnalysis.h"
-#include "Move.h"
-#include "MoveSchedule.h"
 #include "Parallelizable.h"
-#include "RandomMoveSchedule.h"
-#include "RbVector.h"
-#include <vector>
-#include "SequentialMoveSchedule.h"
+#include "MonteCarloAnalysisOptions.h"
 
 namespace RevBayesCore {
-    
-    class Monitor;
+class Model;
+template <class valueType> class RbVector;
     
     /**
      * @brief Abstract class for all Monte Carlo samplers, such as the Markov chain Monte Carlo (MCMC) sampler and Metropolis coupled MCMC (MC^3).

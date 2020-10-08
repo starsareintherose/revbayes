@@ -1,14 +1,19 @@
 #ifndef RlMonteCarloAnalysis_H
 #define RlMonteCarloAnalysis_H
 
-#include "MonteCarloAnalysis.h"
-#include "TypedDagNode.h"
-#include "WorkspaceToCoreWrapperObject.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "MonteCarloAnalysis.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
     
     /**
      * @brief Rev-wrapper of MonteCarloAnalysis class.

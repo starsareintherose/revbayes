@@ -1,13 +1,17 @@
 #ifndef Move_DirichletSimplex_H
 #define Move_DirichletSimplex_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * @brief Rev Wrapper of a Dirichlet-simplex move on all elements of a simplex.

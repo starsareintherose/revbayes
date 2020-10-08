@@ -1,12 +1,12 @@
 #ifndef SSE_ODE_H
 #define SSE_ODE_H
 
-#include "AbstractBirthDeathProcess.h"
-#include "RateMatrix.h"
-
+#include <stddef.h>
 #include <vector>
+#include <map>
 
 namespace RevBayesCore {
+class RateGenerator;
     
     /**
      * @brief Multi-rate cladogenetic birth-death ODE.

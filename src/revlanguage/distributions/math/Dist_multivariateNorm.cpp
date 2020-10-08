@@ -23,7 +23,6 @@
 #include "ModelObject.h"
 #include "Natural.h"
 #include "RbException.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RevNullObject.h"
 #include "RevObject.h"

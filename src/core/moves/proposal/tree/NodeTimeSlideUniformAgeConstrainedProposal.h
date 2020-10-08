@@ -2,12 +2,17 @@
 #define NodeTimeSlideUniformAgeConstrainedProposal_H
 
 #include <string>
+#include <iosfwd>
 
 #include "Proposal.h"
-#include "StochasticNode.h"
-#include "Tree.h"
+#include "Clade.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 namespace RevBayesCore {
+class DagNode;
+class Tree;
+template <class variableType> class StochasticNode;
     
     /**
      * The node-age slide proposal operator using a Uniform distribution.

@@ -18,12 +18,16 @@
 #ifndef Func_jones_H
 #define Func_jones_H
 
-#include "Procedure.h"
-
-#include <map>
 #include <string>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_jones : public Procedure {
         

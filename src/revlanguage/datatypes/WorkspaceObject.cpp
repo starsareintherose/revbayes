@@ -1,6 +1,7 @@
 #include "WorkspaceObject.h"
 
 #include "TypeSpec.h"
+#include "RevPtr.h"
 
 using namespace RevLanguage;
 

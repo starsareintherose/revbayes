@@ -18,7 +18,7 @@
 #ifndef RbMathCombinatorialFunctions_H
 #define RbMathCombinatorialFunctions_H
 
-#include <vector>
+#include <stddef.h>
 
 namespace RevBayesCore {
 

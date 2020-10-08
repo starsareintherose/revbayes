@@ -6,7 +6,7 @@
 #include "DagNode.h"
 #include "MaximumLikelihoodAnalysis.h"
 #include "BootstrapAnalysis.h"
-#include "Cloneable.h"
+
 #include "Model.h"
 #include "Parallelizable.h"
 

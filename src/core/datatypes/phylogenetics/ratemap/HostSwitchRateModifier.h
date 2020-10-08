@@ -10,17 +10,23 @@
 #define HostSwitchRateModifier_h
 
 
-#include "CharacterHistoryRateModifier.h"
-#include "StochasticNode.h"
-#include "TopologyNode.h"
-
+#include <stddef.h>
 #include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "CharacterHistoryRateModifier.h"
+#include "TopologyNode.h"
+#include "DistanceMatrix.h"
+#include "Tree.h"
 
 
 namespace RevBayesCore
 {
+class Assignable;
+class CharacterEvent;
+class CharacterEventDiscrete;
     
     
     

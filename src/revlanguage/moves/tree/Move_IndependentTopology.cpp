@@ -23,7 +23,7 @@
 #include "RlDistribution.h"
 #include "RlTree.h"
 #include "StochasticNode.h"
-#include "StringUtilities.h"
+
 #include "TypedDistribution.h"
 
 namespace RevBayesCore { class Clade; }

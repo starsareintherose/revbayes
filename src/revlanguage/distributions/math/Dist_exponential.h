@@ -1,10 +1,17 @@
 #ifndef Dist_exponential_H
 #define Dist_exponential_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "ExponentialDistribution.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the exponential distribution.

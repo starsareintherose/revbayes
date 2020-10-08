@@ -11,7 +11,7 @@
 #include <utility>
 
 #include "CladogeneticSpeciationRateMatrix.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "TypedDagNode.h"
 

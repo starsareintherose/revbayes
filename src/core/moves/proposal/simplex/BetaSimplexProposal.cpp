@@ -8,7 +8,7 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "RbException.h"
-#include "Cloneable.h"
+
 #include "RbConstants.h"
 #include "RbVectorImpl.h"
 #include "StochasticNode.h"

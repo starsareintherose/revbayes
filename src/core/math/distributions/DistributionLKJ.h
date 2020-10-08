@@ -9,7 +9,8 @@
 #ifndef DistributionLKJ_H
 #define DistributionLKJ_H
 
-#include <iostream>
+#include <stddef.h>
+
 #include "MatrixReal.h"
 
 namespace RevBayesCore {

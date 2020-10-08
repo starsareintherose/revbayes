@@ -19,7 +19,6 @@
 #include "ModelObject.h"
 #include "ModelVector.h"
 #include "Natural.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

@@ -16,16 +16,19 @@
 #ifndef Func_readAncestralStateTrace_H
 #define Func_readAncestralStateTrace_H
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-#include "RlAncestralStateTrace.h"
-
-#include <map>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
+#include "Trace.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_readAncestralStateTrace :  public Procedure {
         

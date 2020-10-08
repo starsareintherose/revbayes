@@ -1,4 +1,5 @@
 #include "Func_stochasticMatrix.h"
+
 #include "ArgumentRule.h"
 #include "ModelVector.h"
 #include "RlDeterministicNode.h"
@@ -9,13 +10,13 @@
 #include "ArgumentRules.h"
 #include "ModelObject.h"
 #include "RbVector.h"
-#include "Real.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "RlSimplex.h"
 #include "RlStochasticMatrix.h"
-#include "Simplex.h"
 #include "StringUtilities.h"
+
+namespace RevBayesCore { class Simplex; }
 
 
 using namespace RevLanguage;

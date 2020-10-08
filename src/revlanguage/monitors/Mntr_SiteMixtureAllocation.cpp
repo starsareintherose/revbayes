@@ -11,7 +11,6 @@
 #include "RbException.h"
 #include "RevObject.h"
 #include "RlAbstractHomologousDiscreteCharacterData.h"
-#include "RlTimeTree.h"
 #include "RlString.h"
 #include "TypeSpec.h"
 #include "NaturalNumbersState.h"
@@ -19,17 +18,15 @@
 #include "StandardState.h"
 #include "AminoAcidState.h"
 #include "PoMoState.h"
-#include "AbstractHomologousDiscreteCharacterData.h"
 #include "DiscreteTaxonData.h"
 #include "SiteMixtureAllocationMonitor.h"
 #include "Monitor.h"
 #include "RbBoolean.h"
 #include "RlBoolean.h"
-#include "RlTree.h"
 #include "StochasticNode.h"
 
-namespace RevBayesCore { class Tree; }
 namespace RevBayesCore { template <class valueType> class TypedDagNode; }
+namespace RevBayesCore { class AbstractHomologousDiscreteCharacterData; }
 
 using namespace RevLanguage;
 

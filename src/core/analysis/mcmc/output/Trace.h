@@ -7,7 +7,7 @@
 
 #include "RbVector.h"
 #include "Simplex.h"
-#include "Cloneable.h"
+
 #include "IsDerivedFrom.h"
 #include "RbException.h"
 #include "Serializer.h"

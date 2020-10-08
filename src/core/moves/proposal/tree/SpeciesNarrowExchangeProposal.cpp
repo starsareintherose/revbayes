@@ -8,7 +8,7 @@
 #include "RandomNumberGenerator.h"
 #include "RbConstants.h"
 #include "TreeUtilities.h"
-#include "Cloneable.h"
+
 #include "StochasticNode.h"
 #include "TopologyNode.h"
 #include "Tree.h"

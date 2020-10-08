@@ -1,9 +1,16 @@
 #ifndef Mntr_Screen_H
 #define Mntr_Screen_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "RlMonitor.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
 
     /**
      * @copybrief RevBayesCore::ScreenMonitor

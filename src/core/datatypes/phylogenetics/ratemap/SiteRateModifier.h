@@ -9,17 +9,22 @@
 #ifndef SiteRateModifier_h
 #define SiteRateModifier_h
 
-#include "CharacterHistoryRateModifier.h"
-#include "StochasticNode.h"
-#include "TopologyNode.h"
-
-#include <set>
+#include <stddef.h>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "CharacterHistoryRateModifier.h"
+#include "TopologyNode.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 
 namespace RevBayesCore
 {
+class Assignable;
+class CharacterEvent;
+class CharacterEventDiscrete;
     
     
     

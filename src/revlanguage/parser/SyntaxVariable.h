@@ -1,16 +1,16 @@
 #ifndef SyntaxVariable_H
 #define SyntaxVariable_H
 
-#include "ModelVector.h"
-#include "Natural.h"
-#include "SyntaxElement.h"
-
 #include <iostream>
 #include <vector>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
-    
-    class SyntaxFunctionCall;
+class RevVariable;
     
     
     /**

@@ -1,14 +1,16 @@
 #ifndef RlExponentialDemographicFunction_H
 #define RlExponentialDemographicFunction_H
 
-#include "ExponentialDemographicFunction.h"
-#include "RlDemographicFunction.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlDemographicFunction.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     class ExponentialDemographicFunction : public DemographicFunction {
         

@@ -12,7 +12,7 @@
 #include "OptionRule.h"
 #include "RbException.h"
 #include "RlString.h"
-#include "StringUtilities.h"
+
 #include "RlAbstractHomologousDiscreteCharacterData.h"
 #include "RlContinuousCharacterData.h"
 #include "RlNaturalNumbersState.h"

@@ -1,14 +1,19 @@
 #ifndef RlSteppingStoneSampler_H
 #define RlSteppingStoneSampler_H
 
-#include "SteppingStoneSampler.h"
-#include "TypedDagNode.h"
-#include "WorkspaceToCoreWrapperObject.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "SteppingStoneSampler.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
     
     
     /**

@@ -1,13 +1,18 @@
 #ifndef Move_SpeciesTreeScale_H
 #define Move_SpeciesTreeScale_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
 
 
     /**

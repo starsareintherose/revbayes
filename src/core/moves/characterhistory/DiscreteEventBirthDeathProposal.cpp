@@ -8,7 +8,7 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "AbstractCharacterHistoryBirthDeathProcess.h"
-#include "Cloneable.h"
+
 #include "EventBirthDeathProposal.h"
 
 namespace RevBayesCore { class CharacterEvent; }

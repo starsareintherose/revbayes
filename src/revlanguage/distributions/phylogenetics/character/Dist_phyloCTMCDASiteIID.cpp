@@ -39,7 +39,6 @@
 #include "RlConstantNode.h"
 #include "RlDistribution.h"
 #include "RnaState.h"
-#include "StringUtilities.h"
 #include "Tree.h"
 #include "TreeHistoryCtmc.h"
 #include "TypeSpec.h"

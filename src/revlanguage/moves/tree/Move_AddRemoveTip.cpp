@@ -19,7 +19,7 @@
 #include "RevVariable.h"
 #include "RlMove.h"
 #include "StochasticNode.h"
-#include "StringUtilities.h"
+
 
 namespace RevBayesCore { class Proposal; }
 namespace RevBayesCore { class Tree; }

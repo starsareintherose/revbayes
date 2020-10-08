@@ -12,7 +12,7 @@
 #include "DistanceMatrix.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TreeUtilities.h"
 #include "TypedDagNode.h"

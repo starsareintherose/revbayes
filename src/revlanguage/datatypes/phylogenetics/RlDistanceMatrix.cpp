@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <vector>
-#include <iosfwd>
 #include <string>
 
 #include "ArgumentRule.h"

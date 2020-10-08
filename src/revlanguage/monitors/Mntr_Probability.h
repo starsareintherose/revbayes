@@ -1,14 +1,16 @@
 #ifndef Mntr_Probability_H
 #define Mntr_Probability_H
 
-#include "ModelMonitor.h"
-#include "RlMonitor.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMonitor.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     class Mntr_Probability : public Monitor {
         

@@ -1,11 +1,14 @@
 #ifndef UserFunctionDef_H
 #define UserFunctionDef_H
 
-#include "SyntaxElement.h"
-
 #include <list>
+#include <iosfwd>
+
+#include "TypeSpec.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class SyntaxElement;
 
     /**
      * @brief Definitions of user functions or procedures

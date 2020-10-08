@@ -1,15 +1,16 @@
 #ifndef MultipleElementScaleProposal_H
 #define MultipleElementScaleProposal_H
 
-#include "RbVector.h"
-#include "Proposal.h"
-#include "StochasticNode.h"
-
 #include <ostream>
 #include <vector>
 #include <string>
+#include <cstddef>
+
+#include "Proposal.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class variableType> class StochasticNode;
     
     /**
      * @brief Scaling Proposal of a all elements of a vector.

@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <sstream>
 #include <set>
 
 #include "Environment.h"

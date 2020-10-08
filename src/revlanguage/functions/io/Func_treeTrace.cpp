@@ -12,6 +12,7 @@
 
 #include <math.h>
 #include <stddef.h>
+#include <vector>
 
 #include "ArgumentRule.h"
 #include "ModelVector.h"

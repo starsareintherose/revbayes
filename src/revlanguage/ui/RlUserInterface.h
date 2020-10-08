@@ -20,12 +20,12 @@
 #ifndef UserInterface_H
 #define UserInterface_H
 
-#include "RlUserInterfaceOutputStream.h"
-
 #include <iostream>
-#include <sstream>
+
+class UserInterfaceOutputStream;
 
 namespace RevLanguage {
+class UserInterface;
 
 #define RBOUT(m) RevLanguage::UserInterface::userInterface().output((m))
 

@@ -1,15 +1,16 @@
 #ifndef SyntaxClassDef_H
 #define SyntaxClassDef_H
 
-#include "SyntaxElement.h"
-#include "SyntaxFormal.h"
-#include "SyntaxVariable.h"
-
 #include <ostream>
 #include <list>
 #include <string>
 
+#include "SyntaxElement.h"
+#include "RevPtr.h"
+
 namespace RevLanguage {
+class Environment;
+class RevVariable;
     
     /**
      * @brief Class definition syntax element

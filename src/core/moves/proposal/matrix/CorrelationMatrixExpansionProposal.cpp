@@ -8,7 +8,7 @@
 #include "RandomNumberFactory.h"
 #include "RbException.h"
 #include "TypedDagNode.h"
-#include "Cloneable.h"
+
 #include "PhyloMultivariateBrownianProcessREML.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

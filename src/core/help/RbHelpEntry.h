@@ -5,9 +5,8 @@
 #include <vector>
 #include <iosfwd>
 
-#include "RbHelpReference.h"
-
 namespace RevBayesCore {
+class RbHelpReference;
     
     
     /**

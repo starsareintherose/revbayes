@@ -18,16 +18,12 @@
 #ifndef MethodTable_H
 #define MethodTable_H
 
+#include <stddef.h>
+#include <string>
+
 #include "FunctionTable.h"
 
-#include <map>
-#include <ostream>
-#include <string>
-#include <vector>
-
 namespace RevLanguage {
-
-    class Function;
 
     class MethodTable : public FunctionTable {
 

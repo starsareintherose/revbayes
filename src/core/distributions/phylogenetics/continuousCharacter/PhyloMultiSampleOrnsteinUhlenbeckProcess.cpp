@@ -12,7 +12,7 @@
 #include "StochasticNode.h"
 #include "TreeUtilities.h"
 #include "TopologyNode.h"
-#include "Cloneable.h"
+
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
 #include "RbVector.h"

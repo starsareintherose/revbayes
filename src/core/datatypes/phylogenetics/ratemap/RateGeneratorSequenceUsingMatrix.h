@@ -1,16 +1,20 @@
 #ifndef RateGeneratorSequenceUsingMatrix_H
 #define RateGeneratorSequenceUsingMatrix_H
 
-#include "CharacterHistoryRateModifier.h"
-#include "RateGeneratorSequence.h"
-#include "RateMatrix.h"
-#include "RbVector.h"
-#include "TransitionProbabilityMatrix.h"
-
+#include <stddef.h>
 #include <set>
 #include <vector>
+#include <iosfwd>
+
+#include "RateGeneratorSequence.h"
 
 namespace RevBayesCore {
+class CharacterEvent;
+class CharacterEventDiscrete;
+class CharacterHistoryRateModifier;
+class RateGenerator;
+class TransitionProbabilityMatrix;
+template <class valueType> class RbVector;
     
     class RateGeneratorSequenceUsingMatrix : public RateGeneratorSequence {
         

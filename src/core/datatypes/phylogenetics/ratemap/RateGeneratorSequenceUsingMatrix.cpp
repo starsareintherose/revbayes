@@ -10,7 +10,7 @@
 #include "RbVector.h"
 #include "RbException.h"
 #include "CharacterHistoryRateModifier.h"
-#include "Cloneable.h"
+
 #include "RateGenerator.h"
 #include "RateGeneratorSequence.h"
 #include "RbVectorImpl.h"

@@ -6,7 +6,7 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "RbException.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RbConstants.h"
 #include "RbVector.h"

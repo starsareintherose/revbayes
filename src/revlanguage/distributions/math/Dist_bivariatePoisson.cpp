@@ -18,7 +18,6 @@
 #include "DynamicNode.h"
 #include "IndirectReferenceFunction.h"
 #include "ModelObject.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RevObject.h"
 #include "RevPtr.h"

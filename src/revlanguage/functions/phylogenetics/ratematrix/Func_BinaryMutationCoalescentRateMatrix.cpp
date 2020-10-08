@@ -1,14 +1,19 @@
+#include <stddef.h>
+
 #include "BinaryMutationCoalescentRateMatrixFunction.h"
 #include "Func_BinaryMutationCoalescentRateMatrix.h"
-#include "ModelVector.h"
 #include "Natural.h"
-#include "RateMatrix_BinaryMutationCoalescent.h"
-#include "Real.h"
 #include "RealPos.h"
 #include "RlDeterministicNode.h"
 #include "RlRateMatrix.h"
-#include "RlSimplex.h"
 #include "TypedDagNode.h"
+#include "Argument.h"
+#include "ArgumentRule.h"
+#include "ArgumentRules.h"
+#include "RevVariable.h"
+#include "RlFunction.h"
+
+#include "TypeSpec.h"
 
 using namespace RevLanguage;
 

@@ -1,17 +1,18 @@
 #ifndef MatrixBoolean_H
 #define MatrixBoolean_H
 
-#include "Cloneable.h"
-#include "MemberObject.h"
-#include "RbVector.h"
-
+#include <boost/dynamic_bitset.hpp>
 #include <cstddef>
 #include <ostream>
 #include <vector>
 
-#include <boost/dynamic_bitset.hpp>
+
+#include "MemberObject.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 namespace RevBayesCore {
+class DagNode;
 
     /**
      * @brief Boolean matrix class.

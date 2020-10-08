@@ -1,6 +1,5 @@
 
 #include <stddef.h>
-#include <iosfwd>
 #include <string>
 #include <vector>
 

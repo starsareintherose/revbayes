@@ -1,13 +1,17 @@
 #ifndef Func_mccTree_H
 #define Func_mccTree_H
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-
 #include <string>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_mccTree : public Procedure {
         

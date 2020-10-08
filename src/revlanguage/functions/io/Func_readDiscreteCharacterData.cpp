@@ -20,7 +20,7 @@
 #include "RlNonHomologousDiscreteCharacterData.h"
 #include "RlRnaState.h"
 #include "RlString.h"
-#include "StringUtilities.h"
+
 #include "RlUserInterface.h"
 #include "AbstractCharacterData.h"
 #include "AbstractNonHomologousDiscreteCharacterData.h"

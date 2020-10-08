@@ -19,11 +19,13 @@
 #include <ostream>
 
 #include "RealPos.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 namespace RevLanguage {
-class RevObject;
 class TypeSpec;
 
     class Probability : public RealPos {

@@ -1,7 +1,7 @@
 #ifndef BinaryAddition_H
 #define BinaryAddition_H
 
-#include "StringUtilities.h"    // For string concatenation through addition
+    // For string concatenation through addition
 #include "TypedFunction.h"
 #include "TypedDagNode.h"
 

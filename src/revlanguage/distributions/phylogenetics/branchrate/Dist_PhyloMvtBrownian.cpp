@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <ostream>
 #include <string>
 
 #include "ArgumentRule.h"
@@ -16,7 +15,6 @@
 
 namespace RevBayesCore { class MatrixReal; }
 namespace RevBayesCore { class Tree; }
-namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 using namespace RevLanguage;
 

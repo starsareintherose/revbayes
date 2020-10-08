@@ -18,12 +18,16 @@
 #ifndef Func_dayhoff_H
 #define Func_dayhoff_H
 
-#include "Procedure.h"
-
-#include <map>
 #include <string>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_dayhoff : public Procedure {
         

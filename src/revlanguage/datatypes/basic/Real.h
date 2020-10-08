@@ -1,11 +1,22 @@
 #ifndef Real_H
 #define Real_H
 
-#include "ModelObject.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "ModelObject.h"
+#include "TypedDagNode.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 /**
  * Real is the class used to hold a real value. Internally, the real is represented by
@@ -17,6 +28,7 @@
 namespace RevLanguage {
     
     class Integer;
+class TypeSpec;
 
     class Real : public ModelObject<double> {
 

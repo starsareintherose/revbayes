@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "RbVectorUtilities.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

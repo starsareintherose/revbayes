@@ -1,15 +1,18 @@
 #ifndef RateMatrix_Kimura81_H
 #define RateMatrix_Kimura81_H
 
-#include "TimeReversibleRateMatrix.h"
+#include <stddef.h>
 #include <complex>
 #include <vector>
+
+#include "TimeReversibleRateMatrix.h"
 
 
 namespace RevBayesCore {
     
     class EigenSystem;
     class TransitionProbabilityMatrix;
+class Assignable;
     
     /**
      * @brief Kimura81 (Kimura 3-parameter) rate matrix class.

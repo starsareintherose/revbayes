@@ -1,14 +1,16 @@
 #ifndef HSRFUnevenGridHyperpriorsGibbsMove_H
 #define HSRFUnevenGridHyperpriorsGibbsMove_H
 
-#include "AbstractGibbsMove.h"
-#include "AbstractMove.h"
-#include "StochasticNode.h"
-
-#include <set>
 #include <vector>
+#include <iosfwd>
+
+#include "AbstractGibbsMove.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
+template <class variableType> class StochasticNode;
     
     class HSRFUnevenGridHyperpriorsGibbsMove : public AbstractGibbsMove {
         

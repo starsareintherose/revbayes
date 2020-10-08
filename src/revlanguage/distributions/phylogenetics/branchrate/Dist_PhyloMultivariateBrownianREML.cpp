@@ -12,12 +12,11 @@
 #include "ModelObject.h"
 #include "ModelVector.h"
 #include "RbException.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RealPos.h"
 #include "RlDistribution.h"
 #include "RlMatrixReal.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TypeSpec.h"
 

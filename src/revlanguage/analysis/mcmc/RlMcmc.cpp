@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include <ostream>
 #include <string>
-#include <vector>
 
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
@@ -20,7 +19,6 @@
 #include "Monitor.h"
 #include "MonteCarloAnalysis.h"
 #include "Move.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "RevPtr.h"

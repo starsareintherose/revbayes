@@ -6,12 +6,15 @@
  */
 
 #include "ExponentialErrorDistribution.h"
+
+#include <stddef.h>
+
 #include "DistributionExponentialError.h"
 #include "RandomNumberFactory.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
-#include "TypedFunction.h"
 #include "TypedDagNode.h"
+#include "DistanceMatrix.h"
 
 namespace RevBayesCore { class DagNode; } // deals with nodes of DAGs
 namespace RevBayesCore { class RandomNumberGenerator; }

@@ -23,7 +23,7 @@
 #include "RlFunction.h"
 #include "RlString.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedFunction.h"
 

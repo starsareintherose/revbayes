@@ -4,7 +4,7 @@
 #include "CharacterEventContinuous.h"
 #include "ConditionedBirthDeathShiftProcessContinuous.h"
 #include "ContinuousEventBirthDeathProposal.h"
-#include "Cloneable.h"
+
 #include "EventBirthDeathProposal.h"
 #include "RbConstants.h"
 #include "TypedDistribution.h"

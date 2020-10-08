@@ -10,13 +10,14 @@
 #include <map>
 #include <sstream>
 #include <string>
+#include <functional>
 
 #include "ProgressBar.h"
 #include "RbBitSet.h"
 #include "RbException.h"
 #include "RbFileManager.h"
 #include "RlUserInterface.h"
-#include "StringUtilities.h"
+
 #include "TopologyNode.h"
 #include "Tree.h"
 #include "boost/algorithm/string/trim.hpp"

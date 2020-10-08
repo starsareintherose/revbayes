@@ -13,7 +13,7 @@
 #include "DistributionNormal.h"
 #include "RandomNumberFactory.h"
 #include "RbConstants.h"
-#include "Cloner.h"
+
 #include "RbVectorImpl.h"
 #include "Tree.h"
 #include "TypedDagNode.h"

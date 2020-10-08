@@ -14,7 +14,7 @@
 #include "RateGenerator.h"
 #include "TypedFunction.h"
 #include "AbstractRateMatrix.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

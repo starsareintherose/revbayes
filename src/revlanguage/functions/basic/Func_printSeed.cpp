@@ -8,7 +8,6 @@
 #include "RevNullObject.h"
 #include "TypeSpec.h"
 #include "ArgumentRules.h"
-#include "RbHelpReference.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
 

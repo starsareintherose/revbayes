@@ -1,6 +1,6 @@
 #include "LogFunction.h"
 #include <cmath>
-#include "Cloneable.h"
+
 #include "TypedDagNode.h"
 
 namespace RevBayesCore { class DagNode; }

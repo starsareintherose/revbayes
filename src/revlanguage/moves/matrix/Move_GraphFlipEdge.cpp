@@ -35,7 +35,7 @@
 #include "RbVector.h"
 #include "RlConstantNode.h"
 #include "StochasticNode.h"
-#include "StringUtilities.h"
+
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
 

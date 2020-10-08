@@ -8,7 +8,6 @@
 #include "ArgumentRules.h"
 #include "Ellipsis.h"
 #include "Mntr_Screen.h"
-#include "Natural.h"
 #include "IntegerPos.h"
 #include "ScreenMonitor.h"
 #include "TypeSpec.h"

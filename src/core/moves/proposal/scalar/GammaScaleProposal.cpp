@@ -6,7 +6,7 @@
 #include "RandomNumberFactory.h"
 #include "RbException.h"
 #include "DistributionGamma.h"
-#include "Cloneable.h"
+
 #include "RbConstants.h"
 #include "StochasticNode.h"
 

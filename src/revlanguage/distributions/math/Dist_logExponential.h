@@ -1,10 +1,16 @@
 #ifndef Dist_logExponential_H
 #define Dist_logExponential_H
 
+#include <iosfwd>
+
 #include "LogExponentialDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

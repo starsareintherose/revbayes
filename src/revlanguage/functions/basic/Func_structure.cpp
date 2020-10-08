@@ -14,7 +14,6 @@
 #include "ArgumentRules.h"
 #include "Procedure.h"
 #include "RbBoolean.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

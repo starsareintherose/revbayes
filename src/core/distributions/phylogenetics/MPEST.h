@@ -19,14 +19,19 @@
 #ifndef MPEST_H
 #define MPEST_H
 
+#include <cstddef>
+#include <iosfwd>
+#include <map>
+#include <string>
+#include <utility>
+
 #include "RootedTripletDistribution.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "Taxon.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+template <class valueType> class TypedDagNode;
     
     class MPEST : public TypedDistribution<RootedTripletDistribution> {
         

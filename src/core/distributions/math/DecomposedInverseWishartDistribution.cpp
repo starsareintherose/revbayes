@@ -4,7 +4,7 @@
 
 #include "RandomNumberFactory.h"
 #include "DistributionDecomposedInverseWishart.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
 #include "RbVector.h"
 

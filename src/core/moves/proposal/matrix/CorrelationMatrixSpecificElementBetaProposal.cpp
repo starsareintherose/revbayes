@@ -5,7 +5,7 @@
 #include "DistributionBeta.h"
 #include "RandomNumberFactory.h"
 #include "RbException.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RbConstants.h"
 #include "RbVector.h"

@@ -2,7 +2,7 @@
 #define ScalarVectorAddition_H
 
 #include "RbVector.h"
-#include "StringUtilities.h"    // For string concatenation through addition
+    // For string concatenation through addition
 #include "TypedFunction.h"
 #include "TypedDagNode.h"
 

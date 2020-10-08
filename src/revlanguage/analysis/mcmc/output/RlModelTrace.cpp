@@ -1,5 +1,7 @@
 #include "RlModelTrace.h"
 
+#include <math.h>
+#include <stddef.h>
 #include <string>
 
 #include "ArgumentRules.h"
@@ -9,10 +11,14 @@
 #include "RbException.h"
 #include "RevVariable.h"
 #include "RlBoolean.h"
-#include "StringUtilities.h"
-#include "TypeSpec.h"
 
-namespace RevLanguage { class Argument; }
+#include "TypeSpec.h"
+#include "Argument.h"
+#include "ArgumentRule.h"
+#include "MemberProcedure.h"
+#include "MethodTable.h"
+#include "RbBoolean.h"
+#include "RlUtils.h"
 
 using namespace RevLanguage;
 

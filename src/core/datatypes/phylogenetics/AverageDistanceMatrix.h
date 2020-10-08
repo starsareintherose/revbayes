@@ -4,14 +4,14 @@
 #include <stddef.h>
 #include <iosfwd>
 #include <vector>
+#include <utility>
 
-#include "Cloneable.h"
-#include "Taxon.h"
+
 #include "DistanceMatrix.h"
 #include "MatrixBoolean.h"
 
 namespace RevBayesCore {
-template <class valueType> class RbVector;
+class Taxon;
 
     /** @brief Average distance matrix class.
      *

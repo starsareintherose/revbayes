@@ -1,17 +1,25 @@
 #ifndef RateGenerator_H
 #define RateGenerator_H
 
-#include "Assignable.h"
-#include "CharacterEventDiscrete.h"
-#include "Cloneable.h"
-#include "MatrixReal.h"
-#include "Printable.h"
-#include "Simplex.h"
+#include <stddef.h>
 #include <vector>
+#include <iosfwd>
+
+#include "Assignable.h"
+#include "Cloneable.h"
+#include "Printable.h"
+#include "MemberObject.h"
+#include "RbException.h"
+#include "Serializable.h"
 
 namespace RevBayesCore {
 
     class TransitionProbabilityMatrix;
+class CharacterEvent;
+class CharacterEventDiscrete;
+class DagNode;
+class Simplex;
+template <class valueType> class RbVector;
     
     class RateGenerator : public Cloneable, public Assignable, public Printable, public Serializable, public MemberObject<RbVector<RbVector<double> > >, public MemberObject<RbVector<double> >, public MemberObject<Simplex> {
         

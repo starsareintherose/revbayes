@@ -9,7 +9,7 @@
 #include "AdjacentRateModifier.h"
 #include "Assignable.h"
 #include "CharacterHistoryRateModifier.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RbException.h"
 #include "RbVector.h"

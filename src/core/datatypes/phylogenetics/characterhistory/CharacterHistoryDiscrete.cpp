@@ -7,7 +7,7 @@
 #include "Tree.h"
 #include "CharacterEventDiscrete.h"
 #include "CharacterHistory.h"
-#include "Cloneable.h"
+
 
 namespace RevBayesCore { class BranchHistory; }
 

@@ -28,11 +28,12 @@
 #define PseudoGibbsMetaMove_h
 
 
-#include "Move.h"
-#include "AbstractHomologousDiscreteCharacterData.h"
+#include <stddef.h>
 #include <vector>
 
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+class Move;
     
     class PseudoGibbsMetaMove {
         

@@ -5,7 +5,7 @@
 #include <iosfwd>
 #include <vector>
 
-#include "Cloneable.h"
+
 #include "Taxon.h"
 #include "MatrixReal.h"
 

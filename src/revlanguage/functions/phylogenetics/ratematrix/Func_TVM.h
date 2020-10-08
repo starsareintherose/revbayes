@@ -1,13 +1,23 @@
 #ifndef Func_TVM_H
 #define Func_TVM_H
 
+#include <string>
+#include <iosfwd>
+#include <vector>
+
 #include "RlRateMatrix.h"
 #include "RlTypedFunction.h"
-
-#include <map>
-#include <string>
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "RateGenerator.h"
+#include "RevPtr.h"
+#include "RlDeterministicNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the TVM rate matrix function.

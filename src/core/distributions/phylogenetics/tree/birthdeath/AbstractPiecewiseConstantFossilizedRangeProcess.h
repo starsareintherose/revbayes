@@ -1,18 +1,15 @@
 #ifndef AbstractPiecewiseConstantFossilizedRangeProcess_H
 #define AbstractPiecewiseConstantFossilizedRangeProcess_H
 
-#include "MatrixReal.h"
-#include "RbVector.h"
-#include "TypedDagNode.h"
-#include "TypedDistribution.h"
-
 #include <vector>
-#include <set>
+#include <cstddef>
+
+#include "Taxon.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
-    class Taxon;
+class DagNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     enum RangeModel { KNOWNCOUNTS, UNKNOWNCOUNTS, PRESENCEABSENCE };
 

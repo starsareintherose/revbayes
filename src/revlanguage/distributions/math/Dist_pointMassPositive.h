@@ -1,10 +1,17 @@
 #ifndef Dist_pointMassPositive_H
 #define Dist_pointMassPositive_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "PointMassDistribution.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
 
 
     /**

@@ -4,7 +4,7 @@
 #include "RbHelpDistribution.h"
 #include "RbHelpFunction.h"
 #include "RbHelpReference.h"
-#include "StringUtilities.h"
+
 
 using namespace YAML;
 

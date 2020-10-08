@@ -5,7 +5,7 @@
 
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
-#include "Cloneable.h"
+
 #include "RbVectorImpl.h"
 #include "StochasticNode.h"
 

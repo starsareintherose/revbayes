@@ -16,15 +16,17 @@
 #ifndef Func_readStochasticVariableTrace_H
 #define Func_readStochasticVariableTrace_H
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-#include "RlTraceTree.h"
-
 #include <string>
-#include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_readStochasticVariableTrace : public Procedure {
         

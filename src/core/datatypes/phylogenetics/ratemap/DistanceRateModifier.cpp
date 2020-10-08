@@ -1,6 +1,6 @@
 #include <cmath>
 #include <cstddef>
-#include <ostream>
+#include <sstream> // IWYU pragma: keep
 #include <set>
 #include <string>
 #include <vector>
@@ -13,7 +13,7 @@
 #include "Assignable.h"
 #include "CharacterEvent.h"
 #include "CharacterHistoryRateModifier.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
 
 #define EARTHRADIUSKM 6371

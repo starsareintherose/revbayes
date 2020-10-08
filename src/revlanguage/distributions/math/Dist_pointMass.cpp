@@ -8,7 +8,6 @@
 #include "Dist_pointMass.h"
 #include "Real.h"
 #include "PointMassDistribution.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

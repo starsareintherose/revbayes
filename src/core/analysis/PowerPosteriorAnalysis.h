@@ -1,9 +1,12 @@
 #ifndef PowerPosteriorAnalysis_H
 #define PowerPosteriorAnalysis_H
 
-#include "Cloneable.h"
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
+
 #include "Parallelizable.h"
-#include "RbVector.h"
 
 namespace RevBayesCore {
     

@@ -1,13 +1,20 @@
 #ifndef RateGeneratorSequence_Biogeography_H
 #define RateGeneratorSequence_Biogeography_H
 
-#include "RateGeneratorSequenceUsingMatrix.h"
-#include "DistanceRateModifier.h"
+#include <stddef.h>
 #include <vector>
+#include <set>
+
+#include "RateGeneratorSequenceUsingMatrix.h"
 
 namespace RevBayesCore {
     
     class BranchHistory;
+class CharacterEvent;
+class CharacterEventDiscrete;
+class DistanceRateModifier;
+class TransitionProbabilityMatrix;
+
     class RateGeneratorSequence_Biogeography : public RateGeneratorSequenceUsingMatrix {
         
     public:

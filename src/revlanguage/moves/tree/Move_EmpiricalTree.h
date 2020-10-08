@@ -2,7 +2,6 @@
 #define Move_EmpiricalTree_H
 
 #include <ostream>
-#include <vector>
 
 #include "RlMove.h"
 #include "RevObject.h"

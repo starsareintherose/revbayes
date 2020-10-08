@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <cmath>
 #include <iostream>
 #include <map>
@@ -30,7 +31,7 @@
 #include "RbIteratorImpl.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-#include "StringUtilities.h"
+
 
 #ifdef RB_MPI
 #include <mpi.h>

@@ -1,10 +1,12 @@
 #ifndef Monitor_H
 #define Monitor_H
 
+#include <stddef.h>
+#include <vector>
+#include <iosfwd>
+
 #include "Cloneable.h"
 #include "MonteCarloAnalysisOptions.h"
-
-#include <vector>
 
 namespace RevBayesCore {
 

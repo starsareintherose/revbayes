@@ -1,14 +1,21 @@
 #ifndef RlBurninEstimationConvergenceAssessment_H
 #define RlBurninEstimationConvergenceAssessment_H
 
-#include "TypedDagNode.h"
-#include "RevObject.h"
-#include "WorkspaceObject.h"
-
 #include <ostream>
 #include <string>
+#include <set>
+#include <vector>
+
+#include "RevObject.h"
+#include "WorkspaceObject.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { class TraceNumeric; }
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     /**
      * @brief Rev-wrapper of BurninEstimationConvergenceAssessment class.

@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <vector>
 
-#include "Cloner.h"
+
 #include "RbVectorImpl.h"
 #include "TypedDagNode.h"
 

@@ -2,6 +2,7 @@
 
 #include "TypeSpec.h"
 #include "RevObject.h"
+#include "RevPtr.h"
 
 using namespace RevLanguage;
 

@@ -25,7 +25,7 @@
 #include "TopologyNode.h"
 #include "AbstractDiscreteTaxonData.h"
 #include "AbstractTaxonData.h"
-#include "Cloneable.h"
+
 #include "DiscreteCharacterState.h"
 #include "DiscreteTaxonData.h"
 #include "NaturalNumbersState.h"
@@ -38,7 +38,7 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "Simplex.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "Tree.h"
 #include "TreeChangeEventHandler.h"
@@ -46,6 +46,10 @@
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"
 #include "boost/numeric/odeint.hpp" // IWYU pragma: keep
+#include "boost/numeric/odeint/integrate/integrate_adaptive.hpp"
+#include "boost/numeric/odeint/stepper/controlled_runge_kutta.hpp"
+#include "boost/numeric/odeint/stepper/generation/make_controlled.hpp"
+#include "boost/numeric/odeint/stepper/runge_kutta_dopri5.hpp"
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { template <class valueType> class RbOrderedSet; }
@@ -1414,7 +1418,7 @@ RevLanguage::RevPtr<RevLanguage::RevVariable> StateDependentSpeciationExtinction
     
         // check if the tip names match
         bool match = true;
-        std::vector<string> tips = value->getTipNames();
+        std::vector<std::string> tips = value->getTipNames();
         for (size_t i = 0; i < tips.size(); i++)
         {
             found = false;
@@ -1700,7 +1704,7 @@ void StateDependentSpeciationExtinctionProcess::redrawValue( void )
             // simulate a character history conditioned on the observed tree
 
             // make character data objects -- all unknown/missing
-            std::vector<string> tips = value->getTipNames();
+            std::vector<std::string> tips = value->getTipNames();
             HomologousDiscreteCharacterData<NaturalNumbersState> *tip_data = new HomologousDiscreteCharacterData<NaturalNumbersState>();
             for (size_t i = 0; i < tips.size(); i++)
             {
@@ -1906,7 +1910,7 @@ void StateDependentSpeciationExtinctionProcess::setValue(Tree *v, bool f )
     }
 
     // make character data objects -- all unknown/missing
-    std::vector<string> tips = value->getTipNames();
+    std::vector<std::string> tips = value->getTipNames();
     HomologousDiscreteCharacterData<NaturalNumbersState> *tip_data = new HomologousDiscreteCharacterData<NaturalNumbersState>();
     for (size_t i = 0; i < tips.size(); i++)
     {

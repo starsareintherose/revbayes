@@ -5,7 +5,7 @@
 
 #include "RandomNumberFactory.h"
 #include "DistributionWishart.h"
-#include "Cloneable.h"
+
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { class RandomNumberGenerator; }

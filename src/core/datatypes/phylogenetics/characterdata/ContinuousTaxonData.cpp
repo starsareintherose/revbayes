@@ -5,7 +5,7 @@
 
 #include "RbException.h"
 #include "RbMathLogic.h"
-#include "Cloneable.h"
+
 #include "RbConstants.h" // IWYU pragma: keep
 
 using namespace RevBayesCore;

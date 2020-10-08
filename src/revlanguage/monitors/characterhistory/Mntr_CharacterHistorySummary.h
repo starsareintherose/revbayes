@@ -9,14 +9,17 @@
 #ifndef Mntr_CharacterHistorySummary_h
 #define Mntr_CharacterHistorySummary_h
 
-#include "CharacterHistorySummaryMonitor.h"
-#include "RlMonitor.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <set>
+
+#include "RlMonitor.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     class Mntr_CharacterHistorySummary : public Monitor {
         

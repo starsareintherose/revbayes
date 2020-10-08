@@ -27,6 +27,7 @@
 #include "StochasticBranchStateTimesMonitor.h"
 #include "StochasticNode.h"
 #include "TypedDistribution.h"
+#include "Natural.h"
 
 namespace RevBayesCore { class Tree; }
 namespace RevBayesCore { template <class valueType> class TypedDagNode; }

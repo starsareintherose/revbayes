@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -9,7 +8,7 @@
 #include "NaturalNumbersState.h"
 #include "RlDiscreteCharacterState.h"
 #include "StandardState.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "CharacterState.h"
 #include "DagNode.h"

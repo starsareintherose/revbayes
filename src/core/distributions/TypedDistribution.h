@@ -89,9 +89,7 @@ namespace RevBayesCore {
 
 
 #include "Cloner.h"
-#include "Cloneable.h"
 #include "IsDerivedFrom.h"
-
 
 template <class variableType>
 RevBayesCore::TypedDistribution<variableType>::TypedDistribution(variableType *v) : Distribution(), 

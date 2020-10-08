@@ -1,6 +1,6 @@
 #include "MaxIterationStoppingRule.h"
 
-#include "Cloneable.h"
+
 
 
 using namespace RevBayesCore;

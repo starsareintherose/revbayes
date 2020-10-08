@@ -2,11 +2,12 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
+#include <functional>
+#include <iosfwd>
 
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "RbConstants.h"
-#include "RbMathCombinatorialFunctions.h"
 #include "StochasticNode.h"
 #include "TopologyNode.h"
 #include "UniformSerialSampledTimeTreeDistribution.h"

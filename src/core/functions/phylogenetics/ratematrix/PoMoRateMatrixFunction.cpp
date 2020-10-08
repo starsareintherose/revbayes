@@ -1,7 +1,7 @@
 #include "PoMoRateMatrixFunction.h"
 
 #include "RateMatrix_PoMo.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "TypedDagNode.h"
 

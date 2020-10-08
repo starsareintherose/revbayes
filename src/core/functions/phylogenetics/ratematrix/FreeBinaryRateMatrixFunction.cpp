@@ -10,7 +10,7 @@
 
 #include <vector>
 
-#include "Cloneable.h"
+
 #include "RateMatrix_FreeBinary.h"
 #include "RbVector.h"
 #include "TypedDagNode.h"

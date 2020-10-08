@@ -1,14 +1,16 @@
 #ifndef RlStationarityStoppingRule_H
 #define RlStationarityStoppingRule_H
 
-#include "VariableMonitor.h"
-#include "RlAbstractConvergenceStoppingRule.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlAbstractConvergenceStoppingRule.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * RevLanguage wrapper class for the Gelman-Rubin stopping rule of an analysis.

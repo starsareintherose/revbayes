@@ -1,13 +1,16 @@
 #ifndef SyntaxBinaryExpr_H
 #define SyntaxBinaryExpr_H
 
-#include "SyntaxElement.h"
-
 #include <iostream>
-#include <vector>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class RevVariable;
 
     /**
      * @brief Binary expression syntax element

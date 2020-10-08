@@ -6,7 +6,7 @@
 
 #include "GewekeTest.h"
 #include "StationarityTest.h"
-#include "Cloner.h"
+
 #include "RbConstants.h" // IWYU pragma: keep
 
 using namespace RevBayesCore;

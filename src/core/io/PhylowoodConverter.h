@@ -9,14 +9,18 @@
 #ifndef __revbayes_proj__PhylowoodConverter__
 #define __revbayes_proj__PhylowoodConverter__
 
+#include <stddef.h>
 #include <string>
-#include "TopologyNode.h"
+#include <iosfwd>
+#include <vector>
 
 namespace RevBayesCore {
     
     class DelimitedDataReader;
-    class RbFileManager;
     class TimeAtlas;
+class TopologyNode;
+class Tree;
+
     class PhylowoodConverter {
         
     public:

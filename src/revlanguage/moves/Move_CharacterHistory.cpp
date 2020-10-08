@@ -6,11 +6,10 @@
 
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
-//#include "BiogeographicTreeHistoryCtmc.h"
 #include "BiogeographyNodeRejectionSampleProposal.h"
 #include "BiogeographyCladogeneticRejectionShiftProposal.h"
 #include "BiogeographyCladogeneticRejectionSampleProposal.h"
-//#include "BiogeographyPathRejectionSampleProposal.h"
+#include "Cloneable.h"
 #include "NodeRejectionSampleProposal.h"
 #include "MetropolisHastingsMove.h"
 #include "Move_CharacterHistory.h"

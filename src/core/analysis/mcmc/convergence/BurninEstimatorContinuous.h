@@ -1,7 +1,7 @@
 #ifndef BurninEstimatorContinuous_H
 #define BurninEstimatorContinuous_H
 
-#include "Cloneable.h"
+
 #include "TraceNumeric.h"
 
 #include <vector>

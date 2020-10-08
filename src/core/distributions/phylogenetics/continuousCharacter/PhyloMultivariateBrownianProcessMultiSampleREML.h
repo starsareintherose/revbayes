@@ -1,10 +1,22 @@
 #ifndef PhyloMultivariateBrownianProcessMultiSampleREML_H
 #define PhyloMultivariateBrownianProcessMultiSampleREML_H
 
+#include <cstddef>
+#include <iosfwd>
+#include <vector>
+
 #include "AbstractPhyloBrownianProcess.h"
 #include "TreeChangeEventListener.h"
+#include "MatrixReal.h"
+#include "Taxon.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
+class ContinuousTaxonData;
+class DagNode;
+class Tree;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Homogeneous distribution of character state evolution along a tree class (PhyloCTMC).

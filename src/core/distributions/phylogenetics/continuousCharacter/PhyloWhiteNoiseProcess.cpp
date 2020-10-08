@@ -5,7 +5,7 @@
 
 #include "DistributionGamma.h"
 #include "RandomNumberFactory.h"
-#include "Cloner.h"
+
 #include "RbVectorImpl.h"
 #include "Tree.h"
 #include "TypedDagNode.h"

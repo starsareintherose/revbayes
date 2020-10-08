@@ -18,8 +18,6 @@
 #ifndef RbMathLogic_H
 #define RbMathLogic_H
 
-#include <vector>
-
 namespace RevBayesCore {
     
     namespace RbMath {

@@ -16,7 +16,7 @@
  * $Id$
  */
 
-#include <sstream>
+#include <string>
 
 #include "Argument.h"
 #include "RbException.h"

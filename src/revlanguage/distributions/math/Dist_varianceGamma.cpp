@@ -17,7 +17,6 @@
 #include "VarianceGammaDistribution.h"
 #include "Real.h"
 #include "RealPos.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

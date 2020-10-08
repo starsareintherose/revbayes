@@ -16,15 +16,15 @@
 #include "AbstractBirthDeathProcess.h"
 #include "AbstractPiecewiseConstantFossilizedRangeProcess.h"
 #include "RbException.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "TimeInterval.h"
 #include "TopologyNode.h"
 #include "Tree.h"
 #include "TypedDagNode.h"
-
-namespace RevBayesCore { class DagNode; }
-namespace RevBayesCore { template <class valueType> class RbVector; }
+#include "DagNode.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 using namespace RevBayesCore;
 

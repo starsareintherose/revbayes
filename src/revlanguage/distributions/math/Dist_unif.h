@@ -1,10 +1,17 @@
 #ifndef Dist_unif_H
 #define Dist_unif_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "UniformDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

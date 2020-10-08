@@ -1,12 +1,16 @@
+#include <stddef.h>
+#include <string>
+#include <vector>
+
 #include "DiscreteTaxonData.h"
 #include "VCFReader.h"
-#include "PoMoState4.h"
-#include "PoMoState.h"
-#include "RbFileManager.h"
+#include "BinaryState.h"
+#include "DnaState.h"
+#include "HomologousDiscreteCharacterData.h"
+#include "NaturalNumbersState.h"
+#include "RbException.h"
 
-#include "RbConstants.h"
-
-#include <string>
+#include "Taxon.h"
 
 
 using namespace RevBayesCore;

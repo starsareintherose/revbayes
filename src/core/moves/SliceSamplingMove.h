@@ -1,15 +1,13 @@
 #ifndef SliceSamplingMove_H
 #define SliceSamplingMove_H
 
-#include "AbstractMove.h"
-#include "StochasticNode.h"
+#include <iosfwd>
 
-#include <set>
-#include <vector>
+#include "AbstractMove.h"
 
 namespace RevBayesCore {
-    
-    class Proposal;
+class DagNode;
+template <class variableType> class StochasticNode;
     
     /**
      * Base class for all Metropolis-Hastings within an MCMC. 

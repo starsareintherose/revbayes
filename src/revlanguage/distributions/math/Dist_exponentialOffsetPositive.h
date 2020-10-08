@@ -1,10 +1,17 @@
 #ifndef Dist_exponentialOffsetPositive_H
 #define Dist_exponentialOffsetPositive_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "ExponentialWithOffsetDistribution.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the exponential with positive offset distribution.

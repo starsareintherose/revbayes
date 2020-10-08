@@ -4,7 +4,7 @@
 #include "DistributionFunctionPdf.h"
 #include "DistributionFunctionRv.h"
 #include "RlTypedDistribution.h"
-#include "StringUtilities.h"
+
 #include "Workspace.h"
 
 /**

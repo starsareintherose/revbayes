@@ -1,12 +1,18 @@
 #ifndef AbstractRootedTreeDistribution_H
 #define AbstractRootedTreeDistribution_H
 
+#include <stddef.h>
+#include <vector>
+
 #include "Taxon.h"
 #include "Tree.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
 
 namespace RevBayesCore {
+class DagNode;
+class TopologyNode;
+template <class valueType> class RbOrderedSet;
+template <class valueType> class TypedDagNode;
     
     /**
      * Constant rate Birth-Death process.

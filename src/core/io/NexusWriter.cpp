@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <algorithm>
-#include <ostream>
 #include <string>
 #include <vector>
 
@@ -10,7 +9,7 @@
 #include "AbstractDiscreteTaxonData.h"
 #include "AbstractHomologousDiscreteCharacterData.h"
 #include "Clade.h"
-#include "Cloneable.h"
+
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
 #include "DiscreteCharacterState.h"

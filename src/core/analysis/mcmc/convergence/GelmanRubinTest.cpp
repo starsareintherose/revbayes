@@ -1,7 +1,7 @@
 #include "GelmanRubinTest.h"
 
 
-#include "Cloner.h"
+
 #include "TraceNumeric.h"
 
 using namespace RevBayesCore;

@@ -1,6 +1,6 @@
 #include "InfiniteSitesRateMatrixFunction.h"
 
-#include "Cloneable.h"
+
 #include "RateMatrix_InfiniteSites.h"
 
 namespace RevBayesCore { class DagNode; }

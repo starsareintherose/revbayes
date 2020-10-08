@@ -1,15 +1,15 @@
 #ifndef GMRFOrder2HyperpriorGibbsMove_H
 #define GMRFOrder2HyperpriorGibbsMove_H
 
-#include "AbstractGibbsMove.h"
-#include "AbstractMove.h"
-#include "StochasticNode.h"
-
-#include <set>
 #include <vector>
+#include <iosfwd>
+
+#include "AbstractGibbsMove.h"
 
 
 namespace RevBayesCore {
+class DagNode;
+template <class variableType> class StochasticNode;
 
     class GMRFOrder2HyperpriorGibbsMove : public AbstractGibbsMove {
 

@@ -16,15 +16,21 @@
 #ifndef RlTimeTree_H
 #define RlTimeTree_H
 
-#include "ModelObject.h"
-#include "RlTree.h"
-
-#include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "RlTree.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { class Tree; }
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     
     class TimeTree : public Tree {

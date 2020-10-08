@@ -9,10 +9,6 @@
 #define DISTRIBUTIONEXPONENTIALERROR_H
 
 
-#include <stddef.h>
-#include <vector>
-#include <iostream>
-
 #include "AverageDistanceMatrix.h"
 #include "DistanceMatrix.h"
 

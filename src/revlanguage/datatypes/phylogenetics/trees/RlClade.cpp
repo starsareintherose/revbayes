@@ -25,7 +25,6 @@
 #include "ModelObject.h"
 #include "Natural.h"
 #include "RbBoolean.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "RevNullObject.h"
@@ -35,7 +34,7 @@
 #include "RlBoolean.h"
 #include "RlConstantNode.h"
 #include "RlUtils.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "TypedDagNode.h"
 #include "TypedFunction.h"

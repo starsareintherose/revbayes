@@ -10,15 +10,20 @@
 #define __revbayes_proj__RateGenerator_Epoch__
 
 
-#include "RateGenerator.h"
-#include <complex>
+#include <stddef.h>
 #include <vector>
-#include <map>
+#include <iosfwd>
+
+#include "RateGenerator.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 
 namespace RevBayesCore {
     
     class TransitionProbabilityMatrix;
+class Assignable;
+class MatrixReal;
     
     class RateGenerator_Epoch : public RateGenerator {
         

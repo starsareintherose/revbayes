@@ -1,12 +1,15 @@
 #ifndef SyntaxStatement_H
 #define SyntaxStatement_H
 
-#include "SyntaxElement.h"
-
 #include <iostream>
-#include <vector>
+#include <list>
+
+#include "SyntaxElement.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class Environment;
+class RevVariable;
     
     /**
      * @brief Statement syntax element

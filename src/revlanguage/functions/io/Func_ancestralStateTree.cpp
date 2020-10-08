@@ -35,6 +35,7 @@
 #include "TypeSpec.h"
 #include "TypedDagNode.h"
 #include "WorkspaceToCoreWrapperObject.h"
+#include "Natural.h"
 
 
 using namespace RevLanguage;

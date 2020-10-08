@@ -1,19 +1,19 @@
 #ifndef UserProcedure_H
 #define UserProcedure_H
 
-#include "ArgumentRules.h"
-#include "RlFunction.h"
-#include "TypeSpec.h"
-
-#include <list>
-#include <set>
 #include <string>
+#include <iosfwd>
+
+#include "RlFunction.h"
+#include "RevPtr.h"
+#include "UserFunctionDef.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
 
-    class UserFunctionDef;
-    
     /**
      * @brief Class holding user procedures
      *

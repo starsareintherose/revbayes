@@ -24,7 +24,6 @@
 #include "MethodTable.h"
 #include "ModelObject.h"
 #include "MultiValueEvent.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "Real.h"
 #include "RealPos.h"

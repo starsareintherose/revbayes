@@ -14,7 +14,7 @@
 #include "RbBoolean.h"
 #include "RlBoolean.h"
 #include "StochasticNode.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TypedDistribution.h"
 

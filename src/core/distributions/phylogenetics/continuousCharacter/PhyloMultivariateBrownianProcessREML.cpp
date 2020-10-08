@@ -9,7 +9,7 @@
 #include "RbException.h"
 #include "TopologyNode.h"
 #include "AbstractPhyloBrownianProcess.h"
-#include "Cloneable.h"
+
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
 #include "MatrixReal.h"

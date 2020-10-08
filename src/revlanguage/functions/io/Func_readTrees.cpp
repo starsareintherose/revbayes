@@ -22,7 +22,6 @@
 #include "DynamicNode.h"
 #include "IndirectReferenceFunction.h"
 #include "ModelObject.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "RevPtr.h"
@@ -94,7 +93,7 @@ RevPtr<RevVariable> Func_readTrees::execute( void )
     if (text != "")
     {
 
-        string aux;
+        std::string aux;
         std::istringstream iss(text);
         RevBayesCore::NewickConverter c;
         

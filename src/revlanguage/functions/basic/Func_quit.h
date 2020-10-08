@@ -1,9 +1,16 @@
 #ifndef Func_quit_H
 #define Func_quit_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_quit : public Procedure {
         

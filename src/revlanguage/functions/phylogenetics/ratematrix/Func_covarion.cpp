@@ -16,7 +16,7 @@
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "RlRateGenerator.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 
 using namespace RevLanguage;

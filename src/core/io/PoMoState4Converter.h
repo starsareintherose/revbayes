@@ -2,13 +2,14 @@
 #define PoMoState4Converter_H
 
 #include <map>
+#include <iosfwd>
+#include <vector>
 
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "HomologousDiscreteCharacterData.h"
 #include "PoMoState4.h"
 
-
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+template <class charType> class HomologousDiscreteCharacterData;
     
     /**
      * This class enables conversion of a DNA matrix into a PoMoState4 matrix.

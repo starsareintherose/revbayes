@@ -1,13 +1,18 @@
 #ifndef NodeTimeSlideWeightedProposal_H
 #define NodeTimeSlideWeightedProposal_H
 
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
+#include <vector>
 
 #include "Proposal.h"
-#include "StochasticNode.h"
-#include "Tree.h"
 
 namespace RevBayesCore {
+class DagNode;
+class TopologyNode;
+class Tree;
+template <class variableType> class StochasticNode;
     
     /**
      * The node-age slide proposal operator using a Weighted distribution.

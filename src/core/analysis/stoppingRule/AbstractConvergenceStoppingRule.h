@@ -1,12 +1,13 @@
 #ifndef AbstractConvergenceStoppingRule_H
 #define AbstractConvergenceStoppingRule_H
 
-#include "BurninEstimatorContinuous.h"
+#include <stddef.h>
+#include <iosfwd>
+
 #include "StoppingRule.h"
 
-#include <vector>
-
 namespace RevBayesCore {
+class BurninEstimatorContinuous;
     
     /**
      * @brief Abstract base class for convergence stopping rules.

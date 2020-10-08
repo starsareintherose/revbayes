@@ -3,17 +3,22 @@
 
 #include <string>
 #include <vector>
+#include <iosfwd>
 
 #include "Argument.h"
-#include "ArgumentRule.h"
-#include "ArgumentRules.h"
-#include "Environment.h"
 #include "RbHelpFunction.h"
 #include "RevPtr.h"
-#include "TypeSpec.h"
+#include "RevObject.h"
+
+namespace RevBayesCore { class RbHelpEntry; }
 
 
 namespace RevLanguage {
+class ArgumentRule;
+class ArgumentRules;
+class Environment;
+class RevVariable;
+class TypeSpec;
 
     /**
      * \brief Function: Abstract base class for Rev functions

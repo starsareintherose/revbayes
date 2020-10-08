@@ -17,7 +17,7 @@
 #include "RbMathCombinatorialFunctions.h"
 #include "BranchHistory.h"
 #include "CharacterEventDiscrete.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "Simplex.h"

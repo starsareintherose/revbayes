@@ -10,14 +10,17 @@
 #define SampledCladogenesisRootFrequenciesFunction_h
 
 
-#include "MatrixReal.h"
-#include "RateGenerator.h"
-#include "RbVector.h"
+#include <stddef.h>
+
 #include "Simplex.h"
-#include "TypedDagNode.h"
 #include "TypedFunction.h"
 
 namespace RevBayesCore {
+class DagNode;
+class MatrixReal;
+class RateGenerator;
+class Tree;
+template <class valueType> class TypedDagNode;
     
 class SampledCladogenesisRootFrequenciesFunction : public TypedFunction< Simplex > {
 

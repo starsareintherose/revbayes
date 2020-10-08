@@ -503,7 +503,7 @@ RevBayesCore::HomologousDiscreteCharacterData<RevBayesCore::NaturalNumbersState>
 //        throw RbException("Cannot combine two character data objects with different number of taxa!");
 //    }
     
-    std::vector<string> to_delete;
+    std::vector<std::string> to_delete;
     //    std::vector<bool> used = std::vector<bool>(obsd.getNumberOfTaxa(),false);
     
     for (size_t i=0; i<second.getNumberOfTaxa(); ++i)
@@ -654,7 +654,7 @@ void RevBayesCore::HomologousDiscreteCharacterData<charType>::concatenate(const 
         throw RbException("Cannot concatenate two character data objects with different number of taxa!");
     }
     
-    std::vector<string> to_delete;
+    std::vector<std::string> to_delete;
     //    std::vector<bool> used = std::vector<bool>(obsd.getNumberOfTaxa(),false);
     
     for (size_t i=0; i<obsd.getNumberOfTaxa(); ++i)

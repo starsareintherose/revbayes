@@ -44,7 +44,7 @@
 #include <stddef.h>
 #include <vector>
 
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 
 namespace RevBayesCore

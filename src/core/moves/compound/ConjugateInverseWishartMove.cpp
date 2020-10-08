@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <iosfwd>
 #include <vector>
 
 #include "DistributionInverseWishart.h"
@@ -8,7 +7,7 @@
 #include "RandomNumberFactory.h"
 #include "ConjugateInverseWishartMove.h"
 #include "AbstractGibbsMove.h"
-#include "Cloneable.h"
+
 #include "DagNode.h"
 #include "Distribution.h"
 #include "MatrixReal.h"

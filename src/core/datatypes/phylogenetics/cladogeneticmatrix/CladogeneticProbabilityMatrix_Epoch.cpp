@@ -8,6 +8,8 @@
 
 #include "CladogeneticProbabilityMatrix_Epoch.h"
 
+#include <ostream>
+
 using namespace RevBayesCore;
 
 #include "RbException.h"

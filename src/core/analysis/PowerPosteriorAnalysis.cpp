@@ -5,17 +5,15 @@
 #include <vector>
 
 #include "MonteCarloSampler.h"
-#include "MoveSchedule.h"
 #include "MpiUtilities.h"
 #include "PowerPosteriorAnalysis.h"
 #include "ProgressBar.h"
 #include "RbException.h"
 #include "RbFileManager.h"
-#include "Cloneable.h"
+
 #include "MonteCarloAnalysisOptions.h"
 #include "Parallelizable.h"
 #include "StringUtilities.h"
-
 
 #ifdef RB_MPI
 #include <mpi.h>

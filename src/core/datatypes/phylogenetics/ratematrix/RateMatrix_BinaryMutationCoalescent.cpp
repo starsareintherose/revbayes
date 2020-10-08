@@ -1,11 +1,11 @@
 #include "RateMatrix_BinaryMutationCoalescent.h"
+
 #include "MatrixReal.h"
 #include "RbException.h"
-#include "RbMathCombinatorialFunctions.h"
 #include "TransitionProbabilityMatrix.h"
-
-#include <cmath>
-#include <iomanip>
+#include "Assignable.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 using namespace RevBayesCore;
 

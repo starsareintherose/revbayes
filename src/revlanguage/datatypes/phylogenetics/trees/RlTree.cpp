@@ -45,6 +45,7 @@
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "RevNullObject.h"
 
 using namespace RevLanguage;
 

@@ -22,10 +22,10 @@
 #include "RlConstantNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
 class Argument;
-class RevVariable;
 class TypeSpec;
     
     /**

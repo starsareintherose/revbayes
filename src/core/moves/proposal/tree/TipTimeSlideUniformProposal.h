@@ -1,13 +1,18 @@
 #ifndef TipTimeSlideUniformProposal_H
 #define TipTimeSlideUniformProposal_H
 
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
 
 #include "Proposal.h"
-#include "StochasticNode.h"
-#include "Tree.h"
 
 namespace RevBayesCore {
+class DagNode;
+class TopologyNode;
+class Tree;
+template <class valueType> class TypedDagNode;
+template <class variableType> class StochasticNode;
     
     /**
      * The node-age slide proposal operator using a Uniform distribution.

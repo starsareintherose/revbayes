@@ -7,7 +7,7 @@
 #include "SiteRateModifier.h"
 #include "Assignable.h"
 #include "CharacterHistoryRateModifier.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
 #include "RbIterator.h"
 #include "RbVector.h"

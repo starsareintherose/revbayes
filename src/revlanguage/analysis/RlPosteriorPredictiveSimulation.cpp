@@ -18,7 +18,7 @@
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "RevNullObject.h"
-#include "StringUtilities.h"
+
 #include "Trace.h"
 #include "TypeSpec.h"
 

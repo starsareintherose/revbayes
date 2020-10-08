@@ -9,7 +9,7 @@
 #include "RelativeNodeAgeWeightedConstraints.h"
 #include "NodeOrderWeightedConstrainedTreeDistribution.h"
 #include "TreeUtilities.h"
-#include "Cloneable.h"
+
 #include "Tree.h"
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"

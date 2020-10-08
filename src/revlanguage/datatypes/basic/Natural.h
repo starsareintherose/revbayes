@@ -1,16 +1,20 @@
 #ifndef Natural_H
 #define Natural_H
 
-#include "Integer.h"
-
 #include <ostream>
 #include <string>
+
+#include "Integer.h"
+#include "RevObject.h"
+
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 
 
 namespace RevLanguage {
 
     class RealPos;
+class TypeSpec;
 
     /**
      * Primitive type for Natural numbers (including 0).

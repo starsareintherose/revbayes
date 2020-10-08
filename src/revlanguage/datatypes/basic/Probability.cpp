@@ -1,15 +1,21 @@
 #include "Probability.h"
 
+#include <stddef.h>
 #include <string>
+#include <vector>
 
 #include "RealPos.h"
 #include "RbException.h"
 #include "ReferenceFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedDagNode.h"
-
-namespace RevLanguage { class RevObject; }
+#include "ArgumentRule.h"
+#include "ArgumentRules.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "Real.h"
+#include "TypedFunction.h"
 
 using namespace RevLanguage;
 

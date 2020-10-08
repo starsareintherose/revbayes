@@ -1,19 +1,20 @@
 #ifndef PiecewiseConstantFossilizedBirthDeathRangeProcess_H
 #define PiecewiseConstantFossilizedBirthDeathRangeProcess_H
 
+#include <vector>
+#include <cstddef>
+#include <iosfwd>
+
 #include "AbstractPiecewiseConstantFossilizedRangeProcess.h"
 #include "MatrixReal.h"
-#include "RbVector.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
-
-#include <vector>
-#include <set>
 
 namespace RevBayesCore {
     
-    class Clade;
     class Taxon;
+class DagNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Piecewise-constant fossilized birth-death range distribution of origination extinction times matrix.

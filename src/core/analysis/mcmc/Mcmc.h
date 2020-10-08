@@ -1,11 +1,21 @@
 #ifndef Mcmc_H
 #define Mcmc_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "MonteCarloSampler.h"
+#include "Model.h"
+#include "Monitor.h"
+#include "MonteCarloAnalysisOptions.h"
+#include "Move.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 namespace RevBayesCore {
-    
-    class Monitor;
+class DagNode;
+class MoveSchedule;
     
     /**
      * @brief Declaration of MCMC class

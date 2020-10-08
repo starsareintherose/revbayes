@@ -18,18 +18,19 @@
 #ifndef MatrixReal_H
 #define MatrixReal_H
 
-#include "Cloneable.h"
-#include "MemberObject.h"
-#include "RbVector.h"
-
 #include <cstddef>
 #include <iostream>
 #include <vector>
+
+#include "MemberObject.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 namespace RevBayesCore {
     
     class EigenSystem;
     class CholeskyDecomposition;
+class DagNode;
     
     class MatrixReal : public Cloneable, public MemberObject<RbVector<double> >, public MemberObject<MatrixReal> {
         

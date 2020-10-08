@@ -1,16 +1,17 @@
 #include <sstream>
 #include <string>
+#include <vector>
 
 #include "ArgumentRule.h"
 #include "Argument.h"
 #include "ArgumentRules.h"
-#include "ConstantNode.h"
 #include "Integer.h"
 #include "Proc_StringToInt.h"
 #include "RbException.h"
 #include "RlString.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
+#include "RevVariable.h"
 
 
 using namespace RevLanguage;

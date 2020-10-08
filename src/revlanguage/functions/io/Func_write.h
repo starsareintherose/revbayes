@@ -16,10 +16,17 @@
 #ifndef Func_write_H
 #define Func_write_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_write : public Procedure {
         

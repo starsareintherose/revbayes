@@ -9,7 +9,8 @@
 #ifndef DistributionGilbertGraph_H
 #define DistributionGilbertGraph_H
 
-#include <iostream>
+#include <stddef.h>
+
 #include "MatrixReal.h"
 
 namespace RevBayesCore {

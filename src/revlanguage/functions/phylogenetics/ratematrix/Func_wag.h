@@ -1,14 +1,24 @@
 #ifndef Func_wag_H
 #define Func_wag_H
 
-#include "RlRateMatrix.h"
-#include "RlSimplex.h"
-#include "RlTypedFunction.h"
-
-#include <map>
 #include <string>
+#include <iosfwd>
+#include <vector>
+
+#include "RlRateMatrix.h"
+#include "RlTypedFunction.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "RateGenerator.h"
+#include "RevPtr.h"
+#include "RlDeterministicNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class Simplex;
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the WAG rate matrix function.

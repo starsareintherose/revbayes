@@ -2,17 +2,23 @@
 #define Func_DECRoot_H
 
 
-#include "RlTypedFunction.h"
-#include "RbVector.h"
-#include "ModelVector.h"
-#include "RealPos.h"
-#include "RlSimplex.h"
-
-#include <map>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "RlTypedFunction.h"
+#include "RlSimplex.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "RevPtr.h"
+#include "RlDeterministicNode.h"
+#include "Simplex.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class TypeSpec;
     
     class Func_DECRoot :  public TypedFunction<Simplex> {
         

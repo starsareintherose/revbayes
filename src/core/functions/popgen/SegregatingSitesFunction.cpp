@@ -1,7 +1,7 @@
 #include "SegregatingSitesFunction.h"
 
 #include "AbstractHomologousDiscreteCharacterData.h"
-#include "Cloneable.h"
+
 #include "TypedDagNode.h"
 
 namespace RevBayesCore { class DagNode; }

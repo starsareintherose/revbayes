@@ -20,7 +20,7 @@
 #include "RbMathLogic.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-#include "StringUtilities.h"
+
 #include "Trace.h"
 #include "TraceTree.h"
 #include "Tree.h"

@@ -27,6 +27,9 @@
 #include "TreeSummary.h"
 #include "TypeSpec.h"
 #include "WorkspaceVector.h"
+#include "RbVector.h"
+#include "RevObject.h"
+#include "WorkspaceToCoreWrapperObject.h"
 
 
 using namespace RevLanguage;

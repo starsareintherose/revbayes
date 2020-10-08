@@ -9,7 +9,6 @@
 
 #include <boost/dynamic_bitset.hpp>
 
-
 #include <vector>
 #include <iostream>
 #include <sstream>
@@ -154,7 +153,7 @@ namespace RevBayesCore {
 template <class valueType>
 std::ostream&                                       operator<<(std::ostream& o, const RevBayesCore::RbVector<valueType>& x);
 
-#include "Cloner.h"
+
 #include "IsDerivedFrom.h"
 
 template <class valueType>

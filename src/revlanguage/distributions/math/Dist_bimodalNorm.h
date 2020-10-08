@@ -1,10 +1,16 @@
 #ifndef Dist_bimodalNorm_H
 #define Dist_bimodalNorm_H
 
+#include <iosfwd>
+
 #include "BimodalNormalDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

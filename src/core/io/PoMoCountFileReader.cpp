@@ -9,12 +9,12 @@
 #include "PoMoCountFileReader.h"
 #include "PoMoState4.h"
 #include "PoMoState.h"
-#include "Cloneable.h"
+
 #include "DelimitedDataReader.h"
 #include "HomologousDiscreteCharacterData.h"
 #include "NaturalNumbersState.h"
 #include "RbException.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 
 

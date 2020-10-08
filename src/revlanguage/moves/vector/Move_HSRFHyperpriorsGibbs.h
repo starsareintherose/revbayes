@@ -1,13 +1,16 @@
 #ifndef Move_HSRFHyperpriorsGibbs_H
 #define Move_HSRFHyperpriorsGibbs_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
 
     /**
      * @brief Rev Wrapper of a scaling move on a uniformly chosen element of a real valued vector.

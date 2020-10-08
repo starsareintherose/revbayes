@@ -1,7 +1,7 @@
 #ifndef ConstantNode_H
 #define ConstantNode_H
 
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 #include "DagNodeMap.h"
 

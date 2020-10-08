@@ -8,16 +8,25 @@
 
 #include "DistributionExponentialError.h"
 
+#include <stddef.h>
 #include <cmath>
+#include <algorithm>
+#include <iostream>
+#include <iterator>
+#include <string>
+#include <vector>
 
 #include "DistributionDirichlet.h"
 #include "RandomNumberGenerator.h"
 #include "RbConstants.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "AverageDistanceMatrix.h"
 #include "DistanceMatrix.h"
+#include "MatrixBoolean.h"
+#include "Taxon.h"
+#include "boost/dynamic_bitset/dynamic_bitset.hpp"
 
 using namespace RevBayesCore;
 

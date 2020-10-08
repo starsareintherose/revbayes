@@ -1,14 +1,16 @@
 #ifndef RlMove_MultiValueEventSlide_H
 #define RlMove_MultiValueEventSlide_H
 
-#include "RlMove.h"
-#include "RlMultiValueEvent.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

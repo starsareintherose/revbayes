@@ -1,16 +1,20 @@
 #ifndef RateMatrix_GTR_H
 #define RateMatrix_GTR_H
 
-#include "TimeReversibleRateMatrix.h"
-#include "EigenSystem.h"
+#include <stddef.h>
 #include <complex>
 #include <vector>
+#include <iosfwd>
+
+#include "TimeReversibleRateMatrix.h"
 
 
 namespace RevBayesCore {
     
 //    class EigenSystem;
     class TransitionProbabilityMatrix;
+class Assignable;
+class EigenSystem;
     
     /**
      * @brief Generalised Time Reversible Model (GTR)rate matrix class (Tavare 1986).

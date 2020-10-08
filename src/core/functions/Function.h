@@ -1,16 +1,15 @@
 #ifndef Function_H
 #define Function_H
 
-#include "Cloneable.h"
-#include "RbOrderedSet.h"
-
 #include <iostream>
-#include <set>
 #include <vector>
+
+#include "Cloneable.h"
 
 namespace RevBayesCore {
     
     class DagNode;
+template <class valueType> class RbOrderedSet;
     
     class Function : public Cloneable {
         

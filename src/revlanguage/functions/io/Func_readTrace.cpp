@@ -11,7 +11,7 @@
 #include "RbException.h"
 #include "RbFileManager.h"
 #include "RlString.h"
-#include "StringUtilities.h"
+
 #include "RlTrace.h"
 #include "RlUserInterface.h"
 #include "WorkspaceVector.h"

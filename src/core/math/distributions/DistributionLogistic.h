@@ -18,8 +18,6 @@
 #ifndef DistributionLogistic_H
 #define DistributionLogistic_H
 
-#include <vector>
-
 namespace RevBayesCore {
     
     class RandomNumberGenerator;

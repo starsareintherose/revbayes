@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -6,18 +5,18 @@
 #include "RlBranchLengthTree.h"
 #include "RlString.h"
 #include "TypeSpec.h"
-#include "Argument.h"
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
 #include "MemberProcedure.h"
 #include "MethodTable.h"
-#include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlTree.h"
 #include "RlUtils.h"
 #include "Tree.h"
-#include "TypedDagNode.h"
+
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
+namespace RevLanguage { class Argument; }
 
 using namespace RevLanguage;
 

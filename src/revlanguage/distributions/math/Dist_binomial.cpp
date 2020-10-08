@@ -13,7 +13,6 @@
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
 #include "Natural.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

@@ -1,10 +1,17 @@
 #ifndef Dist_Laplaceal_H
 #define Dist_Laplaceal_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "LaplaceDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

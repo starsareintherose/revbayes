@@ -1,16 +1,16 @@
 #ifndef SyntaxFormal_H
 #define SyntaxFormal_H
 
-#include "SyntaxElement.h"
-
 #include <iostream>
-#include <list>
+
+#include "SyntaxElement.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
 
     class ArgumentRule;
-    class ArgumentEnvironment;
-    class TypeSpec;
+class Environment;
+class RevVariable;
 
     /**
      * @brief Formal arguments

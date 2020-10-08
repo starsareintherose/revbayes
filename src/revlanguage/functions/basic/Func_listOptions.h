@@ -1,9 +1,15 @@
 #ifndef Func_listOptions_H
 #define Func_listOptions_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     
     /**

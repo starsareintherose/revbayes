@@ -5,7 +5,7 @@
 #include "RbMathCombinatorialFunctions.h"
 #include "TransitionProbabilityMatrix.h"
 #include "Assignable.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 

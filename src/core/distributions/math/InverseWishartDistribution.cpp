@@ -6,7 +6,7 @@
 
 #include "RandomNumberFactory.h"
 #include "DistributionInverseWishart.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
 #include "RbVector.h"
 

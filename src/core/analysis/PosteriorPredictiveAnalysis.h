@@ -1,10 +1,12 @@
 #ifndef PosteriorPredictiveAnalysis_H
 #define PosteriorPredictiveAnalysis_H
 
-#include "Cloneable.h"
+#include <stddef.h>
+#include <iosfwd>
+
+
 #include "MonteCarloAnalysis.h"
 #include "Parallelizable.h"
-#include "RbVector.h"
 
 namespace RevBayesCore {
     

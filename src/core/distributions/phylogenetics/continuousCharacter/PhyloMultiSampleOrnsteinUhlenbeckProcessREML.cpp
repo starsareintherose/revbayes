@@ -18,7 +18,7 @@
 #include "RbConstants.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "Tree.h"
 #include "TreeChangeEventHandler.h"

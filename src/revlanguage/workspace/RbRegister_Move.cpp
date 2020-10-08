@@ -23,21 +23,19 @@
  * to add your objects in the code.
  */
 
+#include <stdio.h>
 #include <sstream>
 #include <vector>
-#include <stdio.h>
 #include <cstdlib>
 
 /* Files including helper classes */
 #include "RbException.h"
 #include "RlUserInterface.h"
 #include "Workspace.h"
-
 #include "DPPAllocateAuxGibbsMove.h"
 #include "DPPTableValueUpdate.h"
 #include "GibbsMixtureAllocationProposal.h"
 #include "Integer.h"
-#include "IntegerPos.h"
 #include "MixtureAllocationProposal.h"
 #include "ModelObject.h"
 #include "ModelVector.h"
@@ -83,10 +81,8 @@
 #include "Move_ScaleBactrianCauchy.h"
 #include "Move_Slide.h"
 #include "Move_SlideBactrian.h"
-
 /* Moves on probability values */
 #include "Move_BetaProbability.h"
-
 /* Compound Moves on Real Values */
 #include "Move_AVMVN.h"
 #include "Move_UpDownSlide.h"
@@ -94,18 +90,14 @@
 #include "Move_UpDownTreeScale.h"
 #include "Move_LevyJumpSum.h"
 #include "Move_LevyJump.h"
-
 /* Moves on integer values */
 #include "Move_RandomGeometricWalk.h"
 #include "Move_RandomIntegerWalk.h"
 #include "Move_BinarySwitch.h"
-
-
 /* Moves on simplices */
 #include "Move_DirichletSimplex.h"
 #include "Move_BetaSimplex.h"
 #include "Move_ElementSwapSimplex.h"
-
 /* Moves on vectors */
 #include "Move_ElementScale.h"
 #include "Move_ElementSlide.h"
@@ -125,11 +117,9 @@
 #include "Move_VectorScale.h"
 #include "Move_VectorSlide.h"
 #include "Move_VectorSlideRecenter.h"
-
 /* Moves on real valued matrices */
 #include "Move_MatrixSingleElementScale.h"
 #include "Move_MatrixSingleElementSlide.h"
-
 /* Moves on correlation matrices */
 #include "Move_ConjugateInverseWishart.h"
 #include "Move_CorrelationMatrixUpdate.h"
@@ -145,17 +135,12 @@
 #include "Move_GraphFlipEdge.h"
 #include "Move_GraphFlipClique.h"
 #include "Move_GraphShiftEdge.h"
-
 /* Moves on continuous character data (real valued matrices) */
 #include "Move_ContinuousCharacterDataSlide.h"
-
 /* Moves on discrete character data matrices */
 #include "Move_HomeologPhase.h"
-
 ///* Moves on covariance matrices */
 #include "Move_MatrixRealSymmetricSlide.h"
-
-
 /* Moves on mixtures (in folder "datatypes/inference/moves/mixture") */
 #include "Move_DPPAllocateAuxGibbsMove.h"
 #include "Move_DPPGibbsConcentration.h"
@@ -164,18 +149,13 @@
 #include "Move_GibbsMixtureAllocation.h"
 #include "Move_ReversibleJumpSwitchMove.h"
 #include "Move_UPPAllocation.h"
-
 // moves for the DPP table values
 #include "ScaleProposal.h"
 #include "BetaSimplexProposal.h"
-
-
 /* Moves on character histories/data augmentation */
 // #include "Move_NodeCharacterHistoryRejectionSample.h"
 // #include "Move_PathCharacterHistoryRejectionSample.h"
 #include "Move_CharacterHistory.h"
-
-
 #include "Move_BirthDeathEventContinuous.h"
 #include "Move_BirthDeathEventDiscrete.h"
 #include "Move_BirthDeathFromAgeEvent.h"
@@ -184,7 +164,6 @@
 #include "Move_EventTimeBeta.h"
 #include "Move_EventTimeSlide.h"
 #include "Move_GibbsDrawCharacterHistory.h"
-
 #include "Move_MultiValueEventBirthDeath.h"
 #include "Move_MultiValueEventScale.h"
 #include "Move_MultiValueEventSlide.h"

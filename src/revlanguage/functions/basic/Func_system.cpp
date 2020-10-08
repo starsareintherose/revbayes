@@ -13,7 +13,6 @@
 #include "ArgumentRules.h"
 #include "Procedure.h"
 #include "RbFileManager.h"
-#include "RbHelpReference.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlFunction.h"

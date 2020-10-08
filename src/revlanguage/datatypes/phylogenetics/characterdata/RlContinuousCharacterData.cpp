@@ -24,7 +24,7 @@
 #include "RevVariable.h"
 #include "RlDeterministicNode.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 
 using namespace RevLanguage;
 

@@ -4,7 +4,7 @@
 #include <string>
 
 #include "DistanceMatrixReader.h"
-#include "StringUtilities.h"
+
 #include "RbException.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

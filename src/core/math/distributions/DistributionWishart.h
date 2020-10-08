@@ -9,8 +9,7 @@
 #ifndef DistributionWishart_H
 #define DistributionWishart_H
 
-#include <iostream>
-
+#include <stddef.h>
 
 #include "MatrixReal.h"
 

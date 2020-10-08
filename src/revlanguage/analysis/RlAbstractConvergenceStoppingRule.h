@@ -1,15 +1,18 @@
 #ifndef RlAbstractConvergenceStoppingRule_H
 #define RlAbstractConvergenceStoppingRule_H
 
-#include "BurninEstimatorContinuous.h"
-#include "VariableMonitor.h"
-#include "RlStoppingRule.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlStoppingRule.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
+namespace RevBayesCore { class BurninEstimatorContinuous; }
+
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * RevLanguage abstract base class for convergence stopping rules.

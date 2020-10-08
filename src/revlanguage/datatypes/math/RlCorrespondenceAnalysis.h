@@ -18,14 +18,19 @@
 #ifndef RlCorrespondenceAnalysis_H
 #define RlCorrespondenceAnalysis_H
 
-#include "CorrespondenceAnalysis.h"
-#include "WorkspaceToCoreWrapperObject.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "CorrespondenceAnalysis.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
     
     class CorrespondenceAnalysis : public WorkspaceToCoreWrapperObject<RevBayesCore::CorrespondenceAnalysis> {
         

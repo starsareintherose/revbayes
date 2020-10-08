@@ -1,9 +1,11 @@
 #include <stddef.h>
+#include <assert.h>
 #include <cmath>
 #include <string>
 #include <complex>
 #include <iosfwd>
 #include <vector>
+#include <algorithm>
 
 #include "DistributionPoisson.h"
 #include "EigenSystem.h"

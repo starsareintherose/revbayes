@@ -1,15 +1,19 @@
 #ifndef RateMatrix_Senca_H
 #define RateMatrix_Senca_H
 
-#include "TimeReversibleRateMatrix.h"
+#include <stddef.h>
 #include <complex>
 #include <vector>
+
+#include "TimeReversibleRateMatrix.h"
+#include "CodonState.h"
 
 
 namespace RevBayesCore {
     
     class EigenSystem;
     class TransitionProbabilityMatrix;
+class Assignable;
     
     
     

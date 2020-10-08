@@ -23,15 +23,16 @@
  * to add your objects in the code.
  */
 
+#include <stdio.h>
 #include <sstream>
 #include <vector>
 #include <cstdlib>
-#include <stdio.h>
 
 /* Files including helper classes */
 #include "RbException.h"
 #include "RlUserInterface.h"
 #include "Workspace.h"
+#include "NumUniqueInVector.h"
 
 /// Miscellaneous types ///
 
@@ -57,12 +58,10 @@
 
 /* Primitive types (in folder "datatypes/basic") */
 #include "Integer.h"
-#include "IntegerPos.h"
 #include "Natural.h"
 #include "Probability.h"
 #include "Real.h"
 #include "RealPos.h"
-
 /* Container types (in folder "datatypes/container") */
 #include "ModelVector.h"
 
@@ -114,8 +113,6 @@
 #include "Func_treePairwiseDistances.h"
 #include "Func_treePairwiseNodalDistances.h"
 #include "Func_treeScale.h"
-
-
 /* Rate matrix functions (in folder "functions/phylogenetics/ratematrix") */
 #include "Func_BinaryMutationCoalescentRateMatrix.h"
 #include "Func_blosum62.h"
@@ -154,15 +151,12 @@
 #include "Func_TIM.h"
 #include "Func_TVM.h"
 #include "Func_wag.h"
-
 /* Functions related to evolution (in folder "functions/popgen") */
 #include "Func_PattersonsD.h"
 #include "Func_SegregatingSites.h"
 #include "Func_TajimasD.h"
 #include "Func_TajimasPi.h"
 #include "Func_WattersonTheta.h"
-
-
 /* Rate map functions (in folder "functions/evolution/ratemap") */
 #include "Func_adjacentRateModifier.h"
 #include "Func_biogeo_de.h"
@@ -172,8 +166,6 @@
 #include "Func_stateCountRateModifier.h"
 #include "Func_siteRateModifier.h"
 #include "Func_hostSwitchRateModifier.h"
-
-
 /* Cladogeneic state prob function */
 #include "Func_biogeographyCladoEventsBD.h"
 #include "Func_DECCladoProbs.h"
@@ -187,12 +179,8 @@
 #include "Func_cladogeneticProbabilityMatrix.h"
 #include "Func_MixtureCladoProbs.h"
 #include "Func_SampledCladogenesisRootFrequencies.h"
-
-
 /* Input/output functions (in folder "functions/io") */
 #include "Func_readPoMoCountFile.h"
-
-
 /* Math functions (in folder "functions/math") */
 #include "Func_abs.h"
 #include "Func_absVector.h"
@@ -237,8 +225,6 @@
 #include "Func_upperTriangle.h"
 #include "Func_variance.h"
 #include "Func_vectorFlatten.h"
-
-
 /* Statistics functions (in folder "functions/statistics") */
 /* These are functions related to statistical distributions */
 #include "Func_assembleContinuousMRF.h"
@@ -259,7 +245,6 @@
 #include "Func_varianceCovarianceMatrix.h"
 #include "Func_decomposedVarianceCovarianceMatrix.h"
 #include "Func_partialToCorrelationMatrix.h"
-
 /* Type conversions */
 #include "Proc_StringToInt.h"
 

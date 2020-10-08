@@ -5,12 +5,16 @@
 #include <vector>
 
 #include "MatrixReal.h"
-#include "ModelObject.h"
 #include "RlMatrixReal.h"
-#include "TypedDagNode.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     
     /**

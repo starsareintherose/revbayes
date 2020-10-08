@@ -4,16 +4,14 @@
 #include <string>
 
 #include "RbException.h"
-#include "StringUtilities.h"
 #include "AminoAcidState.h"
-#include "Cloneable.h"
+
 #include "CodonState.h"
 #include "DiscreteCharacterState.h"
 #include "DnaState.h"
 #include "NaturalNumbersState.h"
 #include "RnaState.h"
-
-
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

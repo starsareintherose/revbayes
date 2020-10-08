@@ -1,16 +1,12 @@
 #ifndef FastaWriter_H
 #define FastaWriter_H
 
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "AbstractNonHomologousDiscreteCharacterData.h"
-
-#include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
-#include <vector>
 
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+class AbstractNonHomologousDiscreteCharacterData;
     
     /**
      * This class represents the writer object of character data objects into files in Fasta format.

@@ -1,27 +1,26 @@
 #ifndef RevObject_H
 #define RevObject_H
 
-#include "Cloneable.h"
-#include "DagNode.h"
-#include "MethodTable.h"
-#include "RbHelpEntry.h"
-#include "RbHelpFunction.h"
-#include "RevMemberObject.h"
-#include "RevPtr.h"
-
 #include <ostream>
 #include <string>
 #include <vector>
+
+#include "Cloneable.h"
+#include "MethodTable.h"
+#include "RevMemberObject.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { class DagNode; }
+namespace RevBayesCore { class RbHelpEntry; }
+namespace RevBayesCore { class RbHelpFunction; }
 
 
 namespace RevLanguage {
 
     class Argument;
-    class ArgumentRule;
     class ArgumentRules;
     class TypeSpec;
     class UserFunction;
-    class UserFunctionCall;
     class RevVariable;
 
     typedef ArgumentRules MemberRules;                                                                                                                          //!< Member rules type def, for convenience

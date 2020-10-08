@@ -40,7 +40,7 @@
 #include "RlDistribution.h"
 #include "RnaState.h"
 #include "Simplex.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TreeHistoryCtmc.h"
 #include "TypeSpec.h"

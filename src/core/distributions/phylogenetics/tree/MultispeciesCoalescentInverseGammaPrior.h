@@ -1,11 +1,16 @@
 #ifndef MultispeciesCoalescentInverseGammaPrior_H
 #define MultispeciesCoalescentInverseGammaPrior_H
 
+#include <stddef.h>
+#include <vector>
+
 #include "AbstractMultispeciesCoalescent.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+class Taxon;
+class Tree;
+template <class valueType> class TypedDagNode;
     
     class MultispeciesCoalescentInverseGammaPrior : public AbstractMultispeciesCoalescent {
         

@@ -1,10 +1,12 @@
 #include <float.h>
-#include <stddef.h>
 #include <algorithm>
 #include <cmath>
 #include <iosfwd>
 #include <string>
 #include <vector>
+#include <cstddef>
+#include <ostream>
+#include <utility>
 
 #include "DistributionExponential.h"
 #include "EpisodicBirthDeathSamplingTreatmentProcess.h"
@@ -21,8 +23,9 @@
 #include "TopologyNode.h"
 #include "Tree.h"
 #include "TypedDagNode.h"
-
-namespace RevBayesCore { class Taxon; }
+#include "Clade.h"
+#include "RbVectorImpl.h"
+#include "Taxon.h"
 
 using namespace RevBayesCore;
 

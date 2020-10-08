@@ -51,7 +51,7 @@ namespace RevLanguage {
 
 #include "VectorScalarSubtraction.h"
 #include "RlDeterministicNode.h"
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 
 /** default constructor */

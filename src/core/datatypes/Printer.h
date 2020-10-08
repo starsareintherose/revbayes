@@ -19,6 +19,7 @@
 
 #include "StringUtilities.h"
 
+
 namespace RevBayesCore {
     
     template <typename objType, int>

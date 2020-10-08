@@ -1,18 +1,17 @@
 #include "ArgumentRule.h"
-#include "Ellipsis.h"
 #include "Func_betaBrokenStick.h"
 #include "Integer.h"
-#include "NormalizeVectorFunction.h"
-#include "ModelVector.h"
-#include "Probability.h"
-#include "RbUtil.h"
 #include "RealPos.h"
-#include "RlBoolean.h"
 #include "RlDeterministicNode.h"
 #include "TypedDagNode.h"
 #include "TypeSpec.h"
-
 #include "BetaBrokenStickFunction.h"
+#include "Argument.h"
+#include "ArgumentRules.h"
+#include "Natural.h"
+#include "Real.h"
+#include "RevVariable.h"
+#include "RlFunction.h"
 
 
 using namespace RevLanguage;

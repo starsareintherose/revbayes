@@ -1,12 +1,11 @@
 #ifndef MultispeciesCoalescentMigrationODE_H
 #define MultispeciesCoalescentMigrationODE_H
 
-#include "AbstractBirthDeathProcess.h"
-#include "RateMatrix.h"
-
+#include <stddef.h>
 #include <vector>
 
 namespace RevBayesCore {
+class RateGenerator;
     
     /**
      * @brief Multispecies-coalescent-migration ODE.

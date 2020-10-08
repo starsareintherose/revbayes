@@ -1,13 +1,18 @@
 #ifndef UniformTimeTreeDistribution_H
 #define UniformTimeTreeDistribution_H
 
+#include <stddef.h>
+#include <vector>
+
 #include "Tree.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "Taxon.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+class TopologyNode;
+template <class valueType> class RbOrderedSet;
+template <class valueType> class TypedDagNode;
     
     class UniformTimeTreeDistribution : public TypedDistribution<Tree> {
         

@@ -1,28 +1,30 @@
 #ifndef TimeVaryingStateDependentSpeciationExtinctionProcess_H
 #define TimeVaryingStateDependentSpeciationExtinctionProcess_H
 
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "TreeDiscreteCharacterData.h"
-#include "CladogeneticSpeciationRateMatrix.h"
-#include "RateMatrix.h"
+#include <vector>
+#include <cstddef>
+#include <iosfwd>
+#include <map>
+
 #include "RateMatrix_JC.h"
-#include "Simplex.h"
-#include "SSE_ODE.h"
-#include "Taxon.h"
 #include "Tree.h"
 #include "TreeChangeEventListener.h"
-#include "TypedDagNode.h"
-#include "RbVector.h"
 #include "RevPtr.h"
-#include "RevVariable.h"
-#include "RlString.h"
+#include "MemberObject.h"
+#include "TopologyNode.h"
+#include "TypedDistribution.h"
 
-
-#include <vector>
+namespace RevLanguage { class RevVariable; }
 
 namespace RevBayesCore {
-    
-    class Clade;
+class AbstractHomologousDiscreteCharacterData;
+class CladogeneticSpeciationRateMatrix;
+class DagNode;
+class RateGenerator;
+class Simplex;
+template <class valueType> class RbOrderedSet;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     /**
      * @file

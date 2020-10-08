@@ -1,14 +1,18 @@
 #ifndef ContinuousEventScaleProposal_H
 #define ContinuousEventScaleProposal_H
 
-#include <set>
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
 
-#include "ConditionedBirthDeathShiftProcessContinuous.h"
 #include "Proposal.h"
-#include "StochasticNode.h"
 
 namespace RevBayesCore {
+class CharacterEventContinuous;
+class ConditionedBirthDeathShiftProcessContinuous;
+class DagNode;
+class Tree;
+template <class variableType> class StochasticNode;
     
     /**
      * The birth-death proposal for events along a tree.

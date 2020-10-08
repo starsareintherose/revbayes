@@ -1,13 +1,17 @@
 #ifndef ArgumentRule_H
 #define ArgumentRule_H
 
-#include "Environment.h"
+#include <string>
+#include <iosfwd>
+#include <vector>
+
 #include "RevPtr.h"
 #include "TypeSpec.h"
-
-#include <string>
+#include "Argument.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class RevObject;
 
     /**
      * @brief Argument rule class

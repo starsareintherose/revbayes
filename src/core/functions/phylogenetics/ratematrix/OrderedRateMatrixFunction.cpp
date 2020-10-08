@@ -1,7 +1,10 @@
 #include "OrderedRateMatrixFunction.h"
 
+#include <stddef.h>
+#include <vector>
+
 #include "RateMatrix_FreeK.h"
-#include "Cloneable.h"
+
 #include "TypedDagNode.h"
 
 namespace RevBayesCore { class DagNode; }

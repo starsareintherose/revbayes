@@ -16,11 +16,10 @@
 #include "ArgumentRules.h"
 #include "StudentTDistribution.h"
 #include "Natural.h"
-#include "RbHelpReference.h"
 #include "Real.h"
 #include "RlDistribution.h"
 #include "RlTypedDistribution.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedDistribution.h"
 

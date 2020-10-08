@@ -47,7 +47,7 @@
 #include "RlDistribution.h"
 #include "RnaState.h"
 #include "Simplex.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TypeSpec.h"
 #include "UserFunctionNode.h"

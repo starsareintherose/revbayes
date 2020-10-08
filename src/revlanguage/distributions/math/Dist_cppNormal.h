@@ -1,12 +1,17 @@
 #ifndef __revbayes_proj__Dist_cppNormal__
 #define __revbayes_proj__Dist_cppNormal__
 
+#include <iosfwd>
+
 #include "CompoundPoissonNormalDistribution.h"
-#include "Natural.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the Poisson distribution.

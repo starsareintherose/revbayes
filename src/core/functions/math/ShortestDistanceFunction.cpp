@@ -5,7 +5,7 @@
 #include "RbConstants.h"
 #include "RbVector.h"
 #include "TypedFunction.h"
-#include "Cloner.h"
+
 #include "TypedDagNode.h"
 
 namespace RevBayesCore { class DagNode; }

@@ -1,22 +1,23 @@
+#include <stddef.h>
+#include <sstream>
+#include <string>
+#include <vector>
+
 #include "HomologousDiscreteCharacterData.h"
 #include "ArgumentRule.h"
-#include "ConstantNode.h"
 #include "VCFReader.h"
-#include "Ellipsis.h"
 #include "Func_readVCF.h"
 #include "OptionRule.h"
-#include "RbException.h"
-#include "RevNullObject.h"
 #include "RlAbstractHomologousDiscreteCharacterData.h"
-#include "RlBoolean.h"
 #include "RlString.h"
-#include "RlUtils.h"
-#include "StringUtilities.h"
-#include "RlUserInterface.h"
+#include "Argument.h"
+#include "ArgumentRules.h"
+#include "BinaryState.h"
+#include "RevVariable.h"
+#include "RlFunction.h"
+#include "TypeSpec.h"
 
-#include <map>
-#include <set>
-#include <sstream>
+namespace RevBayesCore { class DnaState; }
 
 
 using namespace RevLanguage;

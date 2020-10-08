@@ -16,7 +16,7 @@
 #include "RlMatrixReal.h"
 #include "RlMatrixRealPos.h"
 #include "RlString.h"
-#include "StringUtilities.h"
+
 #include "WorkspaceVector.h"
 #include "AbstractModelObject.h"
 #include "Argument.h"

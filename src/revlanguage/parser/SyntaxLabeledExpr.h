@@ -1,12 +1,15 @@
 #ifndef SyntaxLabeledExpr_H
 #define SyntaxLabeledExpr_H
 
-#include "SyntaxElement.h"
-
 #include <iostream>
-#include <list>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class RevVariable;
 
     /**
      * @brief Labeled expression syntax element

@@ -1,15 +1,20 @@
 #ifndef HeterochronousCoalescent_H
 #define HeterochronousCoalescent_H
 
+#include <stddef.h>
+#include <vector>
+
 #include "AbstractCoalescent.h"
 #include "DemographicFunction.h"
-#include "Taxon.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 namespace RevBayesCore {
     
     class Clade;
+class DagNode;
+class Taxon;
+template <class valueType> class TypedDagNode;
     
     
     

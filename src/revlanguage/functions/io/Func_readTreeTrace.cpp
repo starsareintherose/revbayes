@@ -21,7 +21,7 @@
 #include "RlString.h"
 #include "RlTraceTree.h"
 #include "RlUserInterface.h"
-#include "StringUtilities.h"
+
 #include "TraceTree.h"
 #include "TreeUtilities.h"
 #include "Argument.h"
@@ -44,11 +44,12 @@
 #include "RlBoolean.h"
 #include "RlConstantNode.h"
 #include "RlFunction.h"
-#include "Trace.h"
 #include "TypeSpec.h"
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "WorkspaceVector.h"
 
 namespace RevBayesCore { class Tree; }
 
@@ -477,7 +478,7 @@ WorkspaceVector<TraceTree>* Func_readTreeTrace::readTrees(const std::vector<std:
  *
  * @note if multiple files are given, the traces will all be appended without regard for burnin
  * */
-WorkspaceVector<TraceTree>* Func_readTreeTrace::readTreesNexus(const std::vector<string> &fns, bool clock, long thin) {
+WorkspaceVector<TraceTree>* Func_readTreeTrace::readTreesNexus(const std::vector<std::string> &fns, bool clock, long thin) {
 
     std::vector<TraceTree> data;
 

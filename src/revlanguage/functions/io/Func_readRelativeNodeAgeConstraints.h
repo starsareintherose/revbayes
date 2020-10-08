@@ -1,15 +1,19 @@
 #ifndef Func_readRelativeNodeAgeConstraints_H
 #define Func_readRelativeNodeAgeConstraints_H
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-
-#include <map>
 #include <string>
-#include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { class RbFileManager; }
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * This is the interface for a class that reads in node age constraints.

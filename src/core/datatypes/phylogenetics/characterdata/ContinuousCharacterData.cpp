@@ -15,7 +15,7 @@
 #include "TypedDagNode.h"
 #include "AbstractCharacterData.h"
 #include "AbstractTaxonData.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "Taxon.h"
@@ -113,7 +113,7 @@ void ContinuousCharacterData::concatenate(const ContinuousCharacterData &obsd, s
     {
         throw RbException("Cannot add two character data objects with different number of taxa!");
     }
-    std::vector<string> toDelete;
+    std::vector<std::string> toDelete;
     std::vector<bool> used = std::vector<bool>(obsd.getNumberOfTaxa(),false);
     for (size_t i=0; i<taxa.size(); i++ )
     {

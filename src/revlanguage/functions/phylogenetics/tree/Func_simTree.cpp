@@ -11,7 +11,7 @@
 #include "RbException.h"
 #include "RlString.h"
 #include "RlTimeTree.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TypeSpec.h"
 #include "ArgumentRules.h"

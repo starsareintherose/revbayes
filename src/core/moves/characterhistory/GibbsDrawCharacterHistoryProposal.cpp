@@ -6,7 +6,7 @@
 #include "RbException.h"
 #include "StateDependentSpeciationExtinctionProcess.h"
 #include "Tree.h"
-#include "Cloneable.h"
+
 #include "StochasticNode.h"
 #include "TypedDistribution.h"
 

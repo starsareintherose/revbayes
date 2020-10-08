@@ -1,12 +1,16 @@
 #ifndef RlMcmc_H
 #define RlMcmc_H
 
-#include "Mcmc.h"
-#include "RlMonteCarloAnalysis.h"
-
 #include <string>
+#include <iosfwd>
+
+#include "RlMonteCarloAnalysis.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

@@ -8,7 +8,7 @@
 #include "DistributionInverseWishart.h"
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
-#include "Cloneable.h"
+
 #include "DagNode.h"
 #include "PhyloMultivariateBrownianProcessREML.h"
 #include "RbException.h"

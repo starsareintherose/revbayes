@@ -1,8 +1,8 @@
 
-#include <stddef.h>
 #include <ostream>
 #include <string>
 #include <vector>
+#include <cstring>
 
 #include "DemographicFunction.h"
 #include "RlDemographicFunction.h"

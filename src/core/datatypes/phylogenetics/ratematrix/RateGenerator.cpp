@@ -11,7 +11,7 @@
 #include "TransitionProbabilityMatrix.h"
 #include "TypedDagNode.h"
 #include "Assignable.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "Simplex.h"
 

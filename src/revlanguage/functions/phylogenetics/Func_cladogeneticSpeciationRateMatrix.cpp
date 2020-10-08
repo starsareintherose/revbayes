@@ -27,7 +27,7 @@
 #include "RlDeterministicNode.h"
 #include "RlFunction.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedDagNode.h"
 #include "TypedFunction.h"

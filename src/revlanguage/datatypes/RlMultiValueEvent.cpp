@@ -1,7 +1,6 @@
 #include "RlMultiValueEvent.h"
 
 #include "TypeSpec.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevVariable.h"
 

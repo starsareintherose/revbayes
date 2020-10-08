@@ -17,13 +17,18 @@
 #ifndef Func_consensusTree_H
 #define Func_consensusTree_H
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-
 #include <string>
+#include <iosfwd>
+#include <vector>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
 
     class Func_consensusTree :  public Procedure {
         

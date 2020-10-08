@@ -1,10 +1,16 @@
 #ifndef Func_writeFasta_H
 #define Func_writeFasta_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
 
     /**
      * Function that takes in character data and writes it into a file in Fasta format.

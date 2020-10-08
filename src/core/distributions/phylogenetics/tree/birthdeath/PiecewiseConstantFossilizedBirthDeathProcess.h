@@ -1,14 +1,22 @@
 #ifndef PiecewiseConstantFossilizedBirthDeathProcess_H
 #define PiecewiseConstantFossilizedBirthDeathProcess_H
 
-#include "RbVector.h"
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "AbstractBirthDeathProcess.h"
 #include "AbstractPiecewiseConstantFossilizedRangeProcess.h"
+#include "AbstractRootedTreeDistribution.h"
+#include "RbException.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
     
-    class Clade;
     class Taxon;
+class DagNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Piecewise-constant fossilized birth-death range distribution of sampled/extended trees.

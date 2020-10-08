@@ -22,18 +22,25 @@
 #ifndef Tree_H
 #define Tree_H
 
-#include "RbBoolean.h"
-#include "RbVector.h"
+#include <stddef.h>
+#include <vector>
+#include <string>
+#include <iosfwd>
+#include <map>
+
 #include "Cloneable.h"
 #include "MemberObject.h"
 #include "Serializable.h"
 #include "TaxonMap.h"
 #include "TreeChangeEventHandler.h"
-
-#include <vector>
-#include <string>
+#include "Taxon.h"
 
 namespace RevBayesCore {
+
+class Boolean;
+class Clade;
+class DagNode;
+class RbBitSet;
 
     class TopologyNode;
 

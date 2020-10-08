@@ -1,16 +1,30 @@
 #ifndef RlDistanceMatrix_H
 #define RlDistanceMatrix_H
 
+#include <stddef.h>
+#include <ostream>
+#include <string>
+#include <vector>
+
 #include "ModelObject.h"
 #include "DistanceMatrix.h"
 #include "TypedDagNode.h"
-
-#include <ostream>
-#include <string>
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
     
     class Real;
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     class DistanceMatrix : public ModelObject<RevBayesCore::DistanceMatrix>  {
             

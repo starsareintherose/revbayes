@@ -1,4 +1,6 @@
 #include <sstream> // IWYU pragma: keep
+#include <iostream>
+#include <string>
 
 #include "RbException.h"
 #include "SyntaxWorkspaceVariableAssignment.h"

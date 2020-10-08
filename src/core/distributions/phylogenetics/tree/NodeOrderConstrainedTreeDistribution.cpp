@@ -11,7 +11,7 @@
 #include "RbConstants.h"
 #include "TopologyNode.h"
 #include "TreeUtilities.h"
-#include "Cloneable.h"
+
 #include "Tree.h"
 #include "TypedDistribution.h"
 

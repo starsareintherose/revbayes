@@ -1,15 +1,28 @@
 #ifndef RlTree_H
 #define RlTree_H
 
-#include "ModelObject.h"
-#include "Tree.h"
-
-#include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "ModelObject.h"
+#include "Tree.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     
     

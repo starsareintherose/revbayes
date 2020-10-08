@@ -15,7 +15,6 @@
 #include "MemberProcedure.h"
 #include "MethodTable.h"
 #include "Move.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

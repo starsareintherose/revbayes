@@ -1,11 +1,18 @@
 #ifndef HillClimber_H
 #define HillClimber_H
 
+#include <stddef.h>
+#include <iosfwd>
+
 #include "MaximumLikelihoodEstimation.h"
+#include "Model.h"
+#include "Monitor.h"
+#include "Move.h"
+#include "RbVector.h"
+#include "RbVectorImpl.h"
 
 namespace RevBayesCore {
-    
-    class Monitor;
+class MoveSchedule;
     
     /**
      * @brief Declaration of HillClimber class

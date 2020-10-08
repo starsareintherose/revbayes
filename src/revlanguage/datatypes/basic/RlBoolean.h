@@ -19,14 +19,26 @@
 #ifndef RlBoolean_H
 #define RlBoolean_H
 
+#include <ostream>
+#include <string>
+#include <vector>
+
 #include "ModelObject.h"
 #include "RbBoolean.h"
 #include "TypedDagNode.h"
-
-#include <ostream>
-#include <string>
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class RevObject;
+class TypeSpec;
 
     class RlBoolean : public ModelObject<RevBayesCore::Boolean> {
 

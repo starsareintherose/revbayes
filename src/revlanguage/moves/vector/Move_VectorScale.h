@@ -1,9 +1,15 @@
 #ifndef Move_VectorScale_H
 #define Move_VectorScale_H
 
+#include <iosfwd>
+
 #include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * @copybrief RevBayesCore::VectorScaleProposal

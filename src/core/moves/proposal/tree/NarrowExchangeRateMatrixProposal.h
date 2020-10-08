@@ -1,14 +1,19 @@
 #ifndef NarrowExchangeRateMatrixProposal_H
 #define NarrowExchangeRateMatrixProposal_H
 
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
+#include <vector>
 
 #include "Proposal.h"
-#include "RateGenerator.h"
-#include "StochasticNode.h"
-#include "Tree.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
+class DagNode;
+class RateGenerator;
+class Tree;
+template <class valueType> class StochasticNode;
     
     /**
      * The narrow-exchange operator.

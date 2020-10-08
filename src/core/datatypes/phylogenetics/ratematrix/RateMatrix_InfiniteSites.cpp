@@ -5,7 +5,7 @@
 #include "RbException.h"
 #include "TransitionProbabilityMatrix.h"
 #include "Assignable.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"

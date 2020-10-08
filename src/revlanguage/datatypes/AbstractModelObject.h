@@ -23,8 +23,6 @@
 #include "RevObject.h"
 #include "DagNode.h"
 
-namespace RevBayesCore { class DagNode; }
-
 namespace RevLanguage {
     
     class AbstractModelObject : public RevObject {

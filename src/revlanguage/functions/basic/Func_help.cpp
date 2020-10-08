@@ -14,7 +14,6 @@
 #include "RbHelpRenderer.h"
 #include "ArgumentRules.h"
 #include "Procedure.h"
-#include "RbHelpReference.h"
 #include "RbSettings.h"
 #include "RbUtil.h"
 #include "RevPtr.h"

@@ -10,7 +10,7 @@
 namespace RevBayesCore {
     
     class DagNode;
-template <class valueType> class RbOrderedSet;
+    template <class valueType> class RbOrderedSet;
     
     /**
      * Base class for all move within an MCMC (and all other variants).

@@ -6,7 +6,7 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "RbVector.h"
-#include "Cloneable.h"
+
 #include "MatrixReal.h"
 #include "StochasticNode.h"
 

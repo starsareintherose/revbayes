@@ -1,14 +1,16 @@
 #ifndef Mntr_StochasticVariable_H
 #define Mntr_StochasticVariable_H
 
-#include "StochasticVariableMonitor.h"
-#include "RlMonitor.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMonitor.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     class Mntr_StochasticVariable : public Monitor {
         

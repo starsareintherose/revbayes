@@ -1,9 +1,18 @@
 #ifndef Dist_PhylodynamicBDP_H
 #define Dist_PhylodynamicBDP_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "RlBirthDeathProcess.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
+namespace RevBayesCore { class AbstractBirthDeathProcess; }
 
 namespace RevLanguage {
+class TypeSpec;
 
     /**
      * The RevLanguage wrapper of the constant-rate Fossilized-Birth-Death Process

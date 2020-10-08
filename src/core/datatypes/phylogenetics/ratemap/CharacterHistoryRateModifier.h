@@ -3,6 +3,9 @@
 
 #include <set>
 #include <vector>
+#include <cstddef>
+#include <iosfwd>
+
 #include "Assignable.h"
 #include "Cloneable.h"
 
@@ -10,6 +13,7 @@ namespace RevBayesCore
 {
     class CharacterEvent;
     class CharacterEventDiscrete;
+
     class CharacterHistoryRateModifier : public Cloneable, public Assignable
     {
     public:

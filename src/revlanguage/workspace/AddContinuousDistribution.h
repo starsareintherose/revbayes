@@ -9,7 +9,7 @@
 #include "DistributionFunctionRv.h"
 #include "RlPositiveContinuousDistribution.h"
 #include "RlTypedDistribution.h"
-#include "StringUtilities.h"
+
 #include "Workspace.h"
 
 /**

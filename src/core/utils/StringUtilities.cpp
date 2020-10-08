@@ -15,7 +15,7 @@
  * $Id$
  */
 
-#include "StringUtilities.h"
+
 
 #include <stdio.h>
 #include <iomanip>

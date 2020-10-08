@@ -1,20 +1,14 @@
 #ifndef MaximumLikelihoodEstimation_H
 #define MaximumLikelihoodEstimation_H
 
+#include <stddef.h>
+#include <iosfwd>
+
 #include "Cloneable.h"
-#include "Model.h"
-#include "Monitor.h"
-#include "Move.h"
-#include "MoveSchedule.h"
 #include "Parallelizable.h"
-#include "RandomMoveSchedule.h"
-#include "RbVector.h"
-#include <vector>
-#include "SequentialMoveSchedule.h"
 
 namespace RevBayesCore {
-    
-    class Monitor;
+class Model;
     
     /**
      * @brief Abstract class for all Monte Carlo samplers, such as the Markov chain Monte Carlo (MCMC) sampler and Metropolis coupled MCMC (MC^3).

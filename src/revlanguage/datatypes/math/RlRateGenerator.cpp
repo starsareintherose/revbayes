@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Michael Landis. All rights reserved.
 //
 
-#include <iosfwd>
 #include <string>
 #include <vector>
 

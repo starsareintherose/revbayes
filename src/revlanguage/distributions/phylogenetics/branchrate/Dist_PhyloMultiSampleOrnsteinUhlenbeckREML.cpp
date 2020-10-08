@@ -15,7 +15,7 @@
 #include "Real.h"
 #include "RealPos.h"
 #include "RlDistribution.h"
-#include "StringUtilities.h"
+
 #include "Tree.h"
 #include "TypeSpec.h"
 

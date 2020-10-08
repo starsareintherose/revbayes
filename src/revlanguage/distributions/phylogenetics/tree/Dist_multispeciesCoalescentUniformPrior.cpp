@@ -16,7 +16,6 @@
 #include "DynamicNode.h"
 #include "ModelObject.h"
 #include "MultispeciesCoalescentUniformPrior.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RevObject.h"
 #include "RevPtr.h"

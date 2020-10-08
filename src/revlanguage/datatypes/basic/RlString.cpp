@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <iosfwd>
 #include <string>
 #include <vector>
 
@@ -21,7 +20,7 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlConstantNode.h"
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"

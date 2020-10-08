@@ -1,7 +1,7 @@
 #ifndef ScalarVectorSubtraction_H
 #define ScalarVectorSubtraction_H
 
-#include "StringUtilities.h"    // For string concatenation through Subtraction
+    // For string concatenation through Subtraction
 #include "TypedFunction.h"
 #include "TypedDagNode.h"
 

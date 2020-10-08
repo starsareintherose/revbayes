@@ -1,13 +1,15 @@
 #ifndef TimeReversibleRateMatrix_H
 #define TimeReversibleRateMatrix_H
 
-#include "MatrixReal.h"
-#include "AbstractRateMatrix.h"
-#include <complex>
+#include <stddef.h>
 #include <vector>
+
+#include "AbstractRateMatrix.h"
 
 
 namespace RevBayesCore {
+class Assignable;
+class TransitionProbabilityMatrix;
     
     class TimeReversibleRateMatrix : public AbstractRateMatrix {
         

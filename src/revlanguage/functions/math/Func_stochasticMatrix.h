@@ -5,7 +5,6 @@
 #include <iosfwd>
 #include <vector>
 
-#include "RlMatrixReal.h"
 #include "RlTypedFunction.h"
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
@@ -14,6 +13,7 @@
 #include "RlStochasticMatrix.h"
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
+#include "MatrixReal.h"
 
 namespace RevLanguage {
 class ArgumentRules;

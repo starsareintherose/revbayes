@@ -7,6 +7,7 @@
 namespace RevBayesCore {
     
     class TransitionProbabilityMatrix;
+class Assignable;
     
     /**
      * @brief HKY (Hasegawa, Kishino and Yano 1985) rate matrix class.

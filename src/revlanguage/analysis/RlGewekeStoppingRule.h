@@ -1,14 +1,16 @@
 #ifndef RlGewekeStoppingRule_H
 #define RlGewekeStoppingRule_H
 
-#include "VariableMonitor.h"
-#include "RlAbstractConvergenceStoppingRule.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlAbstractConvergenceStoppingRule.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * RevLanguage wrapper class for the Geweke stopping rule of an analysis.

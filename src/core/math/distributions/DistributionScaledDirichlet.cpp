@@ -23,7 +23,7 @@
 #include "RbException.h"
 #include "RbMathFunctions.h"
 #include "RbStatisticsHelper.h"
-#include "Cloner.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 

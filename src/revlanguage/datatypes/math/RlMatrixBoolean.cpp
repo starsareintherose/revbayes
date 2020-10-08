@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -30,10 +29,12 @@
 #include "RlConstantNode.h"
 #include "RlDeterministicNode.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "RbVectorImpl.h"
+#include "boost/dynamic_bitset.hpp"
 
 using namespace RevLanguage;
 

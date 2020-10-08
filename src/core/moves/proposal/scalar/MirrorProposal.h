@@ -1,13 +1,15 @@
 #ifndef MirrorProposal_H
 #define MirrorProposal_H
 
-#include <set>
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
 
 #include "Proposal.h"
-#include "ContinuousStochasticNode.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class variableType> class StochasticNode;
 
     /**
      * The sliding bactrian operator.

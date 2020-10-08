@@ -18,14 +18,17 @@
 #ifndef Mntr_CharacterHistoryNewickFile_H
 #define Mntr_CharacterHistoryNewickFile_H
 
-#include "TreeCharacterHistoryNodeMonitor.h"
-#include "RlMonitor.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <set>
+
+#include "RlMonitor.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     class Mntr_CharacterHistoryNewickFile : public Monitor {
         

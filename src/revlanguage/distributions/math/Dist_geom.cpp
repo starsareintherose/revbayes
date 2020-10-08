@@ -13,7 +13,6 @@
 #include "DagMemberFunction.h"
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
-#include "RbHelpReference.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"

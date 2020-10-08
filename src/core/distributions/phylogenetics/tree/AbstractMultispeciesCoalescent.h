@@ -1,14 +1,18 @@
 #ifndef AbstractMultispeciesCoalescent_H
 #define AbstractMultispeciesCoalescent_H
 
-#include "RbVector.h"
+#include <stddef.h>
+#include <set>
+#include <vector>
+
 #include "Tree.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "Taxon.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+template <class valueType> class TypedDagNode;
     
     class AbstractMultispeciesCoalescent : public TypedDistribution<Tree> {
         

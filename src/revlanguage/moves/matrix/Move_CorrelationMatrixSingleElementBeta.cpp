@@ -23,9 +23,8 @@
 #include "TypeSpec.h"
 #include "Move.h"
 #include "RbBoolean.h"
-#include "RbHelpReference.h"
 #include "StochasticNode.h"
-#include "StringUtilities.h"
+
 
 namespace RevBayesCore { class MatrixReal; }
 namespace RevBayesCore { class Proposal; }

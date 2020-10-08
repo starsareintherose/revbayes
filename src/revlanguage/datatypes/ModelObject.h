@@ -68,7 +68,7 @@ namespace RevLanguage {
 #include "AbstractCharacterData.h"
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
-#include "Cloner.h"
+
 #include "ConstantNode.h"
 #include "ContinuousCharacterData.h"
 #include "Func__conversion.h"

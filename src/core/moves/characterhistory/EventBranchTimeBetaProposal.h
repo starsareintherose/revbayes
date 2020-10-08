@@ -1,15 +1,18 @@
 #ifndef EventBranchTimeBetaProposal_H
 #define EventBranchTimeBetaProposal_H
 
-#include <set>
+#include <stddef.h>
 #include <string>
+#include <iosfwd>
 
-#include "AbstractCharacterHistoryBirthDeathProcess.h"
 #include "Proposal.h"
-#include "StochasticNode.h"
-#include "CharacterEvent.h"
 
 namespace RevBayesCore {
+class AbstractCharacterHistoryBirthDeathProcess;
+class CharacterEvent;
+class DagNode;
+class Tree;
+template <class variableType> class StochasticNode;
     
     /**
      * The birth-death proposal for events along a tree.

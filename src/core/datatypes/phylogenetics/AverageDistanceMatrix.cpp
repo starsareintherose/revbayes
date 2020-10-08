@@ -1,13 +1,13 @@
 #include "AverageDistanceMatrix.h"
 
-#include "math.h"
 #include <sstream>
 #include <string>
 
-#include "StringUtilities.h"
-#include "RbException.h"
+#include "math.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
+#include "Taxon.h"
+#include "boost/dynamic_bitset.hpp"
 
 using namespace RevBayesCore;
 

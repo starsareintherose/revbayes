@@ -16,9 +16,10 @@
 #ifndef TransitionProbabilityMatrix_H
 #define TransitionProbabilityMatrix_H
 
-#include "MatrixReal.h"
 
-#include <vector>
+
+#include <stddef.h>
+#include <iosfwd>
 
 namespace RevBayesCore {
 

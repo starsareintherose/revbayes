@@ -27,7 +27,7 @@
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedFunction.h"
 

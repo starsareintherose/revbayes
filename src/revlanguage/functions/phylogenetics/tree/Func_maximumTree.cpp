@@ -9,7 +9,6 @@
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
 #include "ModelObject.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RevVariable.h"
 #include "RlFunction.h"

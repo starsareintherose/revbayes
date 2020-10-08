@@ -18,12 +18,9 @@
 #define Func_printSeed_H
 
 #include <iosfwd>
-#include <vector>
 
 #include "Procedure.h"
 #include "RevPtr.h"
-
-namespace RevBayesCore { class RbHelpReference; }
 
 namespace RevLanguage {
 class ArgumentRules;

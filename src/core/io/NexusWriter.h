@@ -1,14 +1,15 @@
 #ifndef NexusWriter_H
 #define NexusWriter_H
 
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "ContinuousCharacterData.h"
-#include "Tree.h"
-
 #include <fstream>
 #include <string>
+#include <vector>
 
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+class Clade;
+class ContinuousCharacterData;
+class Tree;
     
     /**
      * This class represents the writer object of character data objects into files in Nexus format.

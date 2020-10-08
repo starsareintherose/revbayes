@@ -16,7 +16,7 @@
 #include "Monitor.h"
 #include "BranchHistory.h"
 #include "CharacterEvent.h"
-#include "Cloneable.h"
+
 #include "RbFileManager.h"
 #include "StochasticNode.h"
 #include "TopologyNode.h"

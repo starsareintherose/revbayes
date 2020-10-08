@@ -15,7 +15,7 @@
 #include "DiscreteTaxonData.h"
 #include "StandardState.h"
 #include "NaturalNumbersState.h"
-#include "Cloneable.h"
+
 #include "Taxon.h"
 
 

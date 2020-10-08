@@ -1,7 +1,7 @@
 #include "GammaFunction.h"
 
 #include "RbMathFunctions.h"
-#include "Cloneable.h"
+
 #include "TypedDagNode.h"
 
 namespace RevBayesCore { class DagNode; }

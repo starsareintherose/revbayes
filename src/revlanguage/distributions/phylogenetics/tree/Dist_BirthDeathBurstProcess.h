@@ -1,11 +1,18 @@
 #ifndef Dist_BirthDeathBurstProcess_H
 #define Dist_BirthDeathBurstProcess_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "BirthDeathBurstProcess.h"
 #include "RlBirthDeathProcess.h"
-#include "RlTimeTree.h"
+#include "MethodTable.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the episodic birth-death process.

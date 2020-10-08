@@ -21,7 +21,7 @@
 #include "ArgumentRule.h"
 #include "RbException.h"
 #include "RevVariable.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 
 namespace RevLanguage { class Argument; }

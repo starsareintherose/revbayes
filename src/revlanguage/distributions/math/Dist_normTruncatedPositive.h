@@ -1,10 +1,17 @@
 #ifndef Dist_normTruncatedPositiveal_H
 #define Dist_normTruncatedPositiveal_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "NormalDistribution.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

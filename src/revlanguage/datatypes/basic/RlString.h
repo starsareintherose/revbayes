@@ -1,14 +1,27 @@
 #ifndef RlString_H
 #define RlString_H
 
-#include "ModelObject.h"
-#include "RlBoolean.h"
-#include "TypedDagNode.h"
-
 #include <fstream>
 #include <string>
+#include <vector>
+
+#include "ModelObject.h"
+#include "TypedDagNode.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
 
     class RlString : public ModelObject<std::string> {
 

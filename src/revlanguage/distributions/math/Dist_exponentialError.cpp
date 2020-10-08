@@ -1,24 +1,18 @@
 #include <math.h>
 #include <stddef.h>
-#include <ostream>
 #include <string>
 #include <vector>
 
 #include "ArgumentRule.h"
 #include "Dist_exponentialError.h"
-#include "Natural.h"
 #include "RealPos.h"
 #include "StochasticNode.h"
 #include "AverageDistanceMatrix.h"
-#include "DistanceMatrix.h"
 #include "ExponentialErrorDistribution.h"
 #include "ArgumentRules.h"
 #include "DagMemberFunction.h"
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
-#include "MatrixReal.h"
-#include "ModelObject.h"
-#include "RbException.h"
 #include "RevNullObject.h"
 #include "RevObject.h"
 #include "RevPtr.h"
@@ -35,8 +29,9 @@
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"
 #include "TypedFunction.h"
+#include "RbHelpReference.h"
 
-namespace RevBayesCore { template <class valueType> class RbVector; }
+namespace RevBayesCore { class DistanceMatrix; }
 
 using namespace RevLanguage;
 

@@ -1,13 +1,14 @@
 #ifndef SlideBactrianProposal_H
 #define SlideBactrianProposal_H
 
-#include <set>
 #include <string>
+#include <iosfwd>
 
 #include "Proposal.h"
-#include "ContinuousStochasticNode.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class variableType> class StochasticNode;
     
     /**
      * The sliding bactrian operator.

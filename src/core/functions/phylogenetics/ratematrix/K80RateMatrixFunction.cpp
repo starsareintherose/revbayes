@@ -1,6 +1,6 @@
 #include "K80RateMatrixFunction.h"
 
-#include "Cloneable.h"
+
 #include "RateMatrix_Kimura80.h"
 #include "TypedDagNode.h"
 

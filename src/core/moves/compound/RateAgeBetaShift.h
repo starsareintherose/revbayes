@@ -1,16 +1,18 @@
 #ifndef RateAgeBetaShift_H
 #define RateAgeBetaShift_H
 
-#include <map>
+#include <stddef.h>
 #include <ostream>
-#include <set>
 #include <string>
+#include <vector>
 
 #include "AbstractMove.h"
-#include "StochasticNode.h"
-#include "Tree.h"
 
 namespace RevBayesCore {
+class DagNode;
+class TopologyNode;
+class Tree;
+template <class variableType> class StochasticNode;
     
     class RateAgeBetaShift : public AbstractMove {
         

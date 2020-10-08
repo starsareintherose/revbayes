@@ -1,15 +1,17 @@
 #ifndef RlDemographicFunction_H
 #define RlDemographicFunction_H
 
-#include "DemographicFunction.h"
-#include "RevVariable.h"
-#include "TypedDagNode.h"
-#include "WorkspaceToCoreWrapperObject.h"
-
 #include <ostream>
-#include <cstring>
+#include <vector>
+
+#include "DemographicFunction.h"
+#include "WorkspaceToCoreWrapperObject.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     class DemographicFunction : public WorkspaceToCoreWrapperObject<RevBayesCore::DemographicFunction> {
         

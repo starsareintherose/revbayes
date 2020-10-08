@@ -29,7 +29,7 @@
 #include "RbBoolean.h"
 #include "RbVector.h"
 #include "StochasticNode.h"
-#include "StringUtilities.h"
+
 
 namespace RevBayesCore { class MatrixReal; }
 namespace RevBayesCore { class Proposal; }

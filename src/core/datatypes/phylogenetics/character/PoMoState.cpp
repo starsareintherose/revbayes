@@ -9,11 +9,8 @@
 #include "RbException.h"
 #include "RbMathCombinatorialFunctions.h"
 #include "StringUtilities.h"
-#include "Cloneable.h"
 
 using namespace RevBayesCore;
-
-
 
 /** Constructor that sets the observation and the other fields */
 PoMoState::PoMoState(size_t n, size_t vps, const std::string &s, const std::string &chr, size_t pos, const std::vector<double> &w) : DiscreteCharacterState( n + size_t(RbMath::kchoose2(n))*(vps-1) ),

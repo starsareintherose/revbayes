@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <ostream>
-#include <vector>
 
 #include "ArgumentRules.h"
 #include "HillClimber.h"
@@ -15,7 +14,6 @@
 #include "MaximumLikelihoodAnalysis.h"
 #include "Monitor.h"
 #include "Move.h"
-#include "RbHelpReference.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "RevPtr.h"

@@ -11,12 +11,12 @@
 #include <string>
 
 #include "ConstantNode.h"
+#include "CharacterHistoryRateModifier.h" // IWYU pragma: keep
 #include "RateGeneratorSequenceUsingMatrix.h"
 #include "RateMatrix_JC.h"
 #include "RateGenerator.h"
 #include "TypedDagNode.h"
 
-namespace RevBayesCore { class CharacterHistoryRateModifier; }
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { template <class valueType> class RbVector; }
 

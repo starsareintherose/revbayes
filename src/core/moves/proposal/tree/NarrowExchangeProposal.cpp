@@ -6,7 +6,7 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "RbConstants.h"
-#include "Cloneable.h"
+
 #include "StochasticNode.h"
 #include "TopologyNode.h"
 #include "Tree.h"

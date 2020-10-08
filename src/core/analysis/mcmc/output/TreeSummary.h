@@ -1,13 +1,23 @@
 #ifndef TreeSummary_H
 #define TreeSummary_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <map>
+#include <set>
+#include <string>
+#include <utility>
+#include <vector>
+
 #include "Clade.h"
-#include "Trace.h"
-#include "Tree.h"
+#include "RbBitSet.h"
+#include "Taxon.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
 
     class TraceTree;
+class Tree;
 
     class TreeSummary {
 

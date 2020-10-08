@@ -8,7 +8,7 @@
 #include "RbException.h"
 #include "RlAbstractHomologousDiscreteCharacterData.h"
 #include "RlString.h"
-#include "StringUtilities.h"
+
 #include "Argument.h"
 #include "ArgumentRules.h"
 #include "DiscreteTaxonData.h"

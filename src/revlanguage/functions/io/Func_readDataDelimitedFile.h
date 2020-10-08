@@ -2,15 +2,18 @@
 #define Func_readDataDelimitedFile_hpp
 
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-
-#include <map>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * The Rev procedure to read character data from delimited files.

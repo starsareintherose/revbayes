@@ -1,16 +1,11 @@
 #ifndef DelimitedCharacterDataWriter_H
 #define DelimitedCharacterDataWriter_H
 
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "HomologousCharacterData.h"
-
-#include <iostream>
 #include <fstream>
 #include <string>
-#include <sstream>
-#include <vector>
 
 namespace RevBayesCore {
+class HomologousCharacterData;
     
     /**
      * This class represents an object that writers character data objects into delimited text files.

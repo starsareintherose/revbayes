@@ -4,9 +4,9 @@
 
 #include "RbSettings.h"
 #include "RbUtil.h"
-#include "StringUtilities.h"
 #include "RlUserInterface.h"
 #include "RlUserInterfaceOutputStream.h"
+#include "StringUtilities.h"
 
 #if defined (RB_MPI)
 #include <mpi.h>

@@ -2,7 +2,7 @@
 #define ScalarVectorMultiplication_H
 
 #include "RbVector.h"
-#include "StringUtilities.h"    // For string concatenation through Multiplication
+    // For string concatenation through Multiplication
 #include "TypedFunction.h"
 #include "TypedDagNode.h"
 

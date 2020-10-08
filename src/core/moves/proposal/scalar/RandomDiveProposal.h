@@ -1,13 +1,14 @@
 #ifndef RandomDiveProposal_H
 #define RandomDiveProposal_H
 
-#include <set>
 #include <string>
+#include <iosfwd>
 
 #include "Proposal.h"
-#include "ContinuousStochasticNode.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class variableType> class StochasticNode;
     
     /**
      * The sliding operator.

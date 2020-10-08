@@ -22,7 +22,7 @@
 #include "RlUserInterface.h"
 #include "SemMin.h"
 #include "StationarityTest.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "ModelVector.h"
 #include "Argument.h"

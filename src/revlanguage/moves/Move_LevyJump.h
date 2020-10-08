@@ -1,14 +1,17 @@
 #ifndef Move_LevyJump_H
 #define Move_LevyJump_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 
 namespace RevLanguage {
+class TypeSpec;
     
     class Move_LevyJump : public Move {
         

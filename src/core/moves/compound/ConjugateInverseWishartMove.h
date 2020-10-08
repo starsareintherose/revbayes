@@ -1,17 +1,15 @@
 #ifndef ConjugateInverseWishartMove_H
 #define ConjugateInverseWishartMove_H
 
-#include <map>
 #include <ostream>
-#include <set>
 #include <string>
 
 #include "AbstractGibbsMove.h"
-#include "MatrixReal.h"
-#include "StochasticNode.h"
-#include "Tree.h"
 
 namespace RevBayesCore {
+class DagNode;
+class MatrixReal;
+template <class variableType> class StochasticNode;
     
     class ConjugateInverseWishartMove : public AbstractGibbsMove {
         

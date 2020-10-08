@@ -2,15 +2,29 @@
 #ifndef RlTaxon_H
 #define RlTaxon_H
 
-#include "ModelObject.h"
-#include "Taxon.h"
-
-#include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "ModelObject.h"
+#include "Taxon.h"
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+#include "RlConstantNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 
 namespace RevLanguage {
+class Argument;
+class TypeSpec;
     
     /**
     * @file

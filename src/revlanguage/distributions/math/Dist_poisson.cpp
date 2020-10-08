@@ -12,7 +12,6 @@
 #include "DagMemberFunction.h"
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
-#include "RbHelpReference.h"
 #include "RealPos.h"
 #include "RevObject.h"
 #include "RevPtr.h"

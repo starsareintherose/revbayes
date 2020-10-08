@@ -1,14 +1,11 @@
 #ifndef CharacterHistoryDiscrete_H
 #define CharacterHistoryDiscrete_H
 
+#include <stddef.h>
+
 #include "BranchHistoryDiscrete.h"
 #include "CharacterHistory.h"
 #include "CharacterEventDiscrete.h"
-#include "Cloneable.h"
-
-#include <ostream>
-#include <set>
-#include <vector>
 
 namespace RevBayesCore {
     

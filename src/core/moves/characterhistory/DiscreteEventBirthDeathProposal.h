@@ -1,16 +1,16 @@
 #ifndef DiscreteEventBirthDeathProposal_H
 #define DiscreteEventBirthDeathProposal_H
 
-#include <set>
 #include <string>
+#include <iosfwd>
 
 #include "EventBirthDeathProposal.h"
-#include "Proposal.h"
-#include "StochasticNode.h"
 
 namespace RevBayesCore {
     
     class CharacterEvent;
+class Tree;
+template <class variableType> class StochasticNode;
     
     /**
      * The birth-death proposal for events along a tree.

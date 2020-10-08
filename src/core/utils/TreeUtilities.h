@@ -15,20 +15,25 @@
 #ifndef TreeUtilities_H
 #define TreeUtilities_H
 
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "AverageDistanceMatrix.h"
-#include "DistanceMatrix.h"
-#include "MatrixReal.h"
-#include "RbVector.h"
-#include "Tree.h"
-#include "TopologyNode.h"
+#include <boost/unordered_set.hpp>
+#include <stddef.h>
 #include <string>
 #include <vector>
+#include <iosfwd>
+#include <map>
+#include <set>
+#include <utility>
 
-#include <boost/unordered_set.hpp>
+#include "AverageDistanceMatrix.h"
+#include "RbVector.h"
+#include "TopologyNode.h"
 
 
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+class DistanceMatrix;
+class MatrixReal;
+class Tree;
 
     namespace TreeUtilities {
 

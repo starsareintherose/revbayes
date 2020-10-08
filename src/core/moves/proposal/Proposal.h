@@ -1,9 +1,10 @@
 #ifndef Proposal_H
 #define Proposal_H
 
-#include "Cloneable.h"
-
 #include <vector>
+#include <iosfwd>
+
+#include "Cloneable.h"
 
 namespace RevBayesCore {
     

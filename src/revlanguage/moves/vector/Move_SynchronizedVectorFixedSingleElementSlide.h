@@ -1,13 +1,16 @@
 #ifndef Move_SynchronizedVectorFixedSingleElementSlide_H
 #define Move_SynchronizedVectorFixedSingleElementSlide_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     class Move_SynchronizedVectorFixedSingleElementSlide : public Move {
         

@@ -9,12 +9,19 @@
 #ifndef __rb_mlandis__WangLandauMcmc__
 #define __rb_mlandis__WangLandauMcmc__
 
-#include "Mcmc.h"
+#include <stddef.h>
 #include <vector>
 #include <string>
 
+#include "Mcmc.h"
+#include "Model.h"
+#include "RbVector.h"
+
 namespace RevBayesCore
 {
+class Monitor;
+class Move;
+
     class WangLandauMcmc : public Mcmc
     {
         

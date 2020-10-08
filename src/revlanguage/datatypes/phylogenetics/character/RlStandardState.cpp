@@ -17,7 +17,6 @@
  */
 
 
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -34,7 +33,7 @@
 #include "RevPtr.h"
 #include "RlConstantNode.h"
 #include "StandardState.h"
-#include "StringUtilities.h"
+
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"

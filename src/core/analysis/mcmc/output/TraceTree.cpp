@@ -1,5 +1,7 @@
 #include "TraceTree.h"
 
+#include <vector>
+
 using namespace RevBayesCore;
 
 

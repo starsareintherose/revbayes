@@ -10,6 +10,14 @@
 #include "RlTree.h"
 #include "TypeSpec.h"
 #include "WorkspaceVector.h"
+#include "Argument.h"
+#include "ArgumentRules.h"
+#include "RbVector.h"
+#include "RevVariable.h"
+#include "RlFunction.h"
+#include "TraceTree.h"
+#include "TreeSummary.h"
+#include "WorkspaceToCoreWrapperObject.h"
 
 
 using namespace RevLanguage;

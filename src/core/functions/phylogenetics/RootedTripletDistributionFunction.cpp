@@ -1,7 +1,7 @@
 #include "RootedTripletDistributionFunction.h"
 
 #include "RootedTripletDistribution.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "TypedDagNode.h"

@@ -14,7 +14,7 @@
 #include "RbFileManager.h"
 #include "RlString.h"
 #include "RlTraceTree.h"
-#include "StringUtilities.h"
+
 #include "TreeUtilities.h"
 #include "Argument.h"
 #include "ArgumentRules.h"
@@ -23,7 +23,6 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
-#include "Trace.h"
 #include "TraceTree.h"
 #include "TypeSpec.h"
 

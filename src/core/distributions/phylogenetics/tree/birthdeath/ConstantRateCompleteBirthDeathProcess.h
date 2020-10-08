@@ -1,13 +1,17 @@
 #ifndef ConstantRateCompleteBirthDeathProcess_H
 #define ConstantRateCompleteBirthDeathProcess_H
 
-#include "ConstantRateBirthDeathProcess.h"
-
+#include <stddef.h>
 #include <vector>
+#include <iosfwd>
+
+#include "AbstractBirthDeathProcess.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+class Taxon;
+template <class valueType> class TypedDagNode;
     
     /**
      * Constant rate complete birth-death process.

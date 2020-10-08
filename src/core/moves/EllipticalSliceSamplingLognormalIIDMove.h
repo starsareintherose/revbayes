@@ -1,15 +1,15 @@
 #ifndef EllipticalSliceSamplingLognormalIIDMove_H
 #define EllipticalSliceSamplingLognormalIIDMove_H
 
-#include "AbstractMove.h"
-#include "StochasticNode.h"
-
-#include <set>
 #include <vector>
+#include <iosfwd>
+
+#include "AbstractMove.h"
 
 namespace RevBayesCore {
-    
-    class Proposal;
+class DagNode;
+template <class valueType> class TypedDagNode;
+template <class variableType> class StochasticNode;
     
     /**
      * Base class for all Metropolis-Hastings within an MCMC. 

@@ -1,10 +1,16 @@
 #ifndef Dist_gamma_H
 #define Dist_gamma_H
 
+#include <iosfwd>
+
 #include "GammaDistribution.h"
 #include "RlPositiveContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

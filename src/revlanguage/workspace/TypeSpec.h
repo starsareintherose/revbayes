@@ -2,6 +2,7 @@
 #define TypeSpec_H
 
 #include <string>
+#include <iosfwd>
 
 
 namespace RevLanguage {

@@ -3,7 +3,7 @@
 #include <cmath>
 
 #include "DistributionNormal.h"
-#include "Cloner.h"
+
 #include "TraceNumeric.h"
 
 using namespace RevBayesCore;

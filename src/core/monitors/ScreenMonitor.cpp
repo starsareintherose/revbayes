@@ -7,7 +7,7 @@
 
 #include "DagNode.h"
 #include "Model.h"
-#include "Cloneable.h"
+
 #include "StringUtilities.h"
 
 using namespace RevBayesCore;

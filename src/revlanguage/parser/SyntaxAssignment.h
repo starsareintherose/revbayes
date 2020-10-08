@@ -1,11 +1,15 @@
 #ifndef SyntaxAssignment_H
 #define SyntaxAssignment_H
 
-#include "SyntaxElement.h"
-
 #include <iostream>
+#include <set>
+
+#include "SyntaxElement.h"
+#include "Environment.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class RevVariable;
     
     /**
      * @brief Syntax assignment: base class for all assignment types (constant, deterministc and stochastic)

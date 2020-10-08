@@ -18,13 +18,13 @@
 #ifndef SequentialMoveSchedule_H
 #define SequentialMoveSchedule_H
 
-#include "Move.h"
-#include "MoveSchedule.h"
-#include "RbVector.h"
+#include <stddef.h>
 
-#include <vector>
+#include "MoveSchedule.h"
 
 namespace RevBayesCore {
+class Move;
+template <class valueType> class RbVector;
     
     class SequentialMoveSchedule : public MoveSchedule  {
         

@@ -1,16 +1,17 @@
 #ifndef RbHelpSystem_H
 #define RbHelpSystem_H
 
-#include "RbHelpDistribution.h"
-#include "RbHelpEntry.h"
-#include "RbHelpFunction.h"
-#include "RbHelpType.h"
-
 #include <set>
 #include <string>
 #include <map>
+#include <iosfwd>
+
+#include "RbHelpFunction.h"
 
 namespace RevBayesCore {
+class RbHelpDistribution;
+class RbHelpEntry;
+class RbHelpType;
     
     
     /**

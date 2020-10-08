@@ -1,15 +1,14 @@
 #ifndef SyntaxIndexOperation_H
 #define SyntaxIndexOperation_H
 
-#include "SyntaxElement.h"
-
 #include <iostream>
-#include <list>
+
+#include "SyntaxElement.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
-
-    class SyntaxFunctionCall;
-    class RevVariableSlot;
+class Environment;
+class RevVariable;
 
     /**
      * This is the class used to hold variables in the syntax tree.

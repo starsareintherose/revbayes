@@ -1,14 +1,17 @@
 #ifndef Move_RateAgeBetaShift_H
 #define Move_RateAgeBetaShift_H
 
-#include "RateAgeBetaShift.h"
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
+#include <vector>
+
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * @brief Rev wrapper class for the rate-age-beta-shift move.

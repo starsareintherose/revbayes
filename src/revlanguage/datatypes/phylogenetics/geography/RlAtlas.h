@@ -1,14 +1,27 @@
 #ifndef RlAtlas_H
 #define RlAtlas_H
 
+#include <ostream>
+#include <string>
+#include <vector>
+
 #include "ModelObject.h"
 #include "TimeAtlas.h"
 #include "TypedDagNode.h"
-
-#include <ostream>
-#include <string>
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class Argument;
+class RevVariable;
+class TypeSpec;
     
     class RlAtlas : public ModelObject<RevBayesCore::TimeAtlas> {
         

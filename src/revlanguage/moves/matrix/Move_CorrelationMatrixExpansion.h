@@ -1,14 +1,16 @@
 #ifndef Move_CorrelationMatrixExpansion_H
 #define Move_CorrelationMatrixExpansion_H
 
-#include "CorrelationMatrixExpansionProposal.h"
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * @brief Rev wrapper class for the rate-age-beta-shift move.

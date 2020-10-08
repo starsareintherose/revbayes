@@ -16,14 +16,18 @@
 #ifndef RealPos_H
 #define RealPos_H
 
-#include "Real.h"
-
 #include <ostream>
 #include <string>
+
+#include "Real.h"
+#include "RevObject.h"
+
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
 
 namespace RevLanguage {
 
     class Natural;
+class TypeSpec;
     
     class RealPos : public Real {
 

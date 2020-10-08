@@ -9,7 +9,7 @@
 #include "NclReader.h"
 #include "TreeDiscreteCharacterData.h"
 #include "AbstractHomologousDiscreteCharacterData.h"
-#include "Cloneable.h"
+
 #include "RbException.h"
 #include "RbFileManager.h"
 #include "TopologyNode.h"

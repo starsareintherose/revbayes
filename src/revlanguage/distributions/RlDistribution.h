@@ -20,11 +20,18 @@
 #ifndef RlDistribution_H
 #define RlDistribution_H
 
-#include "Distribution.h"
+#include <iosfwd>
+#include <vector>
+
 #include "RbHelpDistribution.h"
 #include "RevObject.h"
+#include "MethodTable.h"
+
+namespace RevBayesCore { class Distribution; }
+namespace RevBayesCore { class RbHelpEntry; }
 
 namespace RevLanguage {
+class TypeSpec;
 
     class Distribution : public RevObject {
     

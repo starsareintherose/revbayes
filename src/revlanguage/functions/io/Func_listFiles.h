@@ -1,15 +1,17 @@
 #ifndef Func_listFiles_H
 #define Func_listFiles_H
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-
-#include <map>
 #include <string>
-#include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_listFiles : public Procedure {
         

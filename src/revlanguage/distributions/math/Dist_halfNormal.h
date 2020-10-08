@@ -1,10 +1,16 @@
 #ifndef Dist_halfNormal_H
 #define Dist_halfNormal_H
 
+#include <iosfwd>
+
 #include "HalfNormalDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

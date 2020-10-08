@@ -1,17 +1,21 @@
 #ifndef UserFunction_H
 #define UserFunction_H
 
-#include "ArgumentRules.h"
-#include "RlFunction.h"
-#include "TypeSpec.h"
-#include "UserFunctionDef.h"
-
-#include <list>
-#include <set>
 #include <string>
+#include <iosfwd>
+#include <vector>
+
+#include "RlFunction.h"
+#include "UserFunctionDef.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { class DagNode; }
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
 
     /**
      * @brief Class holding user functions

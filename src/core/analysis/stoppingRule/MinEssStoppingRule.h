@@ -1,11 +1,13 @@
 #ifndef MinEssStoppingRule_H
 #define MinEssStoppingRule_H
 
+#include <stddef.h>
+#include <iosfwd>
+
 #include "AbstractConvergenceStoppingRule.h"
 
-#include <vector>
-
 namespace RevBayesCore {
+class BurninEstimatorContinuous;
     
     /**
      * @brief The min-ESS stopping rule.

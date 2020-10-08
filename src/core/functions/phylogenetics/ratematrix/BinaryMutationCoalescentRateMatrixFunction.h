@@ -22,14 +22,14 @@
 #ifndef BinaryMutationCoalescentRateMatrixFunction_H
 #define BinaryMutationCoalescentRateMatrixFunction_H
 
-#include "RateMatrix_BinaryMutationCoalescent.h"
-#include "RbVector.h"
-#include "TypedDagNode.h"
-#include "TypedFunction.h"
+#include <stddef.h>
 
-#include <vector>
+#include "TypedFunction.h"
+#include "RateGenerator.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class valueType> class TypedDagNode;
     
     class BinaryMutationCoalescentRateMatrixFunction : public TypedFunction<RateGenerator> {
         

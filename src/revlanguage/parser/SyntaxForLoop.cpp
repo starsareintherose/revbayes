@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <cassert>
-#include <sstream>
 #include <set>
 
 #include "RlContainer.h"

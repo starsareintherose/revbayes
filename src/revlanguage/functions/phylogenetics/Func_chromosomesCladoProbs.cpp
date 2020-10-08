@@ -12,7 +12,7 @@
 #include "ArgumentRules.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 
 namespace RevBayesCore { class Simplex; }

@@ -8,7 +8,7 @@
 #include "RbException.h"
 #include "RbVectorImpl.h"
 #include "Serializer.h"
-#include "StringUtilities.h"
+
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { class Serializable; }

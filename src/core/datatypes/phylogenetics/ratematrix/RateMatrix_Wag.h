@@ -45,16 +45,19 @@
 #ifndef RateMatrix_Wag_H
 #define RateMatrix_Wag_H
 
-#include "TimeReversibleRateMatrix.h"
-#include "EigenSystem.h"
 #include <complex>
 #include <vector>
+#include <iosfwd>
+
+#include "TimeReversibleRateMatrix.h"
 
 
 namespace RevBayesCore {
     
     //    class EigenSystem;
     class TransitionProbabilityMatrix;
+class Assignable;
+class EigenSystem;
     
     /**
      * @brief WAG (Whelan and Goldman 2001) rate matrix class.

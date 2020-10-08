@@ -20,9 +20,15 @@
 #ifndef Func_module_H
 #define Func_module_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     class Func_module : public Procedure {
         

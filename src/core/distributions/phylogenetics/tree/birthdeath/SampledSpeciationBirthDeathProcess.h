@@ -1,16 +1,23 @@
 #ifndef SampledSpeciationBirthDeathProcess_h
 #define SampledSpeciationBirthDeathProcess_h
 
+#include <cstddef>
+#include <iosfwd>
+#include <set>
+#include <vector>
+
 #include "AbstractCharacterHistoryBirthDeathProcess.h"
 #include "CharacterHistoryDiscrete.h"
 #include "MemberObject.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
-#include "TypedDistribution.h"
+#include "Taxon.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+class Tree;
+template <class valueType> class RbOrderedSet;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     class SampledSpeciationBirthDeathProcess : public AbstractCharacterHistoryBirthDeathProcess, public MemberObject< RbVector<long> >, public MemberObject<RbVector<RbVector<double> > > {
         

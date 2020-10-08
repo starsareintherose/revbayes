@@ -21,7 +21,7 @@
 #include "Real.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
-#include "StringUtilities.h"
+
 
 
 using namespace RevLanguage;

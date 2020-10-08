@@ -3,7 +3,6 @@
 #include <string>
 
 #include "GitVersion.h"
-#include "StringUtilities.h"
 
 #ifdef RB_MPI
 #include <mpi.h>

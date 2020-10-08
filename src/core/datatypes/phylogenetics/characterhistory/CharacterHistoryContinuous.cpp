@@ -4,7 +4,7 @@
 
 #include "RbException.h"
 #include "Tree.h"
-#include "Cloneable.h"
+
 
 namespace RevBayesCore { class BranchHistory; }
 

@@ -7,11 +7,10 @@
 #include "DagNode.h"
 #include "MaxIterationStoppingRule.h"
 #include "MonteCarloAnalysis.h"
-#include "MonteCarloSampler.h"
 #include "MpiUtilities.h"
 #include "PosteriorPredictiveAnalysis.h"
 #include "RbException.h"
-#include "Cloneable.h"
+
 #include "Model.h"
 #include "Parallelizable.h"
 #include "RbFileManager.h"

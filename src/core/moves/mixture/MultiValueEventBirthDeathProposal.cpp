@@ -5,7 +5,7 @@
 #include "MultiValueEventDistribution.h"
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
-#include "Cloneable.h"
+
 #include "MultiValueEvent.h"
 #include "StochasticNode.h"
 #include "TypedDistribution.h"

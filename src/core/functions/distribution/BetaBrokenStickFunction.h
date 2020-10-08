@@ -3,8 +3,6 @@
 
 #include "TypedFunction.h"
 #include "Simplex.h"
-#include "RbVector.h"
-#include "TypedDagNode.h"
 
 /**
  *
@@ -13,6 +11,8 @@
  */
 
 namespace RevBayesCore {
+class DagNode;
+template <class valueType> class TypedDagNode;
 
     class BetaBrokenStickFunction : public TypedFunction< Simplex >{
 

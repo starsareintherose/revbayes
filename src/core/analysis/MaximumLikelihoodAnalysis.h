@@ -1,20 +1,19 @@
 #ifndef MaximumLikelihoodAnalysis_H
 #define MaximumLikelihoodAnalysis_H
 
+#include <stddef.h>
+#include <iosfwd>
+
 #include "Cloneable.h"
-#include "MaximumLikelihoodEstimation.h"
 #include "Parallelizable.h"
-#include "RbVector.h"
-#include "StoppingRule.h"
-
-#include <vector>
-
 
 #ifdef RB_MPI
 #include <mpi.h>
 #endif
 
 namespace RevBayesCore {
+class MaximumLikelihoodEstimation;
+class Model;
     
     /**
      * @brief Monte Carlo analysis running and managing the MaximumLikelihoodEstimation objects.

@@ -1,14 +1,14 @@
 #ifndef BootstrapAnalysis_H
 #define BootstrapAnalysis_H
 
+#include <stddef.h>
+
 #include "Cloneable.h"
 #include "Parallelizable.h"
-#include "RbVector.h"
 
 namespace RevBayesCore {
     
     class MaximumLikelihoodAnalysis;
-    class Model;
     
     /**
      * @brief Posterior predictive analysis class.

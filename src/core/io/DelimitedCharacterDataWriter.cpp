@@ -1,11 +1,10 @@
 #include <stddef.h>
-#include <ostream>
 #include <vector>
 
 #include "DelimitedCharacterDataWriter.h"
 #include "RbFileManager.h"
 #include "AbstractTaxonData.h"
-#include "Cloneable.h"
+
 #include "HomologousCharacterData.h"
 #include "Taxon.h"
 

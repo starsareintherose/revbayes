@@ -11,7 +11,7 @@
 #include <cmath>
 
 #include "RbConstants.h"
-#include "Cloneable.h"
+
 #include "TypedDagNode.h"
 
 namespace RevBayesCore { class DagNode; }

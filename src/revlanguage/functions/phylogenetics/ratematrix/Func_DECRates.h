@@ -10,16 +10,30 @@
 #define __revbayes_proj__Func_DECRates__
 
 
+#include <string>
+#include <vector>
+#include <iosfwd>
+
 #include "RlTypedFunction.h"
 #include "RbVector.h"
 #include "ModelVector.h"
 #include "RealPos.h"
-
-#include <map>
-#include <string>
-#include <vector>
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "ModelObject.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "RlDeterministicNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class TypeSpec;
     
     class Func_DECRates :  public TypedFunction<ModelVector<RealPos> > {
         

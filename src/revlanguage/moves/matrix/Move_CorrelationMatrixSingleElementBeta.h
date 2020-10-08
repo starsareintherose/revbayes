@@ -9,14 +9,11 @@
 #define Move_CorrelationMatrixSingleElementBeta_H
 
 #include <ostream>
-#include <vector>
 
 #include "RlMove.h"
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
-
-namespace RevBayesCore { class RbHelpReference; }
 
 namespace RevLanguage {
 class TypeSpec;

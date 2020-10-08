@@ -1,6 +1,9 @@
 #include "BinaryMutationCoalescentRateMatrixFunction.h"
+
 #include "RateMatrix_BinaryMutationCoalescent.h"
-#include "RbException.h"
+#include "TypedDagNode.h"
+
+namespace RevBayesCore { class DagNode; }
 
 using namespace RevBayesCore;
 

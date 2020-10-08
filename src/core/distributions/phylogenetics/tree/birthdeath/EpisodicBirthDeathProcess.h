@@ -1,13 +1,20 @@
 #ifndef EpisodicBirthDeathProcess_H
 #define EpisodicBirthDeathProcess_H
 
-#include "BirthDeathProcess.h"
-
+#include <stddef.h>
 #include <vector>
+#include <iosfwd>
+
+#include "BirthDeathProcess.h"
+#include "RbException.h"
 
 namespace RevBayesCore {
     
     class Clade;
+class DagNode;
+class Taxon;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     class EpisodicBirthDeathProcess : public BirthDeathProcess {
         

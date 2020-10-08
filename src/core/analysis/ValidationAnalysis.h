@@ -1,11 +1,13 @@
 #ifndef ValidationAnalysis_H
 #define ValidationAnalysis_H
 
-#include "Cloneable.h"
-#include "Parallelizable.h"
-#include "RbVector.h"
-
+#include <stddef.h>
 #include <map>
+#include <iosfwd>
+#include <vector>
+
+
+#include "Parallelizable.h"
 
 namespace RevBayesCore {
     

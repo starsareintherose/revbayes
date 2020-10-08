@@ -1,7 +1,5 @@
 #include <math.h>
-#include <cstring>
 #include <iomanip>
-#include <ostream>
 #include <string>
 #include <vector>
 

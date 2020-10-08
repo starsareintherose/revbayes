@@ -11,6 +11,7 @@
 #include "RbFileManager.h"
 #include "RbSettings.h"
 #include "StringUtilities.h"
+
 #include "boost/filesystem/path.hpp"
 
 #ifdef RB_WIN

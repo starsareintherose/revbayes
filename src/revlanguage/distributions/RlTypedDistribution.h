@@ -76,7 +76,7 @@ RevLanguage::TypedDistribution<rlType>::~TypedDistribution()
 }
 
 template <typename rlType>
-RevLanguage::TypedDistribution<rlType>& TypedDistribution<rlType>::operator=( const TypedDistribution<rlType> &d )
+RevLanguage::TypedDistribution<rlType>& RevLanguage::TypedDistribution<rlType>::operator=( const TypedDistribution<rlType> &d )
 {
 
     if ( this != &d )

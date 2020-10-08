@@ -53,7 +53,7 @@
 #include "RlTypedFunction.h"
 #include "Simplex.h"
 #include "StochasticNode.h"
-#include "StringUtilities.h"
+
 #include "TaxaState.h"
 #include "Tree.h"
 #include "TypeSpec.h"

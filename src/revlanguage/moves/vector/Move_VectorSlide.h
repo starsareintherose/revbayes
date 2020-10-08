@@ -1,13 +1,16 @@
 #ifndef Move_VectorSlide_H
 #define Move_VectorSlide_H
 
-#include "RlMove.h"
-#include "TypedDagNode.h"
-
 #include <ostream>
 #include <string>
 
+#include "RlMove.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * @brief Rev Wrapper of a scaling move on all elements of a real valued vector.

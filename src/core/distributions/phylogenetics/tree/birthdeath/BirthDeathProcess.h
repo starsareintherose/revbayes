@@ -1,14 +1,17 @@
 #ifndef BirthDeathProcess_H
 #define BirthDeathProcess_H
 
-#include "Taxon.h" 
-#include "Tree.h"
-#include "TypedDagNode.h"
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "AbstractBirthDeathProcess.h"
+#include "Clade.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+class Taxon;
+template <class valueType> class TypedDagNode;
     
     /**
      * @file

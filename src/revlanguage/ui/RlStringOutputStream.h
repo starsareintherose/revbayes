@@ -2,6 +2,7 @@
 #define RlStringOutputStream_h
 
 #include <iosfwd>
+#include <string>
 
 #include "RlUserInterfaceOutputStream.h"
 

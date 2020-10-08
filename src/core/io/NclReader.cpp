@@ -17,14 +17,14 @@
 #include "RbFileManager.h"
 #include "RnaState.h"
 #include "StandardState.h"
-#include "StringUtilities.h"
+
 #include "TaxonMap.h"
 #include "Tree.h"
 #include "TopologyNode.h"
 #include "TreeUtilities.h"
 #include "RlUserInterface.h"
 #include "AbstractCharacterData.h"
-#include "Cloneable.h"
+
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
 #include "DiscreteTaxonData.h"
@@ -1101,7 +1101,7 @@ bool NclReader::isFastaFile(std::string& fn, std::string& dType)
     
     // open file
     std::ifstream fStrm;
-    fStrm.open(fm.getFullFileName().c_str(), ios::in);
+    fStrm.open(fm.getFullFileName().c_str(), std::ios::in);
     
     // read the file token-by-token looking for Fasta things
     int ch = fStrm.peek();
@@ -1172,7 +1172,7 @@ bool NclReader::isNexusFile(const std::string& fn)
     
     // open file, read first word, close file
     std::ifstream fStrm;
-    fStrm.open(fm.getFullFileName().c_str(), ios::in);
+    fStrm.open(fm.getFullFileName().c_str(), std::ios::in);
     std::string word;
     fStrm >> word;
     fStrm.close();
@@ -1200,7 +1200,7 @@ bool NclReader::isPhylipFile(std::string& fn, std::string& dType, bool& is_inter
     
     // open file
     std::ifstream fStrm;
-    fStrm.open(fm.getFullFileName().c_str(), ios::in);
+    fStrm.open(fm.getFullFileName().c_str(), std::ios::in);
     std::string seqStr = "";
     
     // read the file token-by-token looking for NEXUS things
@@ -1728,7 +1728,7 @@ std::vector<Tree*>* NclReader::readBranchLengthTrees(const std::string &fn)
             {
                 ;
             }
-            catch (exception& e)
+            catch (std::exception& e)
             {
                 ;
             }

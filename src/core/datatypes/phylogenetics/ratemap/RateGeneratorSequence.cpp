@@ -3,7 +3,7 @@
 
 #include "RateGeneratorSequence.h"
 #include "RateGenerator.h"
-#include "Cloneable.h"
+
 
 using namespace RevBayesCore;
 

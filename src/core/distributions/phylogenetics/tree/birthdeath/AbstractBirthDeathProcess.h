@@ -1,9 +1,15 @@
 #ifndef AbstractBirthDeathProcess_H
 #define AbstractBirthDeathProcess_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <vector>
+
 #include "AbstractRootedTreeDistribution.h"
 
 namespace RevBayesCore {
+class Taxon;
+template <class valueType> class TypedDagNode;
     
 
      /** @brief Abstract base class for birth-rate processes. */

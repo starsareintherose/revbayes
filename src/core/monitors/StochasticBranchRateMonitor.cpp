@@ -6,7 +6,7 @@
 
 #include "StochasticNode.h"
 #include "StateDependentSpeciationExtinctionProcess.h"
-#include "Cloneable.h"
+
 #include "Tree.h"
 #include "TypedDistribution.h"
 

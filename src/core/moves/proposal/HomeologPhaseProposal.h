@@ -1,22 +1,15 @@
 #ifndef HomeologPhaseProposal_H
 #define HomeologPhaseProposal_H
 
-#include "DeterministicNode.h"
-#include "HomologousDiscreteCharacterData.h"
-#include "Proposal.h"
-#include "RandomNumberFactory.h"
-#include "RandomNumberGenerator.h"
-#include "RbException.h"
-#include "StochasticNode.h"
-#include "TreeChangeEventMessage.h"
-#include "TypedDagNode.h"
-
-#include <cmath>
 #include <iostream>
-#include <set>
 #include <string>
 
+#include "Proposal.h"
+
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+class DagNode;
+template <class variableType> class StochasticNode;
 
 
     class HomeologPhaseProposal : public Proposal {

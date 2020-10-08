@@ -9,7 +9,7 @@
 #include "DnaState.h"
 #include "PoMoState4Converter.h"
 #include "AbstractHomologousDiscreteCharacterData.h"
-#include "Cloneable.h"
+
 #include "HomologousDiscreteCharacterData.h"
 #include "NaturalNumbersState.h"
 #include "PoMoState4.h"

@@ -12,7 +12,7 @@
 #include <vector>
 #include <map>
 
-#include "Cloner.h"
+
 #include "RbVectorImpl.h"
 #include "TypedDagNode.h"
 

@@ -1,13 +1,25 @@
 #ifndef UltrametricTreeDistribution_H
 #define UltrametricTreeDistribution_H
 
+#include <stddef.h>
+#include <iosfwd>
+#include <map>
+#include <utility>
+#include <vector>
+
 #include "Tree.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "MemberObject.h"
+#include "RbBitSet.h"
+#include "TopologyNode.h"
+#include "TraceTree.h"
 
 namespace RevBayesCore {
-    
-    class Clade;
+class DagNode;
+template <class valueType> class RbOrderedSet;
+template <class valueType> class RbVector;
+template <class valueType> class Trace;
+template <class valueType> class TypedDagNode;
     
     /*
      * This struct represents a value/count pair that is sorted by count

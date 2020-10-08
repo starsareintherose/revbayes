@@ -15,7 +15,7 @@
 #include "ChromosomesRateMatrixFunction.h"
 
 #include "RateMatrix_Chromosomes.h"
-#include "Cloneable.h"
+
 #include "TypedDagNode.h"
 
 namespace RevBayesCore { class DagNode; }

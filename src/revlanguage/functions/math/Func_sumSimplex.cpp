@@ -12,7 +12,6 @@
 #include "ArgumentRules.h"
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
-#include "ModelObject.h"
 #include "RealPos.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
@@ -21,9 +20,9 @@
 #include "StringUtilities.h"
 #include "TypeSpec.h"
 #include "TypedFunction.h"
+#include "RevObject.h"
 
 namespace RevBayesCore { template <class valueType> class RbVector; }
-namespace RevLanguage { class Real; }
 
 using namespace RevLanguage;
 

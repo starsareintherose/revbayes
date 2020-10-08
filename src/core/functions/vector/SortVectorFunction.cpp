@@ -1,7 +1,7 @@
 #include "SortVectorFunction.h"
 
 #include "TypedDagNode.h"
-#include "Cloner.h"
+
 
 namespace RevBayesCore { class DagNode; }
 

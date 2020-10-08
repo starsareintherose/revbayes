@@ -5,9 +5,6 @@
 //  Created by David Cerny on 2019-10-15.
 //
 
-#include <math.h>
-#include <cstring>
-#include <iomanip>
 #include <ostream>
 #include <string>
 #include <vector>
@@ -15,12 +12,10 @@
 #include "MatrixBoolean.h"
 #include "RbException.h"
 #include "RbVector.h"
-#include "RbConstants.h"
 #include "TypedDagNode.h"
 #include "RbVectorImpl.h"
-#include "RbMathMatrix.h"
 
-#include <boost/dynamic_bitset.hpp>
+namespace RevBayesCore { class DagNode; }
 
 using namespace RevBayesCore;
 
@@ -274,8 +269,6 @@ size_t MatrixBoolean::size( void ) const
 }
 
 
-
-namespace RevBayesCore { class DagNode; }
 
 /**
  * @todo Implement overloading of the && operator such that the

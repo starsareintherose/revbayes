@@ -1,16 +1,20 @@
 #ifndef EpisodicBirthDeathSamplingTreatmentProcess_H
 #define EpisodicBirthDeathSamplingTreatmentProcess_H
 
-#include "AbstractBirthDeathProcess.h"
-#include "RbVector.h"
-
+#include <stddef.h>
 #include <vector>
 #include <set>
+#include <iosfwd>
+
+#include "AbstractBirthDeathProcess.h"
+#include "RbException.h"
 
 namespace RevBayesCore {
 
-    class Clade;
     class Taxon;
+class DagNode;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
 
     /**
      * @brief Piecewise-constant birth-death-sampling-treatment process with mass extinctions, burst speciation, and event-sampling.

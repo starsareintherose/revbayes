@@ -1,11 +1,13 @@
 #ifndef GewekeStoppingRule_H
 #define GewekeStoppingRule_H
 
+#include <stddef.h>
+#include <iosfwd>
+
 #include "AbstractConvergenceStoppingRule.h"
 
-#include <vector>
-
 namespace RevBayesCore {
+class BurninEstimatorContinuous;
     
     /**
      * @brief The Geweke stopping rule.

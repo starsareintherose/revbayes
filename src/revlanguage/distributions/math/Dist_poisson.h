@@ -1,11 +1,31 @@
 #ifndef Dist_poisson_h
 #define Dist_poisson_h
 
+#include <math.h>
+#include <iosfwd>
+#include <string>
+#include <vector>
+
 #include "PoissonDistribution.h"
 #include "Natural.h"
 #include "RlTypedDistribution.h"
+#include "DagMemberFunction.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
+#include "RlDagMemberFunction.h"
+#include "RlDeterministicNode.h"
+#include "RlStochasticNode.h"
+#include "RlTypedFunction.h"
+#include "StochasticNode.h"
+#include "TypedDagNode.h"
+#include "TypedDistribution.h"
+#include "TypedFunction.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the Poisson distribution.

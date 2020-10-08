@@ -13,7 +13,7 @@
 #include "AbstractPhyloContinuousCharacterHistoryProcess.h"
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "Tree.h"
 #include "TreeChangeEventHandler.h"

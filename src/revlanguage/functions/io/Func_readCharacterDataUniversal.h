@@ -1,15 +1,17 @@
 #ifndef Func_readCharacterDataUniversal_H
 #define Func_readCharacterDataUniversal_H
 
-#include "Procedure.h"
-#include "RbFileManager.h"
-
-#include <map>
 #include <string>
-#include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * This is the interface for a class that reads in phylogenetic character matrix data, such as

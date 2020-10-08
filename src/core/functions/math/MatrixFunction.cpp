@@ -12,7 +12,7 @@
 #include "MatrixReal.h"
 #include "MatrixFunction.h"
 #include "TypedDagNode.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "TypedFunction.h"

@@ -6,11 +6,11 @@
 #include "EssTest.h"
 #include "MinEssStoppingRule.h"
 #include "RbFileManager.h"
-#include "StringUtilities.h"
+
 #include "TraceContinuousReader.h"
 #include "AbstractConvergenceStoppingRule.h"
 #include "BurninEstimatorContinuous.h"
-#include "Cloner.h"
+
 #include "TraceNumeric.h"
 
 

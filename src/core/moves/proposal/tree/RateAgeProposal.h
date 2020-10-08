@@ -1,16 +1,18 @@
 #ifndef RateAgeProposal_H
 #define RateAgeProposal_H
 
-#include "RbVector.h"
-#include "Proposal.h"
-#include "StochasticNode.h"
-#include "Tree.h"
-
 #include <ostream>
 #include <vector>
 #include <string>
 
+#include "RbVector.h"
+#include "Proposal.h"
+
 namespace RevBayesCore {
+class DagNode;
+class TopologyNode;
+class Tree;
+template <class variableType> class StochasticNode;
     
     /**
      * @brief Up-Down Scaling Proposal for several parameters jointly.

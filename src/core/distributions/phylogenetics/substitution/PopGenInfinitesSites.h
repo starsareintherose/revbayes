@@ -1,14 +1,18 @@
 #ifndef PopGenInfiniteSites_H
 #define PopGenInfiniteSites_H
 
+#include <cstddef>
+#include <vector>
+
 #include "AbstractHomologousDiscreteCharacterData.h"
-#include "BinaryState.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
 
 
 namespace RevBayesCore {
+class DagNode;
+class Tree;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
     
     /**
      * @brief Homogeneous distribution of character state evolution along a tree class (PhyloCTMC).

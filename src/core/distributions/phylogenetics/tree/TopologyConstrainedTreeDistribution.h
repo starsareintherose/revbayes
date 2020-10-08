@@ -1,14 +1,22 @@
 #ifndef TopologyConstrainedTreeDistribution_H
 #define TopologyConstrainedTreeDistribution_H
 
+#include <stddef.h>
+#include <vector>
+
 #include "Clade.h"
-#include "RbVector.h"
 #include "Tree.h"
 #include "TreeChangeEventListener.h"
-#include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "RbBitSet.h"
+#include "TopologyNode.h"
 
 namespace RevBayesCore {
+class DagNode;
+template <class valueType> class RbOrderedSet;
+template <class valueType> class RbVector;
+template <class valueType> class TypedDagNode;
+template <class variableType> class StochasticNode;
     
     /**
      * @file

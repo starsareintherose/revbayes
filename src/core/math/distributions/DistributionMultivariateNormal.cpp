@@ -16,7 +16,7 @@
 #include "CholeskyDecomposition.h"
 #include "RbConstants.h"
 #include "RbMathLogic.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 

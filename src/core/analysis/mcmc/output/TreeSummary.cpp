@@ -21,7 +21,7 @@
 #include "RbMathCombinatorialFunctions.h"
 #include "RbVectorUtilities.h"
 #include "RlUserInterface.h"
-#include "StringUtilities.h"
+
 #include "TopologyNode.h"
 #include "TreeSummary.h"
 #include "TreeUtilities.h"
@@ -29,7 +29,6 @@
 #include "RbBitSet.h"
 #include "Taxon.h"
 #include "TaxonMap.h"
-#include "Trace.h"
 #include "TraceTree.h"
 #include "Tree.h"
 

@@ -1,10 +1,17 @@
 #ifndef Process_OrnsteinUhlenbeck_H
 #define Process_OrnsteinUhlenbeck_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "OrnsteinUhlenbeckProcess.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

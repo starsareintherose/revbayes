@@ -11,7 +11,6 @@
 #include "TypeSpec.h"
 #include "ArgumentRules.h"
 #include "Procedure.h"
-#include "RbHelpReference.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlFunction.h"

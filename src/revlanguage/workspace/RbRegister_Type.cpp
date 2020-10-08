@@ -24,11 +24,9 @@
  */
 
 
-#include <sstream>
-#include <vector>
-#include <cstdlib>
 #include <stdio.h>
-#include <math.h>
+#include <sstream>
+#include <cstdlib>
 
 /* Files including helper classes */
 #include "RbException.h"
@@ -37,32 +35,16 @@
 
 /// Miscellaneous types ///
 
-#include "DagMemberFunction.h"                        // for DagMemberFunction
-#include "DeterministicNode.h"                        // for DeterministicNode
-#include "DynamicNode.h"                              // for DynamicNode
 #include "Func_workspaceVector.h"                     // for Func_workspaceV...
 #include "RbVector.h"                                 // for RbVector
 #include "RbVectorImpl.h"                             // for RbVectorImpl
 #include "RevPtr.h"                                   // for RevPtr
-#include "RlDagMemberFunction.h"                      // for DagMemberFunction
-#include "RlDeterministicNode.h"                      // for DeterministicNode
-#include "RlStochasticNode.h"                         // for StochasticNode
 #include "RlStoppingRule.h"                           // for StoppingRule
-#include "RlTypedDistribution.h"                      // for TypedDistribution
-#include "RlTypedFunction.h"                          // for TypedFunction
-#include "StochasticNode.h"                           // for StochasticNode
-#include "Tree.h"                                     // for Tree, operator<<
-#include "TypedDagNode.h"                             // for TypedDagNode
-#include "TypedDistribution.h"                        // for TypedDistribution
-#include "TypedFunction.h"                            // for TypedFunction
 #include "WorkspaceToCoreWrapperObject.h"             // for WorkspaceToCore...
-
 /* Base types (in folder "datatypes") */
 #include "RevObject.h"
-
 /* Container types (in folder "datatypes/container") */
 #include "RlCorrespondenceAnalysis.h"
-
 /* Container types (in folder "datatypes/math") */
 #include "WorkspaceVector.h"
 
@@ -73,12 +55,6 @@
 /* Character state types (in folder "datatypes/phylogenetics/character") */
 
 /* Character data types (in folder "datatypes/phylogenetics/datamatrix") */
-
-/* Tree types (in folder "datatypes/phylogenetics/trees") */
-#include "RlClade.h"
-
-/* Taxon types (in folder "datatypes/phylogenetics") */
-#include "RlTaxon.h"
 
 /* Inference types (in folder "analysis") */
 #include "RlBootstrapAnalysis.h"
@@ -96,7 +72,6 @@
 #include "RlTrace.h"
 #include "RlTraceTree.h"
 #include "RlAncestralStateTrace.h"
-
 /// Stopping Rules ///
 #include "RlMaxIterationStoppingRule.h"
 #include "RlMaxTimeStoppingRule.h"
@@ -111,12 +86,8 @@
 /* These types are needed as template types for the moves */
 #include "RlMonitor.h"
 #include "RlMove.h"
-#include "RlTimeTree.h"
-
 #include "Func_VectorMonitors.h"
 #include "Func_VectorMoves.h"
-
-#include "Probability.h"
 
 
 

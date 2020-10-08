@@ -30,7 +30,6 @@
 #include "RevVariable.h"
 #include "RlConstantNode.h"
 #include "RlUtils.h"
-#include "Tree.h"
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"

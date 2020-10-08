@@ -3,7 +3,7 @@
 #include <string>
 
 #include "RbFileManager.h"
-#include "Cloneable.h"
+
 
 namespace RevBayesCore { class DagNode; }
 

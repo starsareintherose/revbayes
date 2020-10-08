@@ -1,13 +1,30 @@
 #ifndef Func_absVector_H
 #define Func_absVector_H
 
+#include <string>
+#include <iosfwd>
+#include <vector>
+
 #include "ModelVector.h"
 #include "RealPos.h"
 #include "RlTypedFunction.h"
-
-#include <string>
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "ModelObject.h"
+#include "RbVector.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "RlDeterministicNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class TypeSpec;
     
     /**
      * The RevLanguage wrapper of the absolute value function.

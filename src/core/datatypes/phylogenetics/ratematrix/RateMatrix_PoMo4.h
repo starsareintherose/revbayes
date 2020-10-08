@@ -30,6 +30,7 @@
 #include "AbstractRateMatrix.h"
 #include "RateGenerator.h"
 #include "RateMatrix.h"
+#include "Simplex.h"
 
 
 namespace RevBayesCore {

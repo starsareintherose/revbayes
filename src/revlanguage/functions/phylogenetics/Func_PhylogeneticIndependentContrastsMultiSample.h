@@ -1,15 +1,30 @@
 #ifndef Func_PhylogeneticIndependentContrastsMultiSample_H
 #define Func_PhylogeneticIndependentContrastsMultiSample_H
 
+#include <string>
+#include <iosfwd>
+#include <vector>
+
 #include "ModelVector.h"
 #include "RbVector.h"
 #include "Real.h"
 #include "RlTypedFunction.h"
-
-#include <map>
-#include <string>
+#include "ConstantNode.h"
+#include "DagNode.h"
+#include "DeterministicNode.h"
+#include "DynamicNode.h"
+#include "IndirectReferenceFunction.h"
+#include "ModelObject.h"
+#include "RevPtr.h"
+#include "RlConstantNode.h"
+#include "RlDeterministicNode.h"
+#include "TypedDagNode.h"
+#include "TypedFunction.h"
+#include "UserFunctionNode.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class TypeSpec;
     
     class Func_PhylogeneticIndependentContrastsMultiSample : public TypedFunction<ModelVector<Real> > {
         

@@ -1,5 +1,10 @@
 #include "PopGenInfinitesSites.h"
 
+namespace RevBayesCore { class DagNode; }
+namespace RevBayesCore { class Tree; }
+namespace RevBayesCore { template <class valueType> class RbVector; }
+namespace RevBayesCore { template <class valueType> class TypedDagNode; }
+
 
 using namespace RevBayesCore;
 

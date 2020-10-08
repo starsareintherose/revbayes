@@ -1,10 +1,17 @@
 #ifndef Dist_normal_H
 #define Dist_normal_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "NormalDistribution.h"
 #include "RlContinuousDistribution.h"
+#include "RevObject.h"
+#include "RevPtr.h"
+#include "RevVariable.h"
 
 namespace RevLanguage {
+class TypeSpec;
     
     
     /**

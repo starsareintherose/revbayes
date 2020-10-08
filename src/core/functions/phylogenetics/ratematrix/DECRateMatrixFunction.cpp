@@ -14,7 +14,7 @@
 
 #include "RateMatrix_DECRateMatrix.h"
 #include "RbMathCombinatorialFunctions.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "Simplex.h"
 #include "TypedDagNode.h"

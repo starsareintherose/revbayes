@@ -17,14 +17,18 @@
 #ifndef ConstructorFunction_H
 #define ConstructorFunction_H
 
-#include "Procedure.h"
-
-#include <map>
-#include <set>
 #include <string>
 #include <vector>
+#include <iosfwd>
+
+#include "Procedure.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevObject;
+class RevVariable;
+class TypeSpec;
 
 class ConstructorFunction : public Procedure {
     

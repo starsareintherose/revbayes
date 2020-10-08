@@ -2,15 +2,19 @@
 
 #include <stddef.h>
 #include <ostream>
+#include <algorithm>
+#include <string>
 
 #include "DagNode.h"
-#include "StringUtilities.h"
+
 #include "Taxon.h"
 #include "TopologyNode.h"
 #include "Tree.h"
 #include "TypedDagNode.h"
+#include "RbException.h"
 
 namespace RevBayesCore {
+template <class valueType> class RbVector;
 
 NexusMonitor::NexusMonitor(TypedDagNode<Tree> *t, const std::vector<DagNode *> &n, bool np, unsigned long g,
                            const std::string &fname, bool ap, bool taxa) :

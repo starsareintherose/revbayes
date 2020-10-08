@@ -14,13 +14,8 @@
 #include "RealPos.h"
 #include "RlString.h"
 #include "RlTaxon.h"
-#include "RlTimeTree.h"
 #include "AbstractBirthDeathProcess.h"
 #include "ConstantNode.h"
-#include "DagNode.h"
-#include "DeterministicNode.h"
-#include "DynamicNode.h"
-#include "IndirectReferenceFunction.h"
 #include "ModelObject.h"
 #include "RbVector.h"
 #include "RevNullObject.h"
@@ -32,10 +27,8 @@
 #include "Taxon.h"
 #include "TypeSpec.h"
 #include "TypedDagNode.h"
-#include "TypedFunction.h"
-#include "UserFunctionNode.h"
 
-namespace RevBayesCore { class Tree; }
+namespace RevBayesCore { class DagNode; }
 
 using namespace RevLanguage;
 

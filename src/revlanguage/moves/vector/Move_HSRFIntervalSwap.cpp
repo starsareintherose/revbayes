@@ -20,7 +20,6 @@
 #include "ModelObject.h"
 #include "Move.h"
 #include "RbBoolean.h"
-#include "RevNullObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlMove.h"

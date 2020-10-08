@@ -1,17 +1,14 @@
 #ifndef HomeologPhaseMonitor_H
 #define HomeologPhaseMonitor_H
-#include "AbstractHomologousDiscreteCharacterData.h"
-#include "VariableMonitor.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
-#include "StochasticNode.h"
-
 #include <fstream>
 #include <string>
-#include <vector>
-#include <typeinfo>
+
+#include "VariableMonitor.h"
 
 namespace RevBayesCore {
+class AbstractHomologousDiscreteCharacterData;
+class DagNode;
+template <class variableType> class StochasticNode;
     
     class HomeologPhaseMonitor : public VariableMonitor {
         

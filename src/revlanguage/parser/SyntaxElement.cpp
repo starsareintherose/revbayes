@@ -1,4 +1,3 @@
-#include <iosfwd>
 #include <set>
 
 #include "SyntaxElement.h"

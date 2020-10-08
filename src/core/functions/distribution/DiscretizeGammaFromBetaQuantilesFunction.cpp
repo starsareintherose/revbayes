@@ -1,10 +1,15 @@
 #include "DiscretizeGammaFromBetaQuantilesFunction.h"
 
+#include <stddef.h>
+#include <vector>
+
 #include "DistributionBeta.h"
 #include "DistributionGamma.h"
 #include "RbMathFunctions.h"
+#include "RbVectorImpl.h"
+#include "TypedDagNode.h"
 
-#include <cmath>
+namespace RevBayesCore { class DagNode; }
 
 RevBayesCore::DiscretizeGammaFromBetaQuantilesFunction::DiscretizeGammaFromBetaQuantilesFunction(const TypedDagNode<double> *a, const TypedDagNode<double> *b, const TypedDagNode<double> *s, const TypedDagNode<double> *r, const TypedDagNode<long> *nc, bool med) : TypedFunction< RbVector<double> >( new RbVector<double>(nc->getValue(), 1.0) ),
     alpha( a ),

@@ -1,11 +1,15 @@
 #ifndef PosteriorPredictiveSimulation_H
 #define PosteriorPredictiveSimulation_H
 
-#include "Cloneable.h"
+#include <iosfwd>
+#include <vector>
+
+
 #include "Model.h"
 #include "Parallelizable.h"
 #include "RbVector.h"
 #include "Trace.h"
+#include "RbVectorImpl.h"
 
 namespace RevBayesCore {
     

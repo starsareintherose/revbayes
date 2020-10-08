@@ -1,5 +1,5 @@
 #include "LnProbabilityFunction.h"
-#include "Cloneable.h"
+
 #include "StochasticNode.h"
 
 namespace RevBayesCore { class DagNode; }

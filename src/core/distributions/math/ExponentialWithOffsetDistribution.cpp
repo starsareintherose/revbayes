@@ -4,7 +4,7 @@
 
 #include "DistributionExponential.h"
 #include "RandomNumberFactory.h"
-#include "Cloneable.h"
+
 #include "RbConstants.h"
 #include "TypedDagNode.h"
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstddef>
 #include <vector>
+#include <string>
 
 #include "DistributionNormal.h"
 #include "SpeciesTreeNodeSlideProposal.h"

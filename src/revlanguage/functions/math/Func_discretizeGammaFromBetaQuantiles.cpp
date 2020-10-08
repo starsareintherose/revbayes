@@ -1,17 +1,19 @@
 #include "ArgumentRule.h"
-#include "Ellipsis.h"
 #include "Func_discretizeGammaFromBetaQuantiles.h"
 #include "Integer.h"
-#include "NormalizeVectorFunction.h"
 #include "ModelVector.h"
-#include "RbUtil.h"
 #include "RealPos.h"
 #include "RlBoolean.h"
 #include "RlDeterministicNode.h"
 #include "TypedDagNode.h"
 #include "TypeSpec.h"
-
 #include "DiscretizeGammaFromBetaQuantilesFunction.h"
+#include "Argument.h"
+#include "ArgumentRules.h"
+#include "RbBoolean.h"
+#include "Real.h"
+#include "RevVariable.h"
+#include "RlFunction.h"
 
 
 using namespace RevLanguage;

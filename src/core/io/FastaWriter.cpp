@@ -1,6 +1,6 @@
 #include <stddef.h>
-#include <ostream>
 #include <vector>
+#include <string>
 
 #include "AbstractDiscreteTaxonData.h"
 #include "CharacterState.h"
@@ -8,7 +8,7 @@
 #include "RbFileManager.h"
 #include "AbstractHomologousDiscreteCharacterData.h"
 #include "AbstractNonHomologousDiscreteCharacterData.h"
-#include "Cloneable.h"
+
 #include "DiscreteCharacterState.h"
 #include "Taxon.h"
 

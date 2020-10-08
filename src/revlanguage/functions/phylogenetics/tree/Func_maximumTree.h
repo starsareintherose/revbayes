@@ -32,8 +32,6 @@
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 
-namespace RevBayesCore { class RbHelpReference; }
-
 namespace RevLanguage {
 class ArgumentRules;
 class TypeSpec;

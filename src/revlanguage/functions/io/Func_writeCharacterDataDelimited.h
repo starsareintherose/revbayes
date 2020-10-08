@@ -2,10 +2,16 @@
 #ifndef Func_writeCharacterDataDelimited_H
 #define Func_writeCharacterDataDelimited_H
 
+#include <iosfwd>
+
 #include "Procedure.h"
+#include "RevPtr.h"
 
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * Function that writes character data as a delimited text file.

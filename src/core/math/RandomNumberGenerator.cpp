@@ -1,11 +1,11 @@
 #include "RandomNumberGenerator.h"
-#include "RbConstants.h"
 
-#include "boost/date_time/posix_time/posix_time.hpp" // IWYU pragma: keep
-#include <boost/random.hpp>
 #include <boost/random/uniform_01.hpp> // IWYU pragma: keep
 #include <boost/random/linear_congruential.hpp> // IWYU pragma: keep
 #include <boost/random/mersenne_twister.hpp>
+
+#include "RbConstants.h"
+#include "boost/date_time/posix_time/posix_time.hpp" // IWYU pragma: keep
 
 using namespace RevBayesCore;
 

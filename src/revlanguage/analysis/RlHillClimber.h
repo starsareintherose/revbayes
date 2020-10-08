@@ -1,12 +1,16 @@
 #ifndef RlHillClimber_H
 #define RlHillClimber_H
 
-#include "HillClimber.h"
-#include "RlMaximumLikelihoodAnalysis.h"
-
 #include <string>
+#include <iosfwd>
+
+#include "RlMaximumLikelihoodAnalysis.h"
+#include "RevObject.h"
+#include "RevPtr.h"
 
 namespace RevLanguage {
+class RevVariable;
+class TypeSpec;
     
     
     /**

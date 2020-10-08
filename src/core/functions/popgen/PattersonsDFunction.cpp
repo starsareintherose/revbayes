@@ -4,7 +4,7 @@
 #include "AbstractDiscreteTaxonData.h"
 #include "PattersonsDFunction.h"
 #include "AbstractHomologousDiscreteCharacterData.h"
-#include "Cloneable.h"
+
 #include "DiscreteCharacterState.h"
 #include "TypedDagNode.h"
 #include "TypedFunction.h"

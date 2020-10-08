@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <vector>
-#include <iosfwd>
 #include <string>
 
 #include "RbVector.h"
@@ -33,6 +32,7 @@
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+
 
 using namespace RevLanguage;
 

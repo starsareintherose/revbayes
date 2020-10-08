@@ -14,7 +14,7 @@
 
 #include "CladogeneticSpeciationRateMatrix.h"
 #include "RbException.h"
-#include "Cloneable.h"
+
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "TypedDagNode.h"

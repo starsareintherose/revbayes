@@ -13,12 +13,11 @@
 #include "ArgumentRules.h"
 #include "DeterministicNode.h"
 #include "DynamicNode.h"
-#include "RbHelpReference.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "RlTypedFunction.h"
-#include "StringUtilities.h"
+
 #include "TypeSpec.h"
 #include "TypedFunction.h"
 

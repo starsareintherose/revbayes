@@ -1,14 +1,17 @@
 #ifndef ConstantPopulationCoalescent_H
 #define ConstantPopulationCoalescent_H
 
+#include <stddef.h>
+#include <vector>
+
 #include "AbstractCoalescent.h"
-#include "Taxon.h"
-#include "Tree.h"
-#include "TypedDagNode.h"
 
 namespace RevBayesCore {
     
     class Clade;
+class DagNode;
+class Taxon;
+template <class valueType> class TypedDagNode;
     
     
     

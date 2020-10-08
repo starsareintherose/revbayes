@@ -1,21 +1,17 @@
 #ifndef Workspace_H
 #define Workspace_H
 
-#include "Environment.h"
-
 #include <map>
 #include <ostream>
 #include <string>
 
+#include "Environment.h"
+
 namespace RevLanguage {
 
-    class AbstractModelObject;
-    class AbstractWorkspaceObject;
     class RevObject;
-    class Container;
     class Distribution;
-    class RandomNumberGenerator;
-    class Function;
+class TypeSpec;
 
     typedef std::map<std::string, RevObject*> TypeTable;
 

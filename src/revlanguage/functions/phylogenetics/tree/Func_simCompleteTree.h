@@ -1,11 +1,18 @@
 #ifndef Func_simCompleteTree_H
 #define Func_simCompleteTree_H
 
+#include <iosfwd>
+#include <vector>
+
 #include "Procedure.h"
-#include "Tree.h"
-#include "TopologyNode.h"
+#include "RevPtr.h"
+
+namespace RevBayesCore { class TopologyNode; }
 
 namespace RevLanguage {
+class ArgumentRules;
+class RevVariable;
+class TypeSpec;
     
     /**
      * @brief Rev function to simumlate a balanced or catapilar tree.
