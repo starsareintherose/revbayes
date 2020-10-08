@@ -41,7 +41,7 @@ if (CMAKE_BUILD_TYPE MATCHES DEBUG)
      # These could be bugs, but there are so many we can't see the really bad ones. So>
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wreorder")
      # Not necessarily a bug:
-   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-variable -Wno-unused-but-set-variable")
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-variable -Wno-unused-but-set-variable")
 else()
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPTIMIZATION_FLAGS}")
    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OPTIMIZATION_FLAGS}")
@@ -174,14 +174,6 @@ else()
   target_link_libraries(${RB_EXEC_NAME} rb-parser rb-core rb-libs ${Boost_LIBRARIES})
 
   set_target_properties(${RB_EXEC_NAME} PROPERTIES PREFIX "../")
-
-find_program(iwyu_path NAMES include-what-you-use iwyu PATHS $ENV{HOME}/Work/Code/iwyu/build/bin)
-if(NOT iwyu_path)
-  message(FATAL_ERROR "Could not find the program include-what-you-use")
-endif()
-
-set_property(TARGET rb-core PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${iwyu_path})
-set_property(TARGET rb-parser PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${iwyu_path})
 
   if ("${MPI}" STREQUAL "ON")
     target_link_libraries(${RB_EXEC_NAME} ${MPI_LIBRARIES})
