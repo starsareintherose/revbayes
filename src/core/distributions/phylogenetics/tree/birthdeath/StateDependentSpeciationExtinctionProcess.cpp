@@ -25,7 +25,6 @@
 #include "TopologyNode.h"
 #include "AbstractDiscreteTaxonData.h"
 #include "AbstractTaxonData.h"
-
 #include "DiscreteCharacterState.h"
 #include "DiscreteTaxonData.h"
 #include "NaturalNumbersState.h"
@@ -38,7 +37,6 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "Simplex.h"
-
 #include "Taxon.h"
 #include "Tree.h"
 #include "TreeChangeEventHandler.h"
@@ -50,6 +48,8 @@
 #include "boost/numeric/odeint/stepper/controlled_runge_kutta.hpp"
 #include "boost/numeric/odeint/stepper/generation/make_controlled.hpp"
 #include "boost/numeric/odeint/stepper/runge_kutta_dopri5.hpp"
+#include "StringUtilities.h"
+#include "TimeInterval.h"
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { template <class valueType> class RbOrderedSet; }

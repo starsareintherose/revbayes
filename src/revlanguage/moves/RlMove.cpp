@@ -14,9 +14,9 @@
 #include "TypeSpec.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
-
 #include "WorkspaceObject.h"
 #include "WorkspaceToCoreWrapperObject.h"
+#include "StringUtilities.h"
 
 
 using namespace RevLanguage;

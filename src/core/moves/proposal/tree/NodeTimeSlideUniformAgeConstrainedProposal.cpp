@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <cmath>
-#include <iostream>
 #include <vector>
 
 #include "DistributionUniform.h"

@@ -24,9 +24,9 @@
 #include "RevVariable.h"
 #include "RlBoolean.h"
 #include "RlUtils.h"
-
 #include "Workspace.h"
 #include "WorkspaceToCoreWrapperObject.h"
+#include "StringUtilities.h"
 
 using namespace RevLanguage;
 

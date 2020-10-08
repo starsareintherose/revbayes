@@ -5,8 +5,8 @@
 #include <iosfwd>
 #include <vector>
 
-
 #include "Parallelizable.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
     

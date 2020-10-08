@@ -17,9 +17,9 @@
 #include "RbVector.h"
 #include "RealPos.h"
 #include "RlDistribution.h"
-
 #include "Tree.h"
 #include "TypeSpec.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class Taxon; }
 

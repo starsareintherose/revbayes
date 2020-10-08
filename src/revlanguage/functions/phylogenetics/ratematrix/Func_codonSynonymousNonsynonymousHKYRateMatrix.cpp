@@ -14,6 +14,7 @@
 #include "RlFunction.h"
 #include "Simplex.h"
 #include "TypeSpec.h"
+#include "FunctionTable.h"
 
 using namespace RevLanguage;
 

@@ -1,7 +1,7 @@
 #include "VariableMonitor.h"
 
-#include <sstream>
 #include <string>
+#include <fstream>
 
 #include "DagNode.h"
 #include "Model.h"
@@ -9,7 +9,6 @@
 #include "RbFileManager.h"
 #include "RbSettings.h"
 #include "RbVersion.h"
-
 #include "StringUtilities.h"
 
 using namespace RevBayesCore;

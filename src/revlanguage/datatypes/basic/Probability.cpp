@@ -7,7 +7,6 @@
 #include "RealPos.h"
 #include "RbException.h"
 #include "ReferenceFunction.h"
-
 #include "TypeSpec.h"
 #include "TypedDagNode.h"
 #include "ArgumentRule.h"
@@ -16,6 +15,7 @@
 #include "DynamicNode.h"
 #include "Real.h"
 #include "TypedFunction.h"
+#include "StringUtilities.h"
 
 using namespace RevLanguage;
 

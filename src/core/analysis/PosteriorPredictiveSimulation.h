@@ -4,12 +4,12 @@
 #include <iosfwd>
 #include <vector>
 
-
 #include "Model.h"
 #include "Parallelizable.h"
 #include "RbVector.h"
 #include "Trace.h"
 #include "RbVectorImpl.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
     

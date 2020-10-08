@@ -632,8 +632,6 @@ void MatrixReal::update( void ) const
 
 #include "RbMathMatrix.h"
 
-namespace RevBayesCore { class DagNode; }
-
 MatrixReal operator+(const MatrixReal& A);
 MatrixReal operator-(const MatrixReal& A);
 MatrixReal operator*(const MatrixReal& A, double b);

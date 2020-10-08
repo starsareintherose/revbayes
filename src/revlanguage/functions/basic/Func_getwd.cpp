@@ -1,5 +1,3 @@
-#include <fstream>
-
 #include "Func_getwd.h"
 #include "RbSettings.h"
 #include "RlString.h"

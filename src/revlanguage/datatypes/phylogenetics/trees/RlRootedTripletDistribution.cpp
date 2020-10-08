@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -33,6 +32,7 @@
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "Tree.h"
 
 using namespace RevLanguage;
 

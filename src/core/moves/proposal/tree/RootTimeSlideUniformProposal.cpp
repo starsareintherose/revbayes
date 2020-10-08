@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "DistributionUniform.h"
 #include "RootTimeSlideUniformProposal.h"
 #include "RandomNumberFactory.h"

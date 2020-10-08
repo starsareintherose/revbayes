@@ -4,7 +4,6 @@
 #include <stddef.h>
 #include <vector>
 
-#include "RbBoolean.h"
 #include "TopologyNode.h"
 #include "TypedDagNode.h"
 

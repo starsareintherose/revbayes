@@ -4,10 +4,10 @@
 #include <string>
 
 #include "DistanceMatrixReader.h"
-
 #include "RbException.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

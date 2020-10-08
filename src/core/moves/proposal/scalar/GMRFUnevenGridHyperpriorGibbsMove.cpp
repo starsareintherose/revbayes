@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include <cmath>
 #include <cassert>
-#include <iostream>
 #include <vector>
 
 #include "HalfCauchyDistribution.h"

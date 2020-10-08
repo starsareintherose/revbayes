@@ -16,7 +16,6 @@
 #include "RlMatrixReal.h"
 #include "RlMatrixRealPos.h"
 #include "RlString.h"
-
 #include "WorkspaceVector.h"
 #include "AbstractModelObject.h"
 #include "Argument.h"
@@ -42,6 +41,7 @@
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
 #include "WorkspaceToCoreWrapperObject.h"
+#include "StringUtilities.h"
 
 
 using namespace RevLanguage;

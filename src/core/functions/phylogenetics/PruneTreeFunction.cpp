@@ -3,7 +3,6 @@
 #include <stddef.h>
 #include <algorithm>
 
-#include "RbBoolean.h"
 #include "TopologyNode.h"
 #include "TypedDagNode.h"
 

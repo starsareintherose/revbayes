@@ -1,10 +1,8 @@
-#include <iostream>
 #include <vector>
 
 #include "CharacterEventContinuous.h"
 #include "ConditionedBirthDeathShiftProcessContinuous.h"
 #include "ContinuousEventBirthDeathProposal.h"
-
 #include "EventBirthDeathProposal.h"
 #include "RbConstants.h"
 #include "TypedDistribution.h"

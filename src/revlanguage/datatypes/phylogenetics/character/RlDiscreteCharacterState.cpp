@@ -8,7 +8,6 @@
 #include "NaturalNumbersState.h"
 #include "RlDiscreteCharacterState.h"
 #include "StandardState.h"
-
 #include "TypeSpec.h"
 #include "CharacterState.h"
 #include "DagNode.h"
@@ -22,6 +21,7 @@
 #include "TypedDagNode.h"
 #include "TypedFunction.h"
 #include "UserFunctionNode.h"
+#include "StringUtilities.h"
 
 using namespace RevLanguage;
 

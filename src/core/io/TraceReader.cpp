@@ -5,9 +5,9 @@
 
 #include "RbException.h"
 #include "RbFileManager.h"
-
 #include "TraceReader.h"
 #include "Trace.h"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

@@ -14,7 +14,6 @@
 #include "RlFunction.h"
 #include "RlSimplex.h"
 #include "RlStochasticMatrix.h"
-#include "StringUtilities.h"
 
 namespace RevBayesCore { class Simplex; }
 

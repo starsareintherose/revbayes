@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <iostream>
 
 #include "DistributionNormal.h"
 #include "DiscreteEventCategoryRandomWalkProposal.h"

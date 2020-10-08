@@ -5,7 +5,6 @@
 
 #include "RbConstants.h"
 #include "TopologyNode.h"
-#include "RbBoolean.h"
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { template <class valueType> class RbOrderedSet; }

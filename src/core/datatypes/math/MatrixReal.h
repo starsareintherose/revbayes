@@ -25,6 +25,7 @@
 #include "MemberObject.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
     

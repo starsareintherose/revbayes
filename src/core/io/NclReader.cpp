@@ -17,14 +17,12 @@
 #include "RbFileManager.h"
 #include "RnaState.h"
 #include "StandardState.h"
-
 #include "TaxonMap.h"
 #include "Tree.h"
 #include "TopologyNode.h"
 #include "TreeUtilities.h"
 #include "RlUserInterface.h"
 #include "AbstractCharacterData.h"
-
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
 #include "DiscreteTaxonData.h"
@@ -42,6 +40,7 @@
 #include "nxstaxablock.h"
 #include "nxstreesblock.h"
 #include "nxsunalignedblock.h"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

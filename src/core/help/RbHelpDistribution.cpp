@@ -1,7 +1,5 @@
 #include "RbHelpDistribution.h"
 
-#include "RbHelpReference.h"
-
 using namespace RevBayesCore;
 
 RbHelpDistribution::RbHelpDistribution( void ) : RbHelpType()

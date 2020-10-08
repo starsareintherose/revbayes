@@ -2,7 +2,7 @@
 #include <list>
 #include <set>
 #include <string>
-#include <sstream>
+#include <sstream> // IWYU pragma: keep
 
 #include "Environment.h"
 #include "RbException.h"

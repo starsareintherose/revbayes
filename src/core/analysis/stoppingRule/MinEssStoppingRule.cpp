@@ -6,12 +6,11 @@
 #include "EssTest.h"
 #include "MinEssStoppingRule.h"
 #include "RbFileManager.h"
-
 #include "TraceContinuousReader.h"
 #include "AbstractConvergenceStoppingRule.h"
 #include "BurninEstimatorContinuous.h"
-
 #include "TraceNumeric.h"
+#include "StringUtilities.h"
 
 
 using namespace RevBayesCore;

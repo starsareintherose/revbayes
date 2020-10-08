@@ -31,6 +31,7 @@
 #include "RlTypedFunction.h"
 #include "TypeSpec.h"
 #include "TypedFunction.h"
+#include "FunctionTable.h"
 
 namespace RevBayesCore { class RelativeNodeAgeWeightedConstraints; }
 namespace RevBayesCore { class Tree; }

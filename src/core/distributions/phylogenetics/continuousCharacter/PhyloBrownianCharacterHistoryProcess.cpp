@@ -13,11 +13,11 @@
 #include "AbstractPhyloContinuousCharacterHistoryProcess.h"
 #include "ContinuousCharacterData.h"
 #include "ContinuousTaxonData.h"
-
 #include "Taxon.h"
 #include "Tree.h"
 #include "TreeChangeEventHandler.h"
 #include "TypedDagNode.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { class RandomNumberGenerator; }

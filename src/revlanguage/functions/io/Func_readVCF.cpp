@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -12,12 +11,12 @@
 #include "RlString.h"
 #include "Argument.h"
 #include "ArgumentRules.h"
-#include "BinaryState.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "TypeSpec.h"
 
 namespace RevBayesCore { class DnaState; }
+namespace RevBayesCore { class BinaryState; }
 
 
 using namespace RevLanguage;

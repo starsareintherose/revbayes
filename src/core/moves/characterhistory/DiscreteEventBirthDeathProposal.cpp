@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <cmath>
-#include <iostream>
 
 #include "CharacterEventDiscrete.h"
 #include "CharacterHistoryDiscrete.h"
@@ -8,7 +7,6 @@
 #include "RandomNumberFactory.h"
 #include "RandomNumberGenerator.h"
 #include "AbstractCharacterHistoryBirthDeathProcess.h"
-
 #include "EventBirthDeathProposal.h"
 
 namespace RevBayesCore { class CharacterEvent; }

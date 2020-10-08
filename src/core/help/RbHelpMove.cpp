@@ -1,7 +1,5 @@
 #include "RbHelpMove.h"
 
-#include "RbHelpReference.h"
-
 using namespace RevBayesCore;
 
 RbHelpMove::RbHelpMove( void ) : RbHelpType()

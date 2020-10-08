@@ -21,7 +21,6 @@
 #include "RbMathCombinatorialFunctions.h"
 #include "RbVectorUtilities.h"
 #include "RlUserInterface.h"
-
 #include "TopologyNode.h"
 #include "TreeSummary.h"
 #include "TreeUtilities.h"
@@ -31,6 +30,7 @@
 #include "TaxonMap.h"
 #include "TraceTree.h"
 #include "Tree.h"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

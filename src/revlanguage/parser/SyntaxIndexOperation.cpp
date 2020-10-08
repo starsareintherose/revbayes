@@ -17,8 +17,8 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
-
 #include "SyntaxElement.h"
+#include "StringUtilities.h"
 
 using namespace RevLanguage;
 

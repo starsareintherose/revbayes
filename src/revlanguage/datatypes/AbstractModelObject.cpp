@@ -1,7 +1,5 @@
 #include "AbstractModelObject.h"
 
-#include "RevPtr.h"
-
 
 using namespace RevLanguage;
 

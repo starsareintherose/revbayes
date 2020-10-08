@@ -14,7 +14,6 @@
 #include "RbFileManager.h"
 #include "RlString.h"
 #include "RlTraceTree.h"
-
 #include "TreeUtilities.h"
 #include "Argument.h"
 #include "ArgumentRules.h"
@@ -25,6 +24,7 @@
 #include "RlFunction.h"
 #include "TraceTree.h"
 #include "TypeSpec.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class Tree; }
 

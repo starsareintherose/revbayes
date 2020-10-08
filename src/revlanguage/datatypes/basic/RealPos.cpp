@@ -8,7 +8,6 @@
 #include "Real.h"
 #include "RevObject.h"
 #include "TypedDagNode.h"
-#include "RevPtr.h"
 
 using namespace RevLanguage;
     

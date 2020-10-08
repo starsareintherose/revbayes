@@ -1,8 +1,8 @@
 #include <stddef.h>
-#include <sstream>
 #include <set>
 #include <string>
 #include <vector>
+#include <sstream> // IWYU pragma: keep
 
 #include "Environment.h"
 #include "RbException.h"

@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iostream>
 
 #include "DistributionNormal.h"
 #include "RootTimeScaleBactrianProposal.h"

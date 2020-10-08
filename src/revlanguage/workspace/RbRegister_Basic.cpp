@@ -33,6 +33,7 @@
 #include "RbException.h"
 #include "RlUserInterface.h"
 #include "Workspace.h"
+#include "StringUtilities.h"
 
 /// Miscellaneous types ///
 

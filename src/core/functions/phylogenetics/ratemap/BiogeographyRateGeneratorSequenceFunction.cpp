@@ -1,6 +1,7 @@
 #include "BiogeographyRateGeneratorSequenceFunction.h"
 
 #include <string>
+#include <iosfwd>
 
 #include "ConstantNode.h"
 #include "RateGenerator.h"

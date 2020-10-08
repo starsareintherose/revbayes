@@ -16,7 +16,6 @@
 #include "AbstractBirthDeathProcess.h"
 #include "AbstractPiecewiseConstantFossilizedRangeProcess.h"
 #include "RbException.h"
-
 #include "Taxon.h"
 #include "TimeInterval.h"
 #include "TopologyNode.h"
@@ -25,6 +24,7 @@
 #include "DagNode.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

@@ -20,13 +20,13 @@
 #include "RbBitSet.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-
 #include "TimeInterval.h"
 #include "Tree.h"
 #include "TreeChangeEventHandler.h"
 #include "TreeChangeEventMessage.h"
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { template <class valueType> class RbOrderedSet; }

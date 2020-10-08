@@ -9,8 +9,8 @@
 #include "HomologousDiscreteCharacterData.h"
 #include "NaturalNumbersState.h"
 #include "RbException.h"
-
 #include "Taxon.h"
+#include "StringUtilities.h"
 
 
 using namespace RevBayesCore;

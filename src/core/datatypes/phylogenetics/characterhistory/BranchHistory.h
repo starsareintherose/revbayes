@@ -7,8 +7,8 @@
 #include <vector>
 
 #include "CharacterEventCompare.h"
-
 #include "TopologyNode.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
 class CharacterEvent;

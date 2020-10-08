@@ -3,7 +3,6 @@
 #include "MethodTable.h"
 #include "RbException.h"
 #include "FunctionTable.h"
-#include "RevPtr.h"
 #include "RlFunction.h"
 
 using namespace RevLanguage;

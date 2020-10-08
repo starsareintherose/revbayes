@@ -9,6 +9,7 @@
 #include "GeneralRateGeneratorSequenceFunction.h"
 
 #include <string>
+#include <iosfwd>
 
 #include "ConstantNode.h"
 #include "CharacterHistoryRateModifier.h" // IWYU pragma: keep

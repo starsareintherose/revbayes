@@ -3,7 +3,6 @@
 #include "Real.h"
 #include "RlString.h"
 #include "RlUtils.h"
-#include "RevPtr.h"
 
 namespace RevLanguage { class RevObject; }
 

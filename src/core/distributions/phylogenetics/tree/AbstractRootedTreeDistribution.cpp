@@ -16,10 +16,10 @@
 #include "Taxon.h"
 #include "TopologyNode.h"
 #include "RbSettings.h"
-
 #include "Tree.h"
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { template <class valueType> class RbOrderedSet; }

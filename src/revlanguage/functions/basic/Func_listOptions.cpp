@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <fstream>
 
 #include "Func_listOptions.h"
 #include "RbSettings.h"

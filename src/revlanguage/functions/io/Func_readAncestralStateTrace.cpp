@@ -22,7 +22,6 @@
 #include "RbFileManager.h"
 #include "RlString.h"
 #include "RlAncestralStateTrace.h"
-
 #include "WorkspaceVector.h"
 #include "Argument.h"
 #include "ArgumentRules.h"
@@ -34,6 +33,7 @@
 #include "Trace.h"
 #include "TypeSpec.h"
 #include "WorkspaceToCoreWrapperObject.h"
+#include "StringUtilities.h"
 
 
 using namespace RevLanguage;

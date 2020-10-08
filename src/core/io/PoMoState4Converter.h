@@ -5,7 +5,7 @@
 #include <iosfwd>
 #include <vector>
 
-#include "PoMoState4.h"
+#include "PoMoState4.h" // IWYU pragma: keep
 
 namespace RevBayesCore {
 class AbstractHomologousDiscreteCharacterData;

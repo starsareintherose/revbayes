@@ -22,7 +22,6 @@
 #include "RlUserInterface.h"
 #include "SemMin.h"
 #include "StationarityTest.h"
-
 #include "TypeSpec.h"
 #include "ModelVector.h"
 #include "Argument.h"
@@ -40,6 +39,7 @@
 #include "TraceNumeric.h"
 #include "TypedDagNode.h"
 #include "WorkspaceObject.h"
+#include "StringUtilities.h"
 
 
 using namespace RevLanguage;

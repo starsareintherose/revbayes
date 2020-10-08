@@ -20,6 +20,7 @@
 #include "TypedDagNode.h"
 #include "boost/format.hpp" // IWYU pragma: keep
 #include "boost/math/tools/toms748_solve.hpp"
+#include "boost/exception/exception.hpp"
 
 namespace RevBayesCore { class Clade; }
 namespace RevBayesCore { class DagNode; }

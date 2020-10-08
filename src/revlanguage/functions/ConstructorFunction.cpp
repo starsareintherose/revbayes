@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <sstream>
 #include <vector>
 
 #include "ConstructorFunction.h"

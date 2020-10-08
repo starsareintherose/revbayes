@@ -5,9 +5,9 @@
 #include <iosfwd>
 #include <vector>
 
-
 #include "Taxon.h"
 #include "MatrixReal.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
 class DistanceMatrixReader;

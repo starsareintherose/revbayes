@@ -11,7 +11,6 @@
 #include "RbException.h"
 #include "RlString.h"
 #include "RlTimeTree.h"
-
 #include "Tree.h"
 #include "TypeSpec.h"
 #include "ArgumentRules.h"
@@ -20,6 +19,7 @@
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "TopologyNode.h"
+#include "StringUtilities.h"
 
 using namespace RevLanguage;
 

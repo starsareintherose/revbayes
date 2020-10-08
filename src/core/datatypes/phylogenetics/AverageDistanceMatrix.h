@@ -6,9 +6,9 @@
 #include <vector>
 #include <utility>
 
-
 #include "DistanceMatrix.h"
 #include "MatrixBoolean.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
 class Taxon;

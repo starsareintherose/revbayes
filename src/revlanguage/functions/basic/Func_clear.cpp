@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <fstream>
 #include <vector>
 
 #include "Argument.h"

@@ -7,8 +7,8 @@
 #include <vector>
 
 #include "TraceTree.h"
-
 #include "Trace.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
 class ProgressBar;

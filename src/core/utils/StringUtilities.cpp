@@ -21,9 +21,12 @@
 #include <iomanip>
 #include <string>
 #include <cstdlib>
+#include <ostream>
+#include <vector>
 
 #include "RbFileManager.h"
 #include "RbVector.h"
+#include "StringUtilities.h"
 
 
 

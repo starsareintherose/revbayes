@@ -18,13 +18,13 @@
 #include "Trace.h"
 #include "TraceReader.h"
 #include "ValidationAnalysis.h"
-
 #include "Model.h"
 #include "Parallelizable.h"
 #include "RbFileManager.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "StoppingRule.h"
+#include "StringUtilities.h"
 
 
 

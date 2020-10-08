@@ -5,12 +5,12 @@
 #include <vector>
 #include <iosfwd>
 
-
 #include "MonteCarloAnalysisOptions.h"
 #include "Parallelizable.h"
 #include "RbVector.h"
 #include "Trace.h"
 #include "Monitor.h"
+#include "Cloneable.h"
 
 
 #ifdef RB_MPI

@@ -4,9 +4,9 @@
 #include <stddef.h>
 #include <iosfwd>
 
-
 #include "MonteCarloAnalysis.h"
 #include "Parallelizable.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
     

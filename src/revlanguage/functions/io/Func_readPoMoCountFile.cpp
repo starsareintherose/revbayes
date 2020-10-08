@@ -1,4 +1,3 @@
-#include <sstream>
 #include <vector>
 
 #include "HomologousDiscreteCharacterData.h"
@@ -8,7 +7,6 @@
 #include "RbException.h"
 #include "RlAbstractHomologousDiscreteCharacterData.h"
 #include "RlString.h"
-
 #include "Argument.h"
 #include "ArgumentRules.h"
 #include "DiscreteTaxonData.h"

@@ -10,7 +10,6 @@
 
 #include <set>
 
-#include "RbBoolean.h"
 #include "TopologyNode.h"
 #include "TypedDagNode.h"
 

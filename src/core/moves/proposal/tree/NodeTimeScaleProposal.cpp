@@ -1,6 +1,5 @@
 #include <stddef.h>
 #include <cmath>
-#include <iostream>
 
 #include "DistributionUniform.h"
 #include "NodeTimeScaleProposal.h"

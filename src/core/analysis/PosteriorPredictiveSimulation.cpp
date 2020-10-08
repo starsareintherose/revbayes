@@ -13,7 +13,6 @@
 #include "StateDependentSpeciationExtinctionProcess.h"
 #include "RbFileManager.h"
 #include "AbstractHomologousDiscreteCharacterData.h"
-
 #include "DiscreteTaxonData.h"
 #include "Model.h"
 #include "NaturalNumbersState.h"
@@ -21,11 +20,11 @@
 #include "RbException.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-
 #include "Taxon.h"
 #include "Trace.h"
 #include "Tree.h"
 #include "TreeDiscreteCharacterData.h"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

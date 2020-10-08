@@ -8,8 +8,7 @@
 #include "RevObject.h"
 #include "RevPtr.h"
 #include "RevVariable.h"
-
-namespace RevBayesCore { class AbstractBirthDeathProcess; }
+#include "AbstractBirthDeathProcess.h"
 
 namespace RevLanguage {
 class TypeSpec;

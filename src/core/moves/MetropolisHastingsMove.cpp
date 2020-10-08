@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <stdio.h>
 #include <cmath>
 #include <iomanip>
 #include <iostream>

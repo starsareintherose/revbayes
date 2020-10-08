@@ -6,12 +6,12 @@
 #include <string>
 
 #include "DagNode.h"
-
 #include "Taxon.h"
 #include "TopologyNode.h"
 #include "Tree.h"
 #include "TypedDagNode.h"
 #include "RbException.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore {
 template <class valueType> class RbVector;

@@ -4,10 +4,10 @@
 #include <stddef.h>
 #include <iosfwd>
 
-
 #include "Monitor.h"
 #include "Parallelizable.h"
 #include "MonteCarloAnalysisOptions.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
 class Model;

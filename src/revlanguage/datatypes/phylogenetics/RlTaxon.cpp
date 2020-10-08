@@ -1,5 +1,4 @@
 #include <stddef.h>
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -21,7 +20,6 @@
 #include "RevPtr.h"
 #include "RevVariable.h"
 #include "RlConstantNode.h"
-
 #include "Taxon.h"
 #include "TimeInterval.h"
 #include "TypedDagNode.h"

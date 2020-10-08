@@ -20,12 +20,12 @@
 #include "RbMathLogic.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-
 #include "Trace.h"
 #include "TraceTree.h"
 #include "Tree.h"
 #include "TypedDagNode.h"
 #include "TypedDistribution.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class DagNode; }
 namespace RevBayesCore { template <class valueType> class RbOrderedSet; }

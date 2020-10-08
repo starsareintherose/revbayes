@@ -33,8 +33,8 @@
 #include "Assignable.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
-
 #include "TimeReversibleRateMatrix.h"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

@@ -5,9 +5,10 @@
 #include <iosfwd>
 
 #include "DelimitedDataReader.h"
+#include "BinaryState.h" // IWYU pragma: keep
+
 
 namespace RevBayesCore {
-class BinaryState;
 class DnaState;
 template <class charType> class HomologousDiscreteCharacterData;
     

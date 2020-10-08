@@ -12,7 +12,6 @@
 #include "OptionRule.h"
 #include "RbException.h"
 #include "RlString.h"
-
 #include "RlAbstractHomologousDiscreteCharacterData.h"
 #include "RlContinuousCharacterData.h"
 #include "RlNaturalNumbersState.h"
@@ -31,6 +30,7 @@
 #include "TaxaState.h"
 #include "Taxon.h"
 #include "TypeSpec.h"
+#include "StringUtilities.h"
 
 
 using namespace RevLanguage;

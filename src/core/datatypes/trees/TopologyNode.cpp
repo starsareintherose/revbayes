@@ -7,6 +7,8 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <utility>
 
 #include "Clade.h"
 #include "RbException.h"

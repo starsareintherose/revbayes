@@ -21,7 +21,6 @@
 #include "RlString.h"
 #include "RlTraceTree.h"
 #include "RlUserInterface.h"
-
 #include "TraceTree.h"
 #include "TreeUtilities.h"
 #include "Argument.h"
@@ -50,6 +49,7 @@
 #include "UserFunctionNode.h"
 #include "WorkspaceToCoreWrapperObject.h"
 #include "WorkspaceVector.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class Tree; }
 

@@ -20,9 +20,9 @@
 #include "RbBitSet.h"
 #include "RbBoolean.h"
 #include "RbFileManager.h"
-
 #include "TaxonMap.h"
 #include "TreeChangeEventHandler.h"
+#include "StringUtilities.h"
 
 namespace RevBayesCore { class AbstractHomologousDiscreteCharacterData; }
 namespace RevBayesCore { class TreeChangeEventListener; }

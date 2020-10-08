@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <boost/container_hash/extensions.hpp>
 #include <algorithm>
-#include <iostream>
 #include <limits>
 #include <set>
 #include <cstddef>
@@ -20,12 +19,10 @@
 #include "RandomNumberGenerator.h"
 #include "RbBitSet.h"
 #include "RbException.h"
-
 #include "Tree.h"
 #include "TreeUtilities.h"
 #include "AbstractDiscreteTaxonData.h"
 #include "AverageDistanceMatrix.h"
-
 #include "DiscreteCharacterState.h"
 #include "DistanceMatrix.h"
 #include "RbConstIterator.h"
@@ -37,6 +34,7 @@
 #include "boost/dynamic_bitset/dynamic_bitset.hpp"
 #include "boost/move/utility_core.hpp"
 #include "boost/unordered/detail/implementation.hpp"
+#include "StringUtilities.h"
 
 using namespace RevBayesCore;
 

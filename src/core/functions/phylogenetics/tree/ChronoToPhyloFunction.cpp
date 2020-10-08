@@ -2,7 +2,6 @@
 
 #include <stddef.h>
 
-#include "RbBoolean.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
 #include "TopologyNode.h"

@@ -1,4 +1,3 @@
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -9,9 +8,9 @@
 #include "Proc_StringToInt.h"
 #include "RbException.h"
 #include "RlString.h"
-
 #include "TypeSpec.h"
 #include "RevVariable.h"
+#include "StringUtilities.h"
 
 
 using namespace RevLanguage;

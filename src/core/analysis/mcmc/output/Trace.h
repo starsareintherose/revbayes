@@ -7,10 +7,10 @@
 
 #include "RbVector.h"
 #include "Simplex.h"
-
 #include "IsDerivedFrom.h"
 #include "RbException.h"
 #include "Serializer.h"
+#include "Cloneable.h"
 
 namespace RevBayesCore {
 class Serializable;

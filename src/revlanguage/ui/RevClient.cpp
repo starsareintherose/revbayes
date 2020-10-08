@@ -8,7 +8,6 @@
 #include "ArgumentRule.h"
 #include "ArgumentRules.h"
 #include "Environment.h"
-#include "RevPtr.h"
 #include "TypeSpec.h"
 #include "boost/algorithm/string/trim.hpp"
 

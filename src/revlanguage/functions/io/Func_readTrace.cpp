@@ -11,7 +11,6 @@
 #include "RbException.h"
 #include "RbFileManager.h"
 #include "RlString.h"
-
 #include "RlTrace.h"
 #include "RlUserInterface.h"
 #include "WorkspaceVector.h"
@@ -29,6 +28,7 @@
 #include "TraceNumeric.h"
 #include "TypeSpec.h"
 #include "WorkspaceToCoreWrapperObject.h"
+#include "StringUtilities.h"
 
 
 using namespace RevLanguage;
