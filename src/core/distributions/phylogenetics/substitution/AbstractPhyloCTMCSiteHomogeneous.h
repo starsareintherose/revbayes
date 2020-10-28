@@ -122,7 +122,7 @@ namespace RevBayesCore {
         virtual bool                                                        recursivelyDrawStochasticCharacterMap(const TopologyNode &node, std::vector<std::string>& character_histories, std::vector<std::vector<charType> >& start_states, std::vector<std::vector<charType> >& end_states, size_t site, bool use_simmap_default);
         virtual void                                                        redrawValue(void);
         void                                                                reInitialized(void);
-        void                                                                setMcmcMode(bool tf);                                                                       //!< Change the likelihood computation to or from MCMC mode.
+        virtual void                                                                setMcmcMode(bool tf);                                                                       //!< Change the likelihood computation to or from MCMC mode.
         void                                                                setValue(AbstractHomologousDiscreteCharacterData *v, bool f=false);                         //!< Set the current value, e.g. attach an observation (clamp)
         virtual void                                                        tipDrawJointConditionalAncestralStates(const TopologyNode &node, std::vector<std::vector<charType> >& startStates, std::vector<std::vector<charType> >& endStates, const std::vector<size_t>& sampledSiteRates);
         void	                                                            updateMarginalNodeLikelihoods(void);
@@ -273,12 +273,13 @@ namespace RevBayesCore {
         size_t                                                              sampled_site_matrix_component;
 
         #if defined( RB_BEAGLE )
+            bool                                                            isBeagleInitialized = false;
             int                                                             beagle_instance;
             std::vector<BeagleOperation>                                    b_ops;
             std::vector<int>                                                b_model_indices;
             std::vector<int>                                                b_node_indices;
             std::vector<double>                                             b_branch_lengths;
-            int                                                             b_stateFrequenciesIndex;
+            //int                                                             b_stateFrequenciesIndex;
             std::vector<double>                                             b_inStateFrequencies;
             //int                                                             b_categoryWeightsIndex;
             std::vector<double>                                             b_inCategoryWeights;
@@ -533,7 +534,7 @@ RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::~AbstractPhyloCTMCSite
     delete [] partialLikelihoods;
     delete [] marginalLikelihoods;
 
-    //-- Handlded in the PhyloCTMCBEAGLE class now.
+    //-- Handlded in the PhyloCTMCBEAGLE class now. Maybe should not be?
     //#if defined( RB_BEAGLE )
     //    if ( RbSettings::userSettings().getUseBeagle() == true &&
     //         in_mcmc_mode == true && beagle_instance >= 0 )
@@ -3043,25 +3044,20 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::setClockRate(cons
 template<class charType>
 void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::setMcmcMode(bool tf)
 {
-    //-- Free old memory
-    #if !defined( RB_BEAGLE )
-        if ( in_mcmc_mode == true )
-        {
-                delete [] partialLikelihoods;
-                partialLikelihoods = NULL;
-        }
-    #endif /* RB_BEAGLE */
+    if ( in_mcmc_mode == true )
+    {
+       delete [] partialLikelihoods;
+       partialLikelihoods = NULL;
+    }
 
-    // set our internal flag
+    //-- Set our internal mcmc_mode flag
     this->in_mcmc_mode = tf;
 
-    #if !defined( RB_BEAGLE )
-        if ( in_mcmc_mode == true )
-        {
-            //-- TODO: why is this still needed when using beagle
-            resizeLikelihoodVectors();
-        }
-    #endif /* RB_BEAGLE */
+    //-- Resize the likelihood vectors
+    if ( in_mcmc_mode == true )
+    {
+        resizeLikelihoodVectors();
+    }
 }
 
 
