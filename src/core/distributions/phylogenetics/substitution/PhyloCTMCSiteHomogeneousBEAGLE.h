@@ -563,6 +563,7 @@ double This::calculateBranchLength ( const TopologyNode &node, size_t node_index
         rate = this->homogeneous_clock_rate->getValue();
     }
 
+    //-- TODO: check if this should be invariable site...
     rate /= this->homogeneous_clock_rate->getValue();
 
     double branch_len = rate * branch_time;
