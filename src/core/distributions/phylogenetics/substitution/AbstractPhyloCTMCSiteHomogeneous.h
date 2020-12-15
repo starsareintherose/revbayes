@@ -23,13 +23,12 @@
 #include <memory.h>
 
 #if defined( RB_BEAGLE )
-    #include "RlUserInterface.h"
-    #include "RbSettings.h"
-    #include "BeagleUtilities.h"
-    #include "libhmsbeagle/beagle.h"
-    #define RB_BEAGLE_DEBUG
+#include "RlUserInterface.h"
+#include "RbSettings.h"
+#include "BeagleUtilities.h"
+#include "libhmsbeagle/beagle.h"
+#define RB_BEAGLE_DEBUG
 #endif /* RB_BEAGLE */
-
 
 namespace RevBayesCore {
 
@@ -37,62 +36,44 @@ namespace RevBayesCore {
      * @brief Homogeneous distribution of character state evolution along a tree class (PhyloCTMC).
      *
      * This file contains the distribution class for a character state evolving along a tree.
-     * This abstract base class can be derived for any character evolution model with homogeneous
-     * mixture sites. A homogeneous mixture model over sites is a model where all sites are drawn
-     * from the same distribution and the specific instance of the per site parameter is integrated
-     * over. The per site parameter could be a rate scaler (e.g. the + gamma models) or different
-     * rate matrices or anything else.
+     * This abstract base class can be derived for any character evolution model with homogeneous mixture sites. A
+     * homogeneous mixture model over sites is a model where all sites are drawn from the same distribution and the
+     * specific instance of the per site parameter is integrated over. The per site parameter could be a rate scaler (e.g. the + gamma models)
+     * or different rate matrices or anything else.
      *
-     * The pruning algorithm is implemented in this base class and calls some few pure virtual
-     * methods. The important functions you have to override are:
+     * The pruning algorithm is implemented in this base class and calls some few pure virtual methods.
+     * The important functions you have to override are:
+     * - computeRootLikelihood(size_t root, size_t l, size_t r, size_t m)
+     * - computeInternalNodeLikelihood(const TopologyNode &n, size_t nIdx, size_t l, size_t r)
+     * - computeTipLikelihood(const TopologyNode &node, size_t nIdx)
+     * - getRootFrequencies()
+     * - updateTransitionProbabilities()
      *
-     * - computeRootLikelihood ( size_t root, size_t l, size_t r, size_t m )
-     * - computeInternalNodeLikelihood ( const TopologyNode &n, size_t nIdx, size_t l, size_t r )
-     * - computeTipLikelihood ( const TopologyNode &node, size_t nIdx )
-     * - getRootFrequencies ( )
-     * - updateTransitionProbabilities ( )
      *
-     * The data are stored for convenience in this class in a matrix
-     * (std::vector<std::vector<unsigned>>) and can be compressed.
+     * The data are stored for convenience in this class in a matrix (std::vector<std::vector< unsigned > >) and can
+     * be compressed.
      *
-     * The partial likelihoods are stored in a c-style array called partialLikelihoods. The
-     * dimension are:
-     *
-     *     partialLikelihoods[active][node_index][siteRateIndex][siteIndex][charIndex]
-     *
-     * However, since this is a one-dimensional c-style array, you have to access the
-     * partialLikelihoods via
-     *
-     *     partialLikelihoods[ active*num_nodes*num_site_mixtures*pattern_block_size*num_chars
-     *                       + node_index*num_site_mixtures*pattern_block_size*num_chars
-     *                       + siteRateIndex*pattern_block_size*num_chars
-     *                       + siteIndex*num_chars
-     *                       + charIndex
-     *                       ]
-     *
+     * The partial likelihoods are stored in a c-style array called partialLikelihoods. The dimension are
+     * partialLikelihoods[active][node_index][siteRateIndex][siteIndex][charIndex], however, since this is a one-dimensional c-style array,
+     * you have to access the partialLikelihoods via
+     * partialLikelihoods[active*num_nodes*num_site_mixtures*pattern_block_size*num_chars +
+     *                    node_index*num_site_mixtures*pattern_block_size*num_chars +
+     *                    siteRateIndex*pattern_block_size*num_chars +
+     *                    siteIndex*num_chars +
+     *                    charIndex]
      * Since this is a bit complex, we have some offset variables for convenience:
+     * activeLikelihoodOffset      =  num_nodes*num_site_mixtures*pattern_block_size*num_chars;
+     * nodeOffset                  =  num_site_mixtures*pattern_block_size*num_chars;
+     * mixtureOffset               =  pattern_block_size*num_chars;
+     * siteOffset                  =  num_chars;
+     * This gives the more convenient access via
+     * partialLikelihoods[active*activeLikelihoodOffset + node_index*nodeOffset + siteRateIndex*mixtureOffset + siteIndex*siteOffset + charIndex]
      *
-     * - activeLikelihoodOffset      =  num_nodes*num_site_mixtures*pattern_block_size*num_chars;
-     * - nodeOffset                  =  num_site_mixtures*pattern_block_size*num_chars;
-     * - mixtureOffset               =  pattern_block_size*num_chars;
-     * - siteOffset                  =  num_chars;
-     *
-     * This gives the more convenient access via:
-     *
-     *     partialLikelihoods[ active * activeLikelihoodOffset
-     *                       + node_index * nodeOffset
-     *                       + siteRateIndex * mixtureOffset
-     *                       + siteIndex * siteOffset
-     *                       + charIndex
-     *                       ]
-     *
-     * Our implementation of the partial likelihoods means that we can store the partial likelihood
-     * of a node, but not for site rates. We also use twice as much memory because we store the
-     * partial likelihood along each branch and not only for each internal node. This gives us a
-     * speed improvement during MCMC proposal in the order of a factor 2.
+     * Our implementation of the partial likelihoods means that we can store the partial likelihood of a node, but not for site rates.
+     * We also use twice as much memory because we store the partial likelihood along each branch and not only for each internal node.
+     * This gives us a speed improvement during MCMC proposal in the order of a factor 2.
      *
      */
-
     template<class charType>
     class AbstractPhyloCTMCSiteHomogeneous : public TypedDistribution< AbstractHomologousDiscreteCharacterData >, public MemberObject< RbVector<double> >, public MemberObject < MatrixReal >, public TreeChangeEventListener {
 
@@ -112,17 +93,14 @@ namespace RevBayesCore {
         virtual std::vector<charType>                                       drawAncestralStatesForNode(const TopologyNode &n);
         virtual void                                                        drawJointConditionalAncestralStates(std::vector<std::vector<charType> >& startStates, std::vector<std::vector<charType> >& endStates);
         virtual void                                                        drawStochasticCharacterMap(std::vector<std::string>& character_histories, size_t site, bool use_simmap_default=true);
-
-        // these were changed to be virtual
-        virtual void                                                       executeMethod(const std::string &n, const std::vector<const DagNode*> &args, RbVector<double> &rv) const;     //!< Map the member methods to internal function calls
-        virtual void                                                       executeMethod(const std::string &n, const std::vector<const DagNode*> &args, MatrixReal &rv) const;     //!< Map the member methods to internal function calls
-
+        void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, RbVector<double> &rv) const;     //!< Map the member methods to internal function calls
+        void                                                                executeMethod(const std::string &n, const std::vector<const DagNode*> &args, MatrixReal &rv) const;     //!< Map the member methods to internal function calls
         void                                                                fireTreeChangeEvent(const TopologyNode &n, const unsigned& m=0);                                                 //!< The tree has changed and we want to know which part.
         virtual void                                                        recursivelyDrawJointConditionalAncestralStates(const TopologyNode &node, std::vector<std::vector<charType> >& startStates, std::vector<std::vector<charType> >& endStates, const std::vector<size_t>& sampledSiteRates);
         virtual bool                                                        recursivelyDrawStochasticCharacterMap(const TopologyNode &node, std::vector<std::string>& character_histories, std::vector<std::vector<charType> >& start_states, std::vector<std::vector<charType> >& end_states, size_t site, bool use_simmap_default);
         virtual void                                                        redrawValue(void);
         void                                                                reInitialized(void);
-        virtual void                                                                setMcmcMode(bool tf);                                                                       //!< Change the likelihood computation to or from MCMC mode.
+        void                                                                setMcmcMode(bool tf);                                                                       //!< Change the likelihood computation to or from MCMC mode.
         void                                                                setValue(AbstractHomologousDiscreteCharacterData *v, bool f=false);                         //!< Set the current value, e.g. attach an observation (clamp)
         virtual void                                                        tipDrawJointConditionalAncestralStates(const TopologyNode &node, std::vector<std::vector<charType> >& startStates, std::vector<std::vector<charType> >& endStates, const std::vector<size_t>& sampledSiteRates);
         void	                                                            updateMarginalNodeLikelihoods(void);
@@ -134,7 +112,6 @@ namespace RevBayesCore {
         void                                                                setRateMatrix(const TypedDagNode< RateGenerator > *rm);
         void                                                                setRateMatrix(const TypedDagNode< RbVector< RateGenerator > > *rm);
         void                                                                setRootFrequencies(const TypedDagNode< Simplex > *f);
-
         void                                                                setSiteRates(const TypedDagNode< RbVector< double > > *r);
         void                                                                setSiteRatesProbs(const TypedDagNode< Simplex > *rp);
         void                                                                setUseMarginalLikelihoods(bool tf);
@@ -240,15 +217,15 @@ namespace RevBayesCore {
         mutable bool                                                        in_mcmc_mode;
 
         // members
-        const TypedDagNode<double>*                                         homogeneous_clock_rate;
-        const TypedDagNode<RbVector<double>>*                               heterogeneous_clock_rates;
-        const TypedDagNode<RateGenerator>*                                  homogeneous_rate_matrix;
-        const TypedDagNode<RbVector<RateGenerator>>*                        heterogeneous_rate_matrices;
-        const TypedDagNode<Simplex>*                                        root_frequencies;
-        const TypedDagNode<RbVector<double>>*                               site_rates;
-        const TypedDagNode<Simplex>*                                        site_matrix_probs;
-        const TypedDagNode<Simplex>*                                        site_rates_probs;
-        const TypedDagNode<double>*                                         p_inv;
+        const TypedDagNode< double >*                                       homogeneous_clock_rate;
+        const TypedDagNode< RbVector< double > >*                           heterogeneous_clock_rates;
+        const TypedDagNode< RateGenerator >*                                homogeneous_rate_matrix;
+        const TypedDagNode< RbVector< RateGenerator > >*                    heterogeneous_rate_matrices;
+        const TypedDagNode< Simplex >*                                      root_frequencies;
+        const TypedDagNode< RbVector< double > >*                           site_rates;
+        const TypedDagNode< Simplex >*                                      site_matrix_probs;
+        const TypedDagNode< Simplex >*                                      site_rates_probs;
+        const TypedDagNode< double >*                                       p_inv;
 
 
         // flags specifying which model variants we use
@@ -272,24 +249,23 @@ namespace RevBayesCore {
         size_t                                                              sampled_site_rate_component;
         size_t                                                              sampled_site_matrix_component;
 
-        #if defined( RB_BEAGLE )
-            bool                                                            isBeagleInitialized = false;
-            int                                                             beagle_instance;
-            std::vector<BeagleOperation>                                    b_ops;
-            std::vector<int>                                                b_model_indices;
-            std::vector<int>                                                b_node_indices;
-            std::vector<double>                                             b_branch_lengths;
-            //int                                                             b_stateFrequenciesIndex;
-            std::vector<double>                                             b_inStateFrequencies;
-            //int                                                             b_categoryWeightsIndex;
-            std::vector<double>                                             b_inCategoryWeights;
-            std::vector<double>                                             b_inCategoryRates;
-            std::vector<double>                                             b_inPatternWeights;
-
-            #if defined( RB_BEAGLE_DEBUG )
-                // nothing here yet...
-            #endif /* RB_BEAGLE_DEBUG */
-        #endif /* RB_BEAGLE */
+#       if defined( RB_BEAGLE )
+        
+//        struct BeagleTransitionProbabilityOp {
+//            size_t                                                          b_model_index;
+//            size_t                                                          b_node_index;
+//            double                                                          b_branch_length;
+//        };
+        
+        std::vector<BeagleOperation>                                        b_ops;
+//        std::vector<BeagleTransitionProbabilityOp>                          b_tp_ops;
+        std::vector<int>                                                    b_model_indices;
+        std::vector<int>                                                    b_node_indices;
+        std::vector<double>                                                 b_branch_lengths;
+        int                                                                 beagle_instance;
+#       if defined( RB_BEAGLE_DEBUG )
+#       endif /* RB_BEAGLE_DEBUG */
+#       endif /* RB_BEAGLE */
 
 
     private:
@@ -301,6 +277,8 @@ namespace RevBayesCore {
         virtual void                                                        scale(size_t i, size_t l, size_t r);
         virtual void                                                        scale(size_t i, size_t l, size_t r, size_t m);
         void                                                                simulate(const TopologyNode& node, std::vector< DiscreteTaxonData< charType > > &t, const std::vector<bool> &inv, const std::vector<size_t> &perSiteRates);
+
+
 
     };
 
@@ -318,7 +296,7 @@ namespace RevBayesCore {
 #include <cmath>
 
 #ifdef RB_MPI
-    #include <mpi.h>
+#include <mpi.h>
 #endif
 
 
@@ -486,9 +464,9 @@ sampled_site_matrix_component( n.sampled_site_matrix_component )
     mixtureOffset               =  n.mixtureOffset;
     siteOffset                  =  n.siteOffset;
 
-    #if defined( RB_BEAGLE )
-        beagle_instance             = -1;
-    #endif /* RB_BEAGLE */
+#   if defined( RB_BEAGLE )
+    beagle_instance             = -1;
+#   endif /* RB_BEAGLE */
 
     // flags specifying which model variants we use
     branch_heterogeneous_clock_rates               = n.branch_heterogeneous_clock_rates;
@@ -497,7 +475,6 @@ sampled_site_matrix_component( n.sampled_site_matrix_component )
 
     tau->getValue().getTreeChangeEventHandler().addListener( this );
 
-    //-- TODO: Probably do not neet to allocate memory here for BEAGLE stuff...
     // copy the partial likelihoods if necessary
     if ( in_mcmc_mode == true )
     {
@@ -534,19 +511,17 @@ RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::~AbstractPhyloCTMCSite
     delete [] partialLikelihoods;
     delete [] marginalLikelihoods;
 
-    //-- Handlded in the PhyloCTMCBEAGLE class now. Maybe should not be?
-    //#if defined( RB_BEAGLE )
-    //    if ( RbSettings::userSettings().getUseBeagle() == true &&
-    //         in_mcmc_mode == true && beagle_instance >= 0 )
-    //    {
-    //        #if defined ( RB_BEAGLE_DEBUG )
-    //                RBOUT ( "Finalizing BEAGLE" );
-    //        #endif /* RB_BEAGLE_DEBUG */
+#       if defined( RB_BEAGLE )
+    if ( RbSettings::userSettings().getUseBeagle() == true && in_mcmc_mode == true && beagle_instance >= 0 )
+    {
+#       if defined ( RB_BEAGLE_DEBUG )
+        RBOUT ( "Finalizing BEAGLE" );
+#       endif /* RB_BEAGLE_DEBUG */
+        beagleFinalizeInstance(beagle_instance);
+        beagle_instance = -1;
+    }    
+#       endif /* RB_BEAGLE */
 
-    //        beagleFinalizeInstance(beagle_instance);
-    //        beagle_instance = -1;
-    //    }
-    //#endif /* RB_BEAGLE */
 }
 
 
@@ -891,7 +866,7 @@ double RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::computeLnProbab
     // That means we should probabily call this function as a job,
     // where a job is defined as computing the lnProbability for a subset of the data (block)
     // Sebastian: this call is very slow; a lot of work happens in nextCycle()
-
+    
 
     // we need to check here if we still are listining to this tree for change events
     // the tree could have been replaced without telling us
@@ -905,6 +880,7 @@ double RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::computeLnProbab
     // if we are not in MCMC mode, then we need to (temporarily) allocate memory
     if ( in_mcmc_mode == false )
     {
+        // @TODO: We don't need this memory if we use BEAGLE!
         partialLikelihoods = new double[2*activeLikelihoodOffset];
     }
 
@@ -945,7 +921,7 @@ double RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::computeLnProbab
             fillLikelihoodVector( middle, middleIndex );
 
             computeRootLikelihood( root_index, left_index, right_index, middleIndex );
-            scale(root_index, left_index, right_index, middleIndex);
+            scale(root_index, left_index, right_index, middleIndex);    
 
         }
         else
@@ -955,12 +931,14 @@ double RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::computeLnProbab
 
         // sum the partials up
         this->lnProb = sumRootLikelihood();
-
+        
     }
 
     // if we are not in MCMC mode, then we need to (temporarily) free memory
     if ( in_mcmc_mode == false )
     {
+        // TODO: We cannot free the memory when we use BEAGLE because we didn't allocate it!
+        // free the partial likelihoods
         delete [] partialLikelihoods;
         partialLikelihoods = NULL;
     }
@@ -1204,13 +1182,13 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::drawJointConditio
 {
 
 	// if we already have ancestral states, don't make new ones
-
+    
     // MJL 181028: Disabling this flag to allow multiple monitors to work for same dnPhyloCTMC (e.g. ancestral states + stochastic mapping)
 //	if ( has_ancestral_states == true )
 //    {
 //		return;
 //    }
-
+    
     RandomNumberGenerator* rng = GLOBAL_RNG;
 
     // get working variables
@@ -1230,7 +1208,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::drawJointConditio
 
     // clear the container for sampling the site-rates
     sampled_site_mixtures.resize(this->num_sites);
-
+    
     for (size_t i = 0; i < this->num_sites; ++i)
 //    for (size_t i = pattern_block_start; i < this->pattern_block_end; ++i)
     {
@@ -1415,7 +1393,6 @@ bool RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::hasSiteMatrixMixt
 
 	return ret;
 }
-
 template<class charType>
 void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::getSampledMixtureComponents(size_t &site_index, size_t &rate_component, size_t &matrix_component )
 {
@@ -1579,6 +1556,7 @@ bool RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::recursivelyDrawSt
 template<class charType>
 void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::executeMethod(const std::string &n, const std::vector<const DagNode *> &args, RbVector<double> &rv) const
 {
+
     if ( n == "siteLikelihoods" )
     {
 
@@ -1750,12 +1728,14 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::executeMethod(con
     {
         throw RbException("The PhyloCTMC process does not have a member method called '" + n + "'.");
     }
+
 }
 
 
 template<class charType>
 void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::executeMethod(const std::string &n, const std::vector<const DagNode *> &args, MatrixReal &rv) const
 {
+
     if ( n == "siteRateLikelihoods" )
     {
 
@@ -1868,6 +1848,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::executeMethod(con
     {
         throw RbException("The PhyloCTMC process does not have a member method called '" + n + "'.");
     }
+
 }
 
 
@@ -2244,13 +2225,13 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::keepSpecializatio
 
     // reset flags for likelihood computation
     touched = false;
-
+    
     // reset all flags
     for (std::vector<bool>::iterator it = this->touched_eigen_system.begin(); it != this->touched_eigen_system.end(); ++it)
     {
         (*it) = false;
     }
-
+    
     // reset the ln probability
     this->storedLnProb = this->lnProb;
 
@@ -2596,7 +2577,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::restoreSpecializa
 
     // reset flags for likelihood computation
     touched = false;
-
+    
     // flip back the active eigen system indices
     for ( size_t i=0; i<active_eigen_system.size(); ++i)
     {
@@ -2605,8 +2586,8 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::restoreSpecializa
             active_eigen_system[i] = (active_eigen_system[i] == 0 ? 1 : 0);
         }
     }
-
-
+    
+    
     // reset the flags
     for (std::vector<bool>::iterator it = touched_eigen_system.begin(); it != touched_eigen_system.end(); ++it)
     {
@@ -3038,26 +3019,290 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::setClockRate(cons
 
 }
 
+
 /**
  * Change the likelihood computation to or from MCMC mode.
  */
 template<class charType>
 void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::setMcmcMode(bool tf)
 {
+
+    // free old memory
     if ( in_mcmc_mode == true )
     {
-       delete [] partialLikelihoods;
-       partialLikelihoods = NULL;
+        delete [] partialLikelihoods;
+        partialLikelihoods = NULL;
     }
 
-    //-- Set our internal mcmc_mode flag
-    this->in_mcmc_mode = tf;
+    // set our internal flag
+    in_mcmc_mode = tf;
 
-    //-- Resize the likelihood vectors
     if ( in_mcmc_mode == true )
     {
+
+#       if defined( RB_BEAGLE )
+
+        std::stringstream ss;
+
+        if ( RbSettings::userSettings().getUseBeagle() == true && num_site_mixtures == 1 && tau->getValue().isRooted() == false && num_site_rates == 1 )
+        {
+            
+            ss << std::endl;
+            ss << "Using BEAGLE library v" << beagleGetVersion();
+            ss << " for parallel likelihood evaluation (https://beagle-dev.github.io/)";
+            ss << std::endl;
+
+            int  b_resource = (int) RbSettings::userSettings().getBeagleResource();
+            bool b_use_cpu_threading = (RbSettings::userSettings().getBeagleMaxCPUThreads() != 1 ? 
+                                        true : false);
+            bool b_use_scaling = (RbSettings::userSettings().getBeagleScalingMode() != "none" ? 
+                                        true : false);
+            
+            int  b_tipCount            = (int) tau->getValue().getNumberOfTips();
+            int  b_partialsBufferCount = (int) num_nodes * 2 + ( using_ambiguous_characters ? tau->getValue().getNumberOfTips() : 0);
+            int  b_compactBufferCount  = (int) tau->getValue().getNumberOfTips() - ( using_ambiguous_characters ? tau->getValue().getNumberOfTips() : 0);
+            int  b_stateCount          = (int) num_chars;
+            int  b_patternCount        = (int) pattern_block_size;
+            int  b_eigenBufferCount    = (int) num_site_mixtures * 2;
+            int  b_matrixBufferCount   = (int) num_nodes * 2;
+            int  b_categoryCount       = (int) num_site_rates;
+            int  b_scaleBufferCount    = (int) (b_use_scaling ? 
+                                                (num_nodes * 2) : 0);
+            int* b_resourceList        =       &b_resource;
+            int  b_resourceCount       =       1;
+            long b_preferenceFlags     =      (RbSettings::userSettings().getBeagleUseDoublePrecision() ? 
+                                               BEAGLE_FLAG_PRECISION_DOUBLE :
+                                               BEAGLE_FLAG_PRECISION_SINGLE)
+                                            | (b_use_cpu_threading ? 
+                                               BEAGLE_FLAG_THREADING_CPP : 0);
+            long b_requirementFlags    =       0;
+
+            BeagleInstanceDetails b_return_info;
+
+            if ( RbSettings::userSettings().getBeagleAuto() == true )
+            { 
+                ss << "Running benchmarks to automatically select fastest BEAGLE resource... ";
+                ss << std::endl;
+
+                // select fastest resource
+                BeagleBenchmarkedResourceList* rBList;
+                rBList = beagleGetBenchmarkedResourceList(
+                            b_tipCount,
+                            b_compactBufferCount,
+                            b_stateCount,
+                            b_patternCount,
+                            b_categoryCount,
+                            NULL,                 // resourceList
+                            0,                    // resourceCount
+                            b_preferenceFlags,
+                            b_requirementFlags,
+                            b_eigenBufferCount,
+                            1,                    // partitionCount
+                            0,                    // calculateDerivatives
+                            0                     // benchmarkFlags
+                            );
+
+                if (rBList != NULL)
+                {
+                    b_resource = rBList->list[0].number;
+
+                    ss << "Using resource " << rBList->list[0].number << ": " << rBList->list[0].name;
+                    if ( rBList->list[0].number != 0 )
+                    {
+                        ss << " (" << rBList->list[0].performanceRatio << "x CPU)";
+                    }
+                    ss << std::endl;
+                } else {
+                    ss << "Resource benchmarking failed, using resource " << b_resource << ": " << rBList->list[0].name;
+                    ss << std::endl;
+                }
+            }
+
+#           if defined ( RB_BEAGLE_DEBUG )
+            ss << "BEAGLE parameters:"                                      << std::endl;
+            ss << "\t" << "tipCount : "            << b_tipCount            << std::endl;
+            ss << "\t" << "partialsBufferCount : " << b_partialsBufferCount << std::endl;
+            ss << "\t" << "compactBufferCount : "  << b_compactBufferCount  << std::endl;
+            ss << "\t" << "stateCount : "          << b_stateCount          << std::endl;
+            ss << "\t" << "patternCount : "        << b_patternCount        << std::endl;
+            ss << "\t" << "eigenBufferCount : "    << b_eigenBufferCount    << std::endl;
+            ss << "\t" << "matrixBufferCount : "   << b_matrixBufferCount   << std::endl;
+            ss << "\t" << "categoryCount : "       << b_categoryCount       << std::endl;
+            ss << "\t" << "scaleBufferCount : "    << b_scaleBufferCount    << std::endl;
+            ss << "\t" << "resource : " << b_resource << std::endl;
+            ss << std::endl;
+#           endif /* RB_BEAGLE_DEBUG */
+
+            beagle_instance = beagleCreateInstance(b_tipCount,
+                                                   b_partialsBufferCount,
+                                                   b_compactBufferCount,
+                                                   b_stateCount,
+                                                   b_patternCount,
+                                                   b_eigenBufferCount,
+                                                   b_matrixBufferCount,
+                                                   b_categoryCount,
+                                                   b_scaleBufferCount,
+                                                   b_resourceList,
+                                                   b_resourceCount,
+                                                   b_preferenceFlags,
+                                                   b_requirementFlags,
+                                                   &b_return_info);
+ 
+#           if defined ( RB_BEAGLE_DEBUG )
+            ss << "BEAGLE instance: " << beagle_instance << std::endl;
+#           endif /* RB_BEAGLE_DEBUG */
+
+            if (beagle_instance < 0)
+            {
+                ss << "Failed to start BEAGLE instance. Reverting to RevBayes likelihood calculator." << std::endl;
+                RbSettings::userSettings().setUseBeagle(false);
+            }
+            else
+            {
+                ss << "Using BEAGLE resource " << b_return_info.resourceNumber << std::endl;
+                ss << "\t" << "Rsrc Name : "   << b_return_info.resourceName   << std::endl;
+                ss << "\t" << "Impl Name : "   << b_return_info.implName       << std::endl;
+                ss << "\t" << "Flags:";
+                ss << BeagleUtilities::printBeagleFlags(b_return_info.flags);
+                ss << std::endl;
+
+                if (b_use_cpu_threading) {
+                    beagleSetCPUThreadCount(beagle_instance,
+                                            RbSettings::userSettings().getBeagleMaxCPUThreads());
+                }
+
+                // set tip data in BEAGLE
+                int* b_inStates = NULL;
+                double* b_inPartials = NULL;
+                if ( using_ambiguous_characters == true )
+                {
+                    b_inPartials = new double[pattern_block_size*num_chars];
+                }
+                else
+                {
+                    b_inStates = new int[pattern_block_size];
+                }
+                int  b_tipIndex;
+
+                std::vector<TopologyNode*> nodes = tau->getValue().getNodes();
+                for (std::vector<TopologyNode*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+                {
+                    if ( (*it)->isTip() )
+                    {
+                        // TODO: change this code here to allow for ambiguity codes
+                        b_tipIndex = (int) (*it)->getIndex();
+                        size_t data_tip_index = this->taxon_name_2_tip_index_map[ (*it)->getName() ];
+                        const std::vector<bool> &gap_node = this->gap_matrix[data_tip_index];
+                        const std::vector<unsigned long> &char_node = this->char_matrix[data_tip_index];
+                        const std::vector<RbBitSet> &amb_char_node = this->ambiguous_char_matrix[data_tip_index];
+                        
+                        // iterate over all sites
+                        for (size_t b_pattern = 0; b_pattern < this->pattern_block_size; ++b_pattern)
+                        {
+                            // is this site a gap?
+                            if ( gap_node[b_pattern] ) 
+                            {
+                                if ( using_ambiguous_characters == true )
+                                {
+                                    for (size_t c=0; c<num_chars; ++c)
+                                    {
+                                        b_inPartials[b_pattern*num_chars+c] = 1.0;
+                                    }
+                                }
+                                else
+                                {
+                                    b_inStates[b_pattern] = (int) num_chars;
+                                }
+                            }
+                            else
+                            {
+
+                                if ( using_ambiguous_characters == true )
+                                {
+                                    for (size_t c=0; c<num_chars; ++c)
+                                    {
+                                        b_inPartials[b_pattern*num_chars+c] = (amb_char_node[b_pattern].isSet(c) ? 1.0 : 0.0);
+                                    }
+                                }
+                                else
+                                {
+                                    b_inStates[b_pattern] = (int) char_node[b_pattern];
+                                }
+                            }
+                        }
+                        if ( using_ambiguous_characters == true )
+                        {
+                            beagleSetTipPartials(beagle_instance, b_tipIndex, b_inPartials);
+                        }
+                        else
+                        {
+                            beagleSetTipStates(beagle_instance, b_tipIndex, b_inStates);
+                        }
+
+    #                   if defined ( RB_BEAGLE_DEBUG_TIP_STATES )
+                        ss << "BEAGLE setTipStates, tip = " << b_tipIndex << ", states = ";
+                        ss << std::endl;
+                        for (size_t b_pattern = 0; b_pattern < this->pattern_block_size; ++b_pattern)
+                        {
+                            ss << b_inStates[b_pattern];
+                        }
+                        ss << std::endl;
+    #                   endif /* RB_BEAGLE_DEBUG_TIP_STATES */
+
+
+                    }
+                }
+
+                delete[] b_inStates;
+
+                double* b_inPatternWeights = new double[pattern_block_size];
+
+                for (size_t b_pattern = 0; b_pattern < this->pattern_block_size; ++b_pattern)
+                {
+                    b_inPatternWeights[b_pattern] = (double) pattern_counts[b_pattern];
+                }
+
+                beagleSetPatternWeights(beagle_instance,
+                                        b_inPatternWeights);
+
+                delete[] b_inPatternWeights;
+
+                // site rate categories not yet supported
+                int    b_categoryWeightsIndex = 0;
+                double b_inCategoryWeights    = 1.0; 
+                beagleSetCategoryWeights(beagle_instance,
+                                         b_categoryWeightsIndex,
+                                         &b_inCategoryWeights);
+
+                double b_inCategoryRates     = 1.0; 
+                beagleSetCategoryRates(beagle_instance,
+                                       &b_inCategoryRates);
+
+            }
+        }
+        else if ( RbSettings::userSettings().getUseBeagle() == true && num_site_mixtures > 1 )
+        {
+            ss << "Failed to start BEAGLE instance, multiple site mixtures not currently supported. Reverting to RevBayes likelihood calculator." << std::endl;
+            RbSettings::userSettings().setUseBeagle(false);
+        }
+        else if ( RbSettings::userSettings().getUseBeagle() == true && tau->getValue().isRooted() == true )
+        {
+            ss << "Failed to start BEAGLE instance, rooted trees not currently supported. Reverting to RevBayes likelihood calculator." << std::endl;
+            RbSettings::userSettings().setUseBeagle(false);
+        }
+        else if ( RbSettings::userSettings().getUseBeagle() == true && num_site_rates > 1 )
+        {
+            ss << "Failed to start BEAGLE instance, site rate variation not currently supported. Reverting to RevBayes likelihood calculator." << std::endl;
+            RbSettings::userSettings().setUseBeagle(false);
+        }
+
+        RBOUT( ss.str() );
+
+#       endif /* RB_BEAGLE */
+        
         resizeLikelihoodVectors();
     }
+
 }
 
 
@@ -3395,7 +3640,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::computeRootLikeli
             double tmp = 0.0;
             // get the pointers to the likelihoods for this site and mixture category
             double* p_site_j   = p_site_mixture;
-
+            
             // TODO: This computation of the sum of partial likelihoods over all states might be better done already in computeRootLikelihood
             // iterate over all starting states
             for (size_t i=0; i<num_chars; ++i)
@@ -3810,9 +4055,9 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::computeRootLikeli
 template<class charType>
 double RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::sumRootLikelihood( void )
 {
+    
+    // TODO: Decide here where to get the likelihood: either from BEAGLE directly or as site likelihoods
 
-    // TODO: Decide here where to get the likelihood: either from BEAGLE directly or as site
-    // likelihoods.
 
     std::vector<double> site_likelihoods = std::vector<double>(pattern_block_size,0.0);
     computeRootLikelihoods( site_likelihoods );
@@ -3824,10 +4069,12 @@ double RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::sumRootLikeliho
         sum_partial_probs += site_likelihoods[site];
     }
 
-    #ifdef RB_MPI
+#ifdef RB_MPI
+
     // we only need to send message if there is more than one process
     if ( num_processes > 1 )
     {
+
         // send the likelihood from the helpers to the master
         if ( process_active == false )
         {
@@ -3860,8 +4107,10 @@ double RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::sumRootLikeliho
             MPI_Status status;
             MPI_Recv(&sum_partial_probs, 1, MPI_DOUBLE, active_PID, 0, MPI_COMM_WORLD, &status);
         }
+
     }
-    #endif
+
+#endif
 
     return sum_partial_probs;
 }
@@ -3955,35 +4204,51 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::touchSpecializati
         }
         else
         {
-            const std::vector<TopologyNode*> &nodes = this->tau->getValue().getNodes();
+            const std::vector<TopologyNode *> &nodes = this->tau->getValue().getNodes();
             // flag recomputation only for the nodes
-            for ( std::set<size_t>::iterator it = indices.begin()
-                ; it != indices.end()
-                ; ++it )
+            for (std::set<size_t>::iterator it = indices.begin(); it != indices.end(); ++it)
             {
                 this->recursivelyFlagNodeDirty( *nodes[*it] );
             }
         }
     }
-
-    //-- TODO : check what actually needs to be made here
-    //#if defined( RB_BEAGLE )
-    //else if ( RbSettings::userSettings().getUseBeagle() == true )
-    //{
-    //    std::stringstream ss; ss << "TOUCHED!"; RBOUT(ss.str());
-    //    //-- Flip the active eigen system indices.
-    //    for ( size_t i = 0; i < active_eigen_system.size(); ++i )
-    //    {
-    //        if ( touched_eigen_system[i] == false )
-    //        {
-    //            touched_eigen_system[0] = true;
-    //            active_eigen_system[i] = (active_eigen_system[i] == 0 ? 1 : 0);
-    //            //active_eigen_system[i] = (active_eigen_system[i] == 1 ? 0 : 1);
-    //        }
-    //    }
-    //}
-    //#endif
-
+# ifdef RB_BEAGLE
+    else if ( affecter == homogeneous_rate_matrix && RbSettings::userSettings().getUseBeagle() == true )
+    {
+        if ( touched_eigen_system[0] == false )
+        {
+            touched_eigen_system[0] = true;
+            active_eigen_system[0] = (active_eigen_system[0] == 0 ? 1 : 0);
+        }
+        EigenSystem *my_eigen_system = homogeneous_rate_matrix->getValue().getEigenSystem();
+        const MatrixReal&               my_eigen_vectors        = my_eigen_system->getEigenvectors();
+        const MatrixReal&               my_inv_eigen_vectors    = my_eigen_system->getInverseEigenvectors();
+        const std::vector<double>&      my_eigen_values         = my_eigen_system->getRealEigenvalues();
+        
+        double *flat_eigen_vectors = new double[ my_eigen_vectors.getNumberOfRows() * my_eigen_vectors.getNumberOfColumns() ];
+        double *tmp_flat_eigen_vectors = flat_eigen_vectors;
+	size_t  offset = my_eigen_vectors.getNumberOfColumns();
+        for ( size_t i=0; i<my_eigen_vectors.getNumberOfRows(); ++i )
+        {
+	  //std::copy(my_eigen_vectors[i].begin(), my_eigen_vectors[i].end(), tmp_flat_eigen_vectors);
+	    memcpy(tmp_flat_eigen_vectors, &my_eigen_vectors[i][0], offset*sizeof(double));
+            tmp_flat_eigen_vectors += offset;
+        }
+        
+        double *flat_inv_eigen_vectors = new double[ my_inv_eigen_vectors.getNumberOfRows() * my_inv_eigen_vectors.getNumberOfColumns() ];
+        double *tmp_flat_inv_eigen_vectors = flat_inv_eigen_vectors;
+	offset = my_inv_eigen_vectors.getNumberOfColumns();
+        for ( size_t i=0; i<my_inv_eigen_vectors.getNumberOfRows(); ++i )
+        {
+	  //std::copy(my_inv_eigen_vectors[i].begin(), my_inv_eigen_vectors[i].end(), tmp_flat_inv_eigen_vectors);
+            memcpy(tmp_flat_inv_eigen_vectors, &my_inv_eigen_vectors[i][0], offset*sizeof(double));
+            tmp_flat_inv_eigen_vectors += offset;
+        }
+        
+        // TODO: Perhaps we only want to set the eigen decomposition when we start to evaluate the likelihoods instead of for every touch call.
+        beagleSetEigenDecomposition(beagle_instance, active_eigen_system[0], flat_eigen_vectors, flat_inv_eigen_vectors, &my_eigen_values[0]);
+    }
+# endif
     else if ( affecter == heterogeneous_rate_matrices && branch_heterogeneous_substitution_matrices == true)
     {
         const std::set<size_t> &indices = heterogeneous_rate_matrices->getTouchedElementIndices();
@@ -4092,6 +4357,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::updateTransitionP
     double start_age = end_age + node->getBranchLength();
 
     // first, get the rate matrix for this branch
+//    RateMatrix_JC jc(this->num_chars);
     const RateGenerator *rm = NULL;
 
     if (this->branch_heterogeneous_substitution_matrices == false )
@@ -4121,7 +4387,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::updateTransitionP
 
                 rm->calculateTransitionProbabilities( start_age, end_age,  rate * r, this->transition_prob_matrices[j*this->num_matrices + matrix] );
             }
-
+            
             // here we need to free the rate matrix if we created it above
             if ( this->heterogeneous_rate_matrices == NULL && this->homogeneous_rate_matrix == NULL )
             {
@@ -4154,7 +4420,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::updateTransitionP
 
             rm->calculateTransitionProbabilities( start_age, end_age,  rate * r, this->transition_prob_matrices[j] );
         }
-
+        
         // here we need to free the rate matrix if we created it above
         if ( this->heterogeneous_rate_matrices == NULL && this->homogeneous_rate_matrix == NULL )
         {
