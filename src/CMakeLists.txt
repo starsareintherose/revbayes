@@ -1,4 +1,12 @@
 cmake_minimum_required(VERSION 2.6)
+
+if(COMMAND CMAKE_POLICY) # CMake 2.4 does not have this command
+  if(POLICY CMP0011)
+    cmake_policy(SET CMP0011 NEW)
+  endif(POLICY CMP0011)
+endif(COMMAND CMAKE_POLICY)
+
+
 project(RevBayes)
 
 # Consider:
@@ -75,7 +83,6 @@ if ("${BEAGLE}" STREQUAL "ON")
    MESSAGE("My BEAGLE information:")
    MESSAGE("  BEAGLE_INCLUDE_DIRS : ${BEAGLE_INCLUDE_PATH}")
    MESSAGE("  BEAGLE_LIBRARIES    : ${BEAGLE_LINK_PATH}")
-
 endif()
 
 if (WIN32)

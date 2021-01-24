@@ -674,7 +674,7 @@ void This::computeRootLikelihood ( size_t root, size_t left, size_t right, size_
     size_t num_taxa  = (this->num_nodes + 2) / 2;
 
     size_t root_idx  = root + this->num_nodes * this->activeLikelihood[root];
-    //this->b_node_indices.push_back(root_idx); //-- TESTING!
+    this->b_node_indices.push_back(root_idx); //-- TESTING!
 
     size_t mid_idx   = middle + this->num_nodes * this->activeLikelihood[middle];
     size_t left_idx  = left   + this->num_nodes * this->activeLikelihood[left];
