@@ -198,7 +198,7 @@ BeagleInstance::BeagleInstance ( int  b_resource
 BeagleInstance::~BeagleInstance ( )
 {
     RBOUT ( "Finalizing BEAGLE" );
-    beagleFinalizeInstance(this->resourceID);
+    beagleFinalizeInstance(beagle_singleton->getResourceID());
     BeagleInstance::beagle_singleton = NULL;
-    this->resourceID = -1;
+    //this->resourceID = -1;
 }

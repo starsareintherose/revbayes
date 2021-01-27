@@ -51,9 +51,9 @@ namespace RevBayesCore {
                                             , int  b_scaleBufferCount
                                             );
 
-        int                   getResourceID ( void ) { return this->resourceID; };
+        static int            getResourceID ( void ) { return (beagle_singleton ? beagle_singleton->resourceID : -1); };
 
-        static bool           hasInstance   ( void ) { return ((beagle_singleton != NULL) ? true : false); };
+        //static bool           hasInstance   ( void ) { return (beagle_singleton ? true : false); };
 
     };
 

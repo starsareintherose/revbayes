@@ -34,10 +34,6 @@
 
     //-- Enable / Disable debugging by (un)commenting the following:
     //#define RB_BEAGLE_DEBUG
-    //#if defined ( RB_BEAGLE_DEBUG )
-    //    #include <iomanip>  //-- maybe dont need anymore...
-    //#endif /* RB_BEAGLE_DEBUG */
-
 
     //-- Enable / Disable using eigen3 library by (un)commenting the following:
     #define RB_USE_EIGEN3
@@ -291,7 +287,7 @@ namespace RevBayesCore {
         size_t                                                              sampled_site_matrix_component;
 
         #if defined( RB_BEAGLE )
-          int                                                               beagle_instance = -1;
+          int                                                               beagle_instance;
 
           std::vector<BeagleOperation>                                      b_ops;
           std::vector<int>                                                  b_node_indices;
@@ -299,13 +295,9 @@ namespace RevBayesCore {
 
           std::vector<double>                                               b_inPatternWeights;
 
+          //-- TODO - can probably get rid of these later...
           std::vector<double>                                               b_inCategoryRates ;
           std::vector<double>                                               b_inCategoryWeights;
-
-          std::vector<double>                                               b_flat_eigen_values;
-          std::vector<double>                                               b_flat_eigen_vectors;
-          std::vector<double>                                               b_flat_inv_eigen_vectors;
-
 
           //-- Pretty print BEAGLE error codes.
           std::string                                                       parseBeagleReturnCode     ( int code );
@@ -426,6 +418,12 @@ sampled_site_matrix_component( 0 )
     branch_heterogeneous_substitution_matrices     = true;
     rate_variation_across_sites                    = false;
 
+    #if defined( RB_BEAGLE )
+    if ( RbSettings::userSettings().getUseBeagle() == true )
+    {
+        this->beagle_instance = BeagleInstance::getResourceID();
+    }
+    #endif /* RB_BEAGLE */
 
     tau->getValue().getTreeChangeEventHandler().addListener( this );
 
@@ -535,15 +533,10 @@ sampled_site_matrix_component( n.sampled_site_matrix_component )
         memcpy(partialLikelihoods, n.partialLikelihoods, 2*activeLikelihoodOffset*sizeof(double));
 
         #if defined( RB_BEAGLE )
-        if ( RbSettings::userSettings().getUseBeagle() == true
-             // && !BeagleInstance::hasInstance()
-            )
+        if ( RbSettings::userSettings().getUseBeagle() == true )
         {
-            this->initializeBeagleInstance();
-            //this->initializeBeagleTips();
-
-            //this->updateBeagleSiteRates();
-            //this->updateBeagleEigensystem();
+            this->beagle_instance = BeagleInstance::getResourceID();
+            //this->initializeBeagleInstance();
         }
         #endif /* RB_BEAGLE */
     }
@@ -3107,17 +3100,20 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::setMcmcMode(bool 
 
     if ( in_mcmc_mode == true )
     {
-        //-- Move to workspace at some point... maybe
         #if defined( RB_BEAGLE )
-        if ( RbSettings::userSettings().getUseBeagle() == true
-             // &&      !BeagleInstance::hasInstance()
-            )
+        if ( RbSettings::userSettings().getUseBeagle() == true )
         {
-            this->initializeBeagleInstance();
-            this->initializeBeagleTips();
-
-            //this->updateBeagleSiteRates();
-            //this->updateBeagleEigensystem();
+            std::stringstream ss;
+            if ( BeagleInstance::getResourceID() == -1 )
+            {
+                this->initializeBeagleInstance();
+            }
+            else
+            {
+                this->beagle_instance = BeagleInstance::getResourceID();
+            }
+            ss << "Beagle Instance = " << this->beagle_instance << std::endl;
+            RBOUT(ss.str());
         }
         #endif /* RB_BEAGLE */
 
@@ -4034,17 +4030,28 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::touchSpecializati
         }
     }
     #ifdef RB_BEAGLE
-    else if ( affecter == homogeneous_rate_matrix && RbSettings::userSettings().getUseBeagle() == true )
+    //-- TODO - Not sure how this is supposed to work...
+    else if ( RbSettings::userSettings().getUseBeagle() == true )
     {
-        if ( touched_eigen_system[0] == false )
+        for ( size_t i=0; i<active_eigen_system.size(); ++i)
         {
-            touched_eigen_system[0] = true;
-            active_eigen_system[0]  = (active_eigen_system[0] == 0 ? 1 : 0);
+            if ( touched_eigen_system[i] == true )
+            {
+                active_eigen_system[i] = (active_eigen_system[i] == 0 ? 1 : 0);
+            }
         }
-
-        this->updateBeagleEigensystem();
-        this->updateBeagleSiteRates();
     }
+    //else if ( affecter == homogeneous_rate_matrix && RbSettings::userSettings().getUseBeagle() == true )
+    //{
+    //    if ( touched_eigen_system[0] == false )
+    //    {
+    //        touched_eigen_system[0] = true;
+    //        active_eigen_system[0]  = (active_eigen_system[0] == 0 ? 1 : 0);
+    //    }
+    //
+    //    this->updateBeagleEigensystem();
+    //    this->updateBeagleSiteRates();
+    //}
     #endif
     else if ( affecter == heterogeneous_rate_matrices && branch_heterogeneous_substitution_matrices == true)
     {
@@ -4228,6 +4235,7 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::updateTransitionP
 
 
 
+
 /* Collection of BEAGLE alternative methods to replace some standard RevBayes
  * likelihood calculation methods (when beagle-lib is available).
  */
@@ -4237,49 +4245,119 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::updateTransitionP
 template<class charType>
 void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::initializeBeagleInstance ( void )
 {
-    int  b_resource            = RbSettings::userSettings().getBeagleResource();
-    bool b_use_cpu_threading   = RbSettings::userSettings().getBeagleMaxCPUThreads() != 1
-                               ? true : false;
-    bool b_use_scaling         = RbSettings::userSettings().getBeagleScalingMode()   != "none"
-                               ? true : false;
+    std::stringstream ss;
 
-    int  b_tipCount            = this->tau->getValue().getNumberOfTips();
-    int  b_partialsBufferCount = 2 * this-> num_nodes
-                               + ( this->using_ambiguous_characters
-                                 ? this->tau->getValue().getNumberOfTips()
-                                 : 0
-                                 );
-    int  b_compactBufferCount  = this->tau->getValue().getNumberOfTips()
-                               - ( this->using_ambiguous_characters
-                                 ? this->tau->getValue().getNumberOfTips()
-                                 : 0
-                                 );
-    int  b_stateCount          = this->num_chars;
-    int  b_patternCount        = this->pattern_block_size;
-    int  b_eigenBufferCount    = this->num_site_mixtures * 2;
-    int  b_matrixBufferCount   = this->num_nodes * 2;
-    int  b_categoryCount       = this->num_site_rates;
-    int  b_scaleBufferCount    = (b_use_scaling ? (this->num_nodes * 2) : 0);
+    if ( BeagleInstance::getResourceID()           == -1    &&
+         RbSettings::userSettings().getUseBeagle() == true  &&
+         num_site_mixtures                         == 1     &&
+         tau->getValue().isRooted()                == false &&
+         num_site_rates                            == 1
+       )
+    {
+        #if defined ( RB_USE_EIGEN3 )
+            RBOUT("Using Eigen3 library for eigensystem calculations.");
+        #else
+            RBOUT("Using Revbayes internal methods for eigensystem calculations.");
+        #endif /* RB_USE_EIGEN3 */
 
-    this->beagle_instance = BeagleInstance::getInstance( b_resource
-                                                       , b_use_cpu_threading
-                                                       , b_use_scaling
-                                                       , b_tipCount
-                                                       , b_partialsBufferCount
-                                                       , b_compactBufferCount
-                                                       , b_stateCount
-                                                       , b_patternCount
-                                                       , b_eigenBufferCount
-                                                       , b_matrixBufferCount
-                                                       , b_categoryCount
-                                                       , b_scaleBufferCount
-                                                       )->getResourceID();
+        int  b_resource            = RbSettings::userSettings().getBeagleResource();
+        bool b_use_cpu_threading   = RbSettings::userSettings().getBeagleMaxCPUThreads() != 1
+                                   ? true : false;
+        bool b_use_scaling         = RbSettings::userSettings().getBeagleScalingMode()   != "none"
+                                   ? true : false;
 
-    #if defined ( RB_USE_EIGEN3 )
-        RBOUT("Using Eigen3 library for eigensystem calculations.");
-    #else
-        RBOUT("Using Revbayes internal methods for eigensystem calculations.");
-    #endif /* RB_USE_EIGEN3 */
+        int  b_tipCount            = this->tau->getValue().getNumberOfTips();
+        int  b_partialsBufferCount = 2 * this-> num_nodes
+                                   + ( this->using_ambiguous_characters
+                                     ? this->tau->getValue().getNumberOfTips()
+                                     : 0
+                                     );
+        int  b_compactBufferCount  = this->tau->getValue().getNumberOfTips()
+                                   - ( this->using_ambiguous_characters
+                                     ? this->tau->getValue().getNumberOfTips()
+                                     : 0
+                                     );
+        int  b_stateCount          = this->num_chars;
+        int  b_patternCount        = this->pattern_block_size;
+        int  b_eigenBufferCount    = this->num_site_mixtures * 2;
+        int  b_matrixBufferCount   = this->num_nodes * 2;
+        int  b_categoryCount       = this->num_site_rates;
+        int  b_scaleBufferCount    = (b_use_scaling ? (this->num_nodes * 2) : 0);
+
+        BeagleInstance::getInstance( b_resource
+                                   , b_use_cpu_threading
+                                   , b_use_scaling
+                                   , b_tipCount
+                                   , b_partialsBufferCount
+                                   , b_compactBufferCount
+                                   , b_stateCount
+                                   , b_patternCount
+                                   , b_eigenBufferCount
+                                   , b_matrixBufferCount
+                                   , b_categoryCount
+                                   , b_scaleBufferCount
+                                   );
+
+        this->beagle_instance = BeagleInstance::getResourceID();
+        this->initializeBeagleTips();
+
+    }
+    else if ( RbSettings::userSettings().getUseBeagle() == true && num_site_mixtures > 1 )
+    {
+        ss << "Failed to start BEAGLE instance, multiple site mixtures not currently supported. Reverting to RevBayes likelihood calculator." << std::endl;
+        RbSettings::userSettings().setUseBeagle(false);
+    }
+    else if ( RbSettings::userSettings().getUseBeagle() == true && tau->getValue().isRooted() == true )
+    {
+        ss << "Failed to start BEAGLE instance, rooted trees not currently supported. Reverting to RevBayes likelihood calculator." << std::endl;
+        RbSettings::userSettings().setUseBeagle(false);
+    }
+    else if ( RbSettings::userSettings().getUseBeagle() == true && num_site_rates > 1 )
+    {
+        ss << "Failed to start BEAGLE instance, site rate variation not currently supported. Reverting to RevBayes likelihood calculator." << std::endl;
+        RbSettings::userSettings().setUseBeagle(false);
+    }
+    RBOUT(ss.str());
+}
+
+
+template<class charType>
+std::string RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::parseBeagleReturnCode ( int code )
+{
+    std::string result;
+    switch (code)
+    {
+        case 0:
+            result = "Success!";
+            break;
+        case -1:
+            result = "Unspecified error!";
+            break;
+        case -2:
+            result = "Not enough memory could be allocated!";
+            break;
+        case -3:
+            result = "Unspecified exception!";
+            break;
+        case -4:
+            result = "The instance index is out of range, or the instance has not been created!";
+            break;
+        case -5:
+            result = "One of the indices specified exceeded the range of the array!";
+            break;
+        case -6:
+            result = "No resource matches requirements!";
+            break;
+        case -7:
+            result = "No implementation matches requirements!";
+            break;
+        case -8:
+            result = "Floating-point range exceeded!";
+            break;
+        default:
+            result = "Error code not found!";
+    }
+    return result;
 }
 
 
@@ -4440,46 +4518,6 @@ void RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::initializeBeagleT
     #if defined ( RB_BEAGLE_DEBUG )
         RBOUT(ss.str());
     #endif /* RB_BEAGLE_DEBUG_TIP_STATES */
-}
-
-
-template<class charType>
-std::string RevBayesCore::AbstractPhyloCTMCSiteHomogeneous<charType>::parseBeagleReturnCode ( int code )
-{
-    std::string result;
-    switch (code)
-    {
-        case 0:
-            result = "Success!";
-            break;
-        case -1:
-            result = "Unspecified error!";
-            break;
-        case -2:
-            result = "Not enough memory could be allocated!";
-            break;
-        case -3:
-            result = "Unspecified exception!";
-            break;
-        case -4:
-            result = "The instance index is out of range, or the instance has not been created!";
-            break;
-        case -5:
-            result = "One of the indices specified exceeded the range of the array!";
-            break;
-        case -6:
-            result = "No resource matches requirements!";
-            break;
-        case -7:
-            result = "No implementation matches requirements!";
-            break;
-        case -8:
-            result = "Floating-point range exceeded!";
-            break;
-        default:
-            result = "Error code not found!";
-    }
-    return result;
 }
 
 
