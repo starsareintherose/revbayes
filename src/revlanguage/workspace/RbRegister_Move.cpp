@@ -103,6 +103,7 @@
 /* Moves on simplices */
 #include "Move_DirichletSimplex.h"
 #include "Move_BetaSimplex.h"
+#include "Move_SortedBetaSimplex.h"
 #include "Move_ElementSwapSimplex.h"
 
 /* Moves on vectors */
@@ -275,6 +276,7 @@ void RevLanguage::Workspace::initializeMoveGlobalWorkspace(void)
         /* Moves on simplices */
         addType( new Move_DirichletSimplex() );
         addType( new Move_BetaSimplex() );
+        addType( new Move_SortedBetaSimplex() );
         addType( new Move_ElementSwapSimplex() );
 
         /* Moves on vectors */
@@ -334,6 +336,7 @@ void RevLanguage::Workspace::initializeMoveGlobalWorkspace(void)
         /* Moves on mixtures (in folder "datatypes/inference/moves/mixture") */
         addType( new Move_DPPTableValueUpdate<RealPos>( new RevBayesCore::ScaleProposal( NULL, 1.0 ) ) );
         addType( new Move_DPPTableValueUpdate<Simplex>( new RevBayesCore::BetaSimplexProposal( NULL, 10.0 ) ) );
+        //addType( new Move_DPPTableValueUpdate<Simplex>( new RevBayesCore::SortedBetaSimplexProposal( NULL, 10.0 ) ) );
 
 //        addType("mvDPPScaleCatVals",                new Move_DPPScaleCatValsMove() );
 //        addType("mvDPPScaleCatAllocateAux",         new Move_DPPScaleCatAllocateAux() );
