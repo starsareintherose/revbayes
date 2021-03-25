@@ -177,6 +177,10 @@ EpisodicBirthDeathSamplingTreatmentProcess::EpisodicBirthDeathSamplingTreatmentP
 
 			// set the taxon for this node
 			node.setTaxon( taxa[i] );
+
+			// make sure the starting age is valid
+			node.setAge( (taxa[i].getAgeRange().getMax() + taxa[i].getAgeRange().getMin()) / 2.0 );
+
 		}
 
 		// make sure we never simulate a tree
