@@ -21,6 +21,9 @@ namespace RevBayesCore
         // The function we are wrapping.
         R (*func)(Args...);
 
+        // WORKAROUND: bug in gcc 5.
+        void addParameterTrampoline(const DagNode* node) { TypedFunction<R>::addParameter(node); }
+
     public:
 
         GenericFunction(R (*f)(Args...), const TypedDagNode<Args>*... args):
@@ -29,7 +32,9 @@ namespace RevBayesCore
             arguments2({args...}),
             func(f)
         {
-            boost::mp11::tuple_for_each(arguments, [this](const auto& arg) {this->TypedFunction<R>::addParameter(arg);});
+            boost::mp11::tuple_for_each(arguments, [this](const auto& arg) {
+                this->GenericFunction<R,Args...>::addParameterTrampoline(arg);
+            });
         }
 
         GenericFunction<R, Args...>*  clone(void) const
