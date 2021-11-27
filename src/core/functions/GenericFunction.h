@@ -42,7 +42,7 @@ namespace RevBayesCore
         {
             using namespace boost::mp11;
 
-            auto values = tuple_transform([](auto& node) {node->getValue()}, arguments);
+            auto values = tuple_transform([](auto& node) {return node->getValue();}, arguments);
             *TypedFunction<R>::value = tuple_apply(*func, values);
         }
 
