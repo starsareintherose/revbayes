@@ -12,11 +12,8 @@ namespace RevBayesCore
     template <class R, class ...Args>
     class GenericFunction : public TypedFunction<R>
     {
-        // This keeps the types, but is harder to iterate over.
+        // The arguments
         std::tuple<const TypedDagNode<Args>*...>  arguments;
-
-        // This is easier to iterate, but loses the types.
-        std::vector<const DagNode*> arguments2;
 
         // The function we are wrapping.
         R (*func)(Args...);
@@ -29,7 +26,6 @@ namespace RevBayesCore
         GenericFunction(R (*f)(Args...), const TypedDagNode<Args>*... args):
             TypedFunction<R>(new R),
             arguments({args...}),
-            arguments2({args...}),
             func(f)
         {
             boost::mp11::tuple_for_each(arguments, [this](const auto& arg) {
