@@ -29,8 +29,7 @@ namespace RevBayesCore
             arguments2({args...}),
             func(f)
         {
-            for(auto& arg: arguments2)
-                TypedFunction<R>::addParameter(arg);
+            boost::mp11::tuple_for_each(arguments, [this](const auto& arg) {this->TypedFunction<R>::addParameter(arg);});
         }
 
         GenericFunction<R, Args...>*  clone(void) const
