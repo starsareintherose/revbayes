@@ -48,9 +48,13 @@ namespace RevBayesCore
     protected:
         void swapParameterInternal(const DagNode *oldP, const DagNode *newP)
         {
-            for(auto& arg: arguments2)
+            auto F2 = [=](auto& arg) {
+                using TDN = typename std::remove_reference<decltype(arg)>::type;
                 if (arg == oldP)
-                    arg = newP;
+                    // We have to cast from `const DagNode*` to `const TypedDagNode<T>*`
+                    arg = static_cast<TDN>(newP);
+            };
+            boost::mp11::tuple_for_each(arguments, F2);
         }
 
     };
