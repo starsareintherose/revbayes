@@ -4,12 +4,6 @@
 #include "TypedDagNode.h"
 #include <boost/mp11.hpp>
 
-// The best implementation really wants C++14, so that we can use
-// boost::mp11::tuple_for_each( [&](const auto& p) { ...code...}, tuple);
-
-// We also need boost::mp11, which requires either Boost >= 1.68 OR
-// splitting out the Boost library.
-
 namespace RevBayesCore
 {
     class DagNode;
@@ -26,16 +20,6 @@ namespace RevBayesCore
 
         // The function we are wrapping.
         R (*func)(Args...);
-
-        // A hand-coded lambda function with variable-type argument ( need C++14 to avoid this. )
-        struct getValue
-        {
-            template<typename T>
-            const T& operator()(const TypedDagNode<T>* node) const
-            {
-                return node->getValue();
-            }
-        };
 
     public:
 
@@ -58,7 +42,7 @@ namespace RevBayesCore
         {
             using namespace boost::mp11;
 
-            auto values = tuple_transform(getValue(), arguments);
+            auto values = tuple_transform([](auto& node) {node->getValue()}, arguments);
             *TypedFunction<R>::value = tuple_apply(*func, values);
         }
 
