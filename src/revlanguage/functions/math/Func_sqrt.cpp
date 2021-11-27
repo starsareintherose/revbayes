@@ -37,7 +37,7 @@ RevBayesCore::TypedFunction<double>* Func_sqrt::createFunction( void ) const
 {
     RevBayesCore::TypedDagNode<double>* arg = static_cast<const Real &>( this->args[0].getVariable()->getRevObject() ).getDagNode();
 
-    return RevBayesCore::generic_function_ptr<double,double>(sqrt, arg);
+    return RevBayesCore::generic_function_ptr(sqrt, arg);
 }
 
 
