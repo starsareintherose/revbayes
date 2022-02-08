@@ -20,12 +20,9 @@ namespace RevBayesCore {
     class RbVector : public RbVectorImpl<valueType, IsAbstract<valueType>::Is > {
         
     public:
-        // constructor(s)
-        RbVector();
-        RbVector(size_t n);
-        RbVector(size_t n, const valueType &v);
-        RbVector(const typename RbVectorImpl<valueType, IsAbstract<valueType>::Is >::vectorType &v);
-        RbVector(const RbVector<valueType> &v);
+        // Inherit constructors from RbVectorImpl
+        using RbVectorImpl<valueType, IsAbstract<valueType>::Is >::RbVectorImpl;
+
         virtual                                            ~RbVector(void);
         
         // public member functions
@@ -49,12 +46,9 @@ namespace RevBayesCore {
     class RbVector<long> : public RbVectorImpl<long, IsAbstract<long>::Is > {
         
     public:
-        // constructor(s)
-        RbVector() : RbVectorImpl<long, IsAbstract<long>::Is  >( ) {}
-        RbVector(size_t n) : RbVectorImpl<long, IsAbstract<long>::Is  >( n ) {}
-        RbVector(size_t n, const long &v) : RbVectorImpl<long, IsAbstract<long>::Is  >( n, v ) {}
-        RbVector(const std::vector<long> &v) : RbVectorImpl<long, IsAbstract<long>::Is  >( v ) {}
-        RbVector(const RbVector<long> &v) : RbVectorImpl<long, IsAbstract<long>::Is  >( v ) {}
+        // Inherit constructors from RbVectorImpl
+        using RbVectorImpl<long, IsAbstract<long>::Is >::RbVectorImpl;
+
         virtual                                            ~RbVector(void) {}
         
         // public member functions
@@ -80,13 +74,10 @@ namespace RevBayesCore {
     class RbVector<double> : public RbVectorImpl<double, IsAbstract<double>::Is > {
         
     public:
-        // constructor(s)
-        RbVector() : RbVectorImpl<double, IsAbstract<double>::Is  >( ) {}
-        RbVector(size_t n) : RbVectorImpl<double, IsAbstract<double>::Is  >( n ) {}
-        RbVector(size_t n, const double &v) : RbVectorImpl<double, IsAbstract<double>::Is  >( n, v ) {}
-        RbVector(const std::vector<double> &v) : RbVectorImpl<double, IsAbstract<double>::Is  >( v ) {}
+        // Inherit constructors from RbVectorImpl
+        using RbVectorImpl<double, IsAbstract<double>::Is >::RbVectorImpl;
+        // Allow conversion from RbVector<long> -> RbVector<double>
         RbVector(const RbVector<long> &v) : RbVectorImpl<double, IsAbstract<double>::Is  >( ) {  for (size_t i=0; i<v.size(); ++i) push_back( double(v[i]) ); }
-        RbVector(const RbVector<double> &v) : RbVectorImpl<double, IsAbstract<double>::Is  >( v ) {}
         virtual                                            ~RbVector(void) {}
         
         // public member functions
@@ -156,40 +147,6 @@ std::ostream&                                       operator<<(std::ostream& o, 
 
 #include "Cloner.h"
 #include "IsDerivedFrom.h"
-
-template <class valueType>
-RevBayesCore::RbVector<valueType>::RbVector() : RbVectorImpl<valueType, IsAbstract<valueType>::Is  >()
-{
-    
-}
-
-
-template <class valueType>
-RevBayesCore::RbVector<valueType>::RbVector(size_t n) : RbVectorImpl<valueType, IsAbstract<valueType>::Is  >(n)
-{
-    
-}
-
-
-template <class valueType>
-RevBayesCore::RbVector<valueType>::RbVector(size_t n, const valueType &v) : RbVectorImpl<valueType, IsAbstract<valueType>::Is  >(n,v)
-{
-    
-}
-
-
-template <class valueType>
-RevBayesCore::RbVector<valueType>::RbVector( const typename RbVectorImpl<valueType, IsAbstract<valueType>::Is >::vectorType &v ) : RbVectorImpl<valueType, IsAbstract<valueType>::Is  >(v)
-{
-    
-}
-
-
-template <class valueType>
-RevBayesCore::RbVector<valueType>::RbVector( const RbVector<valueType> &v ) : RbVectorImpl<valueType, IsAbstract<valueType>::Is  >(v)
-{
-    
-}
 
 
 template <class valueType>
