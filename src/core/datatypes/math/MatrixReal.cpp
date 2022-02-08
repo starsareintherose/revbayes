@@ -82,6 +82,10 @@ MatrixReal::MatrixReal( const MatrixReal &m ) :
     
 }
 
+MatrixReal::MatrixReal( MatrixReal &&m )
+{
+    operator=( std::move(m) );
+}
 
 MatrixReal::~MatrixReal( void )
 {
@@ -103,6 +107,20 @@ MatrixReal& MatrixReal::operator=(const MatrixReal &m)
         cholesky_needs_update = true;
     }
     
+    return *this;
+}
+
+MatrixReal& MatrixReal::operator=(MatrixReal &&m)
+{
+    std::swap( elements, m.elements );
+    std::swap( n_rows  , m.n_rows   );
+    std::swap( n_cols  , m.n_cols );
+    std::swap( eigensystem, m.eigensystem );
+    std::swap( eigen_needs_update, m.eigen_needs_update );
+    std::swap( cholesky_decomp, m.cholesky_decomp );
+    std::swap( cholesky_needs_update, m.cholesky_needs_update );
+    std::swap( use_cholesky_decomp, m.use_cholesky_decomp );
+
     return *this;
 }
 

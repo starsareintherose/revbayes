@@ -39,11 +39,13 @@ namespace RevBayesCore {
         MatrixReal(size_t n, size_t k);
         MatrixReal(size_t n, size_t k, double v);
         MatrixReal(const MatrixReal& m);
+        MatrixReal(MatrixReal&& m);
         virtual                                ~MatrixReal(void);
         
         
         // overloaded operators
         MatrixReal&                             operator=(const MatrixReal& m);
+        MatrixReal&                             operator=(MatrixReal&& m);
         RbVector<double>&                       operator[](size_t index);
         const RbVector<double>&                 operator[](size_t index) const;
 
