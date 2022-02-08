@@ -30,10 +30,8 @@ namespace RevBayesCore {
         
     public:
         HeterochronousCoalescent(const TypedDagNode< RbVector<double> > *iv, const RbVector< DemographicFunction > &df, const std::vector<Taxon> &tn, const std::vector<Clade> &c);
-//        HeterochronousCoalescent(const HeterochronousCoalescent &d);
         virtual                                            ~HeterochronousCoalescent(void);                                                                 //!< Virtual destructor
         
-//        HeterochronousCoalescent&                           operator=(const HeterochronousCoalescent &d);
 
         // public member functions
         HeterochronousCoalescent*                           clone(void) const;                                                                              //!< Create an independent clone
@@ -48,9 +46,7 @@ namespace RevBayesCore {
         
         
     private:
-        
-        enum EVENT_TYPE { COALESCENT, SERIAL_SAMPLE, DEMOGRAPHIC_MODEL_CHANGE };
-        
+                
         // members
         const TypedDagNode< RbVector<double> >*             intervals;
         RbVector< DemographicFunction >                     demographies;
