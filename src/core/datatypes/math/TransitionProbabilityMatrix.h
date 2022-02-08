@@ -27,11 +27,13 @@ namespace RevBayesCore {
     public:
         TransitionProbabilityMatrix(size_t n);                              //!< Constructor
         TransitionProbabilityMatrix(const TransitionProbabilityMatrix &tpm);
+        TransitionProbabilityMatrix(TransitionProbabilityMatrix &&tpm);
         virtual                            ~TransitionProbabilityMatrix();
         
         
         // overloaded operators
         TransitionProbabilityMatrix&        operator=(const TransitionProbabilityMatrix& tpm);
+        TransitionProbabilityMatrix&        operator=(TransitionProbabilityMatrix&& tpm);
         double*                             operator[](size_t i);                                               //!< Subscript operator
         const double*                       operator[](size_t i) const;                                         //!< Subscript operator (const)
         TransitionProbabilityMatrix&        operator*=(const TransitionProbabilityMatrix& B);                   //!< Matrix-matrix multiply
