@@ -98,6 +98,7 @@
 /* Moves on integer values */
 #include "Move_RandomGeometricWalk.h"
 #include "Move_RandomIntegerWalk.h"
+#include "Move_RandomNaturalWalk.h"
 #include "Move_BinarySwitch.h"
 
 
@@ -272,6 +273,7 @@ void RevLanguage::Workspace::initializeMoveGlobalWorkspace(void)
 
         /* Moves on integer values */
         addType( new Move_RandomIntegerWalk() );
+        addType( new Move_RandomNaturalWalk() );
         addType( new Move_RandomGeometricWalk() );
         addType( new Move_BinarySwitch() );
 
