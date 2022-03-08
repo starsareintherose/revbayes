@@ -106,7 +106,7 @@ const ArgumentRules& Func_formatDiscreteCharacterData::getArgumentRules( void ) 
     {
         argumentRules.push_back( new ArgumentRule( "data"  , AbstractHomologousDiscreteCharacterData::getClassTypeSpec(), "The character data object.", ArgumentRule::BY_VALUE, ArgumentRule::ANY ) );
         std::vector<std::string> format;
-        summary_stats.push_back( "DEC" );
+        format.push_back( "DEC" );
         argumentRules.push_back( new OptionRule( "format", new RlString("DEC"), format, "The data format." ) );
         argumentRules.push_back( new ArgumentRule( "numStates", Natural::getClassTypeSpec(), "The number of states (format==\"DEC\" only).", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new Natural(0L)) );
         rulesSet = true;
