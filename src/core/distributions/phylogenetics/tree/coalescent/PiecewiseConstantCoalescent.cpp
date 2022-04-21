@@ -12,6 +12,9 @@
 #include "RbConstants.h"
 #include "TopologyNode.h"
 #include "AbstractCoalescent.h"
+#include "DemographicFunction.h"
+#include "ConstantDemographicFunction.h"
+#include "LinearDemographicFunction.h"
 #include "RbException.h"
 #include "RbVector.h"
 #include "RbVectorImpl.h"
@@ -25,11 +28,12 @@ namespace RevBayesCore { class Taxon; }
 
 using namespace RevBayesCore;
 
-PiecewiseConstantCoalescent::PiecewiseConstantCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, METHOD_TYPES meth, const std::vector<Taxon> &tn, const std::vector<Clade> &c) :
+PiecewiseConstantCoalescent::PiecewiseConstantCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, METHOD_TYPES meth, DEMOGRAPHY_FUNCTION_TYPES dem, const std::vector<Taxon> &tn, const std::vector<Clade> &c) :
     AbstractCoalescent( tn, c ),
     Nes( N ),
     interval_change_points_var( i ),
-    interval_method( meth )
+    interval_method( meth ),
+    demographic_function_var ( dem )
 {
     // add the parameters to our set (in the base class)
     // in that way other class can easily access the set of our parameters
@@ -95,7 +99,8 @@ double PiecewiseConstantCoalescent::computeLnProbabilityTimes( void ) const
     {
         const TopologyNode& n = value->getTipNode( i );
         double a = n.getAge();
-        if ( a > 0.0 ) {
+        if ( a > 0.0 )
+        {
             serial_tip_ages.push_back(a);
             --num_taxa_at_present;
         }
@@ -162,35 +167,42 @@ double PiecewiseConstantCoalescent::computeLnProbabilityTimes( void ) const
     } while (at_coal_age < coalescent_ages.size());
 
 
-    size_t current_interval = 0;
+    // size_t current_interval = 0;
     size_t current_num_lineages = num_taxa_at_present;
     double last_event_age = 0.0;
+
+    size_t index_demographic_function = 0;
 
     for (size_t i = 0; i < combined_event_ages.size(); ++i)
     {
         
-        double theta = pop_sizes[current_interval];
+        // double theta = pop_sizes[current_interval];
         double n_pairs = current_num_lineages * (current_num_lineages-1) / 2.0;
+        double interval_area = getIntegral(last_event_age, combined_event_ages[i], index_demographic_function);
         
-        double delta_age = combined_event_ages[i] - last_event_age;
+        // add log probability that nothing happens until the next event
+        ln_prob -= n_pairs * interval_area;
 
         if (combined_event_types[i] == COALESCENT)
         {
             // coalescence
-            ln_prob += log( 1.0 / theta ) - n_pairs * delta_age / theta;
+            double theta_at_coal_age = getDemographic(combined_event_ages[i], index_demographic_function);
+            ln_prob -= log( theta_at_coal_age );            
             --current_num_lineages;
         }
         else if (combined_event_types[i] == SERIAL_SAMPLE)
         {
             // sampled ancestor
-            ln_prob -= n_pairs * delta_age / theta ;
             ++current_num_lineages;
         }
-        else
+        else // combined_event_types[i] == DEMOGRAPHIC_MODEL_CHANGE
         {
-            // theta change
-            ln_prob -= n_pairs * delta_age / theta ;
-            ++current_interval;
+            // theta change, i.e., change of the demographic function
+            ++index_demographic_function;
+            if ( index_demographic_function > interval_change_points.size() )
+            {
+                throw RbException("Problem occurred in coalescent process with demographic functions: We tried to access a demographic function outside the vector.");
+            }
         }
 
         last_event_age = combined_event_ages[i];
@@ -215,6 +227,142 @@ void PiecewiseConstantCoalescent::executeMethod(const std::string &n, const std:
     }
     
 }
+
+
+/**
+ * Compute the population size of the demographic function at time event_age.
+ */
+double PiecewiseConstantCoalescent::getDemographic(double event_age, double index) const
+{
+    
+    // check which type of demographic function we have
+    if ( demographic_function_var == DEMOGRAPHY_FUNCTION_TYPES::CONSTANT )
+    {
+        // get the constant demographic population size
+        return pop_sizes[index];
+    }
+    else if (demographic_function_var == DEMOGRAPHY_FUNCTION_TYPES::LINEAR )
+    {
+        // get the linear demographic population size
+        double N0 = pop_sizes[index];
+        double N1 = ( index < (pop_sizes.size()-1) ? pop_sizes[index+1] : pop_sizes[index] );
+        double t0 = ( index == 0 ? 0 : interval_change_points[index-1] );
+        double t1 = ( index == interval_change_points.size() ? RbConstants::Double::inf : interval_change_points[index] );
+        
+        if ( t1 < t0 || t0 < 0 || N1 < 0 || event_age < t0 || event_age > t1)
+        {
+            throw RbException("Impossible parameter values in Linear growth/decline demographic functions.");
+        }
+        
+        if ( N0 == N1 )
+        {
+            return N0;
+        }
+        else
+        {
+            double alpha = ( N1-N0 ) / (t1 - t0);
+            return N0 + (event_age-t0) * alpha;
+        }
+    }
+    else
+    {
+        throw RbException("Trying to compute demographic function value for not-implemented demographic function.");
+    }
+    
+}
+
+
+/**
+ * Compute the integral over the population between the provided times and the given index of the demographic function.
+ */
+double PiecewiseConstantCoalescent::getIntegral(double last_age, double event_age, double index) const
+{
+    
+    // check which type of demographic function we have
+    if ( demographic_function_var == DEMOGRAPHY_FUNCTION_TYPES::CONSTANT )
+    {
+        // get the constant demographic population size
+        double delta = event_age - last_age;
+        return delta / pop_sizes[index];
+    }
+    else if (demographic_function_var == DEMOGRAPHY_FUNCTION_TYPES::LINEAR )
+    {
+        // get the linear demographic population size
+        double N0 = pop_sizes[index];
+        double N1 = ( index < (pop_sizes.size()-1) ? pop_sizes[index+1] : pop_sizes[index] );
+        double t0 = ( index == 0 ? 0 : interval_change_points[index-1] );
+        double t1 = ( index == interval_change_points.size() ? RbConstants::Double::inf : interval_change_points[index] );
+        
+        if ( t1 < t0 || t0 < 0 || N1 < 0 || event_age < t0 || event_age > t1)
+        {
+            throw RbException("Impossible parameter values in Linear growth/decline demographic functions.");
+        }
+        
+        if ( N0 == N1 )
+        {
+            double delta = event_age - last_age;
+            return delta / N0;
+        }
+        else
+        {
+            double alpha = ( N1-N0 ) / (t1 - t0);
+            return ( log( N0 + (event_age-t0) * alpha ) - log( N0 + (last_age-t0) * alpha ) ) / alpha;
+        }
+        
+    }
+    else
+    {
+        throw RbException("Trying to compute demographic function value for not-implemented demographic function.");
+    }
+}
+
+
+/**
+ * Compute the waiting time to the next coalescent event given the current age,
+ * the random number (scaled by the current number of lineages), and
+ * the index of the current interval/demographic function
+ */
+double PiecewiseConstantCoalescent::getWaitingTime(double age, double rv, size_t index) const
+{
+    
+    // check which type of demographic function we have
+    if ( demographic_function_var == DEMOGRAPHY_FUNCTION_TYPES::CONSTANT )
+    {
+        // get the constant demographic population size
+        return pop_sizes[index] * rv;
+
+    }
+    else if (demographic_function_var == DEMOGRAPHY_FUNCTION_TYPES::LINEAR )
+    {
+        // get the linear demographic population size
+        double N0 = pop_sizes[index];
+        double N1 = ( index < (pop_sizes.size()-1) ? pop_sizes[index+1] : pop_sizes[index] );
+        double t0 = ( index == 0 ? 0 : interval_change_points[index-1] );
+        double t1 = ( index == interval_change_points.size() ? RbConstants::Double::inf : interval_change_points[index] );
+        
+        if ( t1 < t0 || t0 < 0 || N1 < 0 || age < t0 || age > t1)
+        {
+            throw RbException("Impossible parameter values in Linear growth/decline demographic functions.");
+        }
+        
+        if ( N0 == N1 )
+        {
+            return N0 * rv;
+        }
+        else
+        {
+            double alpha = ( N1-N0 ) / (t1 - t0);
+            return (N0 + (age-t0) * alpha) * rv;
+        }
+        
+    }
+    else
+    {
+        throw RbException("Trying to compute demographic function value for not-implemented demographic function.");
+    }
+}
+
+
 
 
 /**
@@ -391,13 +539,6 @@ std::vector<double> PiecewiseConstantCoalescent::simulateCoalescentAges( size_t 
             else
             {
                 next_interval_change_point = RbConstants::Double::inf;
-                // if both the next serial age and the next interval change point are set to ínf
-                // we add inf as last interval time
-                if (std::isinf(next_serial_age))
-                {
-                    combined_event_ages.push_back( next_interval_change_point );
-                    combined_event_types.push_back( DEMOGRAPHIC_MODEL_CHANGE);                    
-                }
             }
         }
         else
@@ -413,13 +554,6 @@ std::vector<double> PiecewiseConstantCoalescent::simulateCoalescentAges( size_t 
             else
             {
                 next_serial_age = RbConstants::Double::inf;
-                // if both the next serial age and the next interval change point are set to ínf
-                // we add inf as last interval time
-                if (std::isinf(next_interval_change_point))
-                {
-                    combined_event_ages.push_back( next_interval_change_point );
-                    combined_event_types.push_back( DEMOGRAPHIC_MODEL_CHANGE);                    
-                }                
             }
         }
     }
@@ -428,9 +562,9 @@ std::vector<double> PiecewiseConstantCoalescent::simulateCoalescentAges( size_t 
 //        combinedEventTypes = std::vector<double>(intervals.size(),0.0);
 //    }
  
-//    // cap vector with an event at t-infinity
-//    combinedEventTimes.push_back(RbConstants::Double::inf);
-//    combinedEventTypes.push_back(RbConstants::Double::inf);
+    // cap vector with an event at t-infinity
+    combined_event_ages.push_back( RbConstants::Double::inf );
+    combined_event_types.push_back( DEMOGRAPHIC_MODEL_CHANGE );
     
     if ( interval_method == EVENTS )
     {
@@ -451,6 +585,7 @@ std::vector<double> PiecewiseConstantCoalescent::simulateCoalescentAges( size_t 
     
     size_t num_events_per_interval = size_t( ceil( double(n)/Nes->getValue().size()) );
     size_t current_num_events_in_interval = 0;
+
     
     // the current age of the process
     double sim_age = 0.0;
@@ -462,12 +597,12 @@ std::vector<double> PiecewiseConstantCoalescent::simulateCoalescentAges( size_t 
         bool was_coalescent_event = false;
         do
         {
-            double n_pairs = current_num_lineages * (current_num_lineages-1) / 2.0;
-            double theta = pop_sizes[theta_interval];
-            double lambda = n_pairs / theta;
-            double u = RbStatistics::Exponential::rv( lambda, *rng );
-            sim_age += u;
-            was_coalescent_event = sim_age < combined_event_ages[current_interval] && current_num_lineages > 1;
+            double n_pairs = current_num_lineages * (current_num_lineages-1) / 2.0;            
+            double lambda = RbStatistics::Exponential::rv( n_pairs, *rng);
+            double waitingTime = getWaitingTime(sim_age, lambda, theta_interval);
+            sim_age += waitingTime;
+
+            was_coalescent_event = (sim_age < combined_event_ages[current_interval] && current_num_lineages > 1) && waitingTime > 0;
             if ( was_coalescent_event == false )
             {
                 // If j is 1 and we are still simulating coalescent events, we have >= 1 serial sample left to coalesce.
@@ -541,6 +676,71 @@ void PiecewiseConstantCoalescent::touchSpecialization(const DagNode *affecter, b
 //    updateIntervals();
     
 }
+
+
+// @TODO: Sebastian: Might want to remove this if we end up not using it.
+///**
+// * Recompute the current interval change point vector and corresponding population size vector.
+// *
+// */
+//void PiecewiseConstantCoalescent::updateDemographies( void ) const
+//{
+//    pop_sizes = Nes->getValue();
+//
+//    // we need to recompute the demographic functions
+//    const RbVector< DemographicFunction > dem_funs;
+//    DemographicFunction* current_demographic_function;
+//
+//    for (size_t interval_index = 0; interval_index < pop_sizes.size(); ++interval_index)
+//    {
+//        if (demographic_function_var == CONSTANT)
+//        {
+//            double this_pop_size = pop_sizes[interval_index];
+//
+//            const TypedDagNode<double>* theta = &pop_sizes[interval_index];
+//            current_demographic_function = &ConstantDemographicFunction(theta);
+//        }
+//        else if (demographic_function_var == LINEAR)
+//        {
+//            if (interval_index == 0)
+//            {
+//                const TypedDagNode<double>* N0 = pop_sizes[interval_index];
+//                const TypedDagNode<double>* N1 = pop_sizes[interval_index+1];
+//                const TypedDagNode<double>* t0 = 0.0;
+//                const TypedDagNode<double>* t1 = interval_change_points[interval_index];
+//
+//                current_demographic_function = &LinearDemographicFunction(N0, N1, t0, t1);
+//
+//            }
+//            else if (interval_index > 0 && interval_index < (pop_sizes.size()-1)){
+//                const TypedDagNode<double>* N0 = pop_sizes[interval_index];
+//                const TypedDagNode<double>* N1 = pop_sizes[interval_index+1];
+//                const TypedDagNode<double>* t0 = interval_change_points[interval_index-1];
+//                const TypedDagNode<double>* t1 = interval_change_points[interval_index];
+//
+//                current_demographic_function = &LinearDemographicFunction(N0, N1, t0, t1);
+//
+//            }
+//            else if (interval_index == (pop_sizes.size() -1)){
+//                const TypedDagNode<double>* theta = &pop_sizes[interval_index];
+//                current_demographic_function = &ConstantDemographicFunction(theta);
+//            }
+//            else {
+//                throw RbException("Something went wrong with the piecewise linear function.");
+//            }
+//
+//        }
+//        else
+//        {
+//            throw RbException("Please provide as demographic function either 'constant' or 'linear'.");
+//        }
+//
+//        dem_funs.push_back(current_demographic_function);
+//    }
+//
+//    demographies = dem_funs;
+//
+//}
 
 
 
