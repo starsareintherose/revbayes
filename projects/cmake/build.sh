@@ -17,6 +17,7 @@ static_boost="false"
 j=4
 
 cmake_args=""
+meson_args=""
 # parse command line arguments
 while echo $1 | grep ^- > /dev/null; do
     # intercept help while parsing "-key value" pairs
@@ -25,6 +26,7 @@ while echo $1 | grep ^- > /dev/null; do
         echo 'Command line options are:
 -h                              : print this help and exit.
 -debug          <true|false>    : set to true to build in debug mode. Defaults to false.
+-meson          <true|false>    : set to true to configure with meson instead of cmake
 -ninja          <true|false>    : set to true to build with ninja instead of make
 -mpi            <true|false>    : set to true if you want to build the MPI version. Defaults to false.
 -cmd            <true|false>    : set to true if you want to build RevStudio with GTK2+. Defaults to false.
@@ -47,6 +49,7 @@ Examples:
 
     case "$1" in -D*)
                      cmake_args="$cmake_args $1"
+                     meson_args="$meson_args $1"
                      shift
                      continue
                      ;;
@@ -76,49 +79,65 @@ if [ "$travis" = "true" ]; then
     BUILD_DIR="build"
     CC=${C_COMPILER}
     CXX=${CXX_COMPILER}
-    all_args="-travis true -mpi ${USE_MPI} -help true -exec_name rb"
     exec_name=rb
+    meson_args="-Drb-exe-name=rb $meson_args"
     help=true
 fi
 
 if [ "$debug" = "true" ] ; then
     cmake_args="-DCMAKE_BUILD_TYPE=DEBUG $cmake_args"
+    meson_args="-Dbuildtype=debug $meson_args"
 fi
 
 if [ "$ninja" = "true" ] ; then
     cmake_args="$cmake_args -G Ninja"
+    # meson always uses ninja
 fi
 
 if [ "$mpi" = "true" ] ; then
     cmake_args="-DMPI=ON $cmake_args"
+    meson_args="-Dmpi=true $meson_args"
 fi
 
 if [ "$jupyter" = "true" ] ; then
     cmake_args="-DJUPYTER=ON $cmake_args"
+    meson_args="-Djupyter=true $meson_args"
 fi
 
 if [ "$cmd" = "true" ] ; then
     cmake_args="-DCMD_GTK=ON $cmake_args"
+    meson_args="-Dstudio=true $meson_args"
 fi
 
 if [ "$travis" = "true" ] ; then
     cmake_args="-DCONTINUOUS_INTEGRATION=TRUE $cmake_args"
+    # what does meson we need here?
 fi
 
 if [ -n "$boost_root" ] ; then
-    cmake_args="-DBOOST_ROOT=\"${boost_root}\" $cmake_args"
+    export BOOST_ROOT="${boost_root}"
+    unset BOOST_LIBRARYDIR
+    unset BOOST_INCLUDEDIR
 fi
 
-if [ -n "$boost_lib" ] ; then
-    cmake_args="-DBOOST_LIBRARYDIR=\"${boost_lib}\" $cmake_args"
+if [ -n "$boost_lib" ] && [ -n "$boost_include" ] ; then
+    export BOOST_LIBRARYDIR="${boost_lib}"
+    export BOOST_INCLUDEDIR="${boost_include}"
+fi
+
+if [ -n "$boost_include" ] || [ -n "$boost_lib" ] ; then
+    echo "You must specify -boost_lib and -boost_include !"
+    exit 1
 fi
 
 if [ "$static_boost" = "true" ] ; then
     cmake_args="-DSTATIC_BOOST=ON $cmake_args"
+    meson_args="-Dstatic=true $meson_args"
 fi
 
 if [ "$help" = "true" ] ; then
     cmake_args="-DHELP=ON $cmake_args"
+    meson_args="-Dhelp2yml=true $meson_args"
 fi
 
 echo "Building ${exec_name}"
@@ -132,7 +151,16 @@ echo "CC=${CC}  CXX=${CXX}"
 
 if [ "$1" = "clean" ]
 then
-	rm -rf ${BUILD_DIR}
+    rm -rf ${BUILD_DIR}
+    exit 0
+fi
+
+if [ "$meson" = "true" ] ; then
+    ninja=true
+    ../meson/generate.sh
+    echo "Running 'meson ../.. \"${BUILD_DIR}\" $meson_args' in $(pwd)"
+    meson ../.. "${BUILD_DIR}" $meson_args
+    cd ${BUILD_DIR}
 else
     if [ ! -d ${BUILD_DIR} ]; then
 	mkdir ${BUILD_DIR}
@@ -164,32 +192,18 @@ else
     echo "Running 'cmake ../../../src $cmake_args' in $(pwd)"
     cmake ../../../src $cmake_args
     echo
-    if [ "$ninja" = "true" ] ; then
-        echo "Running 'ninja -j $j' in $(pwd)"
-        ninja -j $j
-    else
-        echo "Running 'make -j $j' in $(pwd)"
-        make -j $j
-    fi
-    cd ..
-
-    if [ -e  GitVersion_backup.cpp ] ; then
-        cp GitVersion_backup.cpp ../../src/revlanguage/utils/GitVersion.cpp
-        rm GitVersion_backup.cpp
-    fi
 fi
 
-# Run tests
-if [ "$travis" = "true" ] && [ "${TRAVIS_BUILD_STAGE_NAME}" = "Test" ]
-then
-  cd ../..
-  echo "\"Hello World\"" | projects/cmake/rb
-  cd tests
-  ./run_integration_tests.sh -mpi ${USE_MPI} ${TRAVIS_BUILD_DIR}/projects/cmake/rb
-  # Run testiphy
-  export PATH=${TRAVIS_BUILD_DIR}/projects/cmake:$PATH
-  cd
-  git clone https://gitlab.com/testiphy/testiphy.git
-  cd testiphy
-  ./testiphy rb
+if [ "$ninja" = "true" ] ; then
+    echo "Running 'ninja -j $j' in $(pwd)"
+    ninja -j $j
+else
+    echo "Running 'make -j $j' in $(pwd)"
+    make -j $j
+fi
+cd ..
+
+if [ -e  GitVersion_backup.cpp ] ; then
+    cp GitVersion_backup.cpp ../../src/revlanguage/utils/GitVersion.cpp
+    rm GitVersion_backup.cpp
 fi
