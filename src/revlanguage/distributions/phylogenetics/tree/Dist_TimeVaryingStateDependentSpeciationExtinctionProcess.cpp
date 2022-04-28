@@ -136,9 +136,12 @@ RevBayesCore::TypedDistribution<RevBayesCore::Tree>* Dist_TimeVaryingStateDepend
     size_t min_l = static_cast<const Integer &>( min_lineages->getRevObject() ).getValue();
     
     size_t prune = static_cast<const RlBoolean &>( prune_extinct_lineages->getRevObject() ).getValue();
+
+    size_t sample = static_cast<const RlBoolean &>( sample_character_history->getRevObject() ).getValue();
+
     
     // finally make the distribution
-    RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess*   d = new RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess( ra, ex, q, epochs, r, bf, rh, cond, uo, min_l, max_l, prune );
+    RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess*   d = new RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess( ra, ex, q, epochs, r, bf, rh, cond, uo, min_l, max_l, prune, sample );
     
     // set speciation/cladogenetic event rates
     if (speciation_rates->getRevObject().isType( ModelVector< ModelVector<RealPos> >::getClassTypeSpec() ))
@@ -289,6 +292,7 @@ const MemberRules& Dist_TimeVaryingStateDependentSpeciationExtinctionProcess::ge
         memberRules.push_back( new ArgumentRule( "minNumLineages", Natural::getClassTypeSpec(),  "The minimum number of lineages to simulate.",       ArgumentRule::BY_VALUE                , ArgumentRule::ANY, new Natural() ) );
         memberRules.push_back( new ArgumentRule( "maxNumLineages", Natural::getClassTypeSpec(),  "The maximum number of lineages to simulate.",       ArgumentRule::BY_VALUE                , ArgumentRule::ANY, new Natural(500) ) );
         memberRules.push_back( new ArgumentRule( "pruneExtinctLineages", RlBoolean::getClassTypeSpec(),  "When simulating should extinct lineages be pruned off?",       ArgumentRule::BY_VALUE                , ArgumentRule::ANY, new RlBoolean(true) ) );
+        memberRules.push_back( new ArgumentRule("sampCharHist", RlBoolean::getClassTypeSpec(), "Should we perform stochastic mapping to estimate the character value at internal nodes?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
         
         rules_set = true;
     }
@@ -366,6 +370,10 @@ void Dist_TimeVaryingStateDependentSpeciationExtinctionProcess::setConstParamete
     else if ( name == "pruneExtinctLineages" )
     {
         prune_extinct_lineages = var;
+    }
+    else if ( name == "sampCharHist")
+    {
+        sample_character_history = var;
     }
     else
     {

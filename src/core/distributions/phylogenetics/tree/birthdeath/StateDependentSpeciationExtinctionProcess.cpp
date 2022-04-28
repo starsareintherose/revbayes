@@ -1020,7 +1020,6 @@ void StateDependentSpeciationExtinctionProcess::drawStochasticCharacterMap(std::
     // first populate partial likelihood vectors along all the branches
     computeLnProbability();
 
-    std::cout << "It's drawing a map bb..." << endl;
     size_t attempts = 0;
     bool success = false;
     while (success == false)
@@ -1473,7 +1472,6 @@ RevLanguage::RevPtr<RevLanguage::RevVariable> StateDependentSpeciationExtinction
 {    
     if (name == "clampCharData")
     {
-        std::cout << "It's in the clampCharData!" << endl;
         found = true;
         
         const AbstractHomologousDiscreteCharacterData& v = static_cast<const TypedDagNode<AbstractHomologousDiscreteCharacterData > *>( args[0] )->getValue();
@@ -1483,7 +1481,6 @@ RevLanguage::RevPtr<RevLanguage::RevVariable> StateDependentSpeciationExtinction
         std::vector<string> tips = value->getTipNames();
         for (size_t i = 0; i < tips.size(); i++)
         {
-            std::cout << "i is " << i << " out of " << tips.size() << endl;
             found = false;
             for (size_t j = 0; j < v.getNumberOfTaxa(); j++)
             {

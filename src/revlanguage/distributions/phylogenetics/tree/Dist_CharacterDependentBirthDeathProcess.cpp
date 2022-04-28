@@ -374,7 +374,7 @@ const MemberRules& Dist_CharacterDependentBirthDeathProcess::getParameterRules(v
         memberRules.push_back( new ArgumentRule("maxTime", RealPos::getClassTypeSpec(), "Maximum time for lineages to coalesce when simulating; applied under the numTips and tipStates condition.", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RealPos(1000.0) ) );
         memberRules.push_back( new ArgumentRule("pruneExtinctLineages", RlBoolean::getClassTypeSpec(), "When simulating should extinct lineages be pruned off?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
         memberRules.push_back( new ArgumentRule("allowRateShiftsAtExtinctLineages", RlBoolean::getClassTypeSpec(), "Should we allow rate shifts to occur on extinct lineages?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
-        memberRules.push_back( new ArgumentRule("sampleCharacterHistory", RlBoolean::getClassTypeSpec(), "Should we perform stochastic mapping to estimate the character value at internal nodes?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
+        memberRules.push_back( new ArgumentRule("sampCharHist", RlBoolean::getClassTypeSpec(), "Should we perform stochastic mapping to estimate the character value at internal nodes?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
 
         rules_set = true;
     }
@@ -465,7 +465,7 @@ void Dist_CharacterDependentBirthDeathProcess::setConstParameter(const std::stri
     {
         allow = var;
     }
-    else if ( name == "sampleCharacterHistory")
+    else if ( name == "sampCharHist")
     {
         sample_character_history = var;
     }
