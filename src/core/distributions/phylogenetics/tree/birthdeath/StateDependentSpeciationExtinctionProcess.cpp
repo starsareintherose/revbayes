@@ -75,7 +75,8 @@ StateDependentSpeciationExtinctionProcess::StateDependentSpeciationExtinctionPro
                                                                                    bool condition_on_tip_states,
                                                                                    bool condition_on_num_tips,
                                                                                    bool condition_on_tree,
-                                                                                   bool allow_shifts_extinct) : TypedDistribution<Tree>( new TreeDiscreteCharacterData() ),
+                                                                                   bool allow_shifts_extinct,
+                                                                                   bool sample_character_history) : TypedDistribution<Tree>( new TreeDiscreteCharacterData() ),
     condition( cdt ),
     active_likelihood( std::vector<bool>(5, 0) ),
     changed_nodes( std::vector<bool>(5, false) ),
@@ -86,7 +87,7 @@ StateDependentSpeciationExtinctionProcess::StateDependentSpeciationExtinctionPro
     scaling_factors( std::vector<std::vector<double> >(5, std::vector<double>(2,0.0) ) ),
     use_cladogenetic_events( false ),
     use_origin( uo ),
-    sample_character_history( false ),
+    sample_character_history( sample_character_history ),
     average_speciation( std::vector<double>(5, 0.0) ),
     average_extinction( std::vector<double>(5, 0.0) ),
     num_shift_events( std::vector<long>(5, 0.0) ),
@@ -1017,9 +1018,9 @@ void StateDependentSpeciationExtinctionProcess::recursivelyFlagNodeDirty( const 
 void StateDependentSpeciationExtinctionProcess::drawStochasticCharacterMap(std::vector<std::string>& character_histories, bool set_amb_char_data)
 {
     // first populate partial likelihood vectors along all the branches
-    sample_character_history = true;
     computeLnProbability();
 
+    std::cout << "It's drawing a map bb..." << endl;
     size_t attempts = 0;
     bool success = false;
     while (success == false)
@@ -1131,10 +1132,6 @@ void StateDependentSpeciationExtinctionProcess::drawStochasticCharacterMap(std::
     t.clearNodeParameters();
     t.addNodeParameter( "character_history", character_histories, false );
     simmap = t.getSimmapNewickRepresentation();
-    
-    // turn off sampling until we need it again
-    sample_character_history = false;
-
 }
 
 
@@ -1476,6 +1473,7 @@ RevLanguage::RevPtr<RevLanguage::RevVariable> StateDependentSpeciationExtinction
 {    
     if (name == "clampCharData")
     {
+        std::cout << "It's in the clampCharData!" << endl;
         found = true;
         
         const AbstractHomologousDiscreteCharacterData& v = static_cast<const TypedDagNode<AbstractHomologousDiscreteCharacterData > *>( args[0] )->getValue();
@@ -1485,6 +1483,7 @@ RevLanguage::RevPtr<RevLanguage::RevVariable> StateDependentSpeciationExtinction
         std::vector<string> tips = value->getTipNames();
         for (size_t i = 0; i < tips.size(); i++)
         {
+            std::cout << "i is " << i << " out of " << tips.size() << endl;
             found = false;
             for (size_t j = 0; j < v.getNumberOfTaxa(); j++)
             {
@@ -1829,7 +1828,7 @@ void StateDependentSpeciationExtinctionProcess::redrawValue( void )
            
             // simulate character history over the new tree
             size_t num_nodes = value->getNumberOfNodes();
-            if (num_nodes > 2)
+            if (num_nodes > 2 && sample_character_history == true)
             {
                 std::vector<std::string> character_histories(num_nodes);
                 drawStochasticCharacterMap(character_histories, true);

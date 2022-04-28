@@ -49,7 +49,8 @@ namespace RevBayesCore {
                                                   bool condition_on_tip_states,
                                                   bool condition_on_num_tips,
                                                   bool condition_on_tree,
-                                                  bool allow_shifts_extinct);
+                                                  bool allow_shifts_extinct,
+                                                  bool sample_character_history);
         
         // pure virtual member functions
         virtual StateDependentSpeciationExtinctionProcess*              clone(void) const;
@@ -127,7 +128,6 @@ namespace RevBayesCore {
         mutable std::vector<std::vector<double> >                       scaling_factors;
         bool                                                            use_cladogenetic_events;                                                                            //!< do we use the speciation rates from the cladogenetic event map?
         bool                                                            use_origin;
-        bool                                                            sample_character_history;                                                                           //!< are we sampling the character history along branches?
         std::vector<double>                                             average_speciation;
         std::vector<double>                                             average_extinction;
         std::vector<long>                                               num_shift_events;
@@ -153,6 +153,7 @@ namespace RevBayesCore {
         double                                                          max_time;
         bool                                                            allow_rate_shifts_on_extinct_lineages;
         bool                                                            prune_extinct_lineages;
+        bool                                                            sample_character_history;
         bool                                                            condition_on_tip_states;
         bool                                                            condition_on_num_tips;
         bool                                                            condition_on_tree;

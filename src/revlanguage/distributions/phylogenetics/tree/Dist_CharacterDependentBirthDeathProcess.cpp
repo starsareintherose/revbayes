@@ -153,11 +153,13 @@ RevBayesCore::TypedDistribution<RevBayesCore::Tree>* Dist_CharacterDependentBirt
     double max_t = static_cast<const RealPos &>( max_time->getRevObject() ).getValue();
     
     size_t prune = static_cast<const RlBoolean &>( prune_extinct_lineages->getRevObject() ).getValue();
+
+    size_t sample = static_cast<const RlBoolean &>( sample_character_history->getRevObject() ).getValue();
     
     bool allow_shifts_extinct = static_cast<const RlBoolean &>( allow->getRevObject() ).getValue();
     
     // finally make the distribution 
-    RevBayesCore::StateDependentSpeciationExtinctionProcess*   d = new RevBayesCore::StateDependentSpeciationExtinctionProcess( ra, ex, q, r, bf, cond, uo, min_l, max_l, exact_l, max_t, prune, cond_tip_states, cond_num_tips, cond_tree, allow_shifts_extinct );
+    RevBayesCore::StateDependentSpeciationExtinctionProcess*   d = new RevBayesCore::StateDependentSpeciationExtinctionProcess( ra, ex, q, r, bf, cond, uo, min_l, max_l, exact_l, max_t, prune, cond_tip_states, cond_num_tips, cond_tree, allow_shifts_extinct, sample );
    
     
     size_t ex_size = ex->getValue().size();
@@ -372,6 +374,7 @@ const MemberRules& Dist_CharacterDependentBirthDeathProcess::getParameterRules(v
         memberRules.push_back( new ArgumentRule("maxTime", RealPos::getClassTypeSpec(), "Maximum time for lineages to coalesce when simulating; applied under the numTips and tipStates condition.", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RealPos(1000.0) ) );
         memberRules.push_back( new ArgumentRule("pruneExtinctLineages", RlBoolean::getClassTypeSpec(), "When simulating should extinct lineages be pruned off?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
         memberRules.push_back( new ArgumentRule("allowRateShiftsAtExtinctLineages", RlBoolean::getClassTypeSpec(), "Should we allow rate shifts to occur on extinct lineages?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
+        memberRules.push_back( new ArgumentRule("sampleCharacterHistory", RlBoolean::getClassTypeSpec(), "Should we perform stochastic mapping to estimate the character value at internal nodes?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
 
         rules_set = true;
     }
@@ -461,6 +464,10 @@ void Dist_CharacterDependentBirthDeathProcess::setConstParameter(const std::stri
     else if ( name == "allowRateShiftsAtExtinctLineages" )
     {
         allow = var;
+    }
+    else if ( name == "sampleCharacterHistory")
+    {
+        sample_character_history = var;
     }
     else
     {
