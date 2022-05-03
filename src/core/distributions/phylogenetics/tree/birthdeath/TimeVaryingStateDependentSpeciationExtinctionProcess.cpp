@@ -71,7 +71,8 @@ TimeVaryingStateDependentSpeciationExtinctionProcess::TimeVaryingStateDependentS
                                                                                      bool uo,
                                                                                      size_t min_lineages,
                                                                                      size_t max_lineages,
-                                                                                     bool prune) : TypedDistribution<Tree>( new TreeDiscreteCharacterData() ),
+                                                                                     bool prune,
+                                                                                     bool sample_character_history) : TypedDistribution<Tree>( new TreeDiscreteCharacterData() ),
     condition( cdt ),
     active_likelihood( std::vector<bool>(5, 0) ),
     changed_nodes( std::vector<bool>(5, false) ),
@@ -82,7 +83,7 @@ TimeVaryingStateDependentSpeciationExtinctionProcess::TimeVaryingStateDependentS
     scaling_factors( std::vector<std::vector<double> >(5, std::vector<double>(2,0.0) ) ),
     use_cladogenetic_events( false ),
     use_origin( uo ),
-    sample_character_history( false ),
+    sample_character_history( sample_character_history ),
     average_speciation( std::vector<double>(5, 0.0) ),
     average_extinction( std::vector<double>(5, 0.0) ),
     time_in_states( std::vector<double>(ext->getValue().size(), 0.0) ),
@@ -390,14 +391,14 @@ void TimeVaryingStateDependentSpeciationExtinctionProcess::computeNodeProbabilit
                 
                 if ( obs_state.isSet( j ) == true || gap == true )
                 {
-                	if ( node.isFossil() )
-                	{
-                		node_likelihood[num_states+j] = sampling[j] * extinction[j];
-                	}
-                	else
-                	{
-                		node_likelihood[num_states+j] = sampling[j];
-                	}
+                    if ( node.isFossil() )
+                    {
+                        node_likelihood[num_states+j] = sampling[j] * extinction[j];
+                    }
+                    else
+                    {
+                        node_likelihood[num_states+j] = sampling[j];
+                    }
                 }
                 else
                 {
@@ -1035,7 +1036,6 @@ void TimeVaryingStateDependentSpeciationExtinctionProcess::recursivelyFlagNodeDi
 void TimeVaryingStateDependentSpeciationExtinctionProcess::drawStochasticCharacterMap(std::vector<std::string>& character_histories)
 {
     // first populate partial likelihood vectors along all the branches
-    sample_character_history = true;
     computeLnProbability();
     
     for (size_t i = 0; i < num_states; i++)
@@ -1157,10 +1157,6 @@ void TimeVaryingStateDependentSpeciationExtinctionProcess::drawStochasticCharact
     t.clearNodeParameters();
     t.addNodeParameter( "character_history", character_histories, false );
     simmap = t.getSimmapNewickRepresentation();
-    
-    // turn off sampling until we need it again
-    sample_character_history = false;
-    
 }
 
 
@@ -1597,7 +1593,7 @@ void TimeVaryingStateDependentSpeciationExtinctionProcess::executeMethod(const s
  * Get the affected nodes by a change of this node.
  * If the root age has changed than we need to call get affected again.
  */
-void TimeVaryingStateDependentSpeciationExtinctionProcess::getAffected(RbOrderedSet<DagNode *> &affected, RevBayesCore::DagNode *affecter)
+void TimeVaryingStateDependentSpeciationExtinctionProcess::getAffected(RbOrderedSet<DagNode *> &affected, const DagNode *affecter)
 {
     
     if ( affecter == process_age)
@@ -1702,7 +1698,7 @@ std::vector<double> TimeVaryingStateDependentSpeciationExtinctionProcess::getRoo
 /**
  * Keep the current value and reset some internal flags. Nothing to do here.
  */
-void TimeVaryingStateDependentSpeciationExtinctionProcess::keepSpecialization(DagNode *affecter)
+void TimeVaryingStateDependentSpeciationExtinctionProcess::keepSpecialization(const DagNode *affecter)
 {
     
     if ( affecter == process_age )
@@ -1798,7 +1794,7 @@ void TimeVaryingStateDependentSpeciationExtinctionProcess::redrawValue( void )
  * Restore the current value and reset some internal flags.
  * If the root age variable has been restored, then we need to change the root age of the tree too.
  */
-void TimeVaryingStateDependentSpeciationExtinctionProcess::restoreSpecialization(DagNode *affecter)
+void TimeVaryingStateDependentSpeciationExtinctionProcess::restoreSpecialization(const DagNode *affecter)
 {
     
     if ( affecter == process_age )
@@ -1971,7 +1967,7 @@ void TimeVaryingStateDependentSpeciationExtinctionProcess::setValue(Tree *v, boo
     
     // simulate character history over the new tree
     size_t num_nodes = value->getNumberOfNodes();
-    if (num_nodes > 2)
+    if (num_nodes > 2 && sample_character_history == true)
     {
         std::vector<std::string> character_histories(num_nodes);
         drawStochasticCharacterMap(character_histories);
@@ -2540,7 +2536,7 @@ void TimeVaryingStateDependentSpeciationExtinctionProcess::swapParameterInternal
  * Touch the current value and reset some internal flags.
  * If the root age variable has been restored, then we need to change the root age of the tree too.
  */
-void TimeVaryingStateDependentSpeciationExtinctionProcess::touchSpecialization(DagNode *affecter, bool touchAll)
+void TimeVaryingStateDependentSpeciationExtinctionProcess::touchSpecialization(const DagNode *affecter, bool touchAll)
 {
     
     if ( affecter == process_age )

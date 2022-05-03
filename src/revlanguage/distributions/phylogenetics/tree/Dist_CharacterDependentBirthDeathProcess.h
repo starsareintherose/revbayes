@@ -57,6 +57,7 @@ namespace RevLanguage {
         RevPtr<const RevVariable>                                   exact_lineages;
         RevPtr<const RevVariable>                                   max_time;
         RevPtr<const RevVariable>                                   prune_extinct_lineages;
+        RevPtr<const RevVariable>                                   sample_character_history;                                                            //!< Whether to perform stochastic character mapping to estimate states at internal nodes
         std::string                                                 start_condition;                                                                     //!< The start condition of the process (rootAge/originAge)
 
     };

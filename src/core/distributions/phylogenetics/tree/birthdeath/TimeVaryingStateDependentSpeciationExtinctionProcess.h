@@ -46,7 +46,8 @@ namespace RevBayesCore {
                                                   bool uo,
                                                   size_t min_lineages,
                                                   size_t max_lineages,
-                                                  bool prune);
+                                                  bool prune,
+                                                  bool sample_character_history);
         
         // pure virtual member functions
         virtual TimeVaryingStateDependentSpeciationExtinctionProcess*   clone(void) const;
@@ -80,10 +81,10 @@ namespace RevBayesCore {
         std::vector<double>                                             getRootFrequencies(void) const;
         
         // virtual methods that may be overwritten, but then the derived class should call this methods
-        virtual void                                                    getAffected(RbOrderedSet<DagNode *>& affected, DagNode* affecter);                                  //!< get affected nodes
-        virtual void                                                    keepSpecialization(DagNode* affecter);
-        virtual void                                                    restoreSpecialization(DagNode *restorer);
-        virtual void                                                    touchSpecialization(DagNode *toucher, bool touchAll);
+        virtual void                                                    getAffected(RbOrderedSet<DagNode *>& affected, const DagNode* affecter);                                  //!< get affected nodes
+        virtual void                                                    keepSpecialization(const DagNode* affecter);
+        virtual void                                                    restoreSpecialization(const DagNode *restorer);
+        virtual void                                                    touchSpecialization(const DagNode *toucher, bool touchAll);
         
         double                                                          lnProbTreeShape(void) const;
         
@@ -119,7 +120,6 @@ namespace RevBayesCore {
         mutable std::vector<std::vector<double> >                       scaling_factors;
         bool                                                            use_cladogenetic_events;                                                                            //!< do we use the speciation rates from the cladogenetic event map?
         bool                                                            use_origin;
-        bool                                                            sample_character_history;                                                                           //!< are we sampling the character history along branches?
         std::vector<double>                                             average_speciation;
         std::vector<double>                                             average_extinction;
         std::vector<double>                                             time_in_states;
@@ -141,6 +141,7 @@ namespace RevBayesCore {
         size_t                                                          min_num_lineages;
         size_t                                                          max_num_lineages;
         bool                                                            prune_extinct_lineages;
+        bool                                                            sample_character_history;
         double                                                          NUM_TIME_SLICES;
     };
     

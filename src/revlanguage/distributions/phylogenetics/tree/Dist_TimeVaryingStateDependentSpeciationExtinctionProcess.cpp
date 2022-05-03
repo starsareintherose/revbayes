@@ -94,8 +94,8 @@ RevBayesCore::TypedDistribution<RevBayesCore::Tree>* Dist_TimeVaryingStateDepend
     RevBayesCore::TypedDagNode<RevBayesCore::RbVector< RevBayesCore::RbVector<double> > >* ex  = static_cast<const ModelVector< ModelVector<RealPos> > &>( extinction_rates->getRevObject() ).getDagNode();
     
     // get speciation rates or cladogenetic speciation rate event map
-    RevBayesCore::TypedDagNode< RevBayesCore::RbVector< RevBayesCore::RbVector<double> > >* sp;
-    RevBayesCore::TypedDagNode<RevBayesCore::CladogeneticSpeciationRateMatrix>* cp;
+    RevBayesCore::TypedDagNode< RevBayesCore::RbVector< RevBayesCore::RbVector<double> > >* sp = nullptr;
+    RevBayesCore::TypedDagNode<RevBayesCore::CladogeneticSpeciationRateMatrix>* cp = nullptr;
     if ( speciation_rates->getRevObject().isType( ModelVector< ModelVector<RealPos> >::getClassTypeSpec() ) )
     {
         sp  = static_cast<const ModelVector< ModelVector<RealPos> > &>( speciation_rates->getRevObject() ).getDagNode();
@@ -135,10 +135,13 @@ RevBayesCore::TypedDistribution<RevBayesCore::Tree>* Dist_TimeVaryingStateDepend
     size_t max_l = static_cast<const Integer &>( max_lineages->getRevObject() ).getValue();
     size_t min_l = static_cast<const Integer &>( min_lineages->getRevObject() ).getValue();
     
-    size_t prune = static_cast<const RlBoolean &>( prune_extinct_lineages->getRevObject() ).getValue();
+    bool prune = static_cast<const RlBoolean &>( prune_extinct_lineages->getRevObject() ).getValue();
+
+    bool sample = static_cast<const RlBoolean &>( sample_character_history->getRevObject() ).getValue();
+
     
     // finally make the distribution
-    RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess*   d = new RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess( ra, ex, q, epochs, r, bf, rh, cond, uo, min_l, max_l, prune );
+    RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess*   d = new RevBayesCore::TimeVaryingStateDependentSpeciationExtinctionProcess( ra, ex, q, epochs, r, bf, rh, cond, uo, min_l, max_l, prune, sample );
     
     // set speciation/cladogenetic event rates
     if (speciation_rates->getRevObject().isType( ModelVector< ModelVector<RealPos> >::getClassTypeSpec() ))
@@ -289,6 +292,7 @@ const MemberRules& Dist_TimeVaryingStateDependentSpeciationExtinctionProcess::ge
         memberRules.push_back( new ArgumentRule( "minNumLineages", Natural::getClassTypeSpec(),  "The minimum number of lineages to simulate.",       ArgumentRule::BY_VALUE                , ArgumentRule::ANY, new Natural() ) );
         memberRules.push_back( new ArgumentRule( "maxNumLineages", Natural::getClassTypeSpec(),  "The maximum number of lineages to simulate.",       ArgumentRule::BY_VALUE                , ArgumentRule::ANY, new Natural(500) ) );
         memberRules.push_back( new ArgumentRule( "pruneExtinctLineages", RlBoolean::getClassTypeSpec(),  "When simulating should extinct lineages be pruned off?",       ArgumentRule::BY_VALUE                , ArgumentRule::ANY, new RlBoolean(true) ) );
+        memberRules.push_back( new ArgumentRule( "sampleCharHistory", RlBoolean::getClassTypeSpec(), "Should we perform stochastic mapping of character histories along branches?", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlBoolean(true) ) );
         
         rules_set = true;
     }
@@ -367,9 +371,12 @@ void Dist_TimeVaryingStateDependentSpeciationExtinctionProcess::setConstParamete
     {
         prune_extinct_lineages = var;
     }
+    else if ( name == "sampleCharHistory")
+    {
+        sample_character_history = var;
+    }
     else
     {
         Distribution::setConstParameter(name, var);
     }
 }
-
