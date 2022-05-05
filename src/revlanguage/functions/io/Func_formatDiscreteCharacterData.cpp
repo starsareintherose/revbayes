@@ -1,11 +1,3 @@
-//
-//  Func_formatDiscreteCharacterData.cpp
-//  revbayes-proj
-//
-//  Created by Michael Landis on 10/1/16.
-//  Copyright © 2016 Michael Landis. All rights reserved.
-//
-
 #include "Func_formatDiscreteCharacterData.h"
 
 #include <stddef.h>
@@ -22,6 +14,7 @@
 #include "AbstractHomologousDiscreteCharacterData.h"
 #include "Argument.h"
 #include "ArgumentRules.h"
+#include "OptionRule.h"
 #include "RevVariable.h"
 #include "RlFunction.h"
 #include "TypeSpec.h"
@@ -112,7 +105,9 @@ const ArgumentRules& Func_formatDiscreteCharacterData::getArgumentRules( void ) 
     if (!rulesSet)
     {
         argumentRules.push_back( new ArgumentRule( "data"  , AbstractHomologousDiscreteCharacterData::getClassTypeSpec(), "The character data object.", ArgumentRule::BY_VALUE, ArgumentRule::ANY ) );
-        argumentRules.push_back( new ArgumentRule( "format", RlString::getClassTypeSpec(), "The data format.", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new RlString("DEC")) );
+        std::vector<std::string> format;
+        format.push_back( "DEC" );
+        argumentRules.push_back( new OptionRule( "format", new RlString("DEC"), format, "The data format." ) );
         argumentRules.push_back( new ArgumentRule( "numStates", Natural::getClassTypeSpec(), "The number of states (format==\"DEC\" only).", ArgumentRule::BY_VALUE, ArgumentRule::ANY, new Natural(0L)) );
         rulesSet = true;
     }

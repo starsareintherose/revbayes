@@ -66,13 +66,14 @@ RevPtr<RevVariable> Func_characterMapTree::execute( void )
         ancestralstate_traces.push_back( ast_vector[i].getValue() );
     }
     
-    // get the ancestral state tree trace
-    const TraceTree& tt = static_cast<const TraceTree&>( args[arg_index++].getVariable()->getRevObject() );
-    
     // make a new tree summary object
     RevBayesCore::TraceTree tree_trace;
-    if (args[2].getVariable()->getRevObject() != RevNullObject::getInstance())
+    const Argument& tt_arg = args[arg_index++];
+    if (tt_arg.getVariable()->getRevObject() != RevNullObject::getInstance())
     {
+        
+        // get the ancestral state tree trace
+        const TraceTree& tt = static_cast<const TraceTree&>( tt_arg.getVariable()->getRevObject() );
         tree_trace = tt.getValue();
     }
     
@@ -83,7 +84,12 @@ RevPtr<RevVariable> Func_characterMapTree::execute( void )
     const std::string& map_pp_filename = static_cast<const RlString&>( args[arg_index++].getVariable()->getRevObject() ).getValue();
     
     // get the filename for the tree with shift probability for character history
-    const std::string& map_shift_pp_filename = static_cast<const RlString&>( args[arg_index++].getVariable()->getRevObject() ).getValue();
+    std::string map_shift_pp_filename = "";
+    const Argument& map_shift_pp_filename_arg = args[arg_index++];
+    if ( map_shift_pp_filename_arg.getVariable()->getRevObject() != RevNullObject::getInstance() )
+    {
+        map_shift_pp_filename = static_cast<const RlString&>( map_shift_pp_filename_arg.getVariable()->getRevObject() ).getValue();
+    }
     
     int burnin;
     RevObject& b = args[arg_index++].getVariable()->getRevObject();
