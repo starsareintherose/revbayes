@@ -175,7 +175,7 @@ ninja -C build-gtk install
 
     The name of the compiler that we want to use is `x86_64-w64-mingw32-g++-posix`.
     * The prefix `x86_64-w64-` indicates that we want to compile for 64-bit windows, not 32-bit windows.
-    * The ending `-posix` indicates that we want to use UNIX (POSIX) threads, not Windows threads.
+    * The ending `-posix` indicates that we want to use UNIX (POSIX) threads, not Windows threads.  This requires the winpthread-1 DLL.
 
     There is also a homebrew package `mingw-w64` on Mac, but these instructions have not been tested on Mac.
 
