@@ -193,7 +193,7 @@ int main(int argc, char* argv[]) {
     }
 //    source_files.push_back("Validation_UniformInteger.Rev");
 //    source_files.push_back("scripts/mcmc_homochronous_skyline.Rev");
-    source_files.push_back("scripts/Validation_Coal_het_skyline.Rev");
+//    source_files.push_back("scripts/Validation_Coal_het_skyline.Rev");
 
 
     if ( args.count("args") && args.count("cmd"))
