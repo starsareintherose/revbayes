@@ -29,7 +29,7 @@ namespace RevBayesCore { class Taxon; }
 
 using namespace RevBayesCore;
 
-PiecewiseConstantCoalescent::PiecewiseConstantCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, const TypedDagNode<RbVector<double> > *n_events_pi, METHOD_TYPES meth, DEMOGRAPHY_FUNCTION_TYPES dem, const std::vector<Taxon> &tn, const std::vector<Clade> &c) :
+PiecewiseConstantCoalescent::PiecewiseConstantCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, const TypedDagNode<RbVector<long> > *n_events_pi, METHOD_TYPES meth, DEMOGRAPHY_FUNCTION_TYPES dem, const std::vector<Taxon> &tn, const std::vector<Clade> &c) :
     AbstractCoalescent( tn, c ),
     Nes( N ),
     interval_change_points_var( i ),
@@ -846,7 +846,7 @@ void PiecewiseConstantCoalescent::updateIntervals( void ) const
             {
                 ++current_num_events_in_interval;
 //                if ( current_num_events_in_interval == num_events_per_interval )
-                if ( current_num_events_in_interval == number_events_per_interval[current_interval] )
+                if ( current_num_events_in_interval == number_events_per_interval->getValue()[current_interval] )
                 {
                     interval_change_points[current_interval] = coalescent_ages[i];
                     current_num_events_in_interval = 0;
