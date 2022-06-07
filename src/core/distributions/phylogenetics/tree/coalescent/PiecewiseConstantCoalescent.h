@@ -21,7 +21,7 @@ namespace RevBayesCore {
      * The piecewise-constant population size coalescent process is an extension to the constant
      * population size coalescent process. The process can have one or two parameters:
      * NEs               := the population sizes
-     * internvalStarts   := the start of a new interval (0 is implicitely assumed)
+     * intervalStarts   := the start of a new interval (0 is implicitely assumed)
      * If the second parameter is omitted, then we assume that the interval are
      * 1) equally distributed over the present time and the time of the root
      * 2) equally distributed over coalescent events
@@ -41,7 +41,7 @@ namespace RevBayesCore {
         enum DEMOGRAPHY_FUNCTION_TYPES { CONSTANT, LINEAR };
 
         
-        PiecewiseConstantCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, METHOD_TYPES meth, DEMOGRAPHY_FUNCTION_TYPES dem, const std::vector<Taxon> &tn, const std::vector<Clade> &c);
+        PiecewiseConstantCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, const TypedDagNode<RbVector<double> > *n_events_pi, METHOD_TYPES meth, DEMOGRAPHY_FUNCTION_TYPES dem, const std::vector<Taxon> &tn, const std::vector<Clade> &c);
         virtual                                            ~PiecewiseConstantCoalescent(void);                                                                    //!< Virtual destructor
         
         // public member functions
@@ -71,6 +71,7 @@ namespace RevBayesCore {
         // members
         const TypedDagNode<RbVector<double> >*              Nes;
         const TypedDagNode<RbVector<double> >*              interval_change_points_var;
+        mutable RbVector<double>                            number_events_per_interval;
         mutable RbVector<double>                            interval_change_points;
         mutable RbVector<double>                            pop_sizes;
         METHOD_TYPES                                        interval_method;
