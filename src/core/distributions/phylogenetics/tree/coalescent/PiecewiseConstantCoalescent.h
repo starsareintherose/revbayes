@@ -71,7 +71,7 @@ namespace RevBayesCore {
         // members
         const TypedDagNode<RbVector<double> >*              Nes;
         const TypedDagNode<RbVector<double> >*              interval_change_points_var;
-        const TypedDagNode<RbVector<long> >*                  number_events_per_interval;
+        const TypedDagNode<RbVector<long> >*                number_events_per_interval;
         mutable RbVector<double>                            interval_change_points;
         mutable RbVector<double>                            pop_sizes;
         METHOD_TYPES                                        interval_method;
