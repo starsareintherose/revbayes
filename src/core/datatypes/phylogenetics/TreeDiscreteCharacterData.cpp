@@ -83,7 +83,7 @@ void TreeDiscreteCharacterData::initFromFile(const path &dir, const std::string 
     myFileType += suffix;
     
     // read the content of the file now
-    std::vector<AbstractCharacterData*> m_i = reader.readMatrices( filename.string(), myFileType );
+    std::vector<AbstractCharacterData*> m_i = reader.readMatrices( filename, myFileType );
     
     if ( m_i.size() < 1 )
     {
@@ -148,7 +148,7 @@ void TreeDiscreteCharacterData::writeToFile(const path &dir, const std::string &
         // tab-delimited file
         filename = dir / (fn + ".tsv");
         RevBayesCore::DelimitedCharacterDataWriter writer; 
-        writer.writeData( filename.string(), *character_data);
+        writer.writeData( filename, *character_data);
 
         // write the character history's time spent in each state
         filename = dir / (fn + "_time_in_states.tsv");
