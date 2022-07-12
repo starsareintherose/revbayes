@@ -697,13 +697,11 @@ void Mcmc::initializeSamplerFromCheckpoint( void )
     std::vector<std::string> parameter_names;
     std::vector<std::string> parameter_values;
     
-    
     // check that the file/path name has been correctly specified
-    RevBayesCore::RbFileManager fm( checkpoint_file_name.string() );
-    if ( !fm.testFile() || !fm.testDirectory() )
+    if ( not is_regular_file( checkpoint_file_name) )
     {
         std::string errorStr = "";
-        fm.formatError( errorStr );
+        formatError( checkpoint_file_name, errorStr );
         throw( RbException(errorStr) );
     }
     
