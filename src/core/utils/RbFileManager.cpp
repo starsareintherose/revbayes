@@ -168,6 +168,38 @@ std::string expandUserDir(std::string path)
 /** Format an error exception string for problems specifying the file/path name
  * @param[out] errorStr string to store the formatted error
 */
+void formatError(const path& p, std::string& errorStr)
+{
+    bool file_nameProvided    = p.filename().string() != "." and p.filename().string() != "" and p.filename().string() != "..";
+    bool isfile_nameGood      = exists(p);
+    bool isDirectoryNameGood = is_directory( p.parent_path() );
+
+    if ( file_nameProvided == false && isDirectoryNameGood == false )
+    {
+        errorStr += "Could not read contents of directory \"" + p.string() + "\" because the directory does not exist";
+    }
+    else if (file_nameProvided == true && (isfile_nameGood == false || isDirectoryNameGood == false))
+    {
+        errorStr += "Could not read file named \"" + p.filename().string() + "\" in directory named \"" + p.parent_path().string() + "\" ";
+        if (isfile_nameGood == false && isDirectoryNameGood == true)
+        {
+            errorStr += "because the file does not exist";
+        }
+        else if (isfile_nameGood == true && isDirectoryNameGood == false)
+        {
+            errorStr += "because the directory does not exist";
+        }
+        else
+        {
+            errorStr += "because neither the directory nor the file exist";
+        }
+    }
+}
+
+
+/** Format an error exception string for problems specifying the file/path name
+ * @param[out] errorStr string to store the formatted error
+*/
 void RbFileManager::formatError(std::string& errorStr)
 {
     
@@ -386,8 +418,13 @@ void RbFileManager::setFilePath(std::string const &s)
 */
 bool RbFileManager::setStringWithNamesOfFilesInDirectory(std::vector<std::string>& sv, bool recursive)
 {
+    std::vector<path> tmp;
+    bool ok = RevBayesCore::setStringWithNamesOfFilesInDirectory(file_path, tmp, recursive);
+
+    for(auto& f: tmp)
+        sv.push_back( f.string() );
     
-    return RevBayesCore::setStringWithNamesOfFilesInDirectory(file_path, sv, recursive);
+    return ok;
 }
 
 
@@ -399,82 +436,43 @@ bool RbFileManager::setStringWithNamesOfFilesInDirectory(std::vector<std::string
  *
  * @return true
 */
-bool setStringWithNamesOfFilesInDirectory(const std::string& dirpath, std::vector<std::string>& sv, bool recursive)
+bool setStringWithNamesOfFilesInDirectory(const path& dirpath, std::vector<path>& sv, bool recursive)
 {
-        
-    DIR* dir = opendir( dirpath.c_str() );
-    if (dir)
+    auto dir = canonical(dirpath);
+
+    for(auto& dir_entry: directory_iterator(dir))
     {
-        struct dirent* entry;
-        while ( (entry = readdir( dir )) )
+        auto entry_path = dir_entry.path();
+            
+        // Is this a symlink that points to something non-existant?
+        if (not exists(entry_path)) continue;
+
+        try
         {
-            struct stat entryinfo;
-            std::string entryname = entry->d_name;
-            std::string entrypath = dirpath + getPathSeparator() + entryname;
-            
-            bool skip_me = false;
-
-#ifdef _WIN32
-            if (stat( entrypath.c_str(), &entryinfo )) {
-              // if this returned a non-zero value, something is wrong
-              skip_me = true;
-            }
-#else
-            if (!lstat( entrypath.c_str(), &entryinfo ))
-            {
-                
-                // avoid recursing into symlinks that point to a directory above us
-                if ( S_ISLNK( entryinfo.st_mode ) ) {
-                    char *linkname = (char*) malloc(entryinfo.st_size + 1);
-                    ssize_t r = readlink(entrypath.c_str(), linkname, entryinfo.st_size + 1);
-                    if (r < 0 || r > entryinfo.st_size) {
-                        // error
-                        skip_me = true;
-                    } else {
-                        linkname[entryinfo.st_size] = '\0';
-                        if (strspn(linkname, "./") == entryinfo.st_size) {
-                            // this symlink consists entirely of dots and dashes and is likely a reference to a directory above us
-                            skip_me = true;
-                        } else {
-                            // replace entryinfo with info from stat
-                            if ( stat( entrypath.c_str(), &entryinfo ) ) {
-                                // if this returned a non-zero value, something is wrong
-                                skip_me = true;
-                            }
-                        }
-                    }
-                    free(linkname);
-                }
-
-            } else {
-              // if this returned a non-zero value, something is wrong
-              skip_me = true;
-            }
-#endif
-
-            if (!skip_me) {
-
-                if (entryname == "..")
-                {
-                    ;
-                }
-                else if (entryname == "." || entryname[0] == '.')
-                {
-                    ;
-                }
-                else if ( recursive == true && S_ISDIR( entryinfo.st_mode ) )
-                {
-                    setStringWithNamesOfFilesInDirectory( entrypath, sv );
-                }
-                else
-                {
-                    sv.push_back( entrypath );
-                }
-            }
-            
+            entry_path = canonical(entry_path);
         }
-        
-        closedir( dir );
+        catch(...)
+        {
+            continue;
+        }
+
+        auto entry_name = relative( entry_path, dir );
+
+        if (entry_name.empty()) continue;
+
+        // skip symlinks that point outside of the directory
+        if (entry_name.begin()->filename_is_dot_dot()) continue;
+
+        // can this happen?
+        if (entry_name.begin()->filename_is_dot()) continue;
+
+        if (is_directory(entry_path))
+        {
+            if (recursive)
+                setStringWithNamesOfFilesInDirectory( entry_path, sv, recursive );
+        }
+        else
+            sv.push_back( entry_path );
     }
     
     // make sure that the file names are sorted
