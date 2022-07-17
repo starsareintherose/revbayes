@@ -42,6 +42,8 @@ add_project_arguments([# These just add noise:
                        '-Wno-unused-variable','-Wno-unused-but-set-variable'],
                       language : 'cpp')
 
+libdl = cpp.find_library('dl')
+
 # Handle file too large error when cross-compiling to windows
 if host_machine.system() == 'windows'
   add_project_arguments(['-Wa,-mbig-obj'], language : 'cpp')
@@ -93,7 +95,7 @@ core = static_library('rb-core',
 revlanguage = static_library('rb-revlanguage',
                              revlanguage_sources,
                              include_directories: [src_inc],
-                             dependencies: [boost,mpi])
+                             dependencies: [boost,mpi,libdl])
 
 libs = static_library('rb-lib',
                       libs_sources,
