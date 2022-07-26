@@ -56,6 +56,9 @@ Mcmcmc::Mcmcmc(const Model& m, const RbVector<Move> &mv, const RbVector<Monitor>
     chains = std::vector<Mcmc*>(num_chains, NULL);
     chain_values.resize(num_chains, 0.0);
     chain_heats.resize(num_chains, 0.0);
+    chain_prev_boundary.resize(num_chains, boundary::intermediate);
+    chain_round_trips.resize(num_chains, 0);
+    temp_visitors.resize(num_chains, {0,0});
     pid_per_chain.resize(num_chains, 0);
     heat_ranks.resize(num_chains, 0);
     heat_temps.resize(num_chains, 0.0);
@@ -128,6 +131,9 @@ Mcmcmc::Mcmcmc(const Mcmcmc &m) : MonteCarloSampler(m)
     
     chain_values            = m.chain_values;
     chain_heats             = m.chain_heats;
+    chain_prev_boundary     = m.chain_prev_boundary;
+    chain_round_trips       = m.chain_round_trips;
+    temp_visitors           = m.temp_visitors;
     chain_moves_tuningInfo  = m.chain_moves_tuningInfo;
     
     burnin_generation       = m.burnin_generation;
@@ -1027,12 +1033,18 @@ void Mcmcmc::setActivePIDSpecialized(size_t i, size_t n)
     chains.clear();
     chain_values.clear();
     chain_heats.clear();
+    chain_prev_boundary.clear();
+    chain_round_trips.clear();
+    temp_visitors.clear();
     heat_ranks.clear();
     chain_moves_tuningInfo.clear();
     
     chains.resize(num_chains);
     chain_values.resize(num_chains, 0.0);
     chain_heats.resize(num_chains, 0.0);
+    chain_prev_boundary.resize(num_chains, boundary::intermediate);
+    chain_round_trips.resize(num_chains, 0);
+    temp_visitors.resize(num_chains, {0,0});
     pid_per_chain.resize(num_chains, 0);
     heat_ranks.resize(num_chains, 0);
     
