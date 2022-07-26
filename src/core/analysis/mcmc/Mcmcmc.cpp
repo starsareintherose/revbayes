@@ -1447,15 +1447,7 @@ void Mcmcmc::swapMovesTuningInfo(RbVector<Move> &mvsj, RbVector<Move> &mvsk)
 
 void Mcmcmc::swapNeighborChains(void)
 {
-    
-    double lnProposalRatio = 0.0;
-    
     // randomly pick the indices of two chains
-    int j = 0;
-    int k = 0;
-    
-    // swap?
-    bool accept = false;
     
     // find the chain index of the neighbor of chain j (no temperature exists between the temperature of chain j and chain k)
     std::vector<double> tmp_chain_heats = chain_heats;
@@ -1470,16 +1462,10 @@ void Mcmcmc::swapNeighborChains(void)
     }
     
     if ( GLOBAL_RNG->uniform01() >= 0.5)
-    {
-        size_t heat_ranktmp = heat_rankj;
-        heat_rankj = heat_rankk;
-        heat_rankk = heat_ranktmp;
-    }
+        std::swap( heat_rankj, heat_rankk );
     
-    ++num_attempted_swaps[heat_rankj][heat_rankk];
-    
-    j = int(std::find(chain_heats.begin(), chain_heats.end(), tmp_chain_heats[heat_rankj]) - chain_heats.begin());
-    k = int(std::find(chain_heats.begin(), chain_heats.end(), tmp_chain_heats[heat_rankk]) - chain_heats.begin());
+    int j = int(std::find(chain_heats.begin(), chain_heats.end(), tmp_chain_heats[heat_rankj]) - chain_heats.begin());
+    int k = int(std::find(chain_heats.begin(), chain_heats.end(), tmp_chain_heats[heat_rankk]) - chain_heats.begin());
 
     swapChains(j, k);
 }
@@ -1586,25 +1572,9 @@ void Mcmcmc::swapChains(int j, int k)
             active_chain_index = j;
         }
 
-        double bj = chain_heats[j];
-        double bk = chain_heats[k];
-        chain_heats[j] = bk;
-        chain_heats[k] = bj;
-        size_t tmp = heat_ranks[j];
-        heat_ranks[j] = heat_ranks[k];
-        heat_ranks[k] = tmp;
-
-        // also swap the tuning information of each move
-        //            RbVector<Move>& tmp_movesj = chains[j]->getMoves();
-        //            RbVector<Move>& tmp_movesk = chains[k]->getMoves();
-        //            swapMovesTuningInfo(tmp_movesj, tmp_movesk);
-        //            chains[j]->setMoves(tmp_movesj);
-        //            chains[k]->setMoves(tmp_movesk);
-
-        std::vector<Mcmc::tuningInfo> tmp_mvs_ti = chain_moves_tuningInfo[j];
-        chain_moves_tuningInfo[j] = chain_moves_tuningInfo[k];
-        chain_moves_tuningInfo[k] = tmp_mvs_ti;
-
+        std::swap( chain_heats[j], chain_heats[k] );
+        std::swap( heat_ranks[j], heat_ranks[k] );
+        std::swap( chain_moves_tuningInfo[j], chain_moves_tuningInfo[k] );
 
         for (size_t i=0; i<num_chains; ++i)
         {
