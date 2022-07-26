@@ -97,8 +97,8 @@ namespace RevBayesCore {
         std::vector<double>                     chain_heats;
 
         std::vector<boundary>                   chain_prev_boundary;                                // has the chain most recently visited the hottest or coldest temperature
-        std::vector<int>                        chain_round_trips;                                  // how many round trips has the chain maded from hottest -> coldest -> hottest
-        std::vector<std::pair<int,int>>         temp_visitors;                                      // how many times is the chain at this temperator most recently hottest (first) or coldest (second)
+        std::vector<int>                        chain_half_trips;                                   // how many trips has the chain made from hottest -> coldest or coldest to hottest
+        std::vector<std::pair<int,int>>         heat_visitors;                                      // how many times is the chain at this temperator most recently hottest (first) or coldest (second)
 
         std::string                             schedule_type;
         size_t                                  current_generation;
