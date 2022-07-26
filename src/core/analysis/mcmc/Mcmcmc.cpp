@@ -764,7 +764,7 @@ void Mcmcmc::printTripSummary(std::ostream &o) const
     
     o << std::endl;
     o << "MCMCMC chain round trips |  Number  |  Number/iteration   " << std::endl;
-    o << "==========================================================" << std::endl;
+    o << "=======================================================" << std::endl;
         
     for (size_t i = 0; i < num_chains; ++i)
     {
@@ -775,7 +775,7 @@ void Mcmcmc::printTripSummary(std::ostream &o) const
             round_trips--;
         round_trips /= 2;
 
-        o<<i<<"\t"<<round_trips<<"\t"<<double(round_trips)/(current_generation+burnin_generation)<< std::endl;
+        o<<std::setw(25)<<i<<std::setw(11)<<round_trips<<std::setw(19)<<double(round_trips)/(current_generation+burnin_generation)<< std::endl;
     }
     
     o.setf(previousFlags);
@@ -793,8 +793,8 @@ void Mcmcmc::printHeatSummary(std::ostream &o) const
     o << std::setprecision(4);
     
     o << std::endl;
-    o << "Heat rank |  Fraction" << std::endl;
-    o << "=====================" << std::endl;
+    o << "Heat rank | Fraction" << std::endl;
+    o << "====================" << std::endl;
         
     for (size_t i = 0; i < num_chains; ++i)
     {
@@ -803,10 +803,10 @@ void Mcmcmc::printHeatSummary(std::ostream &o) const
         if (c + h > 0)
         {
             double fraction = double(c)/(c+h);
-            o<<i<<"              "<<fraction<<std::endl;
+            o<<std::setw(10)<<i<<std::setw(10)<<fraction<<std::endl;
         }
         else
-            o<<i<<"              "<<"NA"<<std::endl;
+            o<<std::setw(10)<<i<<std::setw(10)<<"NA"<<std::endl;
     }
     
     o.setf(previousFlags);
