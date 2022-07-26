@@ -1467,7 +1467,7 @@ void Mcmcmc::swapNeighborChains(void)
     int j = int(std::find(chain_heats.begin(), chain_heats.end(), tmp_chain_heats[heat_rankj]) - chain_heats.begin());
     int k = int(std::find(chain_heats.begin(), chain_heats.end(), tmp_chain_heats[heat_rankk]) - chain_heats.begin());
 
-    swapChains(j, k);
+    swapGivenChains(j, k);
 }
 
 
@@ -1490,10 +1490,10 @@ void Mcmcmc::swapRandomChains(void)
         while(j == k);
     }
     
-    swapChains(j, k);
+    swapGivenChains(j, k);
 }
 
-void Mcmcmc::swapChains(int j, int k, double lnProposalRatio)
+void Mcmcmc::swapGivenChains(int j, int k, double lnProposalRatio)
 {
     int heat_rankj = heat_ranks[j];
     int heat_rankk = heat_ranks[k];
