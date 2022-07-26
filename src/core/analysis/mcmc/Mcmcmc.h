@@ -82,6 +82,7 @@ namespace RevBayesCore {
         void                                    swapMovesTuningInfo(RbVector<Move> &mvsj, RbVector<Move> &mvsk);
         void                                    swapNeighborChains(void);
         void                                    swapRandomChains(void);
+        void                                    swapChains(int j, int k);
         void                                    synchronizeValues(bool likelihood_only);
         void                                    synchronizeHeats(void);
         void                                    synchronizeTuningInfo(void);
