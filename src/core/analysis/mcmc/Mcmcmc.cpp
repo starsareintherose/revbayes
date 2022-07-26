@@ -1474,9 +1474,6 @@ void Mcmcmc::swapNeighborChains(void)
 
 void Mcmcmc::swapRandomChains(void)
 {
-    
-    double lnProposalRatio = 0.0;
-    
     // randomly pick the indices of two chains
     int j = 0;
     int k = 0;
@@ -1496,15 +1493,10 @@ void Mcmcmc::swapRandomChains(void)
     swapChains(j, k);
 }
 
-void Mcmcmc::swapChains(int j, int k)
+void Mcmcmc::swapChains(int j, int k, double lnProposalRatio)
 {
-    double lnProposalRatio = 0.0;
-
-    std::vector<double> tmp_chain_heats = chain_heats;
-    std::sort(tmp_chain_heats.begin(), tmp_chain_heats.end(), std::greater<double>());
-
-    size_t heat_rankj = std::find(tmp_chain_heats.begin(), tmp_chain_heats.end(), chain_heats[j]) - tmp_chain_heats.begin();
-    size_t heat_rankk = std::find(tmp_chain_heats.begin(), tmp_chain_heats.end(), chain_heats[k]) - tmp_chain_heats.begin();
+    int heat_rankj = heat_ranks[j];
+    int heat_rankk = heat_ranks[k];
 
     ++num_attempted_swaps[heat_rankj][heat_rankk];
 
