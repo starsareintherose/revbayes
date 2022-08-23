@@ -1579,6 +1579,7 @@ int EpisodicBirthDeathSamplingTreatmentProcess::survivors(double t) const
     {
         TopologyNode* n = *it;
         double a = n->getAge();
+        if ( t < DBL_EPSILON && n->isTip() == false ) continue;
         if ( (a - t) <= DBL_EPSILON )
         {
             if ( n->isRoot() == true || (n->getParent().getAge() - t) >= -DBL_EPSILON )
