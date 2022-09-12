@@ -37,3 +37,5 @@ doxygen/DoxygenWarningLog.txt
 .settings/
 .vscode
 revbayes.code-workspace
+build/
+rb
