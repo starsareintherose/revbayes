@@ -21,6 +21,16 @@ namespace RevBayesCore { class RandomNumberGenerator; }
 
 using namespace RevBayesCore;
 
+
+/**
+ * Default Constructor for the piecewise constant heterochronous coalescent
+ *
+ * @param N A vector of population sizes for each interval
+ * @param i The start time for each interval
+ * @param tn A vector of taxon names used during initialization.
+ * @param c A vector of clade constraints
+ *
+ */
 PiecewiseConstantHeterochronousCoalescent::PiecewiseConstantHeterochronousCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, const std::vector<Taxon> &tn, const std::vector<Clade> &c) :
     AbstractCoalescent( tn, c ),
     Nes( N ),
@@ -36,7 +46,8 @@ PiecewiseConstantHeterochronousCoalescent::PiecewiseConstantHeterochronousCoales
 }
 
 
-
+/** Destructor
+ */
 PiecewiseConstantHeterochronousCoalescent::~PiecewiseConstantHeterochronousCoalescent()
 {
     
@@ -337,7 +348,6 @@ std::vector<double> PiecewiseConstantHeterochronousCoalescent::simulateCoalescen
 
 /**
  * Swap the parameters held by this distribution.
- *
  *
  * \param[in]    oldP      Pointer to the old parameter.
  * \param[in]    newP      Pointer to the new parameter.

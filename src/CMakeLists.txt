@@ -5,13 +5,7 @@ project(RevBayes)
 # -Wno-sign-compare
 # -D_GLIBCXX_DEBUG
 
-# This is the RIGHT way, but requires cmake version >=3:
-#   set(CMAKE_CXX_STANDARD 11)
-#
-# https://gitlab.kitware.com/cmake/community/-/wikis/CMake-Versions-on-Linux-Distros
-#
-# So, we add the flag directly instead.
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_CXX_STANDARD 17)
 
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
@@ -69,17 +63,75 @@ if ("${JUPYTER}" STREQUAL "ON")
    add_definitions(-DRB_XCODE)
 endif()
 
+##### rpath: where to find shared libraries #####
+
+if ("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
+  # This allows an installed structure of
+  #
+  # RevBayes/
+  #    bin/
+  #       rb
+  #    lib/
+  #       RevBayes/
+  #          *.so
+  # To find the shared libs from inside bin/ we use $ORIGIN/../lib/RevBayes/
+  #
+  set(CMAKE_INSTALL_RPATH "$ORIGIN/../lib/RevBayes/")
+
+elseif ("${CMAKE_SYSTEM_NAME}" MATCHES "Darwin")
+  # If ever we make an App bundle, the structure might be
+  #
+  # RevBayes.app/
+  #    Contents/
+  #       MacOS/
+  #          rb
+  #       PlugIns/
+  #          *.dylib
+  #
+  # So, at that point, we might add "@loaderpath/../Plugins/"
+  #
+  set(CMAKE_INSTALL_RPATH "@loaderpath/../lib/RevBayes/;@loaderpath/../PlugIns/")
+
+endif ()
+
+# When user specifies boost paths to use, we need to disable searching from the
+# environment and from using cmake's internal boost variables.
+if (BOOST_ROOT OR BOOST_INCLUDEDIR OR BOOST_LIBRARYDIR OR DEFINED ENV{BOOST_ROOT} OR DEFINED ENV{BOOST_INCLUDEDIR} OR DEFINED ENV{BOOST_LIBRARYDIR})
+  # Don't search for system include dirs for boost
+  set(Boost_NO_SYSTEM_PATHS ON)
+  # Disable excessive warning messages when using multiple boost versions
+  set(Boost_NO_WARN_NEW_VERSION ON)
+endif()
+
+# Use the OLD way of looking for Boost
+# The NEW way only respects BOOST_ROOT, not these more-specific variables.
+if (BOOST_INCLUDEDIR OR BOOST_LIBRARYDIR OR DEFINED ENV{BOOST_INCLUDEDIR} OR DEFINED ENV{BOOST_LIBRARYDIR})
+  # Ignore cmake boost variables
+  set(Boost_NO_BOOST_CMAKE ON)
+endif()
+
+# Report the options that the control how we are looking for boost
 MESSAGE("Boost location hints:")
 if (BOOST_ROOT)
   MESSAGE("  BOOST_ROOT: ${BOOST_ROOT}")
-else()
+endif()
+if (DEFINED ENV{BOOST_ROOT})
+  MESSAGE("  ENV{BOOST_ROOT}: $ENV{BOOST_ROOT}")
+endif()
+if (NOT DEFINED BOOST_ROOT AND NOT DEFINED ENV{BOOST_ROOT})
   MESSAGE("  BOOST_ROOT not set")
 endif()
 if (BOOST_INCLUDEDIR)
   MESSAGE("  BOOST_INCLUDEDIR: ${BOOST_INCLUDEDIR}")
 endif()
+if (DEFINED ENV{BOOST_INCLUDEDIR})
+  MESSAGE("  ENV{BOOST_INCLUDEDIR}: $ENV{BOOST_INCLUDEDIR}")
+endif()
 if (BOOST_LIBRARYDIR)
   MESSAGE("  BOOST_LIBRARYDIR: ${BOOST_LIBRARYDIR}")
+endif()
+if (DEFINED ENV{BOOST_LIBRARYDIR})
+  MESSAGE("  ENV{BOOST_LIBRARYDIR}: $ENV{BOOST_LIBRARYDIR}")
 endif()
 
 set(Boost_USE_MULTITHREADED ON)
@@ -179,3 +231,4 @@ else()
 
 endif()
 
+install(TARGETS ${RB_EXEC_NAME} DESTINATION bin)

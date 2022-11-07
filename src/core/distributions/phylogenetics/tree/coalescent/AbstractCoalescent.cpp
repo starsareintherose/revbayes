@@ -42,7 +42,7 @@ AbstractCoalescent::AbstractCoalescent(const std::vector<Taxon> &tn, const std::
 
 
 /**
- * Randomly attach the times to a tree topology.
+ * Randomly attach the node times to a tree topology.
  * This function works by randomly picking a node from the set of tips,
  * setting its time to times[index], increment the index,
  * adding the two children (if they are not actual tips) to the set of tips,
@@ -116,13 +116,13 @@ void AbstractCoalescent::buildRandomBinaryTree(std::vector<TopologyNode*> &tips)
         tips.erase(tips.begin()+long(index));
         
         // add a left child
-        TopologyNode* leftChild = new TopologyNode(0);
+        TopologyNode* leftChild = new TopologyNode();
         parent->addChild(leftChild);
         leftChild->setParent(parent);
         tips.push_back(leftChild);
         
         // add a right child
-        TopologyNode* rightChild = new TopologyNode(0);
+        TopologyNode* rightChild = new TopologyNode();
         parent->addChild(rightChild);
         rightChild->setParent(parent);
         tips.push_back(rightChild);
@@ -299,25 +299,6 @@ bool AbstractCoalescent::matchesConstraints( void )
 void AbstractCoalescent::redrawValue( void )
 {
     simulateTree();
-
-    // bool homochronous = true;
-    // // set tip names
-    // for (size_t i=0; i<num_taxa; ++i)
-    // {
-    //     if ( taxa[i].getAge() > 0.0 )
-    //     {
-    //       homochronous = false;
-    //       break;
-    //     }
-    // }
-    // if ( homochronous )
-    // {
-    //     simulateTree();
-    // }
-    // else
-    // {
-    //     simulateHeterochronousTree();
-    // }
 }
 
 
@@ -343,85 +324,6 @@ void AbstractCoalescent::simulateTree( void )
     {
         simulateHeterochronousTree();
     }
-
-    
-    // // Get the rng
-    // RandomNumberGenerator* rng = GLOBAL_RNG;
-    
-    // // the time tree object (topology + times)
-    // Tree *psi = new Tree();
-    
-    // // internally we treat unrooted topologies the same as rooted
-    // psi->setRooted( true );
-    
-    // TopologyNode* root = new TopologyNode();
-    // std::vector<TopologyNode* > nodes;
-    // nodes.push_back(root);
-    
-    // // recursively build the tree
-    // buildRandomBinaryTree(nodes);
-    
-    // // set tip names
-    // for (size_t i=0; i<num_taxa; ++i)
-    // {
-    //     size_t index = size_t( floor(rng->uniform01() * nodes.size()) );
-        
-    //     // get the node from the list
-    //     TopologyNode* node = nodes.at(index);
-        
-    //     // remove the randomly drawn node from the list
-    //     nodes.erase( nodes.begin()+long(index) );
-        
-    //     // set name
-    //     const std::string& name = taxa[i].getName();
-    //     node->setName(name);
-    //     node->setSpeciesName(taxa[i].getSpeciesName());
-    //     if ( taxa[i].getAge() > 0.0 )
-    //     {
-    //         throw(RbException("Can't use non-heterochronous coalescent with heterochronous taxa"));
-    //     }
-    // }
-    
-    // // initialize the topology by setting the root
-    // psi->setRoot(root, true);
-    
-    // nodes.clear();
-    
-    // if ( 1 < num_taxa)
-    // {
-    //     // draw a time for each speciation event condition on the time of the process
-    //     std::vector<double> ages = simulateCoalescentAges(num_taxa-1);
-        
-    //     // add a left child
-    //     TopologyNode* leftChild = &root->getChild(0);
-    //     if ( !leftChild->isTip() )
-    //     {
-    //         nodes.push_back(leftChild);
-    //     }
-            
-    //     // add a right child
-    //     TopologyNode* rightChild = &root->getChild(1);
-    //     if ( !rightChild->isTip() )
-    //     {
-    //         nodes.push_back(rightChild);
-    //     }
-        
-    //     attachAges(psi, nodes, 1, ages);
-        
-    //     psi->getNode( root->getIndex() ).setAge( ages[ages.size()-1]);
-        
-    // }
-    
-    // // \todo Why are we doing this? (Sebastian)
-    // for (size_t i = 0; i < num_taxa; ++i)
-    // {
-    //     TopologyNode& node = psi->getTipNode(i);
-    //     psi->getNode( node.getIndex() ).setAge( 0.0 );
-    // }
-    
-    // // finally store the new value
-    // delete value;
-    // value = psi;
     
 }
 
@@ -462,9 +364,8 @@ void AbstractCoalescent::simulateHeterochronousTree( void )
     buildHeterochronousRandomBinaryTree(psi, nodes, ages);
 
     // initialize the topology by setting the root
-    // the root is the only node left in nodes 
+    // the root is the only node left in nodes
     TopologyNode* root = nodes[0]; // Only node left after coalescing all is the root
-    root->setNodeType(false, true, true); // to be sure that this node is flagged as the root node
     psi->setRoot(root, true);
 
     // finally store the new value
@@ -510,10 +411,7 @@ void AbstractCoalescent::simulateHomochronousTree( void )
         const std::string& name = taxa[i].getName();
         node->setName(name);
         node->setSpeciesName(taxa[i].getSpeciesName());
-        // if ( taxa[i].getAge() > 0.0 )
-        // {
-        //     throw(RbException("Can't use non-heterochronous coalescent with heterochronous taxa"));
-        // }
+        
     }
     
     // initialize the topology by setting the root
@@ -558,4 +456,3 @@ void AbstractCoalescent::simulateHomochronousTree( void )
     value = psi;
     
 }
-

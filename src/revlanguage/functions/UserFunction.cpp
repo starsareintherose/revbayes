@@ -66,7 +66,7 @@ RevPtr<RevVariable> UserFunction::execute( void )
 RevPtr<RevVariable> UserFunction::executeCode( void )
 {
     // Create new evaluation frame with function base class execution environment as parent
-    Environment* function_frame = new Environment( getEnvironment(), "UserFunctionEnvironment" );
+    auto function_frame = std::make_unique<Environment>( getEnvironment(), "UserFunctionEnvironment" );
     
     // Add the arguments to our environment
     for ( std::vector<Argument>::iterator it = args.begin(); it != args.end(); ++it )
@@ -103,7 +103,7 @@ RevPtr<RevVariable> UserFunction::executeCode( void )
         // void return value?
         if (ret_var == NULL)
         {
-            throw(RbException("No return value in function '"+this->getFunctionName()+"' returning non-void type "+getReturnType().getType()));
+            throw RbException("No return value in function '" + this->getFunctionName() + "' returning non-void type " + getReturnType().getType());
         }
         else if ( ret_var->getRevObject().isType( getReturnType() ) == true )
         {
@@ -118,13 +118,13 @@ RevPtr<RevVariable> UserFunction::executeCode( void )
                 // incompatible return value?
                 else
                 {
-                    throw(RbException("Returning "+ret_var->getRevObject().getTypeSpec().getType()+" in function '"+this->getFunctionName()+"' with incompatible return type "+getReturnType().getType()));
+                    throw RbException("Returning " + ret_var->getRevObject().getTypeSpec().getType() + " in function '" + this->getFunctionName() + "' with incompatible return type " + getReturnType().getType());
                 }
             }
         }
         else
         {
-            throw(RbException("Returning "+ret_var->getRevObject().getTypeSpec().getType()+" in function '"+this->getFunctionName()+"' with incompatible return type "+getReturnType().getType()));
+            throw RbException("Returning " + ret_var->getRevObject().getTypeSpec().getType() + " in function '" + this->getFunctionName() + "' with incompatible return type " + getReturnType().getType());
         }
     }
 

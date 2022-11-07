@@ -27,16 +27,11 @@ namespace RevBayesCore {
      * 2) equally distributed over coalescent events
      *
      *
-     * @copyright Copyright 2009-
-     * @author The RevBayes Development Core Team (Sebastian Hoehna)
-     * @since 2015-04-14, version 1.0
-     *
      */
     class PiecewiseConstantCoalescent : public AbstractCoalescent, public MemberObject< RbVector<double> > {
         
     public:
         
-        // enum METHOD_TYPES { EVENTS, SPECIFIED, UNIFORM };
         enum METHOD_TYPES { EVENTS, SPECIFIED };
         enum DEMOGRAPHY_FUNCTION_TYPES { CONSTANT, LINEAR };
 
@@ -57,7 +52,7 @@ namespace RevBayesCore {
 
         // derived helper functions
         double                                              computeLnProbabilityTimes(void) const;                                                          //!< Compute the log-transformed probability of the current value.
-        std::vector<double>                                 simulateCoalescentAges(size_t n) const;                                                         //!< Simulate n coalescent events.
+        std::vector<double>                                 simulateCoalescentAges(size_t n) const;
         
         
     private:
@@ -69,14 +64,13 @@ namespace RevBayesCore {
         double                                              getWaitingTime(double age, double rv, size_t index) const;
 
         // members
-        const TypedDagNode<RbVector<double> >*              Nes;
-        const TypedDagNode<RbVector<double> >*              interval_change_points_var;
+        const TypedDagNode<RbVector<double> >*              Nes;                                    //!< A pointer for the population sizes for each interval
+        const TypedDagNode<RbVector<double> >*              interval_change_points_var;             //!< A pointer for the start time of each interval
         const TypedDagNode<RbVector<long> >*                number_events_per_interval;
-        mutable RbVector<double>                            interval_change_points;
-        mutable RbVector<double>                            pop_sizes;
-        METHOD_TYPES                                        interval_method;
+        mutable RbVector<double>                            interval_change_points;                 //!< The start time of each interval
+        mutable RbVector<double>                            pop_sizes;                              //!< The population sizes for each interval
+        METHOD_TYPES                                        interval_method;                        //!< The method of specifying coalescent intervals
         DEMOGRAPHY_FUNCTION_TYPES                           demographic_function_var;
-//        RbVector< DemographicFunction >                     demographies;
 
     };
     

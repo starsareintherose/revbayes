@@ -29,6 +29,21 @@ namespace RevBayesCore { class Taxon; }
 
 using namespace RevBayesCore;
 
+/**
+ * Default Constructor.
+ *
+ * @param N a vector a population sizes
+ * @param i a vector of interval starts
+ * @param meth the method for intervals. Options are 'EVENTS', 'SPECIFIED', 'UNIFORM'
+ * @param c a vector of clade constraints
+ *
+ *
+ *@note The parameter for interval starts, i, will not be used if the method for intervals is 'EVENTS' or 'UNIFORM'
+ *
+ *@note If the interval method is 'UNIFORM' then interval start times are equally distributed over the present time and the time of the root.
+ *@note If the interval method is 'EVENTS' then we assume that the time between each coalescent event is an interval.
+ *
+ */
 PiecewiseConstantCoalescent::PiecewiseConstantCoalescent(const TypedDagNode<RbVector<double> > *N, const TypedDagNode<RbVector<double> > *i, const TypedDagNode<RbVector<long> > *n_events_pi, METHOD_TYPES meth, DEMOGRAPHY_FUNCTION_TYPES dem, const std::vector<Taxon> &tn, const std::vector<Clade> &c) :
     AbstractCoalescent( tn, c ),
     Nes( N ),
@@ -190,7 +205,7 @@ double PiecewiseConstantCoalescent::computeLnProbabilityTimes( void ) const
         {
             // coalescence
             double theta_at_coal_age = getDemographic(combined_event_ages[i], index_demographic_function);
-            ln_prob -= log( theta_at_coal_age );            
+            ln_prob -= log( theta_at_coal_age );
             --current_num_lineages;
         }
         else if (combined_event_types[i] == SERIAL_SAMPLE)
@@ -760,6 +775,11 @@ void PiecewiseConstantCoalescent::touchSpecialization(const DagNode *affecter, b
 
 /**
  * Recompute the current interval change point vector and corresponding population size vector.
+ * Touch the current value and reset some internal flags.
+ * If the root age variable has been restored, then we need to change the root age of the tree too.
+ *
+ * @throw RbExpection when no interval start times are specified when the 'SPECIFIED' interval_method is used
+
  *
  */
 void PiecewiseConstantCoalescent::updateIntervals( void ) const
